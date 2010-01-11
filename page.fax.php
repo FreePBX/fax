@@ -1,0 +1,139 @@
+<?php /* $Id */
+/* 
+ * Copyright (C) 2009 Moshe Brevda
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of version 2 the GNU General Public
+ * License as published by the Free Software Foundation.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ */
+
+$tabindex = 0;
+// get/put options
+if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
+	needreload();
+	$options=array("headerinfo", "localstationid", "ecm", "maxrate", "minrate", "modem", "sender_address");
+	foreach($options as $option){
+		isset($_REQUEST[$option])?$settings[$option]=$_REQUEST[$option]:$settings[$option]='';
+		extract($settings);
+	}
+	fax_save_settings($settings);
+}else{
+	extract(fax_get_settings());
+	$action='';//no action to do
+}
+?>
+
+<h2><?php echo _("Fax Options")?></h2>
+<form name=edit enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method=POST>
+	<table id="faxoptionstable">		
+		<tbody>			
+			<tr><td colspan="3"><h5><?php echo _("Fax Presentation Options")?><hr/></h5></td></tr>			
+			<tr>
+				<td><a href="#" class="info"><?php echo _("Default Fax header")?>:<span><?php echo _("Header information that is passed to remote side of the fax transmission and is printed on top of every page. This usualy contains the name of the person or entity sending the fax.")?></span></a></td>
+				<td><input size="30" type="text" name="headerinfo" value="<?php  echo $headerinfo; ?>" tabindex="<?php echo ++$tabindex;?>"></td>	
+			</tr>			<tr>
+				<td><a href="#" class="info"><?php echo _("Default Local Station Identifier")?>:<span><?php echo _("The outgoing Fax Machine Identifier. This is usualy your fax number.")?></span></a></td>
+				<td><input size="30" type="text" name="localstationid" value="<?php  echo $localstationid; ?>" tabindex="<?php echo ++$tabindex;?>"></td>					
+			</tr>
+			<tr>
+				<td><a class="info" href="#"><?php echo _("Outgoing Email address:")?><span><?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.")?></span></a></td>
+				<td><input type="text" size="30" name="sender_address" value="<?php  echo htmlspecialchars($sender_address)?>" tabindex="<?php echo ++$tabindex;?>"/></td>
+			</tr>		
+			
+			<tr><td colspan="3"><h5><?php echo _("Fax Transport Options")?><hr/></h5></td></tr>
+			<tr>
+				<td><a href="#" class="info"><?php echo _("Error Correction Mode")?>:<span><?php echo _("Error Correction Mode (ECM) option is used to specify whether
+				 to use ecm mode or not.")?></span></a></td>
+				<td><?php echo _("Yes")?><input type="radio" name="ecm" value="yes" <?php echo (($ecm == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>">
+				<?php echo _("No")?><input type="radio" name="ecm" value="no" <?php echo (($ecm == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"></td>			
+			</tr>				
+			<tr>
+				<td><a href="#" class="info"><?php echo _("Maximum transfer rate")?>:<span><?php echo _("Maximum transfer rate used during fax rate negotiation.")?></span></a></td>
+				<td><select name="maxrate" tabindex="<?php echo ++$tabindex;?>">
+										<option value="2400"  <?php echo (($maxrate == '2400')?'selected="yes"':'');?>  >2400</option>
+										<option value="4800"  <?php echo (($maxrate == '4800')?'selected="yes"':'');?>  >4800</option>	
+										<option value="7200"  <?php echo (($maxrate == '7200')?'selected="yes"':'');?>  >7200</option>	
+										<option value="9600"  <?php echo (($maxrate == '9600')?'selected="yes"':'');?>  >9600</option>	
+										<option value="12200" <?php echo (($maxrate == '12200')?'selected="yes"':'');?> >12200</option>	
+										<option value="14400" <?php echo (($maxrate == '14400')?'selected="yes"':'');?> >14400</option>
+				</select></td>		
+			</tr>	
+			<tr>
+				<td><a href="#" class="info"><?php echo _("Minimum transfer rate")?>:<span><?php echo _("Minimum transfer rate used during fax rate negotiation.")?></span></a></td>
+				<td><select name="minrate" tabindex="<?php echo ++$tabindex;?>">
+										<option value="2400"  <?php echo (($minrate == '2400')?'selected="yes"':'');?>  >2400</option>
+										<option value="4800"  <?php echo (($minrate == '4800')?'selected="yes"':'');?>  >4800</option>	
+										<option value="7200"  <?php echo (($minrate == '7200')?'selected="yes"':'');?>  >7200</option>	
+										<option value="9600"  <?php echo (($minrate == '9600')?'selected="yes"':'');?>  >9600</option>	
+										<option value="12200" <?php echo (($minrate == '12200')?'selected="yes"':'');?> >12200</option>	
+										<option value="14400" <?php echo (($minrate == '14400')?'selected="yes"':'');?> >14400</option>
+				</select></td>				
+			</tr>
+			<!--
+			<tr>
+				<td><a href="#" class="info"><?php echo _("Modem")?>:<span><?php echo _("Modem Type.")?></span></a></td>
+				<td><select name="modem" tabindex="<?php echo ++$tabindex;?>">
+										<option value="V17" <?php echo (($modem == 'V17')?'selected="yes"':'');?> >V17</option>
+										<option value="V27" <?php echo (($modem == 'V27')?'selected="yes"':'');?> >V27</option>	
+										<option value="V29" <?php echo (($modem == 'V29')?'selected="yes"':'');?> >V29</option>	
+										<option value="V34" <?php echo (($modem == 'V34')?'selected="yes"':'');?> >V34</option>	
+				</select></td>						
+			</tr> -->
+			<tr>
+			
+			</tr>		
+	
+<!-- php echo'd variables are commented out as well!
+		<tr><td colspan="3"><h5><?php echo _("Fax Recive Options")?><hr/></h5></td></tr>
+		<tr>
+			<td><a class="info" href="#"><?php echo _("Default fax instance:")?><span><?php echo _("Select 'system default' to have the system act as a fax instance and receive and faxes. You can then route faxes to this instance and avoid having to route faxes to an instance accociated with a specific entity. This can be the system using Asterik's internal capabilites or it can be an external extesnion, such as a physical fax machine")?></span></a></td>
+				<td><select name="system_instance" id="system_instance" tabindex="<?php echo ++$tabindex;?>">
+				<option value="disabled" <?php  //echo ($system_instance == 'disabled' ? 'SELECTED' : '')?>><?php echo _("disabled")?>
+				<option value="system" <?php  //echo ($system_instance == 'system' ? 'SELECTED' : '')?>><?php echo _("system default")?>
+					<?php //get unique devices
+						$devices = core_devices_list();
+						if (isset($devices)) {
+							foreach ($devices as $device) {
+								//echo '<option value="'.$device[0].'" '.($system_instance == $device[0] ? 'SELECTED' : '').'>'.$device[1].' &lt;'.$device[0].'&gt;';
+							}
+						}	?>
+			</select></td>
+		</tr>
+		<tr id="defaultmail">
+			<td><a class="info" href="#"><?php echo _("Default Recipent Email address:")?><span><?php echo _("Email address used if 'system default' has been chosen as the default fax extension.")?></span></a></td>
+			<td><input type="text" size="30" name="system_fax2email" value="<?php  //echo htmlspecialchars($system_fax2email)?>" tabindex="<?php echo ++$tabindex;?>"/></td>
+		</tr> 
+		-->
+	</tbody>
+	</table>
+	<br />
+
+	
+	<input type="hidden" value="fax" name="display"/>
+	<input type="hidden" name="action" value="edit">
+	<input type=submit value="<?php echo _("Submit")?>">
+
+</form>
+<?php
+//add hooks
+echo $module_hook->hookHtml;
+?>
+<script type="text/javascript">
+$(document).ready(function() {
+	if ($('#system_instance').val() == 'disabled'){$('#defaultmail').hide();}
+	$('#system_instance').click(function(){
+		if ($(this).val() == 'disabled'){
+			$('#defaultmail').hide();
+		}else{
+			$('#defaultmail').show();
+		}
+	});
+});
+
+</script>

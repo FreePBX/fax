@@ -1,0 +1,21 @@
+<module>
+	<rawname>fax</rawname>
+	<name>Fax Configuration</name>
+	<version>2.7.0</version>
+	<publisher>Moshe Brevda</publisher>
+	<license>GPLv2+</license>
+	<type>setup</type>
+	<category>Basic</category>
+	<menuitems>
+		<fax>Fax Configuration</fax>
+	</menuitems>
+	<description>Adds configurations, options and GUI for inbound faxing</description>
+	<changelog>
+		*2.7.0* inital release
+	</changelog>
+	<depends>
+		<version>2.7.0</version>
+	</depends>
+	<location></location>
+	<md5sum></md5sum>
+</module>
