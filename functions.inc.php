@@ -309,11 +309,11 @@ function fax_hookGet_config($engine){
 					$context='ext-did-0002';
 					$extension=$route['extension'];
 				}
-				$ext->splice($context, $extension, 'nofax', new ext_setvar('FAX_DEST','"'.$route['faxdestination'].'"'));
-				$ext->splice($context, $extension, 'nofax', new ext_answer(''));
-				$ext->splice($context, $extension, 'nofax', new ext_noop('Waiting for '.$route['faxdetectionwait'].' seconds, trying to detect fax'));
-				$ext->splice($context, $extension, 'nofax', new ext_wait($route['faxdetectionwait']));
-				$ext->remove($context, $extension, 'nofax'); 
+				$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"'.$route['faxdestination'].'"'));
+				$ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
+				$ext->splice($context, $extension, 'dest-ext', new ext_noop('Waiting for '.$route['faxdetectionwait'].' seconds, trying to detect fax'));
+				$ext->splice($context, $extension, 'dest-ext', new ext_wait($route['faxdetectionwait']));
+				$ext->remove($context, $extension, 'dest-ext'); 
 			}
 		}
 	}
