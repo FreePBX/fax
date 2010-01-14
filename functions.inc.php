@@ -12,9 +12,16 @@ function fax_applyhooks() {
 function fax_configpageload() {
 	global $currentcomponent;
 	global $display;
-	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
+	$extensions=isset($_REQUEST['extensions'])?$_REQUEST['extensions']:'';
+	$users=isset($_REQUEST['users'])?$_REQUEST['users']:'';
+	
 	if ($display == 'extensions' || $display == 'users') {
-		if($extdisplay){extract(fax_get_user($extdisplay));}//get settings in to variables
+		if($extdisplay!=''){
+			$fax=fax_get_user($extdisplay);
+			$faxenabled=$fax['faxenabled'];
+			$faxemail=$fax['faxemail'];
+		}//get settings in to variables
 		$section = _('Fax');
 		$toggleemail='if($(this).attr(\'checked\')){$(\'[id^=fax]\').removeAttr(\'disabled\');}else{$(\'[id^=fax]\').attr(\'disabled\',\'true\');$(this).removeAttr(\'disabled\');}';
 		//check for fax prequsits, and alert the user if something is amiss
@@ -326,11 +333,19 @@ function fax_hookGet_config($engine){
 
 function fax_hookProcess_core(){
 	extract($_REQUEST);//get all the variables passed on submit/page load
+	$display=isset($_REQUEST['display'])?$_REQUEST['display']:'';
+	$action=isset($_REQUEST['action'])?$_REQUEST['action']:'';
+	$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
+	$extension=isset($_REQUEST['extension'])?$_REQUEST['extension']:'';
+	$faxenabled=isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:'';
+	$faxdetection=isset($_REQUEST['faxdetection'])?$_REQUEST['faxdetection']:'';
+	$faxdetectionwait=isset($_REQUEST['faxdetectionwait'])?$_REQUEST['faxdetectionwait']:'';
+	$dest=isset($_REQUEST['gotoFAX'])?$_REQUEST['gotoFAX'].'FAX':'';
+	
 	if ($display == 'did'){
 		//remove mature entry on edit or delete
 		if (isset($action) && (($action == 'edtIncoming')||($action == 'delIncoming')) ){fax_delete_incoming($extdisplay);}
 		if (isset($faxenabled, $extension) && $faxenabled == 'true'){
-			$dest=$gotoFAX.'FAX';
 			fax_save_incoming($cidnum,$extension,$faxenabled,$faxdetection,$faxdetectionwait,$$dest);
 		}
 	}
