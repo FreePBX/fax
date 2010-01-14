@@ -33,7 +33,7 @@ function fax_configpageload() {
 		}
 		
 		$currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), _('Enable this user to recive faxes'),'true','',$toggleemail));
-		$currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _('Fax Email'), _('Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'));
+		$currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _('Fax Email'), _('Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'yes')?'':'true'));
 	}
 }
 
@@ -64,7 +64,7 @@ function fax_dahdi_faxdetect(){
 
 function fax_delete_incoming($extdisplay){
 	$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1']; //set vars
-	sql("DELETE FROM fax_incoming WHERE cidnum = '".mysql_real_escape_string($cidnum)."' and extension = '".mysql_real_escape_string($extension)."'");
+	sql("DELETE FROM fax_incoming WHERE cidnum = '".escapeSimple($cidnum)."' and extension = '".escapeSimple($extension)."'");
 }
 
 function fax_destinations(){
@@ -266,10 +266,10 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$html .= '<hr></h5></td></tr>';
 		$fax=fax_detect();
 		if(!$fax['module']){//error message if there are no modules loaded in asterisk
-			$html .= '<table><tr><td><style>.faxerror{color:red; '.(($faxenabled == 'false')?'':'display: none;').'}</style><span class=faxerror>'._('It seems that you dont have fax receving modules installed in Asterisk or Asterisk is unreachable.<br/> Fax-related dialplan will <strong>NOT</strong> be generated!<br /> Please contact your vendor for more information.').'</span></td></tr></table>';
+			$html .= '<table><tr><td><style>.faxerror{color:red; '.(($faxenabled == 'no')?'':'display: none;').'}</style><span class=faxerror>'._('It seems that you dont have fax receving modules installed in Asterisk or Asterisk is unreachable.<br/> Fax-related dialplan will <strong>NOT</strong> be generated!<br /> Please contact your vendor for more information.').'</span></td></tr></table>';
 		}
 		if($fax['module'] == 'res_fax' && $fax['license'] < 1){//error message if there are no fax licenses
-			$html .= '<table><tr><td><style>.faxerror{color:red; '.(($faxenabled == 'false')?'':'display: none;').'}</style><span class=faxerror>'._('It seems that you dont have any fax licenses on this system. Fax-related dialplan will <strong>NOT</strong> be generated!<br /> Please contact your vendor for more information.').'</span></td></tr></table>';
+			$html .= '<table><tr><td><style>.faxerror{color:red; '.(($faxenabled == 'no')?'':'display: none;').'}</style><span class=faxerror>'._('It seems that you dont have any fax licenses on this system. Fax-related dialplan will <strong>NOT</strong> be generated!<br /> Please contact your vendor for more information.').'</span></td></tr></table>';
 		}
 		$html .= '<tr>';
 		$html .= '<td><a href="#" class="info">';
@@ -288,7 +288,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 					if(\$(this).val() == 'true'){\$('.faxerror').show();}else{\$('.faxerror').hide();//show error notice if it exists, only when using faxdetect
 					}";
 		$html .= '<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$js.'"/>No';
-		$html .= '<input type="radio" name="faxenabled" value="true" '.(($faxenabled == 'true')?'CHECKED':'').' onclick="'.$js.'"/>Yes</td></tr>';
+		$html .= '<input type="radio" name="faxenabled" value="true" '.(($faxenabled == 'yes')?'CHECKED':'').' onclick="'.$js.'"/>Yes</td></tr>';
 		$html .= '</table>';
 		
 		//fax detection+destinations
@@ -365,7 +365,7 @@ function fax_hookProcess_core(){
 	if ($display == 'did'){
 		//remove mature entry on edit or delete
 		if (isset($action) && (($action == 'edtIncoming')||($action == 'delIncoming')) ){fax_delete_incoming($extdisplay);}
-		if (isset($faxenabled, $extension) && $faxenabled == 'true'){
+		if (isset($faxenabled, $extension) && $faxenabled == 'yes'){
 			fax_save_incoming($cidnum,$extension,$faxenabled,$faxdetection,$faxdetectionwait,$$dest);
 		}
 	}
@@ -373,19 +373,19 @@ function fax_hookProcess_core(){
 
 
 function fax_save_incoming($cidnum,$extension,$faxenabled,$faxdetection,$faxdetectionwait,$dest){
-	sql("INSERT INTO fax_incoming (cidnum, extension, faxenabled, faxdetection, faxdetectionwait, faxdestination) VALUES ('".mysql_real_escape_string($cidnum)."', '".mysql_real_escape_string($extension)."', '".mysql_real_escape_string($faxenabled)."', '".mysql_real_escape_string($faxdetection)."', '".mysql_real_escape_string($faxdetectionwait)."', '".mysql_real_escape_string($dest)."')");
+	sql("INSERT INTO fax_incoming (cidnum, extension, faxenabled, faxdetection, faxdetectionwait, faxdestination) VALUES ('".escapeSimple($cidnum)."', '".escapeSimple($extension)."', '".escapeSimple($faxenabled)."', '".escapeSimple($faxdetection)."', '".escapeSimple($faxdetectionwait)."', '".escapeSimple($dest)."')");
 }
 
 function fax_save_settings($settings){
 	foreach($settings as $key => $value){
-		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".mysql_real_escape_string($value)."')");
+		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".escapeSimple($value)."')");
 	}
 }
 
 function fax_save_user($faxext,$faxenabled,$faxemail){
-	$faxext=mysql_real_escape_string($faxext);
-	$faxenabled=mysql_real_escape_string($faxenabled);
-	$faxemail=mysql_real_escape_string($faxemail);
+	$faxext=escapeSimple($faxext);
+	$faxenabled=escapeSimple($faxenabled);
+	$faxemail=escapeSimple($faxemail);
 	sql('REPLACE INTO fax_users (user, faxenabled, faxemail) VALUES ("'.$faxext.'","'.$faxenabled.'","'.$faxemail.'")');
 }
 
