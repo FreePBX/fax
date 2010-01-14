@@ -58,8 +58,8 @@ function fax_configprocess() {
 function fax_dahdi_faxdetect(){
 	global $asterisk_conf;
 	$faxdetect=false;
-	extract(parse_ini_file($asterisk_conf['astetcdir'].'/'.(ast_with_dahdi()?'chan_dahdi':'zapata').'.conf'));
-	return (isset($faxdetect) && ($faxdetect == 'incoming' || $faxdetect == 'both'));
+	$dadset=parse_ini_file($asterisk_conf['astetcdir'].'/'.(ast_with_dahdi()?'chan_dahdi':'zapata').'.conf');
+	return (isset($dadset['faxdetect']) && ($dadset['faxdetect'] == 'incoming' || $dadset['faxdetect'] == 'both'));
 }
 
 function fax_delete_incoming($extdisplay){
@@ -353,7 +353,6 @@ function fax_hookGet_config($engine){
 }
 
 function fax_hookProcess_core(){
-	extract($_REQUEST);//get all the variables passed on submit/page load
 	$display=isset($_REQUEST['display'])?$_REQUEST['display']:'';
 	$action=isset($_REQUEST['action'])?$_REQUEST['action']:'';
 	$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
