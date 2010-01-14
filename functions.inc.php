@@ -218,7 +218,6 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	if ($target_menuid == 'did')	{
 		//kill legacyfax2.5 gui, if its still in for some reason
 		$html='<script type="text/javascript">$(document).ready(function(){
-		$("tr:has(h5:contains(Fax Handling))").nextAll(":lt(5)").andSelf().hide();
 		$("input[name=Submit]").click(function(){
 			if($("input[name=faxenabled]:checked").val()=="true" && !$("input[name=gotoFAX]:checked").val()){//ensure the user selected a fax destination
 			alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false;
