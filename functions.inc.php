@@ -192,13 +192,21 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	//hmm, not sure why engine_getinfo() isnt being called here?! should probobly read: $info=engine_getinfo();
 	//this is what serves fax code to inbound routing
 	$tabindex=null;
-	extract($_REQUEST);
+	$type=isset($_REQUEST['type'])?$_REQUEST['type']:'';
+	$extension=isset($_REQUEST['extension'])?$_REQUEST['extension']:'';
+	$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
+	$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
+	
 	//if were editing, get save parms
-	if (isset($type) && $type != 'setup'){
+	if ($type != 'setup'){
 		if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
 			$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1'];
 		}
-		extract(fax_get_incoming($extension,$cidnum));
+		$fax=fax_get_incoming($extension,$cidnum);
+		$faxenabled=$fax['faxenabled'];
+		$faxdetection=$fax['faxdetection'];
+		$faxdetectionwait=$fax['faxdetectionwait'];
+		$faxdestination=$fax['faxdestination'];	
 	}else{
 	$faxenabled=$faxdetection=$faxdetectionwait=$faxdestination='';
 	}
