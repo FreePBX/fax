@@ -63,8 +63,9 @@ function fax_dahdi_faxdetect(){
 }
 
 function fax_delete_incoming($extdisplay){
+	gloabl $db;
 	$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1']; //set vars
-	sql("DELETE FROM fax_incoming WHERE cidnum = '".escapeSimple($cidnum)."' and extension = '".escapeSimple($extension)."'");
+	sql("DELETE FROM fax_incoming WHERE cidnum = '".$db->escapeSimple($cidnum)."' and extension = '".$db->escapeSimple($extension)."'");
 }
 
 function fax_destinations(){
@@ -373,19 +374,22 @@ function fax_hookProcess_core(){
 
 
 function fax_save_incoming($cidnum,$extension,$faxenabled,$faxdetection,$faxdetectionwait,$dest){
-	sql("INSERT INTO fax_incoming (cidnum, extension, faxenabled, faxdetection, faxdetectionwait, faxdestination) VALUES ('".escapeSimple($cidnum)."', '".escapeSimple($extension)."', '".escapeSimple($faxenabled)."', '".escapeSimple($faxdetection)."', '".escapeSimple($faxdetectionwait)."', '".escapeSimple($dest)."')");
+	gloabl $db;
+	sql("INSERT INTO fax_incoming (cidnum, extension, faxenabled, faxdetection, faxdetectionwait, faxdestination) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($faxenabled)."', '".$db->escapeSimple($faxdetection)."', '".$db->escapeSimple($faxdetectionwait)."', '".$db->escapeSimple($dest)."')");
 }
 
 function fax_save_settings($settings){
+	gloabl $db;
 	foreach($settings as $key => $value){
-		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".escapeSimple($value)."')");
+		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".$db->escapeSimple($value)."')");
 	}
 }
 
 function fax_save_user($faxext,$faxenabled,$faxemail){
-	$faxext=escapeSimple($faxext);
-	$faxenabled=escapeSimple($faxenabled);
-	$faxemail=escapeSimple($faxemail);
+	global $db;
+	$faxext=$db->escapeSimple($faxext);
+	$faxenabled=$db->escapeSimple($faxenabled);
+	$faxemail=$db->escapeSimple($faxemail);
 	sql('REPLACE INTO fax_users (user, faxenabled, faxemail) VALUES ("'.$faxext.'","'.$faxenabled.'","'.$faxemail.'")');
 }
 
