@@ -254,52 +254,62 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		//kill legacyfax2.5 gui, if its still in for some reason
     //TODO: we want to get rid of this since it will be 2.7 only...
     //
+    $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
+    $fax_sip_faxdetect=fax_sip_faxdetect();
+    $dahdi=ast_with_dahdi()?_('Dahdi'):_('Zaptel');
+    $fax_detect=fax_detect();
 		$html='<script type="text/javascript">$(document).ready(function(){
 		$("input[name=Submit]").click(function(){
 			if($("input[name=faxenabled]:checked").val()=="true" && !$("input[name=gotoFAX]:checked").val()){//ensure the user selected a fax destination
-			alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false;
-			}
-		})
-		});
-		</script>';
+			alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }	}) });</script>';
 		$html .= '<tr><td colspan="2"><h5>';
 		$html .= _("Fax Detect");
 		$html .= '<hr></h5></td></tr>';
-		$fax=fax_detect();
-		if(!$fax['module']){//error message if there are no modules loaded in asterisk
+		$fax=$fax_detect;
+		/*if(!$fax['module']){//error message if there are no modules loaded in asterisk
 			$html .= '<table><tr><td><style>.faxerror{color:red; '.(($faxenabled == 'no')?'':'display: none;').'}</style><span class=faxerror>'._('It seems that you dont have fax receving modules installed in Asterisk or Asterisk is unreachable.<br/> Fax-related dialplan will <strong>NOT</strong> be generated!<br /> Please contact your vendor for more information.').'</span></td></tr></table>';
-		}
+		}*/
 		if($fax['module'] == 'res_fax' && $fax['license'] < 1){//error message if there are no fax licenses
 			$html .= '<table><tr><td><style>.faxerror{color:red; '.(($faxenabled == 'no')?'':'display: none;').'}</style><span class=faxerror>'._('It seems that you dont have any fax licenses on this system. Fax-related dialplan will <strong>NOT</strong> be generated!<br /> Please contact your vendor for more information.').'</span></td></tr></table>';
 		}
 		$html .= '<tr>';
 		$html .= '<td><a href="#" class="info">';
 		$html .= _("Detect Faxes").'<span>'._("Attemp to detect faxes on this DID.<ul><li>No: No attempts are made to auto-determain the call type; all calls sent to destination below. Use this option if this DID is used exclusevly for voice OR fax.</li><li>Yes: try to auto determain the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line</li></ul>").'.</span></a>:</td>';
-		//js to show/hide the detection type/time/destination
-		$js = "if ($('input[name=extension]').val() == ''){//disable if there is no did
-							alert('"._('Fax detection can only be enabled when the Inbound Route contains a DID')."');return false;
-					}
-					if ($(this).val() == 'true'){
-						$('.faxdetect').slideDown();
-						$('select[name=faxdetection]').trigger('click');
-					}else{
-						$('.faxdetect').slideUp();
-						$('select[name=faxdetection]').trigger('click');
-					}
-					if(\$(this).val() == 'true'){\$('.faxerror').show();}else{\$('.faxerror').hide();//show error notice if it exists, only when using faxdetect
-					}";
-		$html .= '<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$js.'"/>No';
-		$html .= '<input type="radio" name="faxenabled" value="true" '.(($faxenabled == 'yes')?'CHECKED':'').' onclick="'.$js.'"/>Yes</td></tr>';
-		$html .= '</table>';
 		
+		//dont allow detection to be set if we have no valid detection types
+		if(!$fax_dahdi_faxdetect&&!$fax_sip_faxdetect){
+			$js="if ($(this).val() == 'true'){
+					alert('"._('No fax detection methods found or no valid licences. Faxing cannot be enabled.')."');return false;
+			}";
+			$html .= '<td><input type="radio" name="faxenabled" value="false" CHECKED />No';
+			$html .= '<input type="radio" name="faxenabled" value="true"  onclick="'.$js.'"/>Yes</td></tr>';
+			$html .= '</table>';
+		}else{//show detection options
+			//js to show/hide the detection type/time/destination
+			$js = "if ($('input[name=extension]').val() == ''){//disable if there is no did
+								alert('"._('Fax detection can only be enabled when the Inbound Route contains a DID')."');return false;
+						}
+						if ($(this).val() == 'true'){
+							$('.faxdetect').slideDown();
+							$('select[name=faxdetection]').trigger('click');
+						}else{
+							$('.faxdetect').slideUp();
+							$('select[name=faxdetection]').trigger('click');
+						}
+						if(\$(this).val() == 'true'){\$('.faxerror').show();}else{\$('.faxerror').hide();//show error notice if it exists, only when using faxdetect
+						}";
+			$html .= '<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$js.'"/>No';
+			$html .= '<input type="radio" name="faxenabled" value="true" '.(($faxenabled == 'yes')?'CHECKED':'').' onclick="'.$js.'"/>Yes</td></tr>';
+			$html .= '</table>';
+		}	
 		//fax detection+destinations
 		$html .= '<table class=faxdetect '.($faxdetection?'':'style="display: none;"').'>';	
 		$info =	engine_getinfo();
-		$html .= '<tr><td width="156px"><a href="#" class="info">'._("Fax Detection type").'<span>'._("Type of fax detection to use.<ul><li>".(ast_with_dahdi()?"Dahdi":"Zaptel").": use ".(ast_with_dahdi()?"Dahdi":"Zaptel")." fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ".(ast_with_dahdi()?"dahdi":"zaptel").".conf</li><li>Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files</li></ul>").'.</span></a>:</td>';
+		$html .= '<tr><td width="156px"><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.<ul><li>".$dahdi.": use ".$dahdi." fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ".$dahdi.".conf</li><li>Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files</li></ul>").'.</span></a>:</td>';
 		$html .= '<td><select name="faxdetection" tabindex="'.++$tabindex.'">';
 		//$html .= '<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. _("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>
-		$html .= '<option value="dahdi" '.($faxdetection == 'dahdi' ? 'SELECTED' : '').' '.(fax_dahdi_faxdetect()?'':'disabled').'>'. _((ast_with_dahdi()?"Dahdi":"Zaptel")).'</option>';
-		$html .= '<option value="sip" '.($faxdetection == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && fax_sip_faxdetect())?'':'disabled').'>'. _("Sip").'</option>';
+		$html .= '<option value="dahdi" '.($faxdetection == 'dahdi' ? 'SELECTED' : '').' '.($fax_dahdi_faxdetect?'':'disabled').'>'.$dahdi.'</option>';
+		$html .= '<option value="sip" '.($faxdetection == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. _("Sip").'</option>';
 /*
  * code for nvfaxdetect. I'm not sure if we should be offering this, 
  * although it probobly works. its here in case someone wants to test/include it
@@ -313,7 +323,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$html .= '</select></td></tr>';
 */	
 		//if we cant find ANY valid faxdetect type, then dont show options	
-		$html .= '<tr class=faxdetectionwait '.(fax_detect()&& fax_dahdi_faxdetect()?'':'style="display: none;"').'><td><a href="#" class="info">'._("Fax Detection Time").'<span>'._('How long to wait and try to detect fax. Please note that callers to a '.(ast_with_dahdi()?"dahdi":"zaptel").' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a>:</td>';
+		$html .= '<tr class=faxdetectionwait '.($fax_detect&& $fax_dahdi_faxdetect?'':'style="display: none;"').'><td><a href="#" class="info">'._("Fax Detection Time").'<span>'._('How long to wait and try to detect fax. Please note that callers to a '.$dahdi.' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a>:</td>';
 		$html .= '<td><select name="faxdetectionwait" tabindex="'.++$tabindex.'">';
 		if(!$faxdetectionwait){$faxdetectionwait=4;}//default wait time is 4 second
 		for($i=2;$i < 11; $i++){
@@ -321,9 +331,10 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		}
 		//if we cant find ANY valid faxdetect type, then dont show options	
 		$html .= '</select></td></tr>';
-		$html .= '<tr class=faxdestination '.(fax_detect()?'':'style="display: none;"').'><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a>:</td>';
+		$html .= 
+		$html .= '<tr class=faxdestination '.($fax_detect?'':'style="display: none;"').'><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a>:</td>';
 		$html .= '</tr>';
-		$html .= fax_detect()?drawselects(isset($faxdestination)?$faxdestination:null,'FAX'):'';
+		$html .= $fax_detect?drawselects(isset($faxdestination)?$faxdestination:null,'FAX'):'';
 		$html .= '</table>';
 		$html .= '<table>';
 	}
