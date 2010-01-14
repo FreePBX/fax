@@ -63,7 +63,7 @@ function fax_dahdi_faxdetect(){
 }
 
 function fax_delete_incoming($extdisplay){
-	gloabl $db;
+	global $db;
 	$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1']; //set vars
 	sql("DELETE FROM fax_incoming WHERE cidnum = '".$db->escapeSimple($cidnum)."' and extension = '".$db->escapeSimple($extension)."'");
 }
@@ -374,12 +374,12 @@ function fax_hookProcess_core(){
 
 
 function fax_save_incoming($cidnum,$extension,$faxenabled,$faxdetection,$faxdetectionwait,$dest){
-	gloabl $db;
+	global $db;
 	sql("INSERT INTO fax_incoming (cidnum, extension, faxenabled, faxdetection, faxdetectionwait, faxdestination) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($faxenabled)."', '".$db->escapeSimple($faxdetection)."', '".$db->escapeSimple($faxdetectionwait)."', '".$db->escapeSimple($dest)."')");
 }
 
 function fax_save_settings($settings){
-	gloabl $db;
+	global $db;
 	foreach($settings as $key => $value){
 		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".$db->escapeSimple($value)."')");
 	}
