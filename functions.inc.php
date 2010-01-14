@@ -162,12 +162,31 @@ function fax_get_destinations(){
 
 function fax_get_incoming($extension=null,$cidnum=null){
 	global $db;
-	if($extension || $cidnum){
+	if($extension !== null || $cidnum !== null){
 		$sql="SELECT * FROM fax_incoming WHERE extension = ? AND cidnum = ?";
 		$settings = $db->getRow($sql, array($extension, $cidnum), DB_FETCHMODE_ASSOC);		
+    if (count($settings)) {
+      if ($settings['legacy_faxemail'] !== null) {
+        $settings['faxenabled'] = 'legacy';
+      } else {
+        $settings['faxenabled'] = 'yes';
+      }
+    } else {
+      $settings['faxenabled'] = 'no';
+		  $settings['faxdetection'] = '';
+		  $settings['faxdetectionwait'] = '';
+		  $settings['faxdestination'] = '';
+    }
 	}else{
 		$sql="SELECT * FROM fax_incoming";
 		$settings = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+    foreach ($settings as $key => $setting) {
+      if ($setting['legacy_faxemail'] !== null) {
+        $settings[$key]['faxenabled'] = 'legacy';
+      } else {
+        $settings[$key]['faxenabled'] = 'yes';
+      }
+    }
 	}
 	return $settings;
 }
@@ -232,6 +251,8 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	$html = '';
 	if ($target_menuid == 'did')	{
 		//kill legacyfax2.5 gui, if its still in for some reason
+    //TODO: we want to get rid of this since it will be 2.7 only...
+    //
 		$html='<script type="text/javascript">$(document).ready(function(){
 		$("input[name=Submit]").click(function(){
 			if($("input[name=faxenabled]:checked").val()=="true" && !$("input[name=gotoFAX]:checked").val()){//ensure the user selected a fax destination
