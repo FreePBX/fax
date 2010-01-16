@@ -105,19 +105,20 @@ function fax_get_config($engine){
 	if($fax['module'] == 'app_fax' || $fax['module'] == 'res_fax'){ //dont continue unless we have a fax module in asterisk
 		global $ext;
 		global $amp_conf;
-		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
-		$context='ext-fax';
-		foreach (fax_get_destinations() as $row) {
-			$exten=$row['user'];
-			$ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
-			$ext->add($context, $exten, '', new ext_set('TO', '"'.$row['faxemail'].'"'));			
-			$ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+		$dests=fax_get_destinations();
+		if($dests){
+			$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
+			$context='ext-fax';
+			foreach ($dests as $row) {
+				$exten=$row['user'];
+				$ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
+				$ext->add($context, $exten, '', new ext_set('TO', '"'.$row['faxemail'].'"'));			
+				$ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+			}
+			$ext->add($context, 'h', '', new ext_execif('$["${TO}" != ""]','system','"${ASTVARLIBDIR}/bin/fax-process.pl --to ${TO} --from '.$sender_address['0'].' --dest ${FROM_DID} --subject New fax from ${URIENCODE(${CALLERID(all)})} --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif"'));
 		}
-		$ext->add($context, 'h', '', new ext_execif('$["${TO}" != ""]','system','"${ASTVARLIBDIR}/bin/fax-process.pl --to ${TO} --from '.$sender_address['0'].' --dest ${FROM_DID} --subject New fax from ${URIENCODE(${CALLERID(all)})} --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif"'));
-		//legacy fax extensions for all incoming contexts
 		$ext->add('ext-did-0001', 'fax', '', new ext_goto('${FAX_DEST}'));
 		$ext->add('ext-did-0002', 'fax', '', new ext_goto('${FAX_DEST}'));
-		$ext->add('ext-did', 'fax', '', new ext_goto('${FAX_DEST}'));
 		//write out res_fax.conf and res_fax_digium.conf
 		fax_write_conf();
 	}
@@ -164,28 +165,9 @@ function fax_get_incoming($extension=null,$cidnum=null){
 	if($extension !== null || $cidnum !== null){
 		$sql="SELECT * FROM fax_incoming WHERE extension = ? AND cidnum = ?";
 		$settings = $db->getRow($sql, array($extension, $cidnum), DB_FETCHMODE_ASSOC);		
- /*   if (count($settings)) {
-      if ($settings['legacy_faxemail'] !== null) {
-        $settings['faxenabled'] = 'legacy';
-      } else {
-        $settings['faxenabled'] = 'yes';
-      }
-    } else {
-      $settings['faxenabled'] = 'no';
-		  $settings['faxdetection'] = '';
-		  $settings['faxdetectionwait'] = '';
-		  $settings['faxdestination'] = '';
-    }*/
 	}else{
-		$sql="SELECT * FROM fax_incoming";
-		$settings = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-   /* foreach ($settings as $key => $setting) {
-      if ($setting['legacy_faxemail'] !== null) {
-        $settings[$key]['faxenabled'] = 'legacy';
-      } else {
-        $settings[$key]['faxenabled'] = 'yes';
-      }
-    }*/
+		$sql="SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
+		$settings=$db->getAll($sql, DB_FETCHMODE_ASSOC);
 	}
 	return $settings;
 }
@@ -222,7 +204,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
 	$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 	
-	//if were editing, get save parms
+	//if were editing, get save parms. Get parms
 	if ($type != 'setup'){
 		if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
 			$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1'];
@@ -239,25 +221,14 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	}else{
 	$fax=null;
 	}
-	//test to ensure detection type is still valid - clear varaible otherwise
-/*	if($faxdetection == 'dahdi'){
-		if(!fax_dahdi_faxdetect()){
-			$faxenabled=$faxdetection=$faxdetectionwait=$faxdestination='';
-		}
-	}
-	if($faxdetection == 'sip'){
-		if(!($info['version'] >= "1.6.2") || !fax_sip_faxdetect()){
-			$faxenabled=$faxdetection=$faxdetectionwait=$faxdestination='';
-		}
-	}
-*/
+
 	$html='';
 	if($target_menuid == 'did'){
     $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
     $fax_sip_faxdetect=fax_sip_faxdetect();
     $dahdi=ast_with_dahdi()?_('Dahdi'):_('Zaptel');
     $fax_detect=fax_detect();
-    
+    //ensure that we are using destination for both fax detect and the regular calls
 		$html='<script type="text/javascript">$(document).ready(function(){
 		$("input[name=Submit]").click(function(){
 			if($("input[name=faxenabled]:checked").val()=="true" && !$("input[name=gotoFAX]:checked").val()){//ensure the user selected a fax destination
@@ -327,18 +298,20 @@ function fax_hookGet_config($engine){
 		global $engine;
 		$routes=fax_get_incoming();
 		foreach($routes as $current => $route){
-			if($route['faxenabled'] == 'true'){
-				if($route['cidnum']){
+			if($route['extension']=='' && $route['cidnum']){//callerID only
+				$extension='s/'.$route['cidnum'];
+				$context=($route['pricid']=='CHECKED')?'ext-did-0001':'ext-did-0002';
+			}else{
+				if(($route['extension'] && $route['cidnum'])||($route['extension']=='' && $route['cidnum']=='')){//callerid+did / any/any
 					$context='ext-did-0001';
-					$extension=$route['extension'].'/'.$route['cidnum'];
-				}else{
+				}else{//did only
 					$context='ext-did-0002';
-					$extension=$route['extension'];
 				}
-				$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"'.$route['faxdestination'].'"'));
-				$ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
-				$ext->splice($context, $extension, 'dest-ext', new ext_wait($route['faxdetectionwait']));
+				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 			}
+			$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"'.$route['faxdestination'].'"'));
+			$ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
+			$ext->splice($context, $extension, 'dest-ext', new ext_wait($route['faxdetectionwait']));
 		}
 	}
 }
@@ -357,7 +330,7 @@ function fax_hookProcess_core(){
 
 	if ($display == 'did' && isset($action) && $action!=''){
 		fax_delete_incoming($extdisplay);	//remove mature entry on edit or delete
-		if ($action == 'edtIncoming'||$action == 'addIncoming'){
+		if (($action == 'edtIncoming'||$action == 'addIncoming')&& $faxenabled=='true'){
 			fax_save_incoming($cidnum,$extension,$faxenabled,$faxdetection,$faxdetectionwait,$dest);
 	}
 	}
