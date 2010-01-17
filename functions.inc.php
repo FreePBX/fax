@@ -312,6 +312,7 @@ function fax_hookGet_config($engine){
 }
 
 function fax_hookProcess_core(){
+	dbug($_REQUEST);
 	$display=isset($_REQUEST['display'])?$_REQUEST['display']:'';
 	$action=isset($_REQUEST['action'])?$_REQUEST['action']:'';
 	$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
@@ -322,8 +323,8 @@ function fax_hookProcess_core(){
 	$detectionwait=isset($_REQUEST['faxdetectionwait'])?$_REQUEST['faxdetectionwait']:'';
 	$dest=(isset($_REQUEST['gotoFAX'])?$_REQUEST['gotoFAX'].'FAX':null);
 	$dest=isset($_REQUEST[$dest])?$_REQUEST[$dest]:'';
-	$legacy_email=isset($_REQUEST['egacy_email'])?$_REQUEST['egacy_email']:'';
-	if($legacy_email=='clear'){$legacy_email=null;}
+	$legacy_email=isset($_REQUEST['legacy_email'])?$_REQUEST['legacy_email']:NULL;
+	if(isset($legacy_email) && $legacy_email=='clear'){$legacy_email=NULL;}
 	
 	if ($display == 'did' && isset($action) && $action!=''){
 		fax_delete_incoming($extdisplay);	//remove mature entry on edit or delete
@@ -336,7 +337,7 @@ function fax_hookProcess_core(){
 
 function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email){
 	global $db;
-	sql("INSERT INTO fax_incoming (cidnum, extension, enabled, detection, detectionwait, destination, legacy_email) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($faxenabled)."', '".$db->escapeSimple($faxdetection)."', '".$db->escapeSimple($faxdetectionwait)."', '".$db->escapeSimple($dest)."','".$db->escapeSimple($legacy_email)."')");
+	sql("INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($detection)."', '".$db->escapeSimple($detectionwait)."', '".$db->escapeSimple($dest)."','".$db->escapeSimple($legacy_email)."')");
 }
 
 function fax_save_settings($settings){
