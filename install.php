@@ -12,10 +12,10 @@ $sql[]='CREATE TABLE IF NOT EXISTS `fax_details` (
 $sql[]='CREATE TABLE IF NOT EXISTS `fax_incoming` (
   `cidnum` varchar(20) default NULL,
   `extension` varchar(20) default NULL,
-  `faxenabled` varchar(15) default NULL,
-  `faxdetection` varchar(20) default NULL,
-  `faxdetectionwait` varchar(5) default NULL,
-  `faxdestination` varchar(50) default NULL
+  `detection` varchar(20) default NULL,
+  `detectionwait` varchar(5) default NULL,
+  `destination` varchar(50) default NULL,
+  `legacy_email` varchar(50) default NULL,
 )';
 
 $sql[]='CREATE TABLE IF NOT EXISTS `fax_users` (

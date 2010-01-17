@@ -210,14 +210,6 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1'];
 		}
 		$fax=fax_get_incoming($extension,$cidnum);
-		if($fax){
-			foreach($fax as $key => $value){
-				if(substr($key,0,3)=='fax'){
-					$fax[substr($key,3)]=$value;
-					unset($key);
-				}
-			}
-		}
 	}else{
 	$fax=null;
 	}
@@ -280,10 +272,13 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$html.='<option value="'.$i.'" '.($fax['detectionwait']==$i?'SELECTED':'').'>'.$i.'</option>';	
 		}
 		$html.='</select></td></tr>';
-		$html.='';//legecay fax stuff goes here
-		$html.='<tr><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a>:</td>';
-		$html.='</tr>';
-		$html.=$fax_detect?drawselects(isset($fax['destination'])?$fax['destination']:null,'FAX'):'';
+		if($fax['legacy_email']){
+			$html.='<tr><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In current versions of FreePBX, you can set the fax destination from a list of destination as you would pick destinations in other areas of FreePBX. This email option has been migrated from the legecay fax implementation in FreePBX prior to version 2.7. To upgrade this option to the full destination list, please enter \'clear\' in this field and hit submit. You will then be upgraded. THIS PROCEDURE IS NON REVERSABEL!!').'.</span></a>:</td>';
+			$html.='<td><input name="faxlegacyemail" value="'.$fax['legacy_email'].'"></td></tr>';
+		}else{
+			$html.='<tr><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a>:</td></tr>';
+			$html.=$fax_detect?drawselects(isset($fax['destination'])?$fax['destination']:null,'FAX'):'';
+		}
 		$html.='</table>';
 		$html.='<table>';
 	}
@@ -322,24 +317,26 @@ function fax_hookProcess_core(){
 	$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
 	$extension=isset($_REQUEST['extension'])?$_REQUEST['extension']:'';
 	$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
-	$faxenabled=isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:'';
-	$faxdetection=isset($_REQUEST['faxdetection'])?$_REQUEST['faxdetection']:'';
-	$faxdetectionwait=isset($_REQUEST['faxdetectionwait'])?$_REQUEST['faxdetectionwait']:'';
+	$enabled=isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:'';
+	$detection=isset($_REQUEST['faxdetection'])?$_REQUEST['faxdetection']:'';
+	$detectionwait=isset($_REQUEST['faxdetectionwait'])?$_REQUEST['faxdetectionwait']:'';
 	$dest=(isset($_REQUEST['gotoFAX'])?$_REQUEST['gotoFAX'].'FAX':null);
 	$dest=isset($_REQUEST[$dest])?$_REQUEST[$dest]:'';
-
+	$legacy_email=isset($_REQUEST['egacy_email'])?$_REQUEST['egacy_email']:'';
+	if($legacy_email=='clear'){$legacy_email=null;}
+	
 	if ($display == 'did' && isset($action) && $action!=''){
 		fax_delete_incoming($extdisplay);	//remove mature entry on edit or delete
-		if (($action == 'edtIncoming'||$action == 'addIncoming')&& $faxenabled=='true'){
-			fax_save_incoming($cidnum,$extension,$faxenabled,$faxdetection,$faxdetectionwait,$dest);
-	}
+		if (($action == 'edtIncoming'||$action == 'addIncoming')&& $enabled=='true'){
+			fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email);
+		}
 	}
 }
 
 
-function fax_save_incoming($cidnum,$extension,$faxenabled,$faxdetection,$faxdetectionwait,$dest){
+function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email){
 	global $db;
-	sql("INSERT INTO fax_incoming (cidnum, extension, faxenabled, faxdetection, faxdetectionwait, faxdestination) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($faxenabled)."', '".$db->escapeSimple($faxdetection)."', '".$db->escapeSimple($faxdetectionwait)."', '".$db->escapeSimple($dest)."')");
+	sql("INSERT INTO fax_incoming (cidnum, extension, enabled, detection, detectionwait, destination, legacy_email) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($faxenabled)."', '".$db->escapeSimple($faxdetection)."', '".$db->escapeSimple($faxdetectionwait)."', '".$db->escapeSimple($dest)."','".$db->escapeSimple($legacy_email)."')");
 }
 
 function fax_save_settings($settings){
