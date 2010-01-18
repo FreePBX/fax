@@ -312,7 +312,6 @@ function fax_hookGet_config($engine){
 }
 
 function fax_hookProcess_core(){
-	dbug($_REQUEST);
 	$display=isset($_REQUEST['display'])?$_REQUEST['display']:'';
 	$action=isset($_REQUEST['action'])?$_REQUEST['action']:'';
 	$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
