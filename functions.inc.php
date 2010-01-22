@@ -56,6 +56,9 @@ function fax_configprocess() {
 }
 
 function fax_dahdi_faxdetect(){
+  return true;
+
+  //TODO Get this right
 	global $asterisk_conf;
 	$faxdetect=false;
 	$dadset=parse_ini_file($asterisk_conf['astetcdir'].'/'.(ast_with_dahdi()?'chan_dahdi':'zapata').'.conf');
@@ -122,6 +125,15 @@ function fax_get_config($engine){
 		//write out res_fax.conf and res_fax_digium.conf
 		fax_write_conf();
 	}
+  // Now check if any legacy destinations. If so, then generate proper receive fax context
+	$routes = sql('SELECT extension, cidnum FROM fax_incoming WHERE legacy_email IS NULL ','getAll', DB_FETCHMODE_ASSOC);
+  if (count($routes)) {
+    $context='ext-fax-legacy';
+    $exten = 's';
+    $ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
+    $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+    $ext->add($context, 'h', '', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','"${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from '.$sender_address['0'].' --dest ${FROM_DID} --subject New fax from ${URIENCODE(${CALLERID(all)})} --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif"'));
+  }
 }
 
 
@@ -240,9 +252,11 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$html.='</table>';
 		}else{//show detection options
 			//js to show/hide the detection settings
-				$js = "if(\$(this).val()=='true'){\$('.faxdetect').slideDown();}else{\$('.faxdetect').slideUp();}";
+				$js = "if(\$(this).val()=='true' || \$(this).val()=='legacy'){\$('.faxdetect').slideDown();}else{\$('.faxdetect').slideUp();}";
 			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$js.'"/>No';
-			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$js.'"/>Yes</td></tr>';
+			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$js.'"/>Yes';
+			$html.='<input type="radio" name="faxenabled" value="legacy" '.($fax?'CHECKED':'').' onclick="'.$js.'"/>Legacy';
+      $html.='</td></tr>';
 			$html.='</table>';
 		}	
 		//fax detection+destinations, hidden if there is fax is disabled
@@ -272,7 +286,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$html.='<option value="'.$i.'" '.($fax['detectionwait']==$i?'SELECTED':'').'>'.$i.'</option>';	
 		}
 		$html.='</select></td></tr>';
-		if($fax['legacy_email']){
+		if($fax['legacy_email'] !== null){
 			$html.='<tr><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In current versions of FreePBX, you can set the fax destination from a list of destination as you would pick destinations in other areas of FreePBX. This email option has been migrated from the legecay fax implementation in FreePBX prior to version 2.7. To upgrade this option to the full destination list, please enter \'clear\' in this field and hit submit. You will then be upgraded. THIS PROCEDURE IS NON REVERSABEL!!').'.</span></a>:</td>';
 			$html.='<td><input name="faxlegacyemail" value="'.$fax['legacy_email'].'"></td></tr>';
 		}else{
@@ -304,9 +318,25 @@ function fax_hookGet_config($engine){
 				}
 				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 			}
-			$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"'.$route['faxdestination'].'"'));
-			$ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
-			$ext->splice($context, $extension, 'dest-ext', new ext_wait($route['faxdetectionwait']));
+      if ($route['legacy_email'] === null) {
+			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"'.$route['destination'].'"'));
+      } else {
+			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"ext-fax-legacy,s,1"'));
+        if ($route['legacy_email']) {
+			    $fax_rx_email = $route['legacy_email'];
+        } else {
+          if (!isset($default_fax_rx_email)) {
+            //TODO Need to add error checking
+            //
+			      $default_address = sql('SELECT value FROM fax_details WHERE `key` = \'FAX_RX_EMAIL\'','getRow');
+            $default_fax_rx_email = $default_address[0];
+          }
+          $fax_rx_email = $default_fax_rx_email;
+        }
+			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_RX_EMAIL',$fax_rx_email));
+      }
+		  $ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
+		  $ext->splice($context, $extension, 'dest-ext', new ext_wait($route['detectionwait']));
 		}
 	}
 }
@@ -356,6 +386,9 @@ function fax_save_user($faxext,$faxenabled,$faxemail){
 
 function fax_sip_faxdetect(){
 	global $asterisk_conf;
+  return true;
+  //TODO Fix This Later
+
 	//these files probobly shouldnt be hardcoded
 	$files=array('sip_general_additional.conf','sip_general_custom.conf','sip_custom.conf');
 	foreach($files as $file){$set.=parse_ini_file($file);}//read setting from files
