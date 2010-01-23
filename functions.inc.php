@@ -109,8 +109,8 @@ function fax_get_config($engine){
 		global $ext;
 		global $amp_conf;
 		$dests=fax_get_destinations();
+		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
 		if($dests){
-			$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
 			$context='ext-fax';
 			foreach ($dests as $row) {
 				$exten=$row['user'];
@@ -118,21 +118,32 @@ function fax_get_config($engine){
 				$ext->add($context, $exten, '', new ext_set('TO', '"'.$row['faxemail'].'"'));			
 				$ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
 			}
-			$ext->add($context, 'h', '', new ext_execif('$["${TO}" != ""]','system','"${ASTVARLIBDIR}/bin/fax-process.pl --to ${TO} --from '.$sender_address['0'].' --dest ${FROM_DID} --subject New fax from ${URIENCODE(${CALLERID(all)})} --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif"'));
+			$ext->add($context, 'h', '', new ext_execif('$["${TO}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${TO} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
 		}
 		$ext->add('ext-did-0001', 'fax', '', new ext_goto('${FAX_DEST}'));
 		$ext->add('ext-did-0002', 'fax', '', new ext_goto('${FAX_DEST}'));
 		//write out res_fax.conf and res_fax_digium.conf
 		fax_write_conf();
 	}
-  // Now check if any legacy destinations. If so, then generate proper receive fax context
-	$routes = sql('SELECT extension, cidnum FROM fax_incoming WHERE legacy_email IS NULL ','getAll', DB_FETCHMODE_ASSOC);
-  if (count($routes)) {
-    $context='ext-fax-legacy';
-    $exten = 's';
-    $ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
-    $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-    $ext->add($context, 'h', '', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','"${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from '.$sender_address['0'].' --dest ${FROM_DID} --subject New fax from ${URIENCODE(${CALLERID(all)})} --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif"'));
+  // generate ext-fax-legacy used for both legacy mode and app-fax feature code
+  //
+  $context='ext-fax-legacy';
+  $exten = 's';
+  $ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
+  $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+  $ext->add($context, 'h', '', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
+
+  $modulename = 'fax';
+  $fcc = new featurecode($modulename, 'simu_fax');
+  $fc_simu_fax = $fcc->getCodeActive();
+  unset($fcc);
+
+  if ($fc_simu_fax != '') {
+    $default_address = sql('SELECT value FROM fax_details WHERE `key` = \'FAX_RX_EMAIL\'','getRow');
+    $ext->addInclude('from-internal-additional', 'app-fax'); // Add the include from from-internal
+    $ext->add('app-fax', $fc_simu_fax, '', new ext_setvar('FAX_RX_EMAIL', $default_address[0]));
+    $ext->add('app-fax', $fc_simu_fax, '', new ext_goto('1', 's', 'ext-fax-legacy'));
+    $ext->add('app-fax', 'h', '', new ext_macro('hangupcall'));
   }
 }
 

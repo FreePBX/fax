@@ -1,4 +1,10 @@
 <?php
+
+//for translation only
+if (false) {
+_("Dial System FAX");
+}
+
 if (! function_exists("out")) {
 	function out($text) {
 		echo $text."<br />";
@@ -43,6 +49,29 @@ foreach ($sql as $statement){
 		die_freepbx( "Can not execute $statement : " . $check->getMessage() .  "\n");
 	}
 }
+/* migrate simu_fax from core to fax module, including in miscdests module in case it is being used as a destination.
+   this migration is a bit "messy" but assures that any simu_fax settings or destinations being used in the dialplan
+   will migrate silently and continue to work.
+ */
+outn(_("Moving simu_fax feature code from core.."));
+$check = $db->query("UPDATE featurecodes set modulename = 'fax' WHERE modulename = 'core' AND featurename = 'simu_fax'");
+if (DB::IsError($check)){
+  out(_("unknown error"));
+} else {
+  out(_("done"));
+}
+outn(_("Updating simu_fax in miscdest table.."));
+$check = $db->query("UPDATE miscdests set destdial = '{fax:simu_fax}' WHERE destdial = '{core:simu_fax}'");
+if (DB::IsError($check)){
+  out(_("not needed"));
+} else {
+  out(_("done"));
+}
+$fcc = new featurecode('fax', 'simu_fax');
+$fcc->setDescription('Dial System FAX');
+$fcc->setDefault('666');
+$fcc->update();
+unset($fcc);
 
 //check to make sure that min/maxrate and ecm are set; if not set them to defaults
 $settings=sql('SELECT * FROM fax_details', 'getAssoc', 'DB_FETCHMODE_ASSOC');
