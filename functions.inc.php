@@ -187,7 +187,8 @@ function fax_get_incoming($extension=null,$cidnum=null){
 	global $db;
 	if($extension !== null || $cidnum !== null){
 		$sql="SELECT * FROM fax_incoming WHERE extension = ? AND cidnum = ?";
-		$settings = $db->getRow($sql, array($extension, $cidnum), DB_FETCHMODE_ASSOC);		
+		$settings = $db->getRow($sql, array($extension, $cidnum), DB_FETCHMODE_ASSOC);
+		if(isset($settings['legacy_email'])&&$settings['legacy_email']=='NULL'){$settings['legacy_email']=null;}//convert string to real value
 	}else{
 		$sql="SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
 		$settings=$db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -236,7 +237,6 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	}else{
 	$fax=null;
 	}
-
 	$html='';
 	if($target_menuid == 'did'){
     $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
@@ -253,7 +253,11 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$html.='<hr></h5></td></tr>';
 		$html.='<tr>';
 		$html.='<td><a href="#" class="info">';
-		$html.=_("Detect Faxes").'<span>'._("Attemp to detect faxes on this DID.<ul><li>No: No attempts are made to auto-determain the call type; all calls sent to destination below. Use this option if this DID is used exclusevly for voice OR fax.</li><li>Yes: try to auto determain the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line</li></ul>").'.</span></a>:</td>';
+		$html.=_("Detect Faxes").'<span>'._("Attemp to detect faxes on this DID.<ul><li>No: No attempts are made to auto-determain the call type; all calls sent to destination below. Use this option if this DID is used exclusevly for voice OR fax.</li><li>Yes: try to auto determain the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line</li>");
+		if($fax['legacy_email']!==null){
+    	$html.=_('<li>Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migraded legecy fax routes. You should upgrade this route by chosing YES, and selecting a valid destination!</li>');
+		}		
+		$html.='</ul></span></a>:</td>';
 		
 		//dont allow detection to be set if we have no valid detection types
 		if(!$fax_dahdi_faxdetect&&!$fax_sip_faxdetect){
@@ -263,10 +267,19 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$html.='</table>';
 		}else{//show detection options
 			//js to show/hide the detection settings
-				$js = "if(\$(this).val()=='true' || \$(this).val()=='legacy'){\$('.faxdetect').slideDown();}else{\$('.faxdetect').slideUp();}";
+				$js = "if(\$(this).val()=='true'){
+								\$('.faxdetect').slideDown();\$('.legacyemail').hide();
+							}else if(\$(this).val()=='false'){
+								\$('.faxdetect').slideUp(); \$('.legacyemail').hide();
+							}else if(\$(this).val()=='legacy'){
+								\$('.legacyemail').slideDown();
+								\$('.faxdest27').hide();\$('.legacyemail').show();
+				}";
 			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$js.'"/>No';
 			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$js.'"/>Yes';
-			$html.='<input type="radio" name="faxenabled" value="legacy" '.($fax?'CHECKED':'').' onclick="'.$js.'"/>Legacy';
+			if($fax['legacy_email']!==null){
+				$html.='<input type="radio" name="faxenabled" value="legacy" CHECKED onclick="'.$js.'"/>Legacy';
+			}
       $html.='</td></tr>';
 			$html.='</table>';
 		}	
@@ -297,13 +310,16 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$html.='<option value="'.$i.'" '.($fax['detectionwait']==$i?'SELECTED':'').'>'.$i.'</option>';	
 		}
 		$html.='</select></td></tr>';
-		if($fax['legacy_email'] !== null){
-			$html.='<tr><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In current versions of FreePBX, you can set the fax destination from a list of destination as you would pick destinations in other areas of FreePBX. This email option has been migrated from the legecay fax implementation in FreePBX prior to version 2.7. To upgrade this option to the full destination list, please enter \'clear\' in this field and hit submit. You will then be upgraded. THIS PROCEDURE IS NON REVERSABEL!!').'.</span></a>:</td>';
+		if($fax['legacy_email']!==null){	
+			$html.='</table>';
+			$html.='<table class="legacyemail" >';
+			$html.='<tr ><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of FreePBX, you can now set the fax destination from a list of destination as you would pick destinations in other areas of FreePBX. The Email Destination option can been migrated to the new implementation. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. THIS PROCEDURE IS NON REVERSABEL!!').'.</span></a>:</td>';
 			$html.='<td><input name="faxlegacyemail" value="'.$fax['legacy_email'].'"></td></tr>';
-		}else{
-			$html.='<tr><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a>:</td></tr>';
-			$html.=$fax_detect?drawselects(isset($fax['destination'])?$fax['destination']:null,'FAX'):'';
-		}
+			$html.='</table>';
+			$html.='<table class="faxdest27 faxdetect" style="display: none" >';
+	}		
+		$html.='<tr class="faxdest"><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a>:</td></tr>';
+		$html.=$fax_detect?drawselects(isset($fax['destination'])?$fax['destination']:null,'FAX'):'';
 		$html.='</table>';
 		$html.='<table>';
 	}
@@ -364,7 +380,7 @@ function fax_hookProcess_core(){
 	$dest=(isset($_REQUEST['gotoFAX'])?$_REQUEST['gotoFAX'].'FAX':null);
 	$dest=isset($_REQUEST[$dest])?$_REQUEST[$dest]:'';
 	$legacy_email=isset($_REQUEST['legacy_email'])?$_REQUEST['legacy_email']:NULL;
-	if(isset($legacy_email) && $legacy_email=='clear'){$legacy_email=NULL;}
+	if(!isset($legacy_email)||isset($dest)){$legacy_email=null;}
 	
 	if ($display == 'did' && isset($action) && $action!=''){
 		fax_delete_incoming($extdisplay);	//remove mature entry on edit or delete
@@ -377,7 +393,7 @@ function fax_hookProcess_core(){
 
 function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email){
 	global $db;
-	sql("INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($detection)."', '".$db->escapeSimple($detectionwait)."', '".$db->escapeSimple($dest)."','".$db->escapeSimple($legacy_email)."')");
+	sql("INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($detection)."', '".$db->escapeSimple($detectionwait)."', '".$db->escapeSimple($dest)."','".$db->quoteSmart($legacy_email)."')");
 }
 
 function fax_save_settings($settings){
