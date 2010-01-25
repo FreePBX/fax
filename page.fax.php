@@ -17,14 +17,13 @@ $tabindex = 0;
 // get/put options
 if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 	needreload();
-	$options=array("headerinfo", "localstationid", "ecm", "maxrate", "minrate", "modem", "sender_address");
+	$options=array("headerinfo", "localstationid", "ecm", "maxrate", "minrate", "modem", "sender_address", "defemail");
 	foreach($options as $option){
-		isset($_REQUEST[$option])?$settings[$option]=$_REQUEST[$option]:$settings[$option]='';
-		extract($settings);
+		isset($_REQUEST[$option])?$fax[$option]=$_REQUEST[$option]:$fax[$option]='';
 	}
 	fax_save_settings($settings);
 }else{
-	extract(fax_get_settings());
+	$fax=fax_get_settings();
 	$action='';//no action to do
 }
 ?>
@@ -36,53 +35,57 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 			<tr><td colspan="3"><h5><?php echo _("Fax Presentation Options")?><hr/></h5></td></tr>			
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Default Fax header")?>:<span><?php echo _("Header information that is passed to remote side of the fax transmission and is printed on top of every page. This usualy contains the name of the person or entity sending the fax.")?></span></a></td>
-				<td><input size="30" type="text" name="headerinfo" value="<?php  echo $headerinfo; ?>" tabindex="<?php echo ++$tabindex;?>"></td>	
+				<td><input size="30" type="text" name="headerinfo" value="<?php  echo $fax['headerinfo']; ?>" tabindex="<?php echo ++$tabindex;?>"></td>	
 			</tr>			<tr>
 				<td><a href="#" class="info"><?php echo _("Default Local Station Identifier")?>:<span><?php echo _("The outgoing Fax Machine Identifier. This is usualy your fax number.")?></span></a></td>
-				<td><input size="30" type="text" name="localstationid" value="<?php  echo $localstationid; ?>" tabindex="<?php echo ++$tabindex;?>"></td>					
+				<td><input size="30" type="text" name="localstationid" value="<?php  echo $fax['localstationid']; ?>" tabindex="<?php echo ++$tabindex;?>"></td>					
 			</tr>
 			<tr>
 				<td><a class="info" href="#"><?php echo _("Outgoing Email address:")?><span><?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.")?></span></a></td>
-				<td><input type="text" size="30" name="sender_address" value="<?php  echo htmlspecialchars($sender_address)?>" tabindex="<?php echo ++$tabindex;?>"/></td>
-			</tr>		
+				<td><input type="text" size="30" name="sender_address" value="<?php  echo htmlspecialchars($fax['sender_address'])?>" tabindex="<?php echo ++$tabindex;?>"/></td>
+			</tr>
+			<tr>
+				<td><a class="info" href="#"><?php echo _("Default Email address:")?><span><?php echo _("Email address that faxes are sent to if no other email address. This used for Simulate Incoming Fax and in some rare legacy migration cases")?></span></a></td>
+				<td><input type="text" size="30" name="defemail" value="<?php  echo htmlspecialchars($fax['defemail'])?>" tabindex="<?php echo ++$tabindex;?>"/></td>
+			</tr>			
 			
 			<tr><td colspan="3"><h5><?php echo _("Fax Transport Options")?><hr/></h5></td></tr>
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Error Correction Mode")?>:<span><?php echo _("Error Correction Mode (ECM) option is used to specify whether
 				 to use ecm mode or not.")?></span></a></td>
-				<td><?php echo _("Yes")?><input type="radio" name="ecm" value="yes" <?php echo (($ecm == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>">
-				<?php echo _("No")?><input type="radio" name="ecm" value="no" <?php echo (($ecm == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"></td>			
+				<td><?php echo _("Yes")?><input type="radio" name="ecm" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>">
+				<?php echo _("No")?><input type="radio" name="ecm" value="no" <?php echo (($fax['ecm'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"></td>			
 			</tr>				
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Maximum transfer rate")?>:<span><?php echo _("Maximum transfer rate used during fax rate negotiation.")?></span></a></td>
 				<td><select name="maxrate" tabindex="<?php echo ++$tabindex;?>">
-										<option value="2400"  <?php echo (($maxrate == '2400')?'selected="yes"':'');?>  >2400</option>
-										<option value="4800"  <?php echo (($maxrate == '4800')?'selected="yes"':'');?>  >4800</option>	
-										<option value="7200"  <?php echo (($maxrate == '7200')?'selected="yes"':'');?>  >7200</option>	
-										<option value="9600"  <?php echo (($maxrate == '9600')?'selected="yes"':'');?>  >9600</option>	
-										<option value="12200" <?php echo (($maxrate == '12200')?'selected="yes"':'');?> >12200</option>	
-										<option value="14400" <?php echo (($maxrate == '14400')?'selected="yes"':'');?> >14400</option>
+										<option value="2400"  <?php echo (($fax['maxrate'] == '2400')?'selected="yes"':'');?>  >2400</option>
+										<option value="4800"  <?php echo (($fax['maxrate'] == '4800')?'selected="yes"':'');?>  >4800</option>	
+										<option value="7200"  <?php echo (($fax['maxrate'] == '7200')?'selected="yes"':'');?>  >7200</option>	
+										<option value="9600"  <?php echo (($fax['maxrate'] == '9600')?'selected="yes"':'');?>  >9600</option>	
+										<option value="12200" <?php echo (($fax['maxrate'] == '12200')?'selected="yes"':'');?> >12200</option>	
+										<option value="14400" <?php echo (($fax['maxrate'] == '14400')?'selected="yes"':'');?> >14400</option>
 				</select></td>		
 			</tr>	
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Minimum transfer rate")?>:<span><?php echo _("Minimum transfer rate used during fax rate negotiation.")?></span></a></td>
 				<td><select name="minrate" tabindex="<?php echo ++$tabindex;?>">
-										<option value="2400"  <?php echo (($minrate == '2400')?'selected="yes"':'');?>  >2400</option>
-										<option value="4800"  <?php echo (($minrate == '4800')?'selected="yes"':'');?>  >4800</option>	
-										<option value="7200"  <?php echo (($minrate == '7200')?'selected="yes"':'');?>  >7200</option>	
-										<option value="9600"  <?php echo (($minrate == '9600')?'selected="yes"':'');?>  >9600</option>	
-										<option value="12200" <?php echo (($minrate == '12200')?'selected="yes"':'');?> >12200</option>	
-										<option value="14400" <?php echo (($minrate == '14400')?'selected="yes"':'');?> >14400</option>
+										<option value="2400"  <?php echo (($fax['minrate'] == '2400')?'selected="yes"':'');?>  >2400</option>
+										<option value="4800"  <?php echo (($fax['minrate'] == '4800')?'selected="yes"':'');?>  >4800</option>	
+										<option value="7200"  <?php echo (($fax['minrate'] == '7200')?'selected="yes"':'');?>  >7200</option>	
+										<option value="9600"  <?php echo (($fax['minrate'] == '9600')?'selected="yes"':'');?>  >9600</option>	
+										<option value="12200" <?php echo (($fax['minrate'] == '12200')?'selected="yes"':'');?> >12200</option>	
+										<option value="14400" <?php echo (($fax['minrate'] == '14400')?'selected="yes"':'');?> >14400</option>
 				</select></td>				
 			</tr>
 			<!--
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Modem")?>:<span><?php echo _("Modem Type.")?></span></a></td>
 				<td><select name="modem" tabindex="<?php echo ++$tabindex;?>">
-										<option value="V17" <?php echo (($modem == 'V17')?'selected="yes"':'');?> >V17</option>
-										<option value="V27" <?php echo (($modem == 'V27')?'selected="yes"':'');?> >V27</option>	
-										<option value="V29" <?php echo (($modem == 'V29')?'selected="yes"':'');?> >V29</option>	
-										<option value="V34" <?php echo (($modem == 'V34')?'selected="yes"':'');?> >V34</option>	
+										<option value="V17" <?php echo (($fax['modem'] == 'V17')?'selected="yes"':'');?> >V17</option>
+										<option value="V27" <?php echo (($fax['modem'] == 'V27')?'selected="yes"':'');?> >V27</option>	
+										<option value="V29" <?php echo (($fax['modem'] == 'V29')?'selected="yes"':'');?> >V29</option>	
+										<option value="V34" <?php echo (($fax['modem'] == 'V34')?'selected="yes"':'');?> >V34</option>	
 				</select></td>						
 			</tr> -->
 			<tr>

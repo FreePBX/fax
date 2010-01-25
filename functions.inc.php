@@ -59,6 +59,10 @@ function fax_dahdi_faxdetect(){
   return true;
 
   //TODO Get this right
+	/*
+	 * kepping this always set to true for freepbx 2.7 as we cant currently properly detect this - MB
+	 * 
+	 */
 	global $asterisk_conf;
 	$faxdetect=false;
 	$dadset=parse_ini_file($asterisk_conf['astetcdir'].'/'.(ast_with_dahdi()?'chan_dahdi':'zapata').'.conf');
@@ -84,12 +88,14 @@ function fax_destinations(){
 function fax_detect(){
 	global $amp_conf;
 	global $astman;
-	$fax=array();
+	$fax=null;
 	$appfax = $recivefax = false;//return false by default in case asterisk isnt reachable
 	if ($amp_conf['AMPENGINE'] == 'asterisk' && isset($astman) && $astman->connected()) {
-		//xhexk for fax modules
+		//check for fax modules
 		$app = $astman->send_request('Command', array('Command' => 'module show like app_fax.so'));
 		if (preg_match('/1 modules loaded/', $app['data'])){$fax['module']='app_fax';}
+		$response = $astman->send_request('Command', array('Command' => 'module show like app_nv_faxdetect.so'));
+		if (preg_match('/1 modules loaded/', $response['data'])){$fax['module']='nv_faxdetect';}
 		$recive = $astman->send_request('Command', array('Command' => 'module show like res_fax.so'));
 		if (preg_match('/1 modules loaded/', $recive['data'])){$fax['module']='res_fax';}
 		//get license count
@@ -109,8 +115,8 @@ function fax_get_config($engine){
 		global $ext;
 		global $amp_conf;
 		$dests=fax_get_destinations();
-		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
 		if($dests){
+			$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
 			$context='ext-fax';
 			foreach ($dests as $row) {
 				$exten=$row['user'];
@@ -125,21 +131,22 @@ function fax_get_config($engine){
 		//write out res_fax.conf and res_fax_digium.conf
 		fax_write_conf();
 	}
-  // generate ext-fax-legacy used for both legacy mode and app-fax feature code
-  //
-  $context='ext-fax-legacy';
-  $exten = 's';
-  $ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
-  $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-  $ext->add($context, 'h', '', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
-
+  // Now check if any legacy destinations. If so, then generate proper receive fax context
+	$routes = sql('SELECT extension, cidnum FROM fax_incoming WHERE legacy_email IS NOT NULL ','getAll', DB_FETCHMODE_ASSOC);
+  if(count($routes)){
+    $context='ext-fax-legacy';
+    $exten = 's';
+    $ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
+    $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+    $ext->add($context, 'h', '', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
+	}
   $modulename = 'fax';
   $fcc = new featurecode($modulename, 'simu_fax');
   $fc_simu_fax = $fcc->getCodeActive();
   unset($fcc);
 
   if ($fc_simu_fax != '') {
-    $default_address = sql('SELECT value FROM fax_details WHERE `key` = \'FAX_RX_EMAIL\'','getRow');
+    $default_address = sql('SELECT value FROM fax_details WHERE `key` = \'defemail\'','getRow');
     $ext->addInclude('from-internal-additional', 'app-fax'); // Add the include from from-internal
     $ext->add('app-fax', $fc_simu_fax, '', new ext_setvar('FAX_RX_EMAIL', $default_address[0]));
     $ext->add('app-fax', $fc_simu_fax, '', new ext_goto('1', 's', 'ext-fax-legacy'));
@@ -286,23 +293,14 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		//fax detection+destinations, hidden if there is fax is disabled
 		$html.='<table class=faxdetect '.($fax?'':'style="display: none;"').'>';	
 		$info=engine_getinfo();
-		$html.='<tr><td width="156px"><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.<ul><li>".$dahdi.": use ".$dahdi." fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ".$dahdi.".conf</li><li>Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files</li></ul>").'.</span></a>:</td>';
+		$html.='<tr><td width="156px"><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.<ul><li>".$dahdi.": use ".$dahdi." fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ".$dahdi.".conf</li><li>Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files</li><li>NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk</li></ul>").'.</span></a>:</td>';
 		$html.='<td><select name="faxdetection" tabindex="'.++$tabindex.'">';
-		//$html.='<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. _("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>
+		//$html.='<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. _("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>		
 		$html.='<option value="dahdi" '.($fax['detection'] == 'dahdi' ? 'SELECTED' : '').' '.($fax_dahdi_faxdetect?'':'disabled').'>'.$dahdi.'</option>';
+		$html.='<option value="nvfax"'.($fax['detection'] == 'nvfax' ? 'SELECTED' : '').($fax_dahdi['module']=='nv_fax'?'':'disabled').'>'. _("NVFax").'</option>';
 		$html.='<option value="sip" '.($fax['detection'] == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. _("Sip").'</option>';
-/*
- * code for nvfaxdetect. I'm not sure if we should be offering this, 
- * although it probobly works. its here in case someone wants to test/include it
- * 		//check for nvfaxdetect
-		if ($amp_conf['AMPENGINE'] == 'asterisk' && version_compare($version, '1.4', 'le') && isset($astman) && $astman->connected()) {
-			$response = $astman->send_request('Command', array('Command' => 'module show like app_nv_faxdetect.so'));
-			if (preg_match('/1 modules loaded/', $response['data'])) {
-				$html.='<option value="nvfax"'.($faxdetection == 'nvfax' ? 'SELECTED' : '').'>'. _("NVFax").'</option>';
-			}
-		}
 		$html.='</select></td></tr>';
-*/		
+		
 		$html.='<tr><td><a href="#" class="info">'._("Fax Detection Time").'<span>'._('How long to wait and try to detect fax. Please note that callers to a '.$dahdi.' channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing)').'.</span></a>:</td>';
 		$html.='<td><select name="faxdetectionwait" tabindex="'.++$tabindex.'">';
 		if(!$fax['detectionwait']){$fax['detectionwait']=4;}//default wait time is 4 second
@@ -415,7 +413,10 @@ function fax_sip_faxdetect(){
 	global $asterisk_conf;
   return true;
   //TODO Fix This Later
-
+  	/*
+	 * kepping this always set to true for freepbx 2.7 as we cant currently properly detect this - MB
+	 * 
+	 */
 	//these files probobly shouldnt be hardcoded
 	$files=array('sip_general_additional.conf','sip_general_custom.conf','sip_custom.conf');
 	foreach($files as $file){$set.=parse_ini_file($file);}//read setting from files
