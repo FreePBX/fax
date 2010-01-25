@@ -44,8 +44,9 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 				<td><a class="info" href="#"><?php echo _("Outgoing Email address:")?><span><?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.")?></span></a></td>
 				<td><input type="text" size="30" name="sender_address" value="<?php  echo htmlspecialchars($fax['sender_address'])?>" tabindex="<?php echo ++$tabindex;?>"/></td>
 			</tr>
+			<tr><td colspan="3"><h5><?php echo _("Fax Feature Code Options")?><hr/></h5></td></tr>			
 			<tr>
-				<td><a class="info" href="#"><?php echo _("Default Email address:")?><span><?php echo _("Email address that faxes are sent to if no other email address. This used for Simulate Incoming Fax and in some rare legacy migration cases")?></span></a></td>
+				<td><a class="info" href="#"><?php echo _("Email address:")?><span><?php echo _("Email address that faxes are sent to when using the \"Dial System Fax\" feature code. This is also the default email for fax detection in legacy mode, if there are routes still running in this mode that do not have email addresses specified.")?></span></a></td>
 				<td><input type="text" size="30" name="fax_rx_email" value="<?php  echo htmlspecialchars($fax['fax_rx_email'])?>" tabindex="<?php echo ++$tabindex;?>"/></td>
 			</tr>			
 			
