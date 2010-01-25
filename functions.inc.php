@@ -352,7 +352,7 @@ function fax_hookGet_config($engine){
           if (!isset($default_fax_rx_email)) {
             //TODO Need to add error checking
             //
-			      $default_address = sql('SELECT value FROM fax_details WHERE `key` = \'FAX_RX_EMAIL\'','getRow');
+			      $default_address = sql('SELECT value FROM fax_details WHERE `key` = \'fax_rx_email\'','getRow');
             $default_fax_rx_email = $default_address[0];
           }
           $fax_rx_email = $default_fax_rx_email;

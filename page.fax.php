@@ -17,7 +17,7 @@ $tabindex = 0;
 // get/put options
 if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 	needreload();
-	$options=array("headerinfo", "localstationid", "ecm", "maxrate", "minrate", "modem", "sender_address", "FAX_RX_EMAIL");
+	$options=array("headerinfo", "localstationid", "ecm", "maxrate", "minrate", "modem", "sender_address", "fax_rx_email");
 	foreach($options as $option){
 		isset($_REQUEST[$option])?$fax[$option]=$_REQUEST[$option]:$fax[$option]='';
 	}
@@ -46,7 +46,7 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 			</tr>
 			<tr>
 				<td><a class="info" href="#"><?php echo _("Default Email address:")?><span><?php echo _("Email address that faxes are sent to if no other email address. This used for Simulate Incoming Fax and in some rare legacy migration cases")?></span></a></td>
-				<td><input type="text" size="30" name="FAX_RX_EMAIL" value="<?php  echo htmlspecialchars($fax['FAX_RX_EMAIL'])?>" tabindex="<?php echo ++$tabindex;?>"/></td>
+				<td><input type="text" size="30" name="fax_rx_email" value="<?php  echo htmlspecialchars($fax['fax_rx_email'])?>" tabindex="<?php echo ++$tabindex;?>"/></td>
 			</tr>			
 			
 			<tr><td colspan="3"><h5><?php echo _("Fax Transport Options")?><hr/></h5></td></tr>
