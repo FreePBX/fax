@@ -310,7 +310,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		if($fax['legacy_email']!==null){	
 			$html.='</table>';
 			$html.='<table class="legacyemail" >';
-			$html.='<tr ><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of FreePBX, you can now set the fax destination from a list of destination as you would pick destinations in other areas of FreePBX. The Email Destination option can been migrated to the new implementation. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. THIS PROCEDURE IS NON REVERSABEL!!').'.</span></a>:</td>';
+			$html.='<tr ><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of FreePBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of FreePBX only.').'.</span></a>:</td>';
 			$html.='<td><input name="faxlegacyemail" value="'.$fax['legacy_email'].'"></td></tr>';
 			$html.='</table>';
 			$html.='<table class="faxdest27 faxdetect" style="display: none" >';
@@ -360,7 +360,12 @@ function fax_hookGet_config($engine){
 			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_RX_EMAIL',$fax_rx_email));
       }
 		  $ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
-		  $ext->splice($context, $extension, 'dest-ext', new ext_wait($route['detectionwait']));
+      if ($route['detection'] == 'nvfax') {
+		    $ext->splice($context, $extension, 'dest-ext', new ext_playtones('ring'));
+		    $ext->splice($context, $extension, 'dest-ext', new ext_nvfaxdetect($route['detectionwait']."|t"));
+      } else {
+		    $ext->splice($context, $extension, 'dest-ext', new ext_wait($route['detectionwait']));
+      }
 		}
 	}
 }
