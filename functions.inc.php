@@ -92,11 +92,11 @@ function fax_detect(){
 	$appfax = $recivefax = false;//return false by default in case asterisk isnt reachable
 	if ($amp_conf['AMPENGINE'] == 'asterisk' && isset($astman) && $astman->connected()) {
 		//check for fax modules
-		$app = $astman->send_request('Command', array('Command' => 'module show like res_fax.so'));
+		$app = $astman->send_request('Command', array('Command' => 'module show like res_fax'));
 		if (preg_match('/1 modules loaded/', $app['data'])){
       $fax['module']='res_fax';
     } else {
-		  $recive = $astman->send_request('Command', array('Command' => 'module show like app_fax.so'));
+		  $recive = $astman->send_request('Command', array('Command' => 'module show like app_fax'));
 		  if (preg_match('/1 modules loaded/', $recive['data'])){$fax['module']='app_fax';}
     }
     //TODO: verify this is the right test, no system to check it on yet
@@ -104,7 +104,7 @@ function fax_detect(){
 		  $app = $astman->send_request('Command', array('Command' => 'module show like app_rxfax.so'));
       $fax['module'] = preg_match('/1 modules loaded/', $app['data']) ? 'spandsp': null;
     }
-		$response = $astman->send_request('Command', array('Command' => 'module show like app_nv_faxdetect.so'));
+		$response = $astman->send_request('Command', array('Command' => 'module show like app_nv_faxdetect'));
     $fax['nvfax']= preg_match('/1 modules loaded/', $response['data']) ? true : false;
 
 		//get license count
