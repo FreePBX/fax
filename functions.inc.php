@@ -92,12 +92,21 @@ function fax_detect(){
 	$appfax = $recivefax = false;//return false by default in case asterisk isnt reachable
 	if ($amp_conf['AMPENGINE'] == 'asterisk' && isset($astman) && $astman->connected()) {
 		//check for fax modules
-		$app = $astman->send_request('Command', array('Command' => 'module show like app_fax.so'));
-		if (preg_match('/1 modules loaded/', $app['data'])){$fax['module']='app_fax';}
+		$app = $astman->send_request('Command', array('Command' => 'module show like res_fax.so'));
+		if (preg_match('/1 modules loaded/', $app['data'])){
+      $fax['module']='res_fax';
+    } else {
+		  $recive = $astman->send_request('Command', array('Command' => 'module show like app_fax.so'));
+		  if (preg_match('/1 modules loaded/', $recive['data'])){$fax['module']='app_fax';}
+    }
+    //TODO: verify this is the right test, no system to check it on yet
+    if (!isset($fax['module'])) {
+		  $app = $astman->send_request('Command', array('Command' => 'module show like app_rxfax.so'));
+      $fax['module'] = preg_match('/1 modules loaded/', $app['data']) ? 'spandsp': null;
+    }
 		$response = $astman->send_request('Command', array('Command' => 'module show like app_nv_faxdetect.so'));
-		if (preg_match('/1 modules loaded/', $response['data'])){$fax['module']='nv_faxdetect';}
-		$recive = $astman->send_request('Command', array('Command' => 'module show like res_fax.so'));
-		if (preg_match('/1 modules loaded/', $recive['data'])){$fax['module']='res_fax';}
+    $fax['nvfax']= preg_match('/1 modules loaded/', $response['data']) ? true : false;
+
 		//get license count
 		$lic = $astman->send_request('Command', array('Command' => 'fax show stats'));
 		foreach(explode("\n",$lic['data']) as $licdata){
@@ -110,10 +119,17 @@ function fax_detect(){
 }
 
 function fax_get_config($engine){
+
 	$fax=fax_detect();
-	if($fax['module'] == 'app_fax' || $fax['module'] == 'res_fax'){ //dont continue unless we have a fax module in asterisk
+	if($fax['module']){ //dont continue unless we have a fax module in asterisk
 		global $ext;
 		global $amp_conf;
+	  global $core_conf;
+	  global $version;
+
+	  if (version_compare($version, '1.6', 'ge') && isset($core_conf) && is_a($core_conf, "core_conf")) {
+		  $core_conf->addSipGeneral('faxdetect','yes');
+	  }
 		$dests=fax_get_destinations();
 		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
 		if($dests){
@@ -122,7 +138,11 @@ function fax_get_config($engine){
 				$exten=$row['user'];
 				$ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
 				$ext->add($context, $exten, '', new ext_set('TO', '"'.$row['faxemail'].'"'));			
-				$ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+        if ($fax['module'] == 'spandsp') {
+				  $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+        } else {
+				  $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+        }
 			}
 			$ext->add($context, 'h', '', new ext_execif('$["${TO}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${TO} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
 		}
@@ -136,7 +156,11 @@ function fax_get_config($engine){
   $context='ext-fax-legacy';
   $exten = 's';
   $ext->add($context, $exten, '', new ext_noop('Reciving Fax for Fax Recipient: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
-  $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+  if ($fax['module'] == 'spandsp') {
+    $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+  } else {
+    $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+  }
   $ext->add($context, 'h', '', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
 
   $modulename = 'fax';
@@ -296,7 +320,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$html.='<td><select name="faxdetection" tabindex="'.++$tabindex.'">';
 		//$html.='<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. _("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>		
 		$html.='<option value="dahdi" '.($fax['detection'] == 'dahdi' ? 'SELECTED' : '').' '.($fax_dahdi_faxdetect?'':'disabled').'>'.$dahdi.'</option>';
-		$html.='<option value="nvfax"'.($fax['detection'] == 'nvfax' ? 'SELECTED' : '').($fax_dahdi['module']=='nv_fax'?'':'disabled').'>'. _("NVFax").'</option>';
+		$html.='<option value="nvfax"'.($fax['detection'] == 'nvfax' ? 'SELECTED' : '').($fax_detect['nvfax']?'':'disabled').'>'. _("NVFax").'</option>';
 		$html.='<option value="sip" '.($fax['detection'] == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. _("Sip").'</option>';
 		$html.='</select></td></tr>';
 		
@@ -324,13 +348,18 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 
 }
 
+//TODO: modify to check for nvfaxdetect before iserting it and nothing if not there.
+//TODO: if not too lazy, put an error into notification panel
 function fax_hookGet_config($engine){
 	$fax=fax_detect();
-	if($fax['module'] == 'app_fax' || $fax['module'] == 'res_fax'){ //dont continue unless we have a fax module in asterisk
+	if($fax['module']){ //dont continue unless we have a fax module in asterisk
 		global $ext;
 		global $engine;
 		$routes=fax_get_incoming();
 		foreach($routes as $current => $route){
+      if ($route['detection'] == 'nvfax' && !$fax['nvfax']) {
+        continue; // skip this one if there is no NVFaxdetect installed on this system
+      }
 			if($route['extension']=='' && $route['cidnum']){//callerID only
 				$extension='s/'.$route['cidnum'];
 				$context=($route['pricid']=='CHECKED')?'ext-did-0001':'ext-did-0002';
@@ -400,7 +429,7 @@ function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait
 
 function fax_save_settings($settings){
 	global $db;
-	foreach($settings as $key => $value){
+	if (is_array($settings)) foreach($settings as $key => $value){
 		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".$db->escapeSimple($value)."')");
 	}
 }
