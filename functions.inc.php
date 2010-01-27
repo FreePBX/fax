@@ -1,6 +1,58 @@
 <?php 
 /* $Id */
 
+function fax_getdest($exten) {
+	return array("ext-fax,$exten,1");
+}
+
+function fax_getdestinfo($dest) {
+  global $amp_conf;
+	if (substr(trim($dest),0,8) == 'ext-fax,') {
+		$usr = explode(',',$dest);
+		$usr = $usr[1];
+		$thisusr = fax_get_user($usr);
+		if (empty($thisusr)) {
+			return array();
+		} else {
+			$display = ($amp_conf['AMPEXTENSIONS'] == "deviceanduser")?'users':'extensions';
+			return array('description' => sprintf(_("Fax user %s"),$usr),
+			             'edit_url' => 'config.php?display='.$display.'&extdisplay='.urlencode($usr),
+								  );
+		}
+	} else {
+		return false;
+	}
+}
+
+function fax_check_destinations($dest=true) {
+	global $active_modules;
+
+	$destlist = array();
+	if (is_array($dest) && empty($dest)) {
+		return $destlist;
+	}
+	$sql = "SELECT a.extension, a.cidnum, b.description, a.destination FROM fax_incoming a JOIN incoming b ";
+  $sql .= "WHERE a.extension = b.extension AND a.cidnum = b.cidnum AND a.legacy_email IS NULL ";
+	if ($dest !== true) {
+		$sql .= "AND a.destination in ('".implode("','",$dest)."') ";
+	}
+	$sql .= "ORDER BY extension, cidnum";
+	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+	//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
+
+	foreach ($results as $result) {
+		$thisdest = $result['destination'];
+		$thisid   = $result['extension'].'/'.$result['cidnum'];
+		$destlist[] = array(
+			'dest' => $thisdest,
+			'description' => sprintf(_("Inbound Fax Detection: %s (%s)"),$result['description'],$thisid),
+			'edit_url' => 'config.php?display=did&extdisplay='.urlencode($thisid),
+		);
+	}
+	return $destlist;
+}
+
 function fax_applyhooks() {
 	global $currentcomponent;
 	// Add the 'process' function - this gets called when the page is loaded, to hook into 
@@ -30,6 +82,10 @@ function fax_configpageload() {
 			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: Fax modules missing! Fax-related dialplan will <strong>NOT</strong> be generated! Please contact your vendor for more information.').'</font>')));
 		}elseif($fax['module'] == 'res_fax' && $fax['license'] < 1){//missing licese
 			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: Fax license missing! Fax-related dialplan will <strong>NOT</strong> be generated! Please contact your vendor for more information.').'</font>')));
+		}
+		$usage_list = framework_display_destination_usage(fax_getdest($extdisplay));
+		if (!empty($usage_list)) {
+			$currentcomponent->addguielem('_top', new gui_link_label('faxdests', "&nbsp;Fax".$usage_list['text'], $usage_list['tooltip'], true), 5);
 		}
 		
 		$currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), _('Enable this user to recive faxes'),'true','',$toggleemail));
@@ -417,7 +473,8 @@ function fax_hookProcess_core(){
 
 function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email){
 	global $db;
-	sql("INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($detection)."', '".$db->escapeSimple($detectionwait)."', '".$db->escapeSimple($dest)."','".$db->escapeSimple($legacy_email)."')");
+  $legacy_email =  $legacy_email === null ? 'NULL' : "'".$db->escapeSimple("$legacy_email")."'";
+	sql("INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($detection)."', '".$db->escapeSimple($detectionwait)."', '".$db->escapeSimple($dest)."',".$legacy_email.")");
 }
 
 function fax_save_settings($settings){
