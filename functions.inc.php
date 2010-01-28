@@ -197,12 +197,25 @@ function fax_get_config($engine){
 		}
 		$ext->add('ext-did-0001', 'fax', '', new ext_goto('${FAX_DEST}'));
 		$ext->add('ext-did-0002', 'fax', '', new ext_goto('${FAX_DEST}'));
+
+    // Add fax extension to ivr and announcement as inbound controle may be passed quickly to them and still detection is desired
+    if (function_exists('ivr_list')) {
+			$ivrlist = ivr_list();
+			if(is_array($ivrlist)) foreach($ivrlist as $item) {
+		    $ext->add("ivr-".$item['ivr_id'], 'fax', '', new ext_goto('${FAX_DEST}'));
+      }
+    }
+    if (function_exists('announcement_list')) foreach (announcement_list() as $row) {
+      $ext->add('app-announcement-'.$row['announcement_id'], 'fax', '', new ext_goto('${FAX_DEST}'));
+    }
+
 		//write out res_fax.conf and res_fax_digium.conf
 		fax_write_conf();
     // generate ext-fax-legacy used for both legacy mode and app-fax feature code
     //
     $context='ext-fax-legacy';
     $exten = 's';
+	  $ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
     $ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
     if ($fax['module'] == 'spandsp') {
       $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
