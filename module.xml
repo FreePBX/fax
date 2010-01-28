@@ -1,8 +1,8 @@
 <module>
 	<rawname>fax</rawname>
 	<name>Fax Configuration</name>
-	<version>2.7.0</version>
-	<publisher>Moshe Brevda</publisher>
+	<version>2.7.0.0</version>
+	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<type>setup</type>
 	<category>Basic</category>
