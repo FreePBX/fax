@@ -11,11 +11,11 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
-		*2.7.0* inital release
+		*2.7.0.0* Initial reelase: #4007, #4010
 	</changelog>
 	<depends>
 		<version>2.7.0</version>
 	</depends>
-	<location></location>
-	<md5sum></md5sum>
+	<location>release/2.7/fax-2.7.0.0.tgz</location>
+	<md5sum>a979463f0f55ac39cbd8abb75f1a7059</md5sum>
 </module>
