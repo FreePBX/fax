@@ -88,8 +88,6 @@ foreach ($sql as $statement){
 	}
 }
 
-//---------------------------- START HERE ----------------------------------//
-
 /*
 incoming columns:
 
@@ -166,7 +164,6 @@ if(!DB::IsError($legacy_settings)) {
       $detection = $detection_type[$row['answer']];
       switch ($row['faxexten']) {
         case 'disabled':
-          //out(sprintf(_("%s/%s: is disabled, skipping"),$row['extension'],$row['cidnum']));
           continue; // go back to foreach for now
         break;
 
@@ -196,7 +193,6 @@ if(!DB::IsError($legacy_settings)) {
 			  $insert_array[] = array($row['extension'], $row['cidnum'], $detection, $detectionwait, $destination, $legacy_email);
         break;
       }
-      //out(sprintf(_("DEBUG: Inserting: %s/%s"),$row['extension'],$row['cidnum']));
     }
 
 		$compiled = $db->prepare("INSERT INTO `fax_incoming` (`extension`, `cidnum`, `detection`, `detectionwait`, `destination`, `legacy_email`) VALUES (?,?,?,?,?,?)");
@@ -209,12 +205,8 @@ if(!DB::IsError($legacy_settings)) {
 			foreach ($migrate_array as $field) {
 				outn(sprintf(_("Removing field %s from incoming table.."),$field));
 				$sql = "ALTER TABLE `incoming` DROP `".$field."`";
-				echo $sql; //TODO DEBUG
-        /*
 				$results = $db->query($sql);
 				if (DB::IsError($results)) { 
-        */
-				if (false) {
 					out(_("not present"));
 				} else {
 					out(_("removed"));
@@ -222,12 +214,9 @@ if(!DB::IsError($legacy_settings)) {
 			}
 			outn(_("Removing old globals.."));
       $sql = "DELETE FROM globals WHERE variable IN ('FAX_RX', 'FAX_RX_EMAIL', 'FAX_RX_FROM')";
-			echo $sql; //TODO DEBUG
-      /*
+
 			$results = $db->query($sql);
 			if (DB::IsError($results)) { 
-      */
-			if (false) {
 				out(_("failed"));
 			} else {
 				out(_("removed"));
@@ -255,5 +244,4 @@ if(!DB::IsError($legacy_settings)) {
 } else {
 	out(_("already done"));
 }
-
 ?>
