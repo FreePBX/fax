@@ -235,7 +235,7 @@ if(!DB::IsError($legacy_settings)) {
 		    $notifications->add_error('fax', 'FAXMIGRATE', sprintf(_('%s FAX Migrations Failed'),$failed_faxes), $extext, '', true, true);
         out(sprintf(_('%s FAX Migrations Failed, check notification panel for details'),$failed_faxes));
 	    } else {
-        out(_("all migrations succeded successfully"));
+        out(_("all migrations succeeded successfully"));
       }
 		}
   } else {

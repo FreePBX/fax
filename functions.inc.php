@@ -88,7 +88,7 @@ function fax_configpageload() {
 			$currentcomponent->addguielem('_top', new gui_link_label('faxdests', "&nbsp;Fax".$usage_list['text'], $usage_list['tooltip'], true), 5);
 		}
 		
-		$currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), _('Enable this user to recive faxes'),'true','',$toggleemail));
+		$currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), _('Enable this user to receive faxes'),'true','',$toggleemail));
 		$currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _('Fax Email'), _('Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'));
 	}
 }
@@ -351,15 +351,15 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$html.='<hr></h5></td></tr>';
 		$html.='<tr>';
 		$html.='<td><a href="#" class="info">';
-		$html.=_("Detect Faxes").'<span>'._("Attemp to detect faxes on this DID.<ul><li>No: No attempts are made to auto-determain the call type; all calls sent to destination below. Use this option if this DID is used exclusevly for voice OR fax.</li><li>Yes: try to auto determain the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line</li>");
+		$html.=_("Detect Faxes").'<span>'._("Attempt to detect faxes on this DID.<ul><li>No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.</li><li>Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line</li>");
 		if($fax['legacy_email']!==null){
-    	$html.=_('<li>Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migraded legecy fax routes. You should upgrade this route by chosing YES, and selecting a valid destination!</li>');
+    	$html.=_('<li>Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!</li>');
 		}		
 		$html.='</ul></span></a>:</td>';
 		
 		//dont allow detection to be set if we have no valid detection types
 		if(!$fax_dahdi_faxdetect && !$fax_sip_faxdetect && !$fax_detect['nvfax']){
-			$js="if ($(this).val() == 'true'){alert('"._('No fax detection methods found or no valid licences. Faxing cannot be enabled.')."');return false;}";
+			$js="if ($(this).val() == 'true'){alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
 			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED />No';
 			$html.='<input type="radio" name="faxenabled" value="true"  onclick="'.$js.'"/>Yes</td></tr>';
 			$html.='</table>';

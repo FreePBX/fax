@@ -34,10 +34,10 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 		<tbody>			
 			<tr><td colspan="3"><h5><?php echo _("Fax Presentation Options")?><hr/></h5></td></tr>			
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Default Fax header")?>:<span><?php echo _("Header information that is passed to remote side of the fax transmission and is printed on top of every page. This usualy contains the name of the person or entity sending the fax.")?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("Default Fax header")?>:<span><?php echo _("Header information that is passed to remote side of the fax transmission and is printed on top of every page. This usually contains the name of the person or entity sending the fax.")?></span></a></td>
 				<td><input size="30" type="text" name="headerinfo" value="<?php  echo $fax['headerinfo']; ?>" tabindex="<?php echo ++$tabindex;?>"></td>	
 			</tr>			<tr>
-				<td><a href="#" class="info"><?php echo _("Default Local Station Identifier")?>:<span><?php echo _("The outgoing Fax Machine Identifier. This is usualy your fax number.")?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("Default Local Station Identifier")?>:<span><?php echo _("The outgoing Fax Machine Identifier. This is usually your fax number.")?></span></a></td>
 				<td><input size="30" type="text" name="localstationid" value="<?php  echo $fax['localstationid']; ?>" tabindex="<?php echo ++$tabindex;?>"></td>					
 			</tr>
 			<tr>
@@ -94,9 +94,9 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 			</tr>		
 	
 <!-- php echo'd variables are commented out as well!
-		<tr><td colspan="3"><h5><?php echo _("Fax Recive Options")?><hr/></h5></td></tr>
+		<tr><td colspan="3"><h5><?php echo _("Fax Receive Options")?><hr/></h5></td></tr>
 		<tr>
-			<td><a class="info" href="#"><?php echo _("Default fax instance:")?><span><?php echo _("Select 'system default' to have the system act as a fax instance and receive and faxes. You can then route faxes to this instance and avoid having to route faxes to an instance accociated with a specific entity. This can be the system using Asterik's internal capabilites or it can be an external extesnion, such as a physical fax machine")?></span></a></td>
+			<td><a class="info" href="#"><?php echo _("Default fax instance:")?><span><?php echo _("Select 'system default' to have the system act as a fax instance and receive and faxes. You can then route faxes to this instance and avoid having to route faxes to an instance associated with a specific entity. This can be the system using Asterisk's internal capabilities or it can be an external extension, such as a physical fax machine")?></span></a></td>
 				<td><select name="system_instance" id="system_instance" tabindex="<?php echo ++$tabindex;?>">
 				<option value="disabled" <?php  //echo ($system_instance == 'disabled' ? 'SELECTED' : '')?>><?php echo _("disabled")?>
 				<option value="system" <?php  //echo ($system_instance == 'system' ? 'SELECTED' : '')?>><?php echo _("system default")?>
@@ -110,7 +110,7 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 			</select></td>
 		</tr>
 		<tr id="defaultmail">
-			<td><a class="info" href="#"><?php echo _("Default Recipent Email address:")?><span><?php echo _("Email address used if 'system default' has been chosen as the default fax extension.")?></span></a></td>
+			<td><a class="info" href="#"><?php echo _("Default Recipient Email address:")?><span><?php echo _("Email address used if 'system default' has been chosen as the default fax extension.")?></span></a></td>
 			<td><input type="text" size="30" name="system_fax2email" value="<?php  //echo htmlspecialchars($system_fax2email)?>" tabindex="<?php echo ++$tabindex;?>"/></td>
 		</tr> 
 		-->
