@@ -186,15 +186,33 @@ function fax_get_config($engine){
 			foreach ($dests as $row) {
 				$exten=$row['user'];
 				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
-				$ext->add($context, $exten, '', new ext_set('TO', '"'.$row['faxemail'].'"'));			
-        if ($fax['module'] == 'spandsp') {
-				  $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-        } else {
-				  $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-        }
+				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', '"'.$row['faxemail'].'"'));			
+		    $ext->add($context, $exten, '', new ext_goto('receivefax','s'));
 			}
-			$ext->add($context, 'h', '', new ext_execif('$["${TO}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${TO} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
 		}
+    /*
+      FAX Failures are not handled well as of this coding in by ReceiveFAX. If there is a license available then it provides
+      information. If not, nothing is provided. FAXSTATUS is supported in 1.4 to handle legacy with RxFax(). In order to create
+      dialplan to try and handle all cases, we use FAXSTATUS and set it ourselves as needed. It appears that if a fax fails with
+      ReceiveFAX we can always continue execution and if it succeeds, then execution goes to hangup. So using that information
+      we try to trap and report on all cases.
+    */
+    $exten = 's';
+	  $ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+    $ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
+    if ($fax['module'] == 'spandsp') {
+      $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+    } else {
+      $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+			$ext->add($context, $exten, '', new ext_set('FAXSTATUS','${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
+    }
+    $exten = 'h';
+		$ext->add($context, $exten, '', new ext_gotoif('$["${FAXSTATUS:0:6}" = "FAILED"]', 'failed'));
+    $ext->add($context, $exten, 'process', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
+	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
+    $ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
+	  $ext->add($context, $exten, '', new ext_macro('hangupcall'));
+
 		$ext->add('ext-did-0001', 'fax', '', new ext_goto('${FAX_DEST}'));
 		$ext->add('ext-did-0002', 'fax', '', new ext_goto('${FAX_DEST}'));
 
@@ -211,18 +229,6 @@ function fax_get_config($engine){
 
 		//write out res_fax.conf and res_fax_digium.conf
 		fax_write_conf();
-    // generate ext-fax-legacy used for both legacy mode and app-fax feature code
-    //
-    $context='ext-fax-legacy';
-    $exten = 's';
-	  $ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-    $ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
-    if ($fax['module'] == 'spandsp') {
-      $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-    } else {
-      $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-    }
-    $ext->add($context, 'h', '', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','\'${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif\''));
   
     $modulename = 'fax';
     $fcc = new featurecode($modulename, 'simu_fax');
@@ -233,7 +239,7 @@ function fax_get_config($engine){
       $default_address = sql('SELECT value FROM fax_details WHERE `key` = \'FAX_RX_EMAIL\'','getRow');
       $ext->addInclude('from-internal-additional', 'app-fax'); // Add the include from from-internal
       $ext->add('app-fax', $fc_simu_fax, '', new ext_setvar('FAX_RX_EMAIL', $default_address[0]));
-      $ext->add('app-fax', $fc_simu_fax, '', new ext_goto('1', 's', 'ext-fax-legacy'));
+      $ext->add('app-fax', $fc_simu_fax, '', new ext_goto('1', 's', 'ext-fax'));
       $ext->add('app-fax', 'h', '', new ext_macro('hangupcall'));
     }
 	}
@@ -435,7 +441,7 @@ function fax_hookGet_config($engine){
       if ($route['legacy_email'] === null) {
 			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"'.$route['destination'].'"'));
       } else {
-			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"ext-fax-legacy,s,1"'));
+			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"ext-fax,s,1"'));
         if ($route['legacy_email']) {
 			    $fax_rx_email = $route['legacy_email'];
         } else {
