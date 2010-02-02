@@ -346,19 +346,22 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			 * callback so that we ait for the fits animation to complete before 
 			 * playing the second
 			 */
-			$js="$('.legacyemail').slideUp('400',function(){
-						$('.faxdest').slideUp();
-					})"; 
-			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$js.'"/>No';
-			$js="$('.legacyemail').slideUp('400',function(){
-						$('.faxdetect').slideDown()
-					});";
-			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$js.'"/>Yes';
+			if($fax['legacy_email']===null){
+				$jsno="$('.faxdetect').slideUp();"; 
+				$jsyes="$('.faxdetect').slideDown();";
+			}else{
+				$jsno="$('.faxdetect').slideUp();$('.legacyemail').slideUp();"; 
+				$jsyes="$('.legacyemail').slideUp('400',function(){
+							$('.faxdetect').slideDown()
+						});";
+				$jslegacy="$('.faxdest27').slideUp('400',function(){ 
+								$('.faxdetect, .legacyemail').not($('.faxdest27')).slideDown();
+						});";
+			}
+			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$jsno.'"/>No';
+			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$jsyes.'"/>Yes';
 			if($fax['legacy_email']!==null){
-				$js="$('.faxdest27').slideUp('400',function(){ 
-							$('.faxdetect, .legacyemail').not($('.faxdest27')).slideDown();
-					});";
-				$html.='<input type="radio" name="faxenabled" value="legacy" CHECKED onclick="'.$js.'"/>Legacy';
+				$html.='<input type="radio" name="faxenabled" value="legacy" CHECKED onclick="'.$jslegacy.'"/>Legacy';
 			}
       $html.='</td></tr>';
 			$html.='</table>';
