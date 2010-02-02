@@ -253,31 +253,6 @@ function fax_get_destinations(){
 	if(DB::IsError($results)) {
 		die_freepbx($results->getMessage()."<br><br>Error selecting from fax");	
 	}
-	/*
-	 *
-	 * this may or may not work to include a system default destination
-	 * Rememebr to reenable defautl destination in the gui as well
-	 *	 	 	 
-	//get system default fax destination
-	$sql='SELECT * FROM fax_details WHERE `key` = ? OR `key` = ?';
-	$system = $db->getAssoc($sql,  false, array('system_instance', 'system_fax2email'), DB_FETCHMODE_ASSOC);
-	if ($system_fax2email != 'disabled'){// if system default is enabled
-		if($system_fax2email == 'system'){
-			$sys=array('user' => 'system', 'faxemail' => $systemfax2email, 'name' => 'System Default');
-		}else{//find user, loop thru the $result of the previous fetch which lists all users/emails
-			foreach($result as $res => $user){
-				if ($user['user'] == $system_instance){
-					$systemfax2email = $user['faxemail'];
-					break;
-				}
-			} 
-			$sys=array('user' => 'system', 'faxemail' => $systemfax2email, 'name' => 'System Default');
-		}
-		array_unshift($results, $sys);
-	}
-	*
-	*
-	*/
 	return $results;
 }
 
@@ -363,19 +338,26 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED />No';
 			$html.='<input type="radio" name="faxenabled" value="true"  onclick="'.$js.'"/>Yes</td></tr>';
 			$html.='</table>';
-		}else{//show detection options
-			//js to show/hide the detection settings
-				$js = "if(\$(this).val()=='true'){
-								\$('.faxdetect').slideDown();\$('.legacyemail').hide();
-							}else if(\$(this).val()=='false'){
-								\$('.faxdetect').slideUp(); \$('.legacyemail').hide();
-							}else if(\$(this).val()=='legacy'){
-								\$('.legacyemail').slideDown();
-								\$('.faxdest27').hide();\$('.legacyemail').show();
-				}";
+		}else{
+			/* 
+			 * show detection options
+			 *
+			 * js to show/hide the detection settings. Second slide is always in a 
+			 * callback so that we ait for the fits animation to complete before 
+			 * playing the second
+			 */
+			$js="$('.legacyemail').slideUp('400',function(){
+						$('.faxdest').slideUp();
+					})"; 
 			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$js.'"/>No';
+			$js="$('.legacyemail').slideUp('400',function(){
+						$('.faxdetect').slideDown()
+					});";
 			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$js.'"/>Yes';
 			if($fax['legacy_email']!==null){
+				$js="$('.faxdest27').slideUp('400',function(){ 
+							$('.faxdetect, .legacyemail').not($('.faxdest27')).slideDown();
+					});";
 				$html.='<input type="radio" name="faxenabled" value="legacy" CHECKED onclick="'.$js.'"/>Legacy';
 			}
       $html.='</td></tr>';
