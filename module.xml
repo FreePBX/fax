@@ -21,6 +21,6 @@
 	<depends>
 		<version>2.7.0beta1</version>
 	</depends>
-	<location>release/2.7/fax-2.7.0.4.tgz</location>
-	<md5sum>244e4b0540b0b80a8e14d74bcbb8b355</md5sum>
+	<location>release/2.7/fax-2.7.0.5.tgz</location>
+	<md5sum>9754f58841820c6204abec737ea83720</md5sum>
 </module>
