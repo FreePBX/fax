@@ -21,7 +21,7 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 	foreach($options as $option){
 		isset($_REQUEST[$option])?$fax[$option]=$_REQUEST[$option]:$fax[$option]='';
 	}
-	fax_save_settings($settings);
+	fax_save_settings($fax);
 }else{
 	$fax=fax_get_settings();
 	$action='';//no action to do
