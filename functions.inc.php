@@ -176,13 +176,13 @@ function fax_get_config($engine){
 	  global $core_conf;
 	  global $version;
 
+		$context='ext-fax';
 	  if (version_compare($version, '1.6', 'ge') && isset($core_conf) && is_a($core_conf, "core_conf")) {
 		  $core_conf->addSipGeneral('faxdetect','yes');
 	  }
 		$dests=fax_get_destinations();
 		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
 		if($dests){
-			$context='ext-fax';
 			foreach ($dests as $row) {
 				$exten=$row['user'];
 				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
