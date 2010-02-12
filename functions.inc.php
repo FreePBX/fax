@@ -156,6 +156,29 @@ function fax_detect(){
 		$response = $astman->send_request('Command', array('Command' => 'module show like app_nv_faxdetect'));
     $fax['nvfax']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 
+    switch($fax['module']) {
+    case 'res_fax':
+      $fax['receivefax'] = 'receivefax';
+      break;
+    case 'app_rxfax':
+      $fax['receivefax'] = 'rxfax';
+      break;
+    case 'app_fax':
+      $fax['receivefax'] = 'rxfax';
+		  $response = $astman->send_request('Command', array('Command' => 'show applications like receivefax'));
+      if (preg_match('/1 Applications Matching/', $response['data'])) {
+        $fax['receivefax'] = 'receivefax';
+      } else {
+		    $response = $astman->send_request('Command', array('Command' => 'show applications like rxfax'));
+        if (preg_match('/1 Applications Matching/', $response['data'])) {
+          $fax['receivefax'] = 'rxfax';
+        } else {
+          $fax['receivefax'] = 'none';
+        }
+      }
+      break;
+    }
+
 		//get license count
 		$lic = $astman->send_request('Command', array('Command' => 'fax show stats'));
 		foreach(explode("\n",$lic['data']) as $licdata){
@@ -205,14 +228,24 @@ function fax_get_config($engine){
       $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
     break;
     case 'app_fax':
-      $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+      // $fax['receivefax'] should be rxfax or receivefax, it could be none in which case we don't know. We'll just make it
+      // ReceiveFAX in that case since it will fail anyhow.
+      if ($fax['receivefax'] == 'rxfax') {
+        $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+      } elseif ($fax['receivefax'] == 'receivefax') {
+        $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+      } else {
+        $ext->add($context, $exten, 'receivefax', new ext_noop('ERROR: NO Receive FAX application detected, putting in dialplan for ReceiveFAX as default'));
+        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+			  $ext->add($context, $exten, '', new ext_set('FAXSTATUS','${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
+      }
     break;
     case 'res_fax':
       $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
 			$ext->add($context, $exten, '', new ext_set('FAXSTATUS','${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
     break;
     default: // unknown
-      $ext->add($context, $exten, 'failed', new ext_noop('No Known FAX Technology installed to receive a fax, aborting'));
+      $ext->add($context, $exten, '', new ext_noop('No Known FAX Technology installed to receive a fax, aborting'));
 			$ext->add($context, $exten, '', new ext_set('FAXSTATUS','FAILED No Known Fax Reception Apps available to process'));
 			$ext->add($context, $exten, '', new ext_hangup());
     }
