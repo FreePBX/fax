@@ -151,7 +151,7 @@ function fax_detect(){
     }
     if (!isset($fax['module'])) {
 		  $app = $astman->send_request('Command', array('Command' => 'module show like app_rxfax.so'));
-      $fax['module'] = preg_match('/[1-9] modules loaded/', $app['data']) ? 'spandsp': null;
+      $fax['module'] = preg_match('/[1-9] modules loaded/', $app['data']) ? 'app_rxfax': null;
     }
 		$response = $astman->send_request('Command', array('Command' => 'module show like app_nv_faxdetect'));
     $fax['nvfax']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
@@ -200,11 +200,21 @@ function fax_get_config($engine){
     $exten = 's';
 	  $ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
     $ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
-    if ($fax['module'] == 'spandsp') {
+    switch ($fax['module']) {
+    case 'app_rxfax':
       $ext->add($context, $exten, 'receivefax', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-    } else {
+    break;
+    case 'app_fax':
+      $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+    break;
+    case 'res_fax':
       $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
 			$ext->add($context, $exten, '', new ext_set('FAXSTATUS','${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
+    break;
+    default: // unknown
+      $ext->add($context, $exten, 'failed', new ext_noop('No Known FAX Technology installed to receive a fax, aborting'));
+			$ext->add($context, $exten, '', new ext_set('FAXSTATUS','FAILED No Known Fax Reception Apps available to process'));
+			$ext->add($context, $exten, '', new ext_hangup());
     }
     $exten = 'h';
 		$ext->add($context, $exten, '', new ext_gotoif('$["${FAXSTATUS:0:6}" = "FAILED"]', 'failed'));
