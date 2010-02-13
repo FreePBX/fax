@@ -80,6 +80,7 @@ if(!is_array($set)){$set=array();}//never return a null value
 if(!$set['minrate']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("minrate","14400")';}
 if(!$set['maxrate']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("maxrate","14400")';}
 if(!$set['ecm']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("ecm","yes")';}
+if(!$set['legacy_mode']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("legacy_mode","no")';}
 
 foreach ($sql as $statement){
 	$check = $db->query($statement);

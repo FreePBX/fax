@@ -164,7 +164,6 @@ function fax_detect(){
       $fax['receivefax'] = 'rxfax';
       break;
     case 'app_fax':
-      $fax['receivefax'] = 'rxfax';
 		  $response = $astman->send_request('Command', array('Command' => 'show applications like receivefax'));
       if (preg_match('/1 Applications Matching/', $response['data'])) {
         $fax['receivefax'] = 'receivefax';
@@ -237,7 +236,7 @@ function fax_get_config($engine){
       } else {
         $ext->add($context, $exten, 'receivefax', new ext_noop('ERROR: NO Receive FAX application detected, putting in dialplan for ReceiveFAX as default'));
         $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-			  $ext->add($context, $exten, '', new ext_set('FAXSTATUS','${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
+			  $ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS}" = ""]','Set','FAXSTATUS=${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
       }
     break;
     case 'res_fax':
@@ -351,7 +350,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		}
 		$fax=fax_get_incoming($extension,$cidnum);
 	}else{
-	$fax=null;
+	  $fax=null;
 	}
 	$html='';
 	if($target_menuid == 'did'){
@@ -359,6 +358,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
     $fax_sip_faxdetect=fax_sip_faxdetect();
     $dahdi=ast_with_dahdi()?_('Dahdi'):_('Zaptel');
     $fax_detect=fax_detect();
+    $fax_settings=fax_get_settings();
     //ensure that we are using destination for both fax detect and the regular calls
 		$html='<script type="text/javascript">$(document).ready(function(){
 		$("input[name=Submit]").click(function(){
@@ -370,7 +370,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$html.='<tr>';
 		$html.='<td><a href="#" class="info">';
 		$html.=_("Detect Faxes").'<span>'._("Attempt to detect faxes on this DID.<ul><li>No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.</li><li>Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line</li>");
-		if($fax['legacy_email']!==null){
+		if($fax_settings['legacy_mode'] == 'yes' || $fax['legacy_email']!==null){
     	$html.=_('<li>Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!</li>');
 		}		
 		$html.='</ul></span></a>:</td>';
@@ -389,7 +389,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			 * callback so that we ait for the fits animation to complete before 
 			 * playing the second
 			 */
-			if($fax['legacy_email']===null){
+			if($fax['legacy_email']===null && $fax_settings['legacy_mode'] == 'no'){
 				$jsno="$('.faxdetect').slideUp();"; 
 				$jsyes="$('.faxdetect').slideDown();";
 			}else{
@@ -403,8 +403,8 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			}
 			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$jsno.'"/>No';
 			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$jsyes.'"/>Yes';
-			if($fax['legacy_email']!==null){
-				$html.='<input type="radio" name="faxenabled" value="legacy" CHECKED onclick="'.$jslegacy.'"/>Legacy';
+			if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
+				$html.='<input type="radio" name="faxenabled" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/>Legacy';
 			}
       $html.='</td></tr>';
 			$html.='</table>';
@@ -427,9 +427,9 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$html.='<option value="'.$i.'" '.($fax['detectionwait']==$i?'SELECTED':'').'>'.$i.'</option>';	
 		}
 		$html.='</select></td></tr>';
-		if($fax['legacy_email']!==null){	
+		if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){	
 			$html.='</table>';
-			$html.='<table class="legacyemail" >';
+			$html.='<table class="legacyemail"'.($fax['legacy_email'] === null ? ' style="display: none;"':'').'>';
 			$html.='<tr ><td><a href="#" class="info">'._("Fax Email Destination").'<span>'._('Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of FreePBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of FreePBX only.').'.</span></a>:</td>';
 			$html.='<td><input name="legacy_email" value="'.$fax['legacy_email'].'"></td></tr>';
 			$html.='</table>';

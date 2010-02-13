@@ -19,11 +19,13 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 	needreload();
 	$options=array("headerinfo", "localstationid", "ecm", "maxrate", "minrate", "modem", "sender_address", "fax_rx_email");
 	foreach($options as $option){
-		isset($_REQUEST[$option])?$fax[$option]=$_REQUEST[$option]:$fax[$option]='';
+		$fax[$option] = isset($_REQUEST[$option]) ? $_REQUEST[$option] : '';
 	}
+	$fax['legacy_mode'] = isset($_REQUEST['legacy_mode']) ? $_REQUEST['legacy_mode'] : 'no';
 	fax_save_settings($fax);
 }else{
 	$fax=fax_get_settings();
+	$fax['legacy_mode'] = isset($fax['legacy_mode']) ? $fax['legacy_mode'] : 'no';
 	$action='';//no action to do
 }
 ?>
@@ -54,8 +56,8 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Error Correction Mode")?>:<span><?php echo _("Error Correction Mode (ECM) option is used to specify whether
 				 to use ecm mode or not.")?></span></a></td>
-				<td><?php echo _("Yes")?><input type="radio" name="ecm" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>">
-				<?php echo _("No")?><input type="radio" name="ecm" value="no" <?php echo (($fax['ecm'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"></td>			
+       <td><input type="radio" name="ecm" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("Yes")?>
+       <input type="radio" name="ecm" value="no" <?php echo (($fax['ecm'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("No")?></td>
 			</tr>				
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Maximum transfer rate")?>:<span><?php echo _("Maximum transfer rate used during fax rate negotiation.")?></span></a></td>
@@ -114,6 +116,12 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 			<td><input type="text" size="30" name="system_fax2email" value="<?php  //echo htmlspecialchars($system_fax2email)?>" tabindex="<?php echo ++$tabindex;?>"/></td>
 		</tr> 
 		-->
+			<tr><td colspan="3"><h5><?php echo _("Fax Module Options")?><hr/></h5></td></tr>
+			<tr>
+				<td><a href="#" class="info"><?php echo _("Always Allow Legacy Mode")?>:<span><?php echo _("In earlier versions, it was possible to provide an email address with the incoming FAX detection to route faxes that were being handled by fax-to-email detection. This has been deprecated in favor of Extension/User FAX destinations where an email address can be provided. During migration, the old email address remains present for routes configured this way but goes away once 'properly' configured. This options forces the Legacy Mode to always be present as an option.")?></span></a></td>
+        <td><input type="radio" name="legacy_mode" value="yes" <?php echo (($fax['legacy_mode'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("Yes")?>
+        <input type="radio" name="legacy_mode" value="no" <?php echo (($fax['legacy_mode'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("No")?></td>			
+			</tr>				
 	</tbody>
 	</table>
 	<br />
