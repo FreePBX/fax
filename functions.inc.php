@@ -135,25 +135,33 @@ function fax_destinations(){
 }
 
 //check to see if any fax modules and licenses are loaded in to asterisk
-function fax_detect(){
+function fax_detect($astver=null){
 	global $amp_conf;
 	global $astman;
+
+  if ($astver === null) {
+    $engineinfo = engine_getinfo();
+    $astver =  $engineinfo['version'];
+  }
+  $ast_ge_14 = version_compare($astver, '1.4', 'ge');
+
 	$fax=null;
 	$appfax = $recivefax = false;//return false by default in case asterisk isnt reachable
 	if ($amp_conf['AMPENGINE'] == 'asterisk' && isset($astman) && $astman->connected()) {
 		//check for fax modules
-		$app = $astman->send_request('Command', array('Command' => 'module show like res_fax'));
+    $module_show_command = $ast_ge_14 ? 'module show like ' : 'show modules like ';
+		$app = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax'));
 		if (preg_match('/[1-9] modules loaded/', $app['data'])){
       $fax['module']='res_fax';
     } else {
-		  $recive = $astman->send_request('Command', array('Command' => 'module show like app_fax'));
+		  $recive = $astman->send_request('Command', array('Command' => $module_show_command.'app_fax'));
 		  if (preg_match('/[1-9] modules loaded/', $recive['data'])){$fax['module']='app_fax';}
     }
     if (!isset($fax['module'])) {
-		  $app = $astman->send_request('Command', array('Command' => 'module show like app_rxfax.so'));
+		  $app = $astman->send_request('Command', array('Command' => $module_show_command.'app_rxfax'));
       $fax['module'] = preg_match('/[1-9] modules loaded/', $app['data']) ? 'app_rxfax': null;
     }
-		$response = $astman->send_request('Command', array('Command' => 'module show like app_nv_faxdetect'));
+		$response = $astman->send_request('Command', array('Command' => $module_show_command.'app_nv_faxdetect'));
     $fax['nvfax']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 
     switch($fax['module']) {
@@ -164,11 +172,12 @@ function fax_detect(){
       $fax['receivefax'] = 'rxfax';
       break;
     case 'app_fax':
-		  $response = $astman->send_request('Command', array('Command' => 'show applications like receivefax'));
+      $application_show_command = $ast_ge_14 ? 'core show applications like ' : 'show applications like ';
+		  $response = $astman->send_request('Command', array('Command' => $application_show_command.'receivefax'));
       if (preg_match('/1 Applications Matching/', $response['data'])) {
         $fax['receivefax'] = 'receivefax';
       } else {
-		    $response = $astman->send_request('Command', array('Command' => 'show applications like rxfax'));
+		    $response = $astman->send_request('Command', array('Command' => $application_show_command.'rxfax'));
         if (preg_match('/1 Applications Matching/', $response['data'])) {
           $fax['receivefax'] = 'rxfax';
         } else {
@@ -190,13 +199,13 @@ function fax_detect(){
 }
 
 function fax_get_config($engine){
+ global $version;
 
-	$fax=fax_detect();
+	$fax=fax_detect($version);
 	if($fax['module']){ //dont continue unless we have a fax module in asterisk
 		global $ext;
 		global $amp_conf;
 	  global $core_conf;
-	  global $version;
 
 		$context='ext-fax';
 	  if (version_compare($version, '1.6', 'ge') && isset($core_conf) && is_a($core_conf, "core_conf")) {
@@ -445,7 +454,8 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 }
 
 function fax_hookGet_config($engine){
-	$fax=fax_detect();
+  global $version;
+	$fax=fax_detect($version);
 	if($fax['module']){ //dont continue unless we have a fax module in asterisk
 		global $ext;
 		global $engine;
