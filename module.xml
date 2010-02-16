@@ -11,7 +11,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
-		*2.7.0.10* #4029, #4045 again
+		*2.7.0.10* #4029, #4046, #4045 again
 		*2.7.0.9* #4045 again
 		*2.7.0.8* #4045
 		*2.7.0.7* #4040
