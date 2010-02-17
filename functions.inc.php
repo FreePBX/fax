@@ -389,7 +389,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$js="if ($(this).val() == 'true'){alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
 			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED />No';
 			$html.='<input type="radio" name="faxenabled" value="true"  onclick="'.$js.'"/>Yes</td></tr>';
-			$html.='</table>';
+			$html.='</table><table>';
 		}else{
 			/* 
 			 * show detection options
