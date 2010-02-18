@@ -14,13 +14,13 @@
 #    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 #
 # FreePBX language template for fax
-# Copyright (C) 2009 Moshe Brevda
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-31 20:59+0100\n"
+"POT-Creation-Date: 2010-02-18 22:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,88 +28,100 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: functions.inc.php:18
+#: fax/fax.i18n.php:5 fax/fax.i18n.php:11
+msgid "Fax Configuration"
+msgstr ""
+
+#: fax/fax.i18n.php:7
+msgid "Basic"
+msgstr ""
+
+#: fax/fax.i18n.php:9
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr ""
+
+#: fax/functions.inc.php:18
 #, php-format
 msgid "Fax user %s"
 msgstr ""
 
-#: functions.inc.php:49
+#: fax/functions.inc.php:49
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr ""
 
-#: functions.inc.php:77
+#: fax/functions.inc.php:77
 msgid "Fax"
 msgstr ""
 
-#: functions.inc.php:82 functions.inc.php:84
+#: fax/functions.inc.php:82 fax/functions.inc.php:84
 msgid "<font color=\"red\">"
 msgstr ""
 
-#: functions.inc.php:82
+#: fax/functions.inc.php:82
 msgid ""
 "ERROR: Fax modules missing! Fax-related dialplan will <strong>NOT</strong> "
 "be generated! Please contact your vendor for more information."
 msgstr ""
 
-#: functions.inc.php:82 functions.inc.php:84
+#: fax/functions.inc.php:82 fax/functions.inc.php:84
 msgid "</font>"
 msgstr ""
 
-#: functions.inc.php:84
+#: fax/functions.inc.php:84
 msgid ""
 "ERROR: Fax license missing! Fax-related dialplan will <strong>NOT</strong> "
 "be generated! Please contact your vendor for more information."
 msgstr ""
 
-#: functions.inc.php:91
+#: fax/functions.inc.php:91
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:91
+#: fax/functions.inc.php:91
 msgid "Enable this user to receive faxes"
 msgstr ""
 
-#: functions.inc.php:92
+#: fax/functions.inc.php:92
 msgid "Fax Email"
 msgstr ""
 
-#: functions.inc.php:92
+#: fax/functions.inc.php:92
 msgid ""
 "Enter an email address where faxes sent to this extension will be delivered."
 msgstr ""
 
-#: functions.inc.php:92
+#: fax/functions.inc.php:92
 msgid "Please Enter a valid email address for fax delivery."
 msgstr ""
 
-#: functions.inc.php:132
+#: fax/functions.inc.php:132
 msgid "Fax Recipient"
 msgstr ""
 
-#: functions.inc.php:342
+#: fax/functions.inc.php:368
 msgid "Dahdi"
 msgstr ""
 
-#: functions.inc.php:342
+#: fax/functions.inc.php:368
 msgid "Zaptel"
 msgstr ""
 
-#: functions.inc.php:348
+#: fax/functions.inc.php:375
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
 msgstr ""
 
-#: functions.inc.php:350
+#: fax/functions.inc.php:377
 msgid "Fax Detect"
 msgstr ""
 
-#: functions.inc.php:354
+#: fax/functions.inc.php:381
 msgid "Detect Faxes"
 msgstr ""
 
-#: functions.inc.php:354
+#: fax/functions.inc.php:381
 msgid ""
 "Attempt to detect faxes on this DID.<ul><li>No: No attempts are made to auto-"
 "determine the call type; all calls sent to destination below. Use this "
@@ -119,7 +131,7 @@ msgid ""
 "both voice and fax calls on this line</li>"
 msgstr ""
 
-#: functions.inc.php:356
+#: fax/functions.inc.php:383
 msgid ""
 "<li>Legacy: Same as YES, only you can enter an email address as the "
 "destination. This option is ONLY for supporting migrated legacy fax routes. "
@@ -127,29 +139,29 @@ msgid ""
 "destination!</li>"
 msgstr ""
 
-#: functions.inc.php:362
+#: fax/functions.inc.php:389
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 
-#: functions.inc.php:387
+#: fax/functions.inc.php:424
 msgid "Fax Detection type"
 msgstr ""
 
-#: functions.inc.php:387
+#: fax/functions.inc.php:424
 msgid "Type of fax detection to use.<ul><li>"
 msgstr ""
 
-#: functions.inc.php:387
+#: fax/functions.inc.php:424
 msgid ": use "
 msgstr ""
 
-#: functions.inc.php:387
+#: fax/functions.inc.php:424
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 
-#: functions.inc.php:387
+#: fax/functions.inc.php:424
 msgid ""
 ".conf</li><li>Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or "
 "greater and 'faxdetect=yes' in the sip config files</li><li>NV Fax Detect: "
@@ -157,33 +169,33 @@ msgid ""
 "by asterisk</li></ul>"
 msgstr ""
 
-#: functions.inc.php:391
+#: fax/functions.inc.php:428
 msgid "NVFax"
 msgstr ""
 
-#: functions.inc.php:392
+#: fax/functions.inc.php:429
 msgid "Sip"
 msgstr ""
 
-#: functions.inc.php:395
+#: fax/functions.inc.php:432
 msgid "Fax Detection Time"
 msgstr ""
 
-#: functions.inc.php:395
+#: fax/functions.inc.php:432
 msgid "How long to wait and try to detect fax. Please note that callers to a "
 msgstr ""
 
-#: functions.inc.php:395
+#: fax/functions.inc.php:432
 msgid ""
 " channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)"
 msgstr ""
 
-#: functions.inc.php:405
+#: fax/functions.inc.php:442
 msgid "Fax Email Destination"
 msgstr ""
 
-#: functions.inc.php:405
+#: fax/functions.inc.php:442
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -196,80 +208,80 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
-#: functions.inc.php:410
+#: fax/functions.inc.php:447
 msgid "Fax Destination"
 msgstr ""
 
-#: functions.inc.php:410
+#: fax/functions.inc.php:447
 msgid "Where to send the call if we detect that its a fax"
 msgstr ""
 
-#: install.php:5
+#: fax/install.php:5
 msgid "Dial System FAX"
 msgstr ""
 
-#: install.php:56
+#: fax/install.php:56
 msgid "Moving simu_fax feature code from core.."
 msgstr ""
 
-#: install.php:59
+#: fax/install.php:59
 msgid "unknown error"
 msgstr ""
 
-#: install.php:61 install.php:68
+#: fax/install.php:61 fax/install.php:68
 msgid "done"
 msgstr ""
 
-#: install.php:63
+#: fax/install.php:63
 msgid "Updating simu_fax in miscdest table.."
 msgstr ""
 
-#: install.php:66
+#: fax/install.php:66
 msgid "not needed"
 msgstr ""
 
-#: install.php:106
+#: fax/install.php:107
 msgid "Checking if legacy fax needs migrating.."
 msgstr ""
 
-#: install.php:110
+#: fax/install.php:111
 msgid "starting migration"
 msgstr ""
 
-#: install.php:136
+#: fax/install.php:137
 msgid "migrating defaults.."
 msgstr ""
 
-#: install.php:140 install.php:220
+#: fax/install.php:141 fax/install.php:221
 msgid "failed"
 msgstr ""
 
-#: install.php:143
+#: fax/install.php:144
 msgid "migrated"
 msgstr ""
 
-#: install.php:206
+#: fax/install.php:207
 #, php-format
 msgid "Removing field %s from incoming table.."
 msgstr ""
 
-#: install.php:210
+#: fax/install.php:211
 msgid "not present"
 msgstr ""
 
-#: install.php:212 install.php:222
+#: fax/install.php:213 fax/install.php:223
 msgid "removed"
 msgstr ""
 
-#: install.php:215
+#: fax/install.php:216
 msgid "Removing old globals.."
 msgstr ""
 
-#: install.php:226
+#: fax/install.php:227
 msgid "Checking for failed migrations.."
 msgstr ""
 
-#: install.php:229
+#: fax/install.php:230
 msgid ""
 "The following Inbound Routes had FAX processing that failed migration "
 "because they were accessing a device with no associated user. They have been "
@@ -277,78 +289,78 @@ msgid ""
 "remove this notice."
 msgstr ""
 
-#: install.php:231 install.php:232
+#: fax/install.php:232 fax/install.php:233
 msgid "blank"
 msgstr ""
 
-#: install.php:235
+#: fax/install.php:236
 #, php-format
 msgid "%s FAX Migrations Failed"
 msgstr ""
 
-#: install.php:236
+#: fax/install.php:237
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
 
-#: install.php:238
+#: fax/install.php:239
 msgid "all migrations succeeded successfully"
 msgstr ""
 
-#: install.php:242
+#: fax/install.php:243
 msgid "No Inbound Routes to migrate"
 msgstr ""
 
-#: install.php:245
+#: fax/install.php:246
 msgid "already done"
 msgstr ""
 
-#: page.fax.php:31
+#: fax/page.fax.php:33
 msgid "Fax Options"
 msgstr ""
 
-#: page.fax.php:35
+#: fax/page.fax.php:37
 msgid "Fax Presentation Options"
 msgstr ""
 
-#: page.fax.php:37
+#: fax/page.fax.php:39
 msgid "Default Fax header"
 msgstr ""
 
-#: page.fax.php:37
+#: fax/page.fax.php:39
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
 "person or entity sending the fax."
 msgstr ""
 
-#: page.fax.php:40
+#: fax/page.fax.php:42
 msgid "Default Local Station Identifier"
 msgstr ""
 
-#: page.fax.php:40
+#: fax/page.fax.php:42
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-#: page.fax.php:44
+#: fax/page.fax.php:46
 msgid "Outgoing Email address:"
 msgstr ""
 
-#: page.fax.php:44
+#: fax/page.fax.php:46
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
 
-#: page.fax.php:47
+#: fax/page.fax.php:49
 msgid "Fax Feature Code Options"
 msgstr ""
 
-#: page.fax.php:49
+#: fax/page.fax.php:51
 msgid "Email address:"
 msgstr ""
 
-#: page.fax.php:49
+#: fax/page.fax.php:51
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -356,61 +368,61 @@ msgid ""
 "addresses specified."
 msgstr ""
 
-#: page.fax.php:53
+#: fax/page.fax.php:55
 msgid "Fax Transport Options"
 msgstr ""
 
-#: page.fax.php:55
+#: fax/page.fax.php:57
 msgid "Error Correction Mode"
 msgstr ""
 
-#: page.fax.php:55
+#: fax/page.fax.php:57
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t\t to use ecm mode or not."
 msgstr ""
 
-#: page.fax.php:57
+#: fax/page.fax.php:59 fax/page.fax.php:122
 msgid "Yes"
 msgstr ""
 
-#: page.fax.php:58
+#: fax/page.fax.php:60 fax/page.fax.php:123
 msgid "No"
 msgstr ""
 
-#: page.fax.php:61
+#: fax/page.fax.php:63
 msgid "Maximum transfer rate"
 msgstr ""
 
-#: page.fax.php:61
+#: fax/page.fax.php:63
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
 
-#: page.fax.php:72
+#: fax/page.fax.php:74
 msgid "Minimum transfer rate"
 msgstr ""
 
-#: page.fax.php:72
+#: fax/page.fax.php:74
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 
-#: page.fax.php:84
+#: fax/page.fax.php:86
 msgid "Modem"
 msgstr ""
 
-#: page.fax.php:84
+#: fax/page.fax.php:86
 msgid "Modem Type."
 msgstr ""
 
-#: page.fax.php:97
+#: fax/page.fax.php:99
 msgid "Fax Receive Options"
 msgstr ""
 
-#: page.fax.php:99
+#: fax/page.fax.php:101
 msgid "Default fax instance:"
 msgstr ""
 
-#: page.fax.php:99
+#: fax/page.fax.php:101
 msgid ""
 "Select 'system default' to have the system act as a fax instance and receive "
 "and faxes. You can then route faxes to this instance and avoid having to "
@@ -419,24 +431,43 @@ msgid ""
 "extension, such as a physical fax machine"
 msgstr ""
 
-#: page.fax.php:101
+#: fax/page.fax.php:103
 msgid "disabled"
 msgstr ""
 
-#: page.fax.php:102
+#: fax/page.fax.php:104
 msgid "system default"
 msgstr ""
 
-#: page.fax.php:113
+#: fax/page.fax.php:115
 msgid "Default Recipient Email address:"
 msgstr ""
 
-#: page.fax.php:113
+#: fax/page.fax.php:115
 msgid ""
 "Email address used if 'system default' has been chosen as the default fax "
 "extension."
 msgstr ""
 
-#: page.fax.php:124
+#: fax/page.fax.php:119
+msgid "Fax Module Options"
+msgstr ""
+
+#: fax/page.fax.php:121
+msgid "Always Allow Legacy Mode"
+msgstr ""
+
+#: fax/page.fax.php:121
+msgid ""
+"In earlier versions, it was possible to provide an email address with the "
+"incoming FAX detection to route faxes that were being handled by fax-to-"
+"email detection. This has been deprecated in favor of Extension/User FAX "
+"destinations where an email address can be provided. During migration, the "
+"old email address remains present for routes configured this way but goes "
+"away once 'properly' configured. This options forces the Legacy Mode to "
+"always be present as an option."
+msgstr ""
+
+#: fax/page.fax.php:132
 msgid "Submit"
 msgstr ""
