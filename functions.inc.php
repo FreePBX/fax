@@ -79,9 +79,9 @@ function fax_configpageload() {
 		//check for fax prequsits, and alert the user if something is amiss
 		$fax=fax_detect();
 		if(!$fax['module']){//missing modules
-			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: Fax modules missing! Fax-related dialplan will <strong>NOT</strong> be generated! Please contact your vendor for more information.').'</font>')));
+			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: No FAX modules detected! Fax-related dialplan will <strong>NOT</strong> be generated. This module requires Fax for Asterisk or spandsp based app_fax or app_rxfax to function.').'</font>')));
 		}elseif($fax['module'] == 'res_fax' && $fax['license'] < 1){//missing licese
-			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: Fax license missing! Fax-related dialplan will <strong>NOT</strong> be generated! Please contact your vendor for more information.').'</font>')));
+			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: No Fax licenses. Fax-related dialplan will <strong>NOT</strong> be generated! This module has detected Fax for Asterisk is installed with no license. At least on lincens is required (and available for free) and must be installed.').'</font>')));
 		}
 		$usage_list = framework_display_destination_usage(fax_getdest($extdisplay));
 		if (!empty($usage_list)) {
@@ -259,7 +259,8 @@ function fax_get_config($engine){
     }
     $exten = 'h';
 		$ext->add($context, $exten, '', new ext_gotoif('$["${FAXSTATUS:0:6}" = "FAILED"]', 'failed'));
-    $ext->add($context, $exten, 'process', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(all)})}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'));
+    $ext->add($context, $exten, 'process', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(name)})} ${URIENCODE(<${CALLERID(number)}>)}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'));
+
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
     $ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
 	  $ext->add($context, $exten, '', new ext_macro('hangupcall'));
