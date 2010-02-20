@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-18 22:37+0100\n"
+"POT-Creation-Date: 2010-02-20 08:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,8 +60,9 @@ msgstr ""
 
 #: fax/functions.inc.php:82
 msgid ""
-"ERROR: Fax modules missing! Fax-related dialplan will <strong>NOT</strong> "
-"be generated! Please contact your vendor for more information."
+"ERROR: No FAX modules detected! Fax-related dialplan will <strong>NOT</"
+"strong> be generated. This module requires Fax for Asterisk or spandsp based "
+"app_fax or app_rxfax to function."
 msgstr ""
 
 #: fax/functions.inc.php:82 fax/functions.inc.php:84
@@ -70,8 +71,10 @@ msgstr ""
 
 #: fax/functions.inc.php:84
 msgid ""
-"ERROR: Fax license missing! Fax-related dialplan will <strong>NOT</strong> "
-"be generated! Please contact your vendor for more information."
+"ERROR: No Fax licenses. Fax-related dialplan will <strong>NOT</strong> be "
+"generated! This module has detected Fax for Asterisk is installed with no "
+"license. At least on lincens is required (and available for free) and must "
+"be installed."
 msgstr ""
 
 #: fax/functions.inc.php:91
@@ -99,29 +102,29 @@ msgstr ""
 msgid "Fax Recipient"
 msgstr ""
 
-#: fax/functions.inc.php:368
+#: fax/functions.inc.php:369
 msgid "Dahdi"
 msgstr ""
 
-#: fax/functions.inc.php:368
+#: fax/functions.inc.php:369
 msgid "Zaptel"
 msgstr ""
 
-#: fax/functions.inc.php:375
+#: fax/functions.inc.php:376
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
 msgstr ""
 
-#: fax/functions.inc.php:377
+#: fax/functions.inc.php:378
 msgid "Fax Detect"
 msgstr ""
 
-#: fax/functions.inc.php:381
+#: fax/functions.inc.php:382
 msgid "Detect Faxes"
 msgstr ""
 
-#: fax/functions.inc.php:381
+#: fax/functions.inc.php:382
 msgid ""
 "Attempt to detect faxes on this DID.<ul><li>No: No attempts are made to auto-"
 "determine the call type; all calls sent to destination below. Use this "
@@ -131,7 +134,7 @@ msgid ""
 "both voice and fax calls on this line</li>"
 msgstr ""
 
-#: fax/functions.inc.php:383
+#: fax/functions.inc.php:384
 msgid ""
 "<li>Legacy: Same as YES, only you can enter an email address as the "
 "destination. This option is ONLY for supporting migrated legacy fax routes. "
@@ -139,29 +142,29 @@ msgid ""
 "destination!</li>"
 msgstr ""
 
-#: fax/functions.inc.php:389
+#: fax/functions.inc.php:390
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 
-#: fax/functions.inc.php:424
+#: fax/functions.inc.php:425
 msgid "Fax Detection type"
 msgstr ""
 
-#: fax/functions.inc.php:424
+#: fax/functions.inc.php:425
 msgid "Type of fax detection to use.<ul><li>"
 msgstr ""
 
-#: fax/functions.inc.php:424
+#: fax/functions.inc.php:425
 msgid ": use "
 msgstr ""
 
-#: fax/functions.inc.php:424
+#: fax/functions.inc.php:425
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 
-#: fax/functions.inc.php:424
+#: fax/functions.inc.php:425
 msgid ""
 ".conf</li><li>Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or "
 "greater and 'faxdetect=yes' in the sip config files</li><li>NV Fax Detect: "
@@ -169,33 +172,33 @@ msgid ""
 "by asterisk</li></ul>"
 msgstr ""
 
-#: fax/functions.inc.php:428
+#: fax/functions.inc.php:429
 msgid "NVFax"
 msgstr ""
 
-#: fax/functions.inc.php:429
+#: fax/functions.inc.php:430
 msgid "Sip"
 msgstr ""
 
-#: fax/functions.inc.php:432
+#: fax/functions.inc.php:433
 msgid "Fax Detection Time"
 msgstr ""
 
-#: fax/functions.inc.php:432
+#: fax/functions.inc.php:433
 msgid "How long to wait and try to detect fax. Please note that callers to a "
 msgstr ""
 
-#: fax/functions.inc.php:432
+#: fax/functions.inc.php:433
 msgid ""
 " channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)"
 msgstr ""
 
-#: fax/functions.inc.php:442
+#: fax/functions.inc.php:443
 msgid "Fax Email Destination"
 msgstr ""
 
-#: fax/functions.inc.php:442
+#: fax/functions.inc.php:443
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -208,11 +211,11 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
-#: fax/functions.inc.php:447
+#: fax/functions.inc.php:448
 msgid "Fax Destination"
 msgstr ""
 
-#: fax/functions.inc.php:447
+#: fax/functions.inc.php:448
 msgid "Where to send the call if we detect that its a fax"
 msgstr ""
 
