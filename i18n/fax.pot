@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-20 08:03+0100\n"
+"POT-Creation-Date: 2010-02-20 15:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,10 +71,10 @@ msgstr ""
 
 #: fax/functions.inc.php:84
 msgid ""
-"ERROR: No Fax licenses. Fax-related dialplan will <strong>NOT</strong> be "
-"generated! This module has detected Fax for Asterisk is installed with no "
-"license. At least on lincens is required (and available for free) and must "
-"be installed."
+"ERROR: No Fax license detected. Fax-related dialplan will <strong>NOT</"
+"strong> be generated! This module has detected that Fax for Asterisk is "
+"installed without a license. At least one license is required (it is "
+"available for free) and must be installed."
 msgstr ""
 
 #: fax/functions.inc.php:91

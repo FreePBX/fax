@@ -81,7 +81,7 @@ function fax_configpageload() {
 		if(!$fax['module']){//missing modules
 			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: No FAX modules detected! Fax-related dialplan will <strong>NOT</strong> be generated. This module requires Fax for Asterisk or spandsp based app_fax or app_rxfax to function.').'</font>')));
 		}elseif($fax['module'] == 'res_fax' && $fax['license'] < 1){//missing licese
-			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: No Fax licenses. Fax-related dialplan will <strong>NOT</strong> be generated! This module has detected Fax for Asterisk is installed with no license. At least on lincens is required (and available for free) and must be installed.').'</font>')));
+			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: No Fax license detected. Fax-related dialplan will <strong>NOT</strong> be generated! This module has detected that Fax for Asterisk is installed without a license. At least one license is required (it is available for free) and must be installed.').'</font>')));
 		}
 		$usage_list = framework_display_destination_usage(fax_getdest($extdisplay));
 		if (!empty($usage_list)) {
