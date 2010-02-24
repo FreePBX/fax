@@ -207,10 +207,12 @@ function fax_get_config($engine){
 		global $amp_conf;
 	  global $core_conf;
 
-		$context='ext-fax';
-	  if (version_compare($version, '1.6', 'ge') && isset($core_conf) && is_a($core_conf, "core_conf")) {
+	  $ast_ge_16= version_compare($version, '1.6', 'ge');
+	  if ($ast_ge_16 && isset($core_conf) && is_a($core_conf, "core_conf")) {
 		  $core_conf->addSipGeneral('faxdetect','yes');
 	  }
+
+		$context='ext-fax';
 		$dests=fax_get_destinations();
 		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
 		if($dests){
@@ -250,7 +252,11 @@ function fax_get_config($engine){
     break;
     case 'res_fax':
       $ext->add($context, $exten, 'receivefax', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
-			$ext->add($context, $exten, '', new ext_set('FAXSTATUS','${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
+      // Some versions or settings appear to have successful completions continue, so check status and goto hangup code
+      $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"=""]','Set','FAXSTATUS=FAILED LICENSE EXCEEDED'));
+      $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"!="" && "${FAXOPT(error)}"!="NO_ERROR"]','Set','FAXSTATUS="FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}"'));
+		  $ext->add($context, $exten, '', new ext_goto('1','h'));
+
     break;
     default: // unknown
       $ext->add($context, $exten, '', new ext_noop('No Known FAX Technology installed to receive a fax, aborting'));
