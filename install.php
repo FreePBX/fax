@@ -56,7 +56,17 @@ foreach ($sql as $statement){
 outn(_("Moving simu_fax feature code from core.."));
 $check = $db->query("UPDATE featurecodes set modulename = 'fax' WHERE modulename = 'core' AND featurename = 'simu_fax'");
 if (DB::IsError($check)){
-  out(_("unknown error"));
+  if ($check->getCode() == DB_ERROR_ALREADY_EXISTS) {
+    outn(_("duplicate, removing old from core.."));
+    $check = $db->query("DELETE FROM featurecodes WHERE modulename = 'core' AND featurename = 'simu_fax'");
+    if (DB::IsError($check)){
+      out(_("unknown error"));
+    } else {
+      out(_("removed"));
+    }
+  } else {
+    out(_("unknown error"));
+  }
 } else {
   out(_("done"));
 }

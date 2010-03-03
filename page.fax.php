@@ -98,7 +98,7 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 <!-- php echo'd variables are commented out as well!
 		<tr><td colspan="3"><h5><?php echo _("Fax Receive Options")?><hr/></h5></td></tr>
 		<tr>
-			<td><a class="info" href="#"><?php echo _("Default fax instance:")?><span><?php echo _("Select 'system default' to have the system act as a fax instance and receive and faxes. You can then route faxes to this instance and avoid having to route faxes to an instance associated with a specific entity. This can be the system using Asterisk's internal capabilities or it can be an external extension, such as a physical fax machine")?></span></a></td>
+			<td><a class="info" href="#"><?php echo _("Default fax instance:")?><span><?php echo _("Select 'system default' to have the system act as a fax instance. You can then route faxes to this instance and avoid having to route faxes to an instance associated with a specific entity. This can be the system using Asterisk's internal capabilities or it can be an external extension, such as a physical fax machine")?></span></a></td>
 				<td><select name="system_instance" id="system_instance" tabindex="<?php echo ++$tabindex;?>">
 				<option value="disabled" <?php  //echo ($system_instance == 'disabled' ? 'SELECTED' : '')?>><?php echo _("disabled")?>
 				<option value="system" <?php  //echo ($system_instance == 'system' ? 'SELECTED' : '')?>><?php echo _("system default")?>

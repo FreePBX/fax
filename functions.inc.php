@@ -265,7 +265,8 @@ function fax_get_config($engine){
     }
     $exten = 'h';
 		$ext->add($context, $exten, '', new ext_gotoif('$["${FAXSTATUS:0:6}" = "FAILED"]', 'failed'));
-    $ext->add($context, $exten, 'process', new ext_execif('$["${FAX_RX_EMAIL}" != ""]','system','${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(name)})} ${URIENCODE(<${CALLERID(number)}>)}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'));
+    $ext->add($context, $exten, 'process', new ext_gotoif('$["${FAX_RX_EMAIL}" = ""]','end'));
+    $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(name)})} ${URIENCODE(<${CALLERID(number)}>)}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'));
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
     $ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
