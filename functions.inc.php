@@ -199,18 +199,13 @@ function fax_detect($astver=null){
 }
 
 function fax_get_config($engine){
- global $version;
+  global $version;
+  global $ext;
+  global $amp_conf;
+  global $core_conf;
 
 	$fax=fax_detect($version);
 	if($fax['module']){ //dont continue unless we have a fax module in asterisk
-		global $ext;
-		global $amp_conf;
-	  global $core_conf;
-
-	  $ast_ge_16= version_compare($version, '1.6', 'ge');
-	  if ($ast_ge_16 && isset($core_conf) && is_a($core_conf, "core_conf")) {
-		  $core_conf->addSipGeneral('faxdetect','yes');
-	  }
 
 		$context='ext-fax';
 		$dests=fax_get_destinations();
@@ -219,7 +214,7 @@ function fax_get_config($engine){
 			foreach ($dests as $row) {
 				$exten=$row['user'];
 				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
-				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', '"'.$row['faxemail'].'"'));			
+				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', $row['faxemail']));			
 		    $ext->add($context, $exten, '', new ext_goto('receivefax','s'));
 			}
 		}
@@ -255,7 +250,7 @@ function fax_get_config($engine){
       // Some versions or settings appear to have successful completions continue, so check status and goto hangup code
       $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"=""]','Set','FAXSTATUS=FAILED LICENSE EXCEEDED'));
       $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"!="" && "${FAXOPT(error)}"!="NO_ERROR"]','Set','FAXSTATUS="FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}"'));
-		  $ext->add($context, $exten, '', new ext_goto('1','h'));
+		  $ext->add($context, $exten, '', new ext_hangup());
 
     break;
     default: // unknown
@@ -265,26 +260,13 @@ function fax_get_config($engine){
     }
     $exten = 'h';
 		$ext->add($context, $exten, '', new ext_gotoif('$["${FAXSTATUS:0:6}" = "FAILED"]', 'failed'));
-    $ext->add($context, $exten, 'process', new ext_gotoif('$["${FAX_RX_EMAIL}" = ""]','end'));
+    $ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','end'));
     $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax-process.pl --to ${FAX_RX_EMAIL} --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(name)})} ${URIENCODE(<${CALLERID(number)}>)}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'));
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
     $ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
 	  $ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
-		$ext->add('ext-did-0001', 'fax', '', new ext_goto('${FAX_DEST}'));
-		$ext->add('ext-did-0002', 'fax', '', new ext_goto('${FAX_DEST}'));
-
-    // Add fax extension to ivr and announcement as inbound controle may be passed quickly to them and still detection is desired
-    if (function_exists('ivr_list')) {
-			$ivrlist = ivr_list();
-			if(is_array($ivrlist)) foreach($ivrlist as $item) {
-		    $ext->add("ivr-".$item['ivr_id'], 'fax', '', new ext_goto('${FAX_DEST}'));
-      }
-    }
-    if (function_exists('announcement_list')) foreach (announcement_list() as $row) {
-      $ext->add('app-announcement-'.$row['announcement_id'], 'fax', '', new ext_goto('${FAX_DEST}'));
-    }
 
 		//write out res_fax.conf and res_fax_digium.conf
 		fax_write_conf();
@@ -300,6 +282,31 @@ function fax_get_config($engine){
       $ext->add('app-fax', $fc_simu_fax, '', new ext_setvar('FAX_RX_EMAIL', $default_address[0]));
       $ext->add('app-fax', $fc_simu_fax, '', new ext_goto('1', 's', 'ext-fax'));
       $ext->add('app-fax', 'h', '', new ext_macro('hangupcall'));
+    }
+    // This is not really needed but is put here in case some ever accidently switches the order below when
+    // checking for this setting since $fax['module'] will be set there and the 2nd part never checked
+    $fax_settings['force_detection'] = 'yes';
+	} else {
+    $fax_settings=fax_get_settings();
+  }
+	if ($fax['module'] | $fax_settings['force_detection'] == 'yes') { //dont continue unless we have a fax module in asterisk
+	  $ast_ge_16= version_compare($version, '1.6', 'ge');
+	  if ($ast_ge_16 && isset($core_conf) && is_a($core_conf, "core_conf")) {
+		  $core_conf->addSipGeneral('faxdetect','yes');
+	  }
+
+		$ext->add('ext-did-0001', 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
+		$ext->add('ext-did-0002', 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
+
+    // Add fax extension to ivr and announcement as inbound controle may be passed quickly to them and still detection is desired
+    if (function_exists('ivr_list')) {
+			$ivrlist = ivr_list();
+			if(is_array($ivrlist)) foreach($ivrlist as $item) {
+		    $ext->add("ivr-".$item['ivr_id'], 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
+      }
+    }
+    if (function_exists('announcement_list')) foreach (announcement_list() as $row) {
+      $ext->add('app-announcement-'.$row['announcement_id'], 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
     }
 	}
 }
@@ -464,7 +471,12 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 function fax_hookGet_config($engine){
   global $version;
 	$fax=fax_detect($version);
-	if($fax['module']){ //dont continue unless we have a fax module in asterisk
+  if ($fax['module']) {
+	  $fax_settings['force_detection'] = 'yes';
+  } else {
+    $fax_settings=fax_get_settings();
+  }
+	if($fax_settings['force_detection'] == 'yes'){ //dont continue unless we have a fax module in asterisk
 		global $ext;
 		global $engine;
 		$routes=fax_get_incoming();
@@ -485,9 +497,9 @@ function fax_hookGet_config($engine){
 				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 			}
       if ($route['legacy_email'] === null) {
-			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"'.$route['destination'].'"'));
+			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST',str_replace(',','^',$route['destination'])));
       } else {
-			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','"ext-fax,s,1"'));
+			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','ext-fax^s^1'));
         if ($route['legacy_email']) {
 			    $fax_rx_email = $route['legacy_email'];
         } else {

@@ -22,12 +22,15 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
 		$fax[$option] = isset($_REQUEST[$option]) ? $_REQUEST[$option] : '';
 	}
 	$fax['legacy_mode'] = isset($_REQUEST['legacy_mode']) ? $_REQUEST['legacy_mode'] : 'no';
+	$fax['force_detection'] = isset($_REQUEST['force_detection']) ? $_REQUEST['force_detection'] : 'no';
 	fax_save_settings($fax);
 }else{
 	$fax=fax_get_settings();
 	$fax['legacy_mode'] = isset($fax['legacy_mode']) ? $fax['legacy_mode'] : 'no';
+	$fax['force_detection'] = isset($fax['force_detection']) ? $fax['force_detection'] : 'no';
 	$action='';//no action to do
 }
+$fax_detect=fax_detect();
 ?>
 
 <h2><?php echo _("Fax Options")?></h2>
@@ -122,11 +125,18 @@ if (isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'edit'){
         <td><input type="radio" name="legacy_mode" value="yes" <?php echo (($fax['legacy_mode'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("Yes")?>
         <input type="radio" name="legacy_mode" value="no" <?php echo (($fax['legacy_mode'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("No")?></td>			
 			</tr>				
+
+<?php if(!$fax_detect['module']){ ?>
+			<tr>
+				<td><a href="#" class="info"><?php echo _("Always Generate Detection Code")?>:<span><?php echo _("When no fax modules are detected the module will not generate any detection dialplan by default. If the system is being used with phyical FAX devices, hylafax + iaxmodem, or other outside fax setups you can force the dialplan to be generated here.")?></span></a></td>
+        <td><input type="radio" name="force_detection" value="yes" <?php echo (($fax['force_detection'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("Yes")?>
+        <input type="radio" name="force_detection" value="no" <?php echo (($fax['force_detection'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("No")?></td>			
+			</tr>				
+<?php } ?>
 	</tbody>
 	</table>
 	<br />
 
-	
 	<input type="hidden" value="fax" name="display"/>
 	<input type="hidden" name="action" value="edit">
 	<input type=submit value="<?php echo _("Submit")?>">

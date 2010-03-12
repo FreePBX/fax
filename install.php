@@ -91,7 +91,8 @@ if(!$set['minrate']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("
 if(!$set['maxrate']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("maxrate","14400")';}
 if(!$set['ecm']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("ecm","yes")';}
 if(!$set['legacy_mode']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("legacy_mode","no")';}
-
+if(!$set['force_detection']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("force_detection","no")';}
+ 
 foreach ($sql as $statement){
 	$check = $db->query($statement);
 	if (DB::IsError($check)){
