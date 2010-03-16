@@ -386,7 +386,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
     //ensure that we are using destination for both fax detect and the regular calls
 		$html='<script type="text/javascript">$(document).ready(function(){
 		$("input[name=Submit]").click(function(){
-			if($("input[name=faxenabled]:checked").val()=="true" && !$("input[name=gotoFAX]:checked").val()){//ensure the user selected a fax destination
+			if($("input[name=faxenabled]:checked").val()=="true" && !$("[name=gotoFAX]").val()){//ensure the user selected a fax destination
 			alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }	}) });</script>';
 		$html .= '<tr><td colspan="2"><h5>';
 		$html.=_('Fax Detect');
@@ -459,9 +459,10 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			$html.='</table>';
 			$html.='<table class="faxdest27 faxdetect" style="display: none" >';
 	}		
-		$html.='<tr class="faxdest"><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a>:</td></tr>';
-		$html.=$fax_detect?drawselects(isset($fax['destination'])?$fax['destination']:null,'FAX'):'';
-		$html.='</table>';
+		$html.='<tr class="faxdest"><td><a href="#" class="info">'._("Fax Destination").'<span>'._('Where to send the call if we detect that its a fax').'.</span></a>:</td>';
+		$html.='<td>';
+		$html.=$fax_detect?drawselects(isset($fax['destination'])?$fax['destination']:null,'FAX',false,false):'';
+		$html.='</td></tr></table>';
 		$html.='<table>';
 	}
 	return $html;
