@@ -11,8 +11,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
-		*2.8.0.0* adjust presentation becasue of #1798
-		*2.7.0.17* #4099
+		*2.8.0.0* #4099, #4117, adjust presentation becasue of #1798
 		*2.7.0.16* #4101, #4112, #4113
 		*2.7.0.15* #4096 (workaround for Asterisk bug in 1.6.2)
 		*2.7.0.14* #4090
