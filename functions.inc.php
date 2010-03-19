@@ -515,7 +515,7 @@ function fax_hookGet_config($engine){
 		  $ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
       if ($route['detection'] == 'nvfax') {
 		    $ext->splice($context, $extension, 'dest-ext', new ext_playtones('ring'));
-		    $ext->splice($context, $extension, 'dest-ext', new ext_nvfaxdetect($route['detectionwait']."|t"));
+		    $ext->splice($context, $extension, 'dest-ext', new ext_nvfaxdetect($route['detectionwait'].",t"));
       } else {
 		    $ext->splice($context, $extension, 'dest-ext', new ext_wait($route['detectionwait']));
       }
