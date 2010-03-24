@@ -215,7 +215,7 @@ function fax_get_config($engine){
 				$exten=$row['user'];
 				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
 				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', $row['faxemail']));			
-		    $ext->add($context, $exten, '', new ext_goto('receivefax','s'));
+		    $ext->add($context, $exten, 'receivefax', new ext_goto('receivefax','s'));
 			}
 		}
     /*
