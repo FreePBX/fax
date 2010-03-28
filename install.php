@@ -115,7 +115,7 @@ if(!$set['ecm']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("ecm"
 if(!$set['legacy_mode']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("legacy_mode","no")';}
 if(!$set['force_detection']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("force_detection","no")';}
  
-if($sql){
+if(isset($sql)){
 	foreach ($sql as $statement){
 		$check = $db->query($statement);
 		if (DB::IsError($check)){
