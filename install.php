@@ -49,6 +49,28 @@ foreach ($sql as $statement){
 		die_freepbx( "Can not execute $statement : " . $check->getMessage() .  "\n");
 	}
 }
+
+//check for 2.6-style tables
+$sql='describe fax_incoming';
+$fields=$db->getAssoc($sql);
+if(array_key_exists('faxdestination',$fields)){
+	out(_('Migrating fax_incoming table...'));
+	$sql='alter table fax_incoming 
+				change faxdetection detection varchar(20) default NULL, 
+				change faxdetectionwait detectionwait varchar(5) default NULL,
+				change faxdestination destination varchar(50) default NULL,
+				add legacy_email varchar(50) default NULL,
+				drop faxenabled,
+				modify extension varchar(50)';
+	$q=$db->query($sql);
+	if(DB::IsError($q)){
+    out(_('WARINING: fax_incoming table may still be using the 2.6 schema!'));
+  } else {
+    out(_('Sucsessfuly migraded fax_incoming table!'));
+  }
+}
+unset($sql);
+
 /* migrate simu_fax from core to fax module, including in miscdests module in case it is being used as a destination.
    this migration is a bit "messy" but assures that any simu_fax settings or destinations being used in the dialplan
    will migrate silently and continue to work.
@@ -93,13 +115,14 @@ if(!$set['ecm']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("ecm"
 if(!$set['legacy_mode']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("legacy_mode","no")';}
 if(!$set['force_detection']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("force_detection","no")';}
  
-foreach ($sql as $statement){
-	$check = $db->query($statement);
-	if (DB::IsError($check)){
-		die_freepbx( "Can not execute $statement : " . $check->getMessage() .  "\n");
+if($sql){
+	foreach ($sql as $statement){
+		$check = $db->query($statement);
+		if (DB::IsError($check)){
+			die_freepbx( "Can not execute $statement : " . $check->getMessage() .  "\n");
+		}
 	}
 }
-
 /*
 incoming columns:
 
