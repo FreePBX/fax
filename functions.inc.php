@@ -207,6 +207,7 @@ function fax_get_config($engine){
 	$fax=fax_detect($version);
 	if($fax['module']){ //dont continue unless we have a fax module in asterisk
 
+    $t38_fb = version_compare($version, '1.6', 'ge')?',f':'';
 		$context='ext-fax';
 		$dests=fax_get_destinations();
 		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
@@ -239,15 +240,15 @@ function fax_get_config($engine){
       if ($fax['receivefax'] == 'rxfax') {
         $ext->add($context, $exten, '', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
       } elseif ($fax['receivefax'] == 'receivefax') {
-        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //recive fax, then email it on
       } else {
         $ext->add($context, $exten, '', new ext_noop('ERROR: NO Receive FAX application detected, putting in dialplan for ReceiveFAX as default'));
-        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //recive fax, then email it on
 			  $ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS}" = ""]','Set','FAXSTATUS=${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
       }
     break;
     case 'res_fax':
-      $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+      $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //recive fax, then email it on
       // Some versions or settings appear to have successful completions continue, so check status and goto hangup code
       $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"=""]','Set','FAXSTATUS=FAILED LICENSE EXCEEDED'));
       $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"!="" && "${FAXOPT(error)}"!="NO_ERROR"]','Set','FAXSTATUS="FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}"'));
