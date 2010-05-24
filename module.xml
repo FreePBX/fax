@@ -11,7 +11,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
-		*2.8.0.3* #4277
+		*2.8.0.3* #4277, #4227
 		*2.8.0.2* #4166
 		*2.8.0.1* #4118
 		*2.8.0.0* #4099, #4117, adjust presentation becasue of #1798
