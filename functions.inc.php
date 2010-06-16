@@ -104,11 +104,19 @@ function fax_configpageinit($pagename) {
 
 //prosses recived arguments
 function fax_configprocess() {
-	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:$_REQUEST['extension'];
+       $action                 = isset($_REQUEST['action']) ?$_REQUEST['action']:null;
+       $ext                            = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:$_REQUEST['extension'];
 	$faxenabled = isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:null;
-	$faxemail = isset($_REQUEST['faxemail'])?$_REQUEST['faxemail']:null;
-	if ($action == 'edit'){fax_save_user($ext,$faxenabled,$faxemail);}
+       $faxemail       = isset($_REQUEST['faxemail'])?$_REQUEST['faxemail']:null;
+       switch ($action) {
+               case 'edit':
+                       fax_save_user($ext,$faxenabled,$faxemail);
+                       break;
+               case 'del':
+                       fax_delete_user($ext);
+                       break;
+       }
+
 }
 
 function fax_dahdi_faxdetect(){
@@ -123,6 +131,12 @@ function fax_delete_incoming($extdisplay){
 	global $db;
 	$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1']; //set vars
 	sql("DELETE FROM fax_incoming WHERE cidnum = '".$db->escapeSimple($cidnum)."' and extension = '".$db->escapeSimple($extension)."'");
+}
+
+function fax_delete_user($faxext) {
+       global $db;
+       $faxext=$db->escapeSimple($faxext);
+       sql('DELETE FROM fax_users where user = "'.$faxext.'"');
 }
 
 function fax_destinations(){
