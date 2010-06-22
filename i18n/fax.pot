@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-27 17:34+0100\n"
+"POT-Creation-Date: 2010-06-22 19:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -184,10 +184,25 @@ msgstr ""
 msgid "Dial System FAX"
 msgstr ""
 
+msgid "Migrating fax_incoming table..."
+msgstr ""
+
+msgid "WARINING: fax_incoming table may still be using the 2.6 schema!"
+msgstr ""
+
+msgid "Sucsessfuly migraded fax_incoming table!"
+msgstr ""
+
 msgid "Moving simu_fax feature code from core.."
 msgstr ""
 
+msgid "duplicate, removing old from core.."
+msgstr ""
+
 msgid "unknown error"
+msgstr ""
+
+msgid "removed"
 msgstr ""
 
 msgid "done"
@@ -219,9 +234,6 @@ msgid "Removing field %s from incoming table.."
 msgstr ""
 
 msgid "not present"
-msgstr ""
-
-msgid "removed"
 msgstr ""
 
 msgid "Removing old globals.."
@@ -341,11 +353,11 @@ msgid "Default fax instance:"
 msgstr ""
 
 msgid ""
-"Select 'system default' to have the system act as a fax instance and receive "
-"and faxes. You can then route faxes to this instance and avoid having to "
-"route faxes to an instance associated with a specific entity. This can be "
-"the system using Asterisk's internal capabilities or it can be an external "
-"extension, such as a physical fax machine"
+"Select 'system default' to have the system act as a fax instance. You can "
+"then route faxes to this instance and avoid having to route faxes to an "
+"instance associated with a specific entity. This can be the system using "
+"Asterisk's internal capabilities or it can be an external extension, such as "
+"a physical fax machine"
 msgstr ""
 
 msgid "disabled"
@@ -376,6 +388,16 @@ msgid ""
 "old email address remains present for routes configured this way but goes "
 "away once 'properly' configured. This options forces the Legacy Mode to "
 "always be present as an option."
+msgstr ""
+
+msgid "Always Generate Detection Code"
+msgstr ""
+
+msgid ""
+"When no fax modules are detected the module will not generate any detection "
+"dialplan by default. If the system is being used with phyical FAX devices, "
+"hylafax + iaxmodem, or other outside fax setups you can force the dialplan "
+"to be generated here."
 msgstr ""
 
 msgid "Submit"
