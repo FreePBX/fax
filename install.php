@@ -230,9 +230,11 @@ if(!DB::IsError($legacy_settings)) {
       }
     }
 
-		$compiled = $db->prepare("INSERT INTO `fax_incoming` (`extension`, `cidnum`, `detection`, `detectionwait`, `destination`, `legacy_email`) VALUES (?,?,?,?,?,?)");
-		$result = $db->executeMultiple($compiled,$insert_array);
-		if(DB::IsError($result)) {
+    if (!empty($insert_array)) {
+		  $compiled = $db->prepare("INSERT INTO `fax_incoming` (`extension`, `cidnum`, `detection`, `detectionwait`, `destination`, `legacy_email`) VALUES (?,?,?,?,?,?)");
+		  $result = $db->executeMultiple($compiled,$insert_array);
+    }
+		if(!empty($insert_array) && DB::IsError($result)) {
       out("Fatal error migrating to fax module..legacy data retained in incoming and globals tables");
 		  die_freepbx( "Fatal error during migration: " . $result->getMessage() .  "\n");
 		} else {
