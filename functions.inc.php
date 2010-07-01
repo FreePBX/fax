@@ -79,9 +79,9 @@ function fax_configpageload() {
 		//check for fax prequsits, and alert the user if something is amiss
 		$fax=fax_detect();
 		if(!$fax['module']){//missing modules
-			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: No FAX modules detected! Fax-related dialplan will <strong>NOT</strong> be generated. This module requires Fax for Asterisk or spandsp based app_fax or app_rxfax to function.').'</font>')));
+			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No FAX modules detected! Fax-related dialplan will <strong>NOT</strong> be generated. This module requires Fax for Asterisk or spandsp based app_fax or app_rxfax to function.').'</font>'));
 		}elseif($fax['module'] == 'res_fax' && $fax['license'] < 1){//missing licese
-			$currentcomponent->addguielem($section, new gui_label('error',_('<font color="red">'._('ERROR: No Fax license detected. Fax-related dialplan will <strong>NOT</strong> be generated! This module has detected that Fax for Asterisk is installed without a license. At least one license is required (it is available for free) and must be installed.').'</font>')));
+			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No Fax license detected. Fax-related dialplan will <strong>NOT</strong> be generated! This module has detected that Fax for Asterisk is installed without a license. At least one license is required (it is available for free) and must be installed.').'</font>'));
 		}
 		$usage_list = framework_display_destination_usage(fax_getdest($extdisplay));
 		if (!empty($usage_list)) {
@@ -409,7 +409,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$html.='<hr></h5></td></tr>';
 		$html.='<tr>';
 		$html.='<td><a href="#" class="info">';
-		$html.=_("Detect Faxes").'<span>'._("Attempt to detect faxes on this DID.<ul><li>No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.</li><li>Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line</li>");
+		$html.=_("Detect Faxes").'<span>'._("Attempt to detect faxes on this DID.")."<ul><li>"._("No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.")."</li><li>"._("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line")."</li>";
 		if($fax_settings['legacy_mode'] == 'yes' || $fax['legacy_email']!==null){
     	$html.=_('<li>Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!</li>');
 		}		
@@ -452,7 +452,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		//fax detection+destinations, hidden if there is fax is disabled
 		$html.='<table class=faxdetect '.($fax?'':'style="display: none;"').'>';	
 		$info=engine_getinfo();
-		$html.='<tr><td width="156px"><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.<ul><li>".$dahdi.": use ".$dahdi." fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ".$dahdi.".conf</li><li>Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files</li><li>NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk</li></ul>").'.</span></a>:</td>';
+		$html.='<tr><td width="156px"><a href="#" class="info">'._('Fax Detection type').'<span>'._("Type of fax detection to use.")."<ul><li>".$dahdi.": "._("use ").$dahdi._(" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ").$dahdi.".conf</li><li>"._("Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files")."</li><li>"._("NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk")."</li></ul>".'.</span></a>:</td>';
 		$html.='<td><select name="faxdetection" tabindex="'.++$tabindex.'">';
 		//$html.='<option value="Auto"'.($faxdetection == 'auto' ? 'SELECTED' : '').'>'. _("Auto").'</option>';<li>Auto: allow the system to chose the best fax detection method</li>		
 		$html.='<option value="dahdi" '.($fax['detection'] == 'dahdi' ? 'SELECTED' : '').' '.($fax_dahdi_faxdetect?'':'disabled').'>'.$dahdi.'</option>';
