@@ -411,7 +411,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$html.='<td><a href="#" class="info">';
 		$html.=_("Detect Faxes").'<span>'._("Attempt to detect faxes on this DID.")."<ul><li>"._("No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.")."</li><li>"._("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line")."</li>";
 		if($fax_settings['legacy_mode'] == 'yes' || $fax['legacy_email']!==null){
-    	$html.=_('<li>Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!</li>');
+    	$html.='<li>'._('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!').'</li>';
 		}		
 		$html.='</ul></span></a>:</td>';
 		
