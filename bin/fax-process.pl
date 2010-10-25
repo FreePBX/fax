@@ -232,7 +232,7 @@ $encoded
 my $smtp = Net::SMTP-> new("127.0.0.1", Debug => 0) or
   die "Net::SMTP::new: $!";
 $smtp-> mail($from);
-$smtp-> recipient($to);
+$smtp-> recipient(split(',',"$to"));
 $smtp-> data();
 $smtp-> datasend($msg);
 $smtp-> dataend();
