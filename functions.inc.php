@@ -441,10 +441,10 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 								$('.faxdetect, .legacyemail').not($('.faxdest27')).slideDown();
 						});";
 			}
-			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$jsno.'"/>No';
-			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$jsyes.'"/>Yes';
+			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$jsno.'"/>' . _('No');
+			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$jsyes.'"/>' . _('Yes');
 			if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
-				$html.='<input type="radio" name="faxenabled" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/>Legacy';
+				$html.='<input type="radio" name="faxenabled" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/>' . _('Legacy');
 			}
       $html.='</td></tr>';
 			$html.='</table>';
