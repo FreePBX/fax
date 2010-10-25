@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-01 21:30+0200\n"
+"POT-Creation-Date: 2010-10-25 20:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,6 +120,15 @@ msgstr ""
 
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Legacy"
 msgstr ""
 
 msgid "Fax Detection type"
@@ -322,12 +331,6 @@ msgstr ""
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t\t to use ecm mode or not."
-msgstr ""
-
-msgid "Yes"
-msgstr ""
-
-msgid "No"
 msgstr ""
 
 msgid "Maximum transfer rate"

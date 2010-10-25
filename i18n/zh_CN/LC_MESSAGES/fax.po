@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-01 21:30+0200\n"
+"POT-Creation-Date: 2010-10-25 20:53+0200\n"
 "PO-Revision-Date: 2010-08-19 11:48+0800\n"
 "Last-Translator: voip88_chris <voip88@hotmail.com>\n"
 "Language-Team: voip88.com \n"
@@ -121,6 +121,15 @@ msgstr ""
 
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
+msgstr ""
+
+msgid "No"
+msgstr "否"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "Legacy"
 msgstr ""
 
 msgid "Fax Detection type"
@@ -325,12 +334,6 @@ msgid ""
 "\t\t\t\t to use ecm mode or not."
 msgstr "错误纠正模式选项是用来检测是否使用ECM的"
 
-msgid "Yes"
-msgstr "是"
-
-msgid "No"
-msgstr "否"
-
 msgid "Maximum transfer rate"
 msgstr "最大传输速度"
 
@@ -405,4 +408,3 @@ msgstr ""
 
 msgid "Submit"
 msgstr "提交"
-
