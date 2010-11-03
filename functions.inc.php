@@ -96,27 +96,31 @@ function fax_configpageload() {
 function fax_configpageinit($pagename) {
 	global $currentcomponent;
 	// On a 'new' user, 'tech_hardware' is set, and there's no extension. 
-	if (($_REQUEST['display'] == 'users'||$_REQUEST['display'] == 'extensions')&& isset($_REQUEST['extdisplay']) && $_REQUEST['extdisplay'] != '') {
-	$currentcomponent->addprocessfunc('fax_configpageload', 1);
-	$currentcomponent->addprocessfunc('fax_configprocess', 1);
+	if ( 
+		isset($_REQUEST['display'])
+		&& ($_REQUEST['display'] == 'users' || $_REQUEST['display'] == 'extensions')
+		&& isset($_REQUEST['extdisplay']) 
+		&& $_REQUEST['extdisplay'] != ''
+	) {
+		$currentcomponent->addprocessfunc('fax_configpageload', 1);
+		$currentcomponent->addprocessfunc('fax_configprocess', 1);
 	}
 }
 
 //prosses recived arguments
 function fax_configprocess() {
-       $action                 = isset($_REQUEST['action']) ?$_REQUEST['action']:null;
-       $ext                            = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:$_REQUEST['extension'];
-	$faxenabled = isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:null;
-       $faxemail       = isset($_REQUEST['faxemail'])?$_REQUEST['faxemail']:null;
-       switch ($action) {
-               case 'edit':
-                       fax_save_user($ext,$faxenabled,$faxemail);
-                       break;
-               case 'del':
-                       fax_delete_user($ext);
-                       break;
-       }
-
+	$action		= isset($_REQUEST['action']) ?$_REQUEST['action']:null;
+	$ext		= isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:$_REQUEST['extension'];
+	$faxenabled	= isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:null;
+	$faxemail	= isset($_REQUEST['faxemail'])?$_REQUEST['faxemail']:null;
+	switch ($action) {
+		case 'edit':
+			fax_save_user($ext,$faxenabled,$faxemail);
+ 			break;
+		case 'del':
+			fax_delete_user($ext);
+			break;
+		}
 }
 
 function fax_dahdi_faxdetect(){
@@ -386,7 +390,14 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	//if were editing, get save parms. Get parms
 	if ($type != 'setup'){
 		if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
-			$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1'];
+			if ($extdisplay) {
+				$opts=explode('/', $extdisplay);
+				$extension=$opts['0'];
+				$cidnum=$opts['1'];
+			} else {
+				$extension = $cidnum = '';
+			}
+			
 		}
 		$fax=fax_get_incoming($extension,$cidnum);
 	}else{
