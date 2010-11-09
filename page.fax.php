@@ -34,7 +34,7 @@ $fax_detect=fax_detect();
 ?>
 
 <h2><?php echo _("Fax Options")?></h2>
-<form name=edit enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method=POST>
+<form name="edit" action="<?php echo $_SERVER['PHP_SELF']; ?>" method=POST>
 	<table id="faxoptionstable">		
 		<tbody>			
 			<tr><td colspan="3"><h5><?php echo _("Fax Presentation Options")?><hr/></h5></td></tr>			
