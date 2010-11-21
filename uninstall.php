@@ -2,9 +2,8 @@
 
 // Delete the old code if still there
 //
-$fcc = new featurecode('fax', 'simu_fax');
-$fcc->delete();
-unset($fcc);	
+
+// Don't bother uninstalling feature codes, now module_uninstall does it
 
 sql('DROP TABLE IF EXISTS fax_details, fax_incoming, fax_users');
 ?>
