@@ -102,6 +102,7 @@ if (DB::IsError($check)){
 $fcc = new featurecode('fax', 'simu_fax');
 $fcc->setDescription('Dial System FAX');
 $fcc->setDefault('666');
+$fcc->setProvideDest();
 $fcc->update();
 unset($fcc);
 
