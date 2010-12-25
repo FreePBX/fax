@@ -18,7 +18,6 @@
 #
 # Russian freePBX ver. translation
 # Copyright (c) 2006-2010 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2010.
 #
 # Использовать конвертер iconv fax.pot -f UTF-8 -t ISO-8859-5 -o fax.po
@@ -247,7 +246,6 @@ msgstr "Куда направлять входящий звонок распознанный как факс"
 msgid "Dial System FAX"
 msgstr "Набрать системный факс"
 
-#, fuzzy
 msgid "Migrating fax_incoming table..."
 msgstr "Успешно перенесена таблица fax_incoming!"
 
@@ -386,7 +384,7 @@ msgid ""
 "mode, if there are routes still running in this mode that do not have email "
 "addresses specified."
 msgstr ""
-"Адрес эл. почты куда будут посылаться факсы, если наббран сервисный код "
+"Адрес эл. почты куда будут посылаться факсы, если набран сервисный код "
 "\"Набрать системный факс\". Это также адрес эл. почты по умолчанию для "
 "устаревшего режима детектирования факса, если маршрут по прежнему использует "
 "этот режим и не указан никакой другой адрес эл. почты."
