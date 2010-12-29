@@ -53,6 +53,11 @@ function fax_check_destinations($dest=true) {
 	return $destlist;
 }
 
+function fax_change_destination($old_dest, $new_dest) {
+	$sql = 'UPDATE fax_incoming SET destination = "' . $new_dest . '" WHERE destination = "' . $old_dest . '"';
+	sql($sql, "query");
+}
+
 function fax_applyhooks() {
 	global $currentcomponent;
 	// Add the 'process' function - this gets called when the page is loaded, to hook into 
