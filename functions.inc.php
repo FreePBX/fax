@@ -216,7 +216,7 @@ function fax_detect($astver=null){
 		$d=explode(':',$licdata);
 		$data[trim($d['0'])]=isset($d['1'])?trim($d['1']):null;
 		}
-		$fax['license']=$data['Licensed Channels'];
+		$fax['license']=isset($data['Licensed Channels']) ? $data['Licensed Channels'] : '';
 	}
 	return $fax;
 }
