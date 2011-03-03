@@ -187,6 +187,9 @@ function fax_detect($astver=null){
 		$response = $astman->send_request('Command', array('Command' => $module_show_command.'app_nv_faxdetect'));
     $fax['nvfax']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 
+		$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_digium'));
+    $fax['ffa']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
+
     switch($fax['module']) {
     case 'res_fax':
       $fax['receivefax'] = 'receivefax';
@@ -230,7 +233,8 @@ function fax_get_config($engine){
 	$fax=fax_detect($version);
 	if($fax['module']){ //dont continue unless we have a fax module in asterisk
 
-    $t38_fb = version_compare($version, '1.6', 'ge')?',f':'';
+    $ast_ge_16 = version_compare($version, '1.6', 'ge');
+    $t38_fb = $ast_ge_16 ? ',f' : '';
 		$context='ext-fax';
 		$dests=fax_get_destinations();
 		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
@@ -272,9 +276,18 @@ function fax_get_config($engine){
     break;
     case 'res_fax':
       $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //receive fax, then email it on
-      // Some versions or settings appear to have successful completions continue, so check status and goto hangup code
-      $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"=""]','Set','FAXSTATUS=FAILED LICENSE EXCEEDED'));
-      $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"!="" && "${FAXOPT(error)}"!="NO_ERROR"]','Set','FAXSTATUS="FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}"'));
+      if ($ast_ge_16) {
+        if ($fax['ffa']) {
+          $ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS}"="" | "${FAXSTATUS}" = "FAILED" & "${FAXERROR}" = "INIT_ERROR"]','Set','FAXSTATUS=FAILED LICENSE MAY BE EXCEEDED check log errors'));
+        }
+        $ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS:0:6}"="FAILED" && "${FAXERROR}"!="INIT_ERROR"]','Set','FAXSTATUS="FAILED: error: ${FAXERROR} statusstr: ${FAXOPT(statusstr)}"'));
+      } else {
+        // Some versions or settings appear to have successful completions continue, so check status and goto hangup code
+        if ($fax['ffa']) {
+          $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"=""]','Set','FAXSTATUS=FAILED LICENSE MAY BE EXCEEDED'));
+        }
+        $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"!="" && "${FAXOPT(error)}"!="NO_ERROR"]','Set','FAXSTATUS="FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}"'));
+      }
 		  $ext->add($context, $exten, '', new ext_hangup());
 
     break;
@@ -284,11 +297,18 @@ function fax_get_config($engine){
 			$ext->add($context, $exten, '', new ext_hangup());
     }
     $exten = 'h';
-		$ext->add($context, $exten, '', new ext_gotoif('$["${FAXSTATUS:0:6}" = "FAILED"]', 'failed'));
-    $ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','end'));
+
+    // if there is a file there, mail it even if we failed:
+    $ext->add($context, $exten, '', new ext_gotoif('$[${STAT(e,${ASTSPOOLDIR}/fax/${UNIQUEID}.tif)} = 0]','failed'));
+    $ext->add($context, $exten, '', new ext_noop_trace('PROCESSING FAX with status: [${FAXSTATUS}] for: [${FAX_RX_EMAIL}], From: [${CALLERID(all)}]'));
+    $ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
     $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax-process.pl --to "${FAX_RX_EMAIL}" --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(name)})} ${URIENCODE(<${CALLERID(number)}>)}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'));
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
+
+    $ext->add($context, $exten, 'noemail', new ext_noop('ERROR: No Email Address to send FAX: status: [${FAXSTATUS}],  From: [${CALLERID(all)}]'));
+	  $ext->add($context, $exten, '', new ext_macro('hangupcall'));
+
     $ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
 	  $ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
