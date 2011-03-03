@@ -112,7 +112,7 @@ function fax_configpageinit($pagename) {
 	}
 }
 
-//prosses recived arguments
+//prosses received arguments
 function fax_configprocess() {
 	$action		= isset($_REQUEST['action']) ?$_REQUEST['action']:null;
 	$ext		= isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:$_REQUEST['extension'];
@@ -169,7 +169,7 @@ function fax_detect($astver=null){
   $ast_ge_14 = version_compare($astver, '1.4', 'ge');
 
 	$fax=null;
-	$appfax = $recivefax = false;//return false by default in case asterisk isnt reachable
+	$appfax = $receivefax = false;//return false by default in case asterisk isnt reachable
 	if ($amp_conf['AMPENGINE'] == 'asterisk' && isset($astman) && $astman->connected()) {
 		//check for fax modules
     $module_show_command = $ast_ge_14 ? 'module show like ' : 'show modules like ';
@@ -177,8 +177,8 @@ function fax_detect($astver=null){
 		if (preg_match('/[1-9] modules loaded/', $app['data'])){
       $fax['module']='res_fax';
     } else {
-		  $recive = $astman->send_request('Command', array('Command' => $module_show_command.'app_fax'));
-		  if (preg_match('/[1-9] modules loaded/', $recive['data'])){$fax['module']='app_fax';}
+		  $receive = $astman->send_request('Command', array('Command' => $module_show_command.'app_fax'));
+		  if (preg_match('/[1-9] modules loaded/', $receive['data'])){$fax['module']='app_fax';}
     }
     if (!isset($fax['module'])) {
 		  $app = $astman->send_request('Command', array('Command' => $module_show_command.'app_rxfax'));
@@ -255,23 +255,23 @@ function fax_get_config($engine){
     $ext->add($context, $exten, 'receivefax', new ext_stopplaytones(''));
     switch ($fax['module']) {
     case 'app_rxfax':
-      $ext->add($context, $exten, '', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+      $ext->add($context, $exten, '', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //receive fax, then email it on
     break;
     case 'app_fax':
       // $fax['receivefax'] should be rxfax or receivefax, it could be none in which case we don't know. We'll just make it
       // ReceiveFAX in that case since it will fail anyhow.
       if ($fax['receivefax'] == 'rxfax') {
-        $ext->add($context, $exten, '', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //recive fax, then email it on
+        $ext->add($context, $exten, '', new ext_rxfax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif')); //receive fax, then email it on
       } elseif ($fax['receivefax'] == 'receivefax') {
-        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //recive fax, then email it on
+        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //receive fax, then email it on
       } else {
         $ext->add($context, $exten, '', new ext_noop('ERROR: NO Receive FAX application detected, putting in dialplan for ReceiveFAX as default'));
-        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //recive fax, then email it on
+        $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //receive fax, then email it on
 			  $ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS}" = ""]','Set','FAXSTATUS=${IF($["${FAXOPT(error)}" = ""]?"FAILED LICENSE EXCEEDED":"FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}")}'));
       }
     break;
     case 'res_fax':
-      $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //recive fax, then email it on
+      $ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //receive fax, then email it on
       // Some versions or settings appear to have successful completions continue, so check status and goto hangup code
       $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"=""]','Set','FAXSTATUS=FAILED LICENSE EXCEEDED'));
       $ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"!="" && "${FAXOPT(error)}"!="NO_ERROR"]','Set','FAXSTATUS="FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}"'));
