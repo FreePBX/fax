@@ -167,6 +167,7 @@ function fax_detect($astver=null){
     $astver =  $engineinfo['version'];
   }
   $ast_ge_14 = version_compare($astver, '1.4', 'ge');
+  $ast_ge_18 = version_compare($astver, '1.8', 'ge');
 
 	$fax=null;
 	$appfax = $receivefax = false;//return false by default in case asterisk isnt reachable
@@ -189,6 +190,15 @@ function fax_detect($astver=null){
 
 		$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_digium'));
     $fax['ffa']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
+
+    if ($ast_ge_18) {
+      if ($fax['ffa']) {
+        $fax['spandsp'] = false;
+      } else {
+		    $response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_spandsp'));
+        $fax['spandsp'] = preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
+      }
+    }
 
     switch($fax['module']) {
     case 'res_fax':
@@ -230,10 +240,11 @@ function fax_get_config($engine){
   global $amp_conf;
   global $core_conf;
 
+  $ast_lt_18 = version_compare($version, '1.8', 'lt');
+  $ast_ge_16 = version_compare($version, '1.6', 'ge');
 	$fax=fax_detect($version);
-	if($fax['module']){ //dont continue unless we have a fax module in asterisk
+	if($fax['module'] && ($ast_lt_18 || $fax['ffa'] || $fax['spandsp'])){ //dont continue unless we have a fax module in asterisk
 
-    $ast_ge_16 = version_compare($version, '1.6', 'ge');
     $t38_fb = $ast_ge_16 ? ',f' : '';
 		$context='ext-fax';
 		$dests=fax_get_destinations();
@@ -334,8 +345,7 @@ function fax_get_config($engine){
 	} else {
     $fax_settings=fax_get_settings();
   }
-	if ($fax['module'] | $fax_settings['force_detection'] == 'yes') { //dont continue unless we have a fax module in asterisk
-	  $ast_ge_16= version_compare($version, '1.6', 'ge');
+	if (($fax['module'] && ($ast_lt_18 || $fax['ffa'] || $fax['spandsp'])) || $fax_settings['force_detection'] == 'yes') {
 	  if ($ast_ge_16 && isset($core_conf) && is_a($core_conf, "core_conf")) {
 		  $core_conf->addSipGeneral('faxdetect','yes');
 	  }
@@ -355,7 +365,6 @@ function fax_get_config($engine){
     }
 	}
 }
-
 
 function fax_get_destinations(){
 	global $db;
