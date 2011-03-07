@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>2.9.0.2</version>
+	<version>2.9.0.3</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<type>setup</type>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*2.9.0.3* #4886 additional
 		*2.9.0.2* #4886, #4907
 		*2.9.0.1* removed duplicate functions
 		*2.9.0.0* #4562, #4326, #4557, #4632, #4651, #4653
@@ -42,6 +43,6 @@
 	<depends>
 		<version>2.7.0beta1</version>
 	</depends>
-	<location>release/2.9/fax-2.9.0.2.tgz</location>
-	<md5sum>c403ae30086236c555e0d294618d3e0d</md5sum>
+	<location>release/2.9/fax-2.9.0.3.tgz</location>
+	<md5sum>1eefeff6b744c43a82930568add2fd8a</md5sum>
 </module>
