@@ -54,7 +54,7 @@ if(array_key_exists('faxdestination',$fields)){
 	if(DB::IsError($q)){
     out(_('WARINING: fax_incoming table may still be using the 2.6 schema!'));
   } else {
-    out(_('Sucsessfuly migraded fax_incoming table!'));
+    out(_('Successfully migrated fax_incoming table!'));
   }
 }
 unset($sql);
