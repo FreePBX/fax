@@ -14,28 +14,19 @@
 #    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 #
 # FreePBX language template for fax
-# Copyright (C) 2008, 2009, 2010 Bandwith.com
+# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-25 20:53+0200\n"
+"POT-Creation-Date: 2011-03-10 22:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid "Fax Configuration"
-msgstr ""
-
-msgid "Basic"
-msgstr ""
-
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
 
 #, php-format
 msgid "Fax user %s"
@@ -49,15 +40,15 @@ msgid "Fax"
 msgstr ""
 
 msgid ""
-"ERROR: No FAX modules detected! Fax-related dialplan will <b>NOT</b> be "
-"generated. This module requires Fax for Asterisk or spandsp based app_fax or "
-"app_rxfax to function."
+"ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
+"generated.<br>This module requires Fax for Asterisk or spandsp based app_fax "
+"or app_rxfax to function."
 msgstr ""
 
 msgid ""
-"ERROR: No Fax license detected. Fax-related dialplan will <b>NOT</b> be "
-"generated! This module has detected that Fax for Asterisk is installed "
-"without a license. At least one license is required (it is available for "
+"ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
+"generated!<br>This module has detected that Fax for Asterisk is installed "
+"without a license.<br>At least one license is required (it is available for "
 "free) and must be installed."
 msgstr ""
 
@@ -201,7 +192,7 @@ msgstr ""
 msgid "WARINING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
 
-msgid "Sucsessfuly migraded fax_incoming table!"
+msgid "Successfully migrated fax_incoming table!"
 msgstr ""
 
 msgid "Moving simu_fax feature code from core.."
