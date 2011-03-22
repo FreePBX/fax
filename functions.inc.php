@@ -463,8 +463,8 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		//dont allow detection to be set if we have no valid detection types
 		if(!$fax_dahdi_faxdetect && !$fax_sip_faxdetect && !$fax_detect['nvfax']){
 			$js="if ($(this).val() == 'true'){alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
-			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED />No';
-			$html.='<input type="radio" name="faxenabled" value="true"  onclick="'.$js.'"/>Yes</td></tr>';
+			$html.='<td><span class="radioset"><input type="radio" id="faxenabled_yes" name="faxenabled" value="false" CHECKED /><label for="faxenabled_no">No</label>';
+			$html.='<input type="radio" name="faxenabled" id="faxenabled_no" value="true"  onclick="'.$js.'"/><label for="faxenabled_yes">Yes</label></span></td></tr>';
 			$html.='</table><table>';
 		}else{
 			/* 
@@ -486,10 +486,10 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 								$('.faxdetect, .legacyemail').not($('.faxdest27')).slideDown();
 						});";
 			}
-			$html.='<td><input type="radio" name="faxenabled" value="false" CHECKED onclick="'.$jsno.'"/>' . _('No');
-			$html.='<input type="radio" name="faxenabled" value="true" '.($fax?'CHECKED':'').' onclick="'.$jsyes.'"/>' . _('Yes');
+			$html.='<td><span class="radioset"><input type="radio" name="faxenabled" id="faxenabled_no" value="false" CHECKED onclick="'.$jsno.'"/><label for="faxenabled_no">' . _('No') . '</label>';
+			$html.='<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($fax?'CHECKED':'').' onclick="'.$jsyes.'"/><label for="faxenabled_yes">' . _('Yes') . '</label>';
 			if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
-				$html.='<input type="radio" name="faxenabled" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/>' . _('Legacy');
+				$html.='<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/><label for="faxenabled_legacy">' . _('Legacy');
 			}
       $html.='</td></tr>';
 			$html.='</table>';

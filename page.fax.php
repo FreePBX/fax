@@ -59,8 +59,8 @@ $fax_detect=fax_detect();
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Error Correction Mode")?>:<span><?php echo _("Error Correction Mode (ECM) option is used to specify whether
 				 to use ecm mode or not.")?></span></a></td>
-       <td><input type="radio" name="ecm" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("Yes")?>
-       <input type="radio" name="ecm" value="no" <?php echo (($fax['ecm'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("No")?></td>
+       <td><span class="radioset"><input type="radio" name="ecm" id="ecm_yes" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="ecm_yes"><?php echo _("Yes")?></label>
+       <input type="radio" name="ecm" value="no" id="ecm_no"  <?php echo (($fax['ecm'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="ecm_no"><?php echo _("No")?></label></span></td>
 			</tr>				
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Maximum transfer rate")?>:<span><?php echo _("Maximum transfer rate used during fax rate negotiation.")?></span></a></td>
@@ -122,15 +122,15 @@ $fax_detect=fax_detect();
 			<tr><td colspan="3"><h5><?php echo _("Fax Module Options")?><hr/></h5></td></tr>
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Always Allow Legacy Mode")?>:<span><?php echo _("In earlier versions, it was possible to provide an email address with the incoming FAX detection to route faxes that were being handled by fax-to-email detection. This has been deprecated in favor of Extension/User FAX destinations where an email address can be provided. During migration, the old email address remains present for routes configured this way but goes away once 'properly' configured. This options forces the Legacy Mode to always be present as an option.")?></span></a></td>
-        <td><input type="radio" name="legacy_mode" value="yes" <?php echo (($fax['legacy_mode'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("Yes")?>
-        <input type="radio" name="legacy_mode" value="no" <?php echo (($fax['legacy_mode'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("No")?></td>			
+        <td><span class="radioset"><input type="radio" name="legacy_mode" id="legacy_mode_yes" value="yes" <?php echo (($fax['legacy_mode'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="legacy_mode_yes"><?php echo _("Yes")?></label>
+        <input type="radio" name="legacy_mode" value="no" id="legacy_mode_no" <?php echo (($fax['legacy_mode'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="legacy_mode_no"><?php echo _("No")?></label></td>			
 			</tr>				
 
 <?php if(!$fax_detect['module']){ ?>
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Always Generate Detection Code")?>:<span><?php echo _("When no fax modules are detected the module will not generate any detection dialplan by default. If the system is being used with phyical FAX devices, hylafax + iaxmodem, or other outside fax setups you can force the dialplan to be generated here.")?></span></a></td>
-        <td><input type="radio" name="force_detection" value="yes" <?php echo (($fax['force_detection'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("Yes")?>
-        <input type="radio" name="force_detection" value="no" <?php echo (($fax['force_detection'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><?php echo _("No")?></td>			
+        <td><span class="radioset"><input type="radio" name="force_detection" id="force_detection_yes" value="yes" <?php echo (($fax['force_detection'] == 'yes')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="force_detection_yes"><?php echo _("Yes")?></label>
+        <input type="radio" name="force_detection" value="no" id="force_detection_no" <?php echo (($fax['force_detection'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="force_detection_no"><?php echo _("No")?></label></span></td>			
 			</tr>				
 <?php } ?>
 	</tbody>
