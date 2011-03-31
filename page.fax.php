@@ -63,24 +63,30 @@ $fax_detect=fax_detect();
        <input type="radio" name="ecm" value="no" id="ecm_no"  <?php echo (($fax['ecm'] == 'no')?'checked':''); ?> tabindex="<?php echo ++$tabindex;?>"><label for="ecm_no"><?php echo _("No")?></label></span></td>
 			</tr>				
 			<tr>
+				<?php 
+					$fax['maxrate'] = ($fax['maxrate'] != '2400' || $fax['maxrate'] != '4800' || $fax['maxrate'] != '7200' || $fax['maxrate'] != '9600' || $fax['maxrate'] != '12000' || $fax['maxrate'] != '14400')?'14400':$fax['maxrate']; 
+				?>
 				<td><a href="#" class="info"><?php echo _("Maximum transfer rate")?>:<span><?php echo _("Maximum transfer rate used during fax rate negotiation.")?></span></a></td>
 				<td><select name="maxrate" tabindex="<?php echo ++$tabindex;?>">
 										<option value="2400"  <?php echo (($fax['maxrate'] == '2400')?'selected="yes"':'');?>  >2400</option>
 										<option value="4800"  <?php echo (($fax['maxrate'] == '4800')?'selected="yes"':'');?>  >4800</option>	
 										<option value="7200"  <?php echo (($fax['maxrate'] == '7200')?'selected="yes"':'');?>  >7200</option>	
 										<option value="9600"  <?php echo (($fax['maxrate'] == '9600')?'selected="yes"':'');?>  >9600</option>	
-										<option value="12200" <?php echo (($fax['maxrate'] == '12200')?'selected="yes"':'');?> >12200</option>	
+										<option value="12000" <?php echo (($fax['maxrate'] == '12000')?'selected="yes"':'');?> >12000</option>	
 										<option value="14400" <?php echo (($fax['maxrate'] == '14400')?'selected="yes"':'');?> >14400</option>
 				</select></td>		
 			</tr>	
 			<tr>
+				<?php 
+                                        $fax['minrate'] = ($fax['minrate'] != '2400' || $fax['minrate'] != '4800' || $fax['minrate'] != '7200' || $fax['minrate'] != '9600' || $fax['minrate'] != '12000' || $fax['minrate'] != '2400')?'2400':$fax['minrate'];
+                                ?>
 				<td><a href="#" class="info"><?php echo _("Minimum transfer rate")?>:<span><?php echo _("Minimum transfer rate used during fax rate negotiation.")?></span></a></td>
 				<td><select name="minrate" tabindex="<?php echo ++$tabindex;?>">
 										<option value="2400"  <?php echo (($fax['minrate'] == '2400')?'selected="yes"':'');?>  >2400</option>
 										<option value="4800"  <?php echo (($fax['minrate'] == '4800')?'selected="yes"':'');?>  >4800</option>	
 										<option value="7200"  <?php echo (($fax['minrate'] == '7200')?'selected="yes"':'');?>  >7200</option>	
 										<option value="9600"  <?php echo (($fax['minrate'] == '9600')?'selected="yes"':'');?>  >9600</option>	
-										<option value="12200" <?php echo (($fax['minrate'] == '12200')?'selected="yes"':'');?> >12200</option>	
+										<option value="12000" <?php echo (($fax['minrate'] == '12000')?'selected="yes"':'');?> >12000</option>	
 										<option value="14400" <?php echo (($fax['minrate'] == '14400')?'selected="yes"':'');?> >14400</option>
 				</select></td>				
 			</tr>
