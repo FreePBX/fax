@@ -248,7 +248,6 @@ function fax_get_config($engine){
     $t38_fb = $ast_ge_16 ? ',f' : '';
 		$context='ext-fax';
 		$dests=fax_get_destinations();
-		$sender_address=sql('SELECT value FROM fax_details WHERE `key` = \'sender_address\'','getRow');
 		if($dests){
 			foreach ($dests as $row) {
 				$exten=$row['user'];
@@ -313,7 +312,7 @@ function fax_get_config($engine){
     $ext->add($context, $exten, '', new ext_gotoif('$[${STAT(e,${ASTSPOOLDIR}/fax/${UNIQUEID}.tif)} = 0]','failed'));
     $ext->add($context, $exten, '', new ext_noop_trace('PROCESSING FAX with status: [${FAXSTATUS}] for: [${FAX_RX_EMAIL}], From: [${CALLERID(all)}]'));
     $ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
-    $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax-process.pl --to "${FAX_RX_EMAIL}" --from "'.$sender_address['0'].'" --dest "${FROM_DID}" --subject "New fax from ${URIENCODE(${CALLERID(name)})} ${URIENCODE(<${CALLERID(number)}>)}" --attachment fax_${URIENCODE(${CALLERID(number)})}.pdf --type application/pdf --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'));
+    $ext->add($context, $exten, '', new ext_system('${ASTBIN}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid ${CALLERID} --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${EXTEN}"'));
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
 
@@ -658,5 +657,20 @@ function fax_write_conf(){
 	$file=fopen($amp_conf['ASTETCDIR'].'/res_fax_digium.conf','w');
 	fwrite($file, $data);
 	fclose($file);
+}
+
+function fax_tiff2pdf($file){
+	exec('which tiff2pdf', $t2p);
+	$t2p = $t2p[0];
+	if (!$t2p) {
+		return false;
+	}
+	
+	//make pdf
+	$cmd = $t2p . ' -z -c "Converted by FreePBX" -a "www.freepbx.org" -o ' 
+				.  substr($file, 0, strrpos($file, '.')) . '.pdf' . ' ' . $file;
+	exec($cmd, $o, $error);
+
+	return $error === 0 ? true : false;
 }
 ?>
