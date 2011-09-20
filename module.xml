@@ -5,7 +5,7 @@
 	<version>2.9.0.5</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
-	<category>Apps</category>
+	<category>Settings</category>
 	<menuitems>
 		<fax>Fax Configuration</fax>
 	</menuitems>
