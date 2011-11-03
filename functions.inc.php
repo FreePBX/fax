@@ -312,7 +312,7 @@ function fax_get_config($engine){
     $ext->add($context, $exten, '', new ext_gotoif('$[${STAT(e,${ASTSPOOLDIR}/fax/${UNIQUEID}.tif)} = 0]','failed'));
     $ext->add($context, $exten, '', new ext_noop_trace('PROCESSING FAX with status: [${FAXSTATUS}] for: [${FAX_RX_EMAIL}], From: [${CALLERID(all)}]'));
     $ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
-    $ext->add($context, $exten, '', new ext_system('${ASTBIN}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid ${CALLERID} --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${EXTEN}"'));
+    $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid ${CALLERID} --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${EXTEN}"'));
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
 
