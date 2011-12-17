@@ -1,4 +1,5 @@
 <?php /* $Id */
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 /* 
  * Copyright (C) 2009 Moshe Brevda
  * 

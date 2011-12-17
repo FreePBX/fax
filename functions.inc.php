@@ -1,5 +1,6 @@
 <?php 
 /* $Id */
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 function fax_getdest($exten) {
 	return array("ext-fax,$exten,1");
