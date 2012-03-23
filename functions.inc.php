@@ -621,6 +621,8 @@ function fax_save_settings($settings){
 	if (is_array($settings)) foreach($settings as $key => $value){
 		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".$db->escapeSimple($value)."')");
 	}
+	
+	needreload();
 }
 
 function fax_save_user($faxext,$faxenabled,$faxemail){
