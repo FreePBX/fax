@@ -423,21 +423,19 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 	
 	//if were editing, get save parms. Get parms
-	if ($type != 'setup'){
-		if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
-			if ($extdisplay) {
-				$opts=explode('/', $extdisplay);
-				$extension=$opts['0'];
-				$cidnum=$opts['1'];
-			} else {
-				$extension = $cidnum = '';
-			}
-			
+
+	if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
+		if ($extdisplay) {
+			$opts=explode('/', $extdisplay);
+			$extension=$opts['0'];
+			$cidnum=$opts['1'];
+		} else {
+			$extension = $cidnum = '';
 		}
-		$fax=fax_get_incoming($extension,$cidnum);
-	}else{
-	  $fax=null;
+		
 	}
+
+	$fax=fax_get_incoming($extension,$cidnum);
 	$html='';
 	if($target_menuid == 'did'){
     $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
