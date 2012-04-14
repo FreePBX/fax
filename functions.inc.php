@@ -252,7 +252,8 @@ function fax_get_config($engine){
 		if($dests){
 			foreach ($dests as $row) {
 				$exten=$row['user'];
-				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
+				$ext->add($context, $exten, '', new ext_set('FAX_FOR',$row['name'].' ('.$row['user'].')'));
+				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_FOR}, From: ${CALLERID(all)}'));
 				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', $row['faxemail']));			
 		    $ext->add($context, $exten, 'receivefax', new ext_goto('receivefax','s'));
 			}
@@ -313,7 +314,7 @@ function fax_get_config($engine){
     $ext->add($context, $exten, '', new ext_gotoif('$[${STAT(e,${ASTSPOOLDIR}/fax/${UNIQUEID}.tif)} = 0]','failed'));
     $ext->add($context, $exten, '', new ext_noop_trace('PROCESSING FAX with status: [${FAXSTATUS}] for: [${FAX_RX_EMAIL}], From: [${CALLERID(all)}]'));
     $ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
-    $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid ${CALLERID} --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${EXTEN}"'));
+    $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${CALLERID(all)}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}"'));
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
 
@@ -422,21 +423,19 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 	
 	//if were editing, get save parms. Get parms
-	if ($type != 'setup'){
-		if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
-			if ($extdisplay) {
-				$opts=explode('/', $extdisplay);
-				$extension=$opts['0'];
-				$cidnum=$opts['1'];
-			} else {
-				$extension = $cidnum = '';
-			}
-			
+
+	if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
+		if ($extdisplay) {
+			$opts=explode('/', $extdisplay);
+			$extension=$opts['0'];
+			$cidnum=$opts['1'];
+		} else {
+			$extension = $cidnum = '';
 		}
-		$fax=fax_get_incoming($extension,$cidnum);
-	}else{
-	  $fax=null;
+		
 	}
+
+	$fax=fax_get_incoming($extension,$cidnum);
 	$html='';
 	if($target_menuid == 'did'){
     $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
@@ -621,6 +620,8 @@ function fax_save_settings($settings){
 	if (is_array($settings)) foreach($settings as $key => $value){
 		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".$db->escapeSimple($value)."')");
 	}
+	
+	needreload();
 }
 
 function fax_save_user($faxext,$faxenabled,$faxemail){

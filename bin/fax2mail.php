@@ -12,6 +12,7 @@ $var['from']		= sql('SELECT value FROM fax_details WHERE `key` = "sender_address
 $var['from']		= $var['from'] ? $var['from'] : 'fax@freepbx.pbx';
 $var['subject']		= '';
 $var 				= array_merge($var, get_opt());
+$var['callerid']	= $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
 
 //double check some ofthe options
 foreach ($var as $k => $v) {
@@ -44,7 +45,11 @@ $var['file'] = fax_tiff2pdf($var['file']) == true
 			? substr($var['file'], 0, strrpos($var['file'], '.')) . '.pdf' 
 			: $var['file'];
 
-$msg = 'Enclosed, please find a new fax from: ' . $var['dest'] . "\n";
+$msg = 'Enclosed, please find a new fax ';
+if ($var['callerid']) {
+	$msg .= 'from: ' . $var['callerid'] ;
+} 
+$msg .= "\n";
 $msg .= 'Received & processed: ' . date('r') . "\n";
 $msg .= 'On: ' . $var['hostname'] . "\n";
 $msg .= 'Via: ' . $var['dest'] . "\n";
