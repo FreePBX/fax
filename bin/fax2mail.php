@@ -6,15 +6,15 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
     include_once('/etc/asterisk/freepbx.conf');
 }
 
-exec('/bin/hostname', $hostname);
-$var['hostname'] 	= $hostname[0];
+$var['hostname'] 	= gethostname();
 $var['from']		= sql('SELECT value FROM fax_details WHERE `key` = "sender_address"','getOne');
 $var['from']		= $var['from'] ? $var['from'] : 'fax@freepbx.pbx';
 $var['subject']		= '';
 $var 				= array_merge($var, get_opt());
 $var['callerid']	= $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
+$var['keep_file']	= $var['delete'] == 'true' ? false : true;
 
-//double check some ofthe options
+//double check some of the options
 foreach ($var as $k => $v) {
 	switch ($k) {
 		case 'file':
@@ -41,9 +41,7 @@ foreach ($var as $k => $v) {
 }
 
 //if file is a tif, try to convert it to a pdf
-$var['file'] = fax_tiff2pdf($var['file']) == true 
-			? substr($var['file'], 0, strrpos($var['file'], '.')) . '.pdf' 
-			: $var['file'];
+$var['file'] = fax_file_convert('tif2pdf', $var['file'], '', $var['keep_file']);
 
 $msg = 'Enclosed, please find a new fax ';
 if ($var['callerid']) {
