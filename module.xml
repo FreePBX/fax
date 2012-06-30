@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>2.10.0.4</version>
+	<version>2.10.0.5</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Settings</category>
@@ -11,6 +11,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*2.10.0.5* minor code cleanup
 		*2.10.0.4* assotred bug fixes 
 		*2.10.0.3* re #5707 - allow posted values to show on page; minor costmetics towards moving to a proper view 
 		*2.10.0.2* #5478 
