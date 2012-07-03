@@ -709,6 +709,17 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 				break;
 		}
 		$pathinfo = pathinfo($in);
+
+		//php < 5.2 doesnt provide filename
+		if (!isset($pathinfo['filename'])) {
+			$pathinfo['filename'] 
+				= substr($pathinfo['basename'], 0, 
+						strrpos($pathinfo['basename'], 
+							'.' . $pathinfo['extension']
+						)
+				);
+		}
+		
 		$out = $pathinfo['dirname']
 					. '/'
 					. $pathinfo['filename']
