@@ -53,7 +53,7 @@ if(array_key_exists('faxdestination',$fields)){
 				modify extension varchar(50)';
 	$q=$db->query($sql);
 	if(DB::IsError($q)){
-    out(_('WARINING: fax_incoming table may still be using the 2.6 schema!'));
+    out(_('WARNING: fax_incoming table may still be using the 2.6 schema!'));
   } else {
     out(_('Successfully migrated fax_incoming table!'));
   }
