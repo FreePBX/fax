@@ -272,6 +272,20 @@ if(!DB::IsError($legacy_settings)) {
 	out(_("already done"));
 }
 
+//migrate the faxemail field to allow emails longer than 50 characters
+$sql = 'describe fax_users';
+$fields = $db->getAssoc($sql);
+if (array_key_exists('faxemail',$fields) && $fields['faxemail'][0] == 'varchar(50)') {
+	out(_('Migrating faxemail field in the fax_users table to allow longer emails...'));
+	$sql = 'ALTER TABLE fax_users CHANGE faxemail faxemail text default NULL';
+	$q = $db->query($sql);
+	if (DB::isError($q)) {
+		out(_('WARNING: Failed migration. Email length is limited to 50 characters.'));
+	} else {
+		out(_('Successfully migrated faxemail field'));
+	}
+}
+
 $set['value'] = 'www.freepbx.org';
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 1;
