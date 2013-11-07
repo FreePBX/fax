@@ -247,6 +247,7 @@ function fax_get_config($engine){
   global $amp_conf;
   global $core_conf;
 
+  $ast_ge_10 = version_compare($version, '10', 'ge');
   $ast_lt_18 = version_compare($version, '1.8', 'lt');
   $ast_ge_16 = version_compare($version, '1.6', 'ge');
 	$fax=fax_detect($version);
@@ -322,7 +323,13 @@ function fax_get_config($engine){
     $ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
 	//delete is a variable so that other modules can prevent it should then need to prosses the file further
 	$ext->add($context, $exten, 'delete_opt', new ext_set('DELETE_AFTER_SEND', 'true'));
-	$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}"'));
+	
+	//strreplace wasn't put into asterisk until 10, so fallback to replace to older asterisk versions
+	if ($ast_ge_10) {
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}"'));
+	} else {
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${REPLACE(CALLERID(all),\', )}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}"'));
+	}
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
 
