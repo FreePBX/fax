@@ -32,4 +32,4 @@
 	</depends>
 	<location>release/2.11/fax-2.11.0.1.tgz</location>
 	<md5sum>91f4b1a2991b438be4c9e9c87d8e8a8a</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
