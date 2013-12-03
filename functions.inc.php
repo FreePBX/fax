@@ -27,6 +27,14 @@ function fax_getdestinfo($dest) {
 
 function fax_check_destinations($dest=true) {
 	global $active_modules;
+	
+	$ast_lt_18 = version_compare($version, '1.8', 'lt');
+	$fax=fax_detect();
+	if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp'])) || !$ast_lt_18){
+		return false;
+	}elseif($fax['ffa'] && $fax['license'] < 1){//missing license
+		return false;
+	}
 
 	$destlist = array();
 	if (is_array($dest) && empty($dest)) {
@@ -74,6 +82,8 @@ function fax_configpageload() {
 	$extensions=isset($_REQUEST['extensions'])?$_REQUEST['extensions']:'';
 	$users=isset($_REQUEST['users'])?$_REQUEST['users']:'';
 	
+	$ast_lt_18 = version_compare($version, '1.8', 'lt');
+	
 	if ($display == 'extensions' || $display == 'users') {
 		if($extdisplay!=''){
 			$fax=fax_get_user($extdisplay);
@@ -82,10 +92,10 @@ function fax_configpageload() {
 		}//get settings in to variables
 		$section = _('Fax');
 		$toggleemail='if($(this).attr(\'checked\')){$(\'[id^=fax]\').removeAttr(\'disabled\');}else{$(\'[id^=fax]\').attr(\'disabled\',\'true\');$(this).removeAttr(\'disabled\');}';
-		//check for fax prequsits, and alert the user if something is amiss
+		//check for fax prereqs, and alert the user if something is amiss
 		$fax=fax_detect();
-		if(!$fax['module']){//missing modules
-			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk or spandsp based app_fax or app_rxfax to function.').'</font>'));
+		if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp'])) || !$ast_lt_18){//missing modules
+			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.').'</font>'));
 		}elseif($fax['ffa'] && $fax['license'] < 1){//missing license
 			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.').'</font>'));
 		}
