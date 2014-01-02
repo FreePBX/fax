@@ -29,10 +29,14 @@ foreach ($var as $k => $v) {
 			break;
 		case 'subject':
 			if (!$var['subject']) {
-				if ($var['callerid']) {
-					$var['subject'] = 'New fax from: ' . $var['callerid'];
+				if (isset($var['direction']) && $var['direction'] == 'outgoing') {
+					$var['subject'] = 'Outgoing fax results';
 				} else {
-					$var['subject'] = 'New fax received';
+					if ($var['callerid']) {
+						$var['subject'] = 'New fax from: ' . $var['callerid'];
+					} else {
+						$var['subject'] = 'New fax received';
+					}
 				}
 				
 			}
@@ -43,16 +47,26 @@ foreach ($var as $k => $v) {
 //if file is a tif, try to convert it to a pdf
 $var['file'] = fax_file_convert('tif2pdf', $var['file'], '', $var['keep_file']);
 
-$msg = 'Enclosed, please find a new fax ';
-if ($var['callerid']) {
-	$msg .= 'from: ' . $var['callerid'] ;
-} 
-$msg .= "\n";
-$msg .= 'Received & processed: ' . date('r') . "\n";
-$msg .= 'On: ' . $var['hostname'] . "\n";
-$msg .= 'Via: ' . $var['dest'] . "\n";
-if ($var['exten']) {
-	$msg .= 'For extension: ' . $var['exten'] . "\n";
+if (isset($var['direction']) && $var['direction'] == 'outgoing') {
+	$msg = 'Sent to ' . $var['dest'] . "\n";
+	$msg .= 'Status: ' . $var['status'] . "\n";
+	$msg .= 'At: ' . date('r') . "\n";
+	$msg .= 'On: ' . $var['hostname'] . "\n";
+	if ($var['exten']) {
+		$msg .= 'For extension: ' . $var['exten'] . "\n";
+	}
+} else {
+	$msg = 'Enclosed, please find a new fax ';
+	if ($var['callerid']) {
+		$msg .= 'from: ' . $var['callerid'] ;
+	} 
+	$msg .= "\n";
+	$msg .= 'Received & processed: ' . date('r') . "\n";
+	$msg .= 'On: ' . $var['hostname'] . "\n";
+	$msg .= 'Via: ' . $var['dest'] . "\n";
+	if ($var['exten']) {
+		$msg .= 'For extension: ' . $var['exten'] . "\n";
+	}
 }
 
 
