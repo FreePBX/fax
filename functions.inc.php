@@ -89,6 +89,7 @@ function fax_configpageload() {
 			$fax=fax_get_user($extdisplay);
 			$faxenabled=$fax['faxenabled'];
 			$faxemail=$fax['faxemail'];
+			$faxattachformat=$fax['faxattachformat'];
 		}//get settings in to variables
 		$section = _('Fax');
 		$toggleemail='if($(this).attr(\'checked\')){$(\'[id^=fax]\').removeAttr(\'disabled\');}else{$(\'[id^=fax]\').attr(\'disabled\',\'true\');$(this).removeAttr(\'disabled\');}';
@@ -105,7 +106,24 @@ function fax_configpageload() {
 		}
 		
 		$currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), _('Enable this user to receive faxes'),'true','',$toggleemail));
+
 		$currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _('Fax Email'), _('Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'));
+
+		$currentcomponent->addoptlist('faxattachformatopts', false);
+		$currentcomponent->addoptlistitem('faxattachformatopts', 'pdf', 'pdf');
+		$currentcomponent->addoptlistitem('faxattachformatopts', 'tif', 'tif');
+		$currentcomponent->addoptlistitem('faxattachformatopts', 'both', 'both');
+
+		$currentcomponent->addguielem($section,
+			new gui_selectbox(
+				'faxattachformat',
+				$currentcomponent->getoptlist('faxattachformatopts'),
+				$faxattachformat,
+				_('Attachment Format'),
+				_('Formats to convert incoming fax files to before emailing.'),
+				false
+			)
+		);
 	}
 }
 
@@ -129,9 +147,10 @@ function fax_configprocess() {
 	$ext		= isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:$_REQUEST['extension'];
 	$faxenabled	= isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:null;
 	$faxemail	= isset($_REQUEST['faxemail'])?$_REQUEST['faxemail']:null;
+	$faxattachformat= isset($_REQUEST['faxattachformat'])?$_REQUEST['faxattachformat']:null;
 	switch ($action) {
 		case 'edit':
-			fax_save_user($ext,$faxenabled,$faxemail);
+			fax_save_user($ext,$faxenabled,$faxemail,$faxattachformat);
  			break;
 		case 'del':
 			fax_delete_user($ext);
@@ -271,6 +290,7 @@ function fax_get_config($engine){
 				$exten=$row['user'];
 				$ext->add($context, $exten, '', new ext_set('FAX_FOR',$row['name'].' ('.$row['user'].')'));
 				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_FOR}, From: ${CALLERID(all)}'));
+				$ext->add($context, $exten, '', new ext_set('FAX_ATTACH_FORMAT', $row['faxattachformat']));
 				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', $row['faxemail']));			
 				$ext->add($context, $exten, 'receivefax', new ext_goto('receivefax','s'));
 			}
@@ -336,9 +356,9 @@ function fax_get_config($engine){
 	
 	//strreplace wasn't put into asterisk until 10, so fallback to replace to older asterisk versions
 	if ($ast_ge_10) {
-		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}"'));
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
 	} else {
-		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${REPLACE(CALLERID(all),\', )}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}"'));
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${REPLACE(CALLERID(all),\', )}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
 	}
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
@@ -394,7 +414,7 @@ function fax_get_config($engine){
 
 function fax_get_destinations(){
 	global $db;
-	$sql = "SELECT fax_users.user,fax_users.faxemail,users.name FROM fax_users, users where fax_users.faxenabled = 'true' and users.extension = fax_users.user ORDER BY fax_users.user";
+	$sql = "SELECT fax_users.user,fax_users.faxemail,users.name,fax_users.faxattachformat FROM fax_users, users where fax_users.faxenabled = 'true' and users.extension = fax_users.user ORDER BY fax_users.user";
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
 		die_freepbx($results->getMessage()."<br><br>Error selecting from fax");	
@@ -655,10 +675,10 @@ function fax_save_settings($settings){
 	needreload();
 }
 
-function fax_save_user($faxext,$faxenabled,$faxemail = '') {
+function fax_save_user($faxext,$faxenabled,$faxemail = '',$faxattachformat = 'pdf') {
 	global $db;
-	$sql = 'REPLACE INTO fax_users (user, faxenabled, faxemail) VALUES (?, ?, ?)';
-	$ret = $db->query($sql, array($faxext, $faxenabled, $faxemail));
+	$sql = 'REPLACE INTO fax_users (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)';
+	$ret = $db->query($sql, array($faxext, $faxenabled, $faxemail, $faxattachformat));
 	db_e($ret);
 
 	return true;
@@ -703,7 +723,7 @@ function fax_write_conf(){
  * @return string - path to fresh pdf
  *
  * Supported conversions:
- *	- pdf2tiff
+ *	- pdf2tif
  *	- tif2pdf
  *	- ps2tif
  */

@@ -13,6 +13,7 @@ $var['subject']		= '';
 $var 				= array_merge($var, get_opt());
 $var['callerid']	= $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
 $var['keep_file']	= $var['delete'] == 'true' ? false : true;
+$var['attachformat']	= $var['attachformat'] ? $var['attachformat'] : 'pdf';
 
 //double check some of the options
 foreach ($var as $k => $v) {
@@ -44,9 +45,6 @@ foreach ($var as $k => $v) {
 	}
 }
 
-//if file is a tif, try to convert it to a pdf
-$var['file'] = fax_file_convert('tif2pdf', $var['file'], '', $var['keep_file']);
-
 if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg = 'Sent to ' . $var['dest'] . "\n";
 	$msg .= 'Status: ' . $var['status'] . "\n";
@@ -77,8 +75,28 @@ $email->from($var['from']);
 $email->to($var['to']);
 $email->subject($var['subject']);
 $email->message($msg);
-$email->attach($var['file']);
+
+$tif = $var['file'];
+switch ($var['attachformat']) {
+case 'both':
+	$pdf = fax_file_convert('tif2pdf', $var['file'], '', true);
+	$email->attach($pdf);
+	$email->attach($tif);
+	break;
+case 'tif':
+	$email->attach($tif);
+	break;
+case 'pdf':
+	$pdf = fax_file_convert('tif2pdf', $var['file'], '', true);
+	$email->attach($pdf);
+	break;
+}
+
 $email->send();
+
+if ($var['keep_file'] === false) {
+	unlink($tif);
+}
 
 function die_fax($error) {
 	dbug('email-fax', $error);
