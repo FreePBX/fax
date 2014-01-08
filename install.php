@@ -28,6 +28,7 @@ $sql[]='CREATE TABLE IF NOT EXISTS `fax_users` (
   `user` varchar(15) default NULL,
   `faxenabled` varchar(10) default NULL,
   `faxemail` varchar(50) default NULL,
+  `faxattachformat` varchar(10) default NULL,
   UNIQUE KEY `user` (`user`)
 )';
 
@@ -283,6 +284,18 @@ if (array_key_exists('faxemail',$fields) && $fields['faxemail'][0] == 'varchar(5
 		out(_('WARNING: Failed migration. Email length is limited to 50 characters.'));
 	} else {
 		out(_('Successfully migrated faxemail field'));
+	}
+}
+
+//add attachformat field...
+if (!array_key_exists('faxattachformat', $fields)){
+	out(_('Migrating fax_users table to add faxattachformat...'));
+	$sql = 'ALTER TABLE fax_users ADD faxattachformat varchar(10) default NULL';
+	$q = $db->query($sql);
+	if (DB::IsError($q)) {
+		out(_('WARINING: fax_users table may still be using the old schema!'));
+	} else {
+		out(_('Successfully migrated fax_users table!'));
 	}
 }
 
