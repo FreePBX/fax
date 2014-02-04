@@ -139,14 +139,20 @@ function fax_dahdi_faxdetect(){
 
 function fax_delete_incoming($extdisplay){
 	global $db;
-	$opts=explode('/', $extdisplay);$extension=$opts['0'];$cidnum=$opts['1']; //set vars
-	sql("DELETE FROM fax_incoming WHERE cidnum = '".$db->escapeSimple($cidnum)."' and extension = '".$db->escapeSimple($extension)."'");
+	$opts		= explode('/', $extdisplay);
+	$extension	= $opts['0'];
+	$cidnum		= $opts['1']; //set vars
+	sql("DELETE FROM fax_incoming WHERE cidnum = '"
+		. $db->escapeSimple($cidnum)
+		. "' and extension = '"
+		. $db->escapeSimple($extension)
+		. "'");
 }
 
 function fax_delete_user($faxext) {
        global $db;
-       $faxext=$db->escapeSimple($faxext);
-       sql('DELETE FROM fax_users where user = "'.$faxext.'"');
+       $faxext = $db->escapeSimple($faxext);
+       sql('DELETE FROM fax_users where user = "' . $faxext . '"');
 }
 
 function fax_destinations(){
@@ -252,9 +258,10 @@ function fax_get_config($engine){
 		if($dests){
 			foreach ($dests as $row) {
 				$exten=$row['user'];
-				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: '.$row['name'].' ('.$row['user'].'), From: ${CALLERID(all)}'));
+				$ext->add($context, $exten, '', new ext_set('FAX_FOR',$row['name'].' ('.$row['user'].')'));
+				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_FOR}, From: ${CALLERID(all)}'));
 				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', $row['faxemail']));			
-		    $ext->add($context, $exten, 'receivefax', new ext_goto('receivefax','s'));
+				$ext->add($context, $exten, 'receivefax', new ext_goto('receivefax','s'));
 			}
 		}
     /*
@@ -313,7 +320,9 @@ function fax_get_config($engine){
     $ext->add($context, $exten, '', new ext_gotoif('$[${STAT(e,${ASTSPOOLDIR}/fax/${UNIQUEID}.tif)} = 0]','failed'));
     $ext->add($context, $exten, '', new ext_noop_trace('PROCESSING FAX with status: [${FAXSTATUS}] for: [${FAX_RX_EMAIL}], From: [${CALLERID(all)}]'));
     $ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
-    $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid ${CALLERID} --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${EXTEN}"'));
+	//delete is a variable so that other modules can prevent it should then need to prosses the file further
+	$ext->add($context, $exten, 'delete_opt', new ext_set('DELETE_AFTER_SEND', 'true'));
+    $ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${CALLERID(all)}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}"'));
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
 
@@ -389,16 +398,22 @@ function fax_get_incoming($extension=null,$cidnum=null){
 	return $settings;
 }
 
-function fax_get_user($faxext){
+function fax_get_user($faxext = ''){
 	global $db;
-	if($faxext){
-		$sql="SELECT * FROM fax_users WHERE user = '".$faxext."'";
-		$settings = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-	}else{
-		$sql="SELECT * FROM fax_users";
-		$settings = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+	if ($faxext) {
+		$sql		= "SELECT * FROM fax_users WHERE user = ?";
+		$settings	= $db->getRow($sql, array($faxext), DB_FETCHMODE_ASSOC);
+	} else {
+		$sql		= "SELECT * FROM fax_users";
+		$settings	= $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	}
-	if(!is_array($settings)){$settings=array();}//make sure were retuning an array (even if its blank)
+	db_e($settings);
+	
+	//make sure were retuning an array (even if its blank)
+	if (!is_array($settings)) {
+		$settings = array();
+	}
+	
 	return $settings;
 }
 
@@ -422,21 +437,19 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 	
 	//if were editing, get save parms. Get parms
-	if ($type != 'setup'){
-		if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
-			if ($extdisplay) {
-				$opts=explode('/', $extdisplay);
-				$extension=$opts['0'];
-				$cidnum=$opts['1'];
-			} else {
-				$extension = $cidnum = '';
-			}
-			
+
+	if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
+		if ($extdisplay) {
+			$opts		= explode('/', $extdisplay);
+			$extension	= $opts['0'];
+			$cidnum		= isset($opts['1']) ? $opts['1'] : '';
+		} else {
+			$extension = $cidnum = '';
 		}
-		$fax=fax_get_incoming($extension,$cidnum);
-	}else{
-	  $fax=null;
+		
 	}
+
+	$fax=fax_get_incoming($extension,$cidnum);
 	$html='';
 	if($target_menuid == 'did'){
     $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
@@ -621,19 +634,22 @@ function fax_save_settings($settings){
 	if (is_array($settings)) foreach($settings as $key => $value){
 		sql("REPLACE INTO fax_details (`key`, `value`) VALUES ('".$key."','".$db->escapeSimple($value)."')");
 	}
+	
+	needreload();
 }
 
-function fax_save_user($faxext,$faxenabled,$faxemail){
+function fax_save_user($faxext,$faxenabled,$faxemail = '') {
 	global $db;
-	$faxext=$db->escapeSimple($faxext);
-	$faxenabled=$db->escapeSimple($faxenabled);
-	$faxemail=$db->escapeSimple($faxemail);
-	sql('REPLACE INTO fax_users (user, faxenabled, faxemail) VALUES ("'.$faxext.'","'.$faxenabled.'","'.$faxemail.'")');
+	$sql = 'REPLACE INTO fax_users (user, faxenabled, faxemail) VALUES (?, ?, ?)';
+	$ret = $db->query($sql, array($faxext, $faxenabled, $faxemail));
+	db_e($ret);
+
+	return true;
 }
 
 function fax_sip_faxdetect(){
 	global $asterisk_conf;
-  return true;
+ 	return true;
 }
 
 //write out res_fax.conf and res_fax_digium.conf
@@ -660,18 +676,155 @@ function fax_write_conf(){
 	fclose($file);
 }
 
-function fax_tiff2pdf($file){
-	exec('which tiff2pdf', $t2p);
-	$t2p = $t2p[0];
-	if (!$t2p) {
+/**
+ * Converts a file to different format
+ * @param string - conversion type in the format of 'from2to'
+ * @param string - path to origional file
+ * @param string - path to save new file
+ * @param bool - wether to keep or delete the orgional file
+ *
+ * @return string - path to fresh pdf
+ *
+ * Supported conversions:
+ *	- pdf2tiff
+ *	- tif2pdf
+ *	- ps2tif
+ */
+function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = array()) {
+	global $amp_conf;
+	//ensure file exists
+	if (!is_file($in)) {
 		return false;
 	}
 	
-	//make pdf
-	$cmd = $t2p . ' -z -c "Converted by FreePBX" -a "www.freepbx.org" -o ' 
-				.  substr($file, 0, strrpos($file, '.')) . '.pdf' . ' ' . $file;
-	exec($cmd, $o, $error);
+	//set out filename if not specified
+	if (!$out) {
+		switch ($type) {
+			case 'pdf2tif':
+			case 'ps2tif':
+				$ext = '.tif';
+				break;
+			case 'tif2pdf':
+				$ext = '.pdf';
+				break;
+		}
+		$pathinfo = pathinfo($in);
 
-	return $error === 0 ? true : false;
+		//php < 5.2 doesnt provide filename
+		if (!isset($pathinfo['filename'])) {
+			$pathinfo['filename'] 
+				= substr($pathinfo['basename'], 0, 
+						strrpos($pathinfo['basename'], 
+							'.' . $pathinfo['extension']
+						)
+				);
+		}
+		
+		$out = $pathinfo['dirname']
+					. '/'
+					. $pathinfo['filename']
+					. $ext;
+	}
+	
+	//if file exists, assume its been converted already
+	if (file_exists($out)) {
+		return $out;
+	}
+	
+	//ensure cli command exists
+	switch ($type) {
+		case 'pdf2tif':
+		case 'ps2tif':
+			$gs = fpbx_which('gs');
+			if (!$gs) {
+				dbug('gs not found, not converting ' . $in);
+				return $in;
+			}
+			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=letter ';
+			break;
+		case 'tif2pdf':
+			$tiff2pdf = fpbx_which('tiff2pdf');
+			if (!$tiff2pdf) {
+				dbug('tiff2pdf not found, not converting ' . $in);
+				return $in;
+			}
+			break;
+	}
+
+	//convert!
+	switch ($type) {
+		case 'pdf2tif':
+		case 'ps2tif':
+			$cmd = $gs
+				. '-sDEVICE=tiffg4 '
+				. '-sOutputFile=' . $out . ' ' . $in;
+			break;
+		case 'tif2pdf':
+			$cmd = $tiff2pdf
+					. ' -z '
+					. '-c "PBXact by Schmooze Communications" '
+					. '-a "' . $amp_conf['PDFAUTHOR'] . '" '
+					. (isset($opts['title']) ? '-t "' . $opts['title'] . '" ' : '')
+					. '-o ' . $out . ' ' . $in;
+			break;
+		default:
+			break;
+	}
+
+	exec($cmd, $ret, $status);
+	
+	//remove original
+	if ($status === 0 && !$keep_orig) {
+		unlink($in);
+	}
+	
+	return $status === 0 ? $out : $in;
+}
+
+/**
+ * Get info on a tiff file. Require tiffinfo
+ * @param string - absolute path to file
+ * @param string - specifc option to receive
+ *
+ * @return mixed - if $opt & exists returns a string, else bool false,
+ * otherwise an array of details
+ */
+function fax_tiffinfo($file, $opt = '') {
+	//ensure file exists
+	if (!is_file($file)) {
+		return false;
+	}
+	
+	$tiffinfo	= fpbx_which('tiffinfo');
+	$info		= array();
+	
+	if (!$tiffinfo) {
+		return false;
+	}
+	exec($tiffinfo . ' ' . $file, $output);
+	
+	if ($output && strpos($output[0], 'Not a TIFF or MDI file') === 0) {
+		return false;
+	}
+	
+	foreach ($output as $out) {
+		$o = explode(':', $out, 2);
+		$info[trim($o[0])] = isset($o[1]) ? trim($o[1]) : '';
+	}
+	
+	if (!$info) {
+		return false;
+	}
+	
+	//special case prossesing
+	//Page Number: defualt format = 0-0. Use only first set of digits, increment by 1
+	$info['Page Number'] = explode('-', $info['Page Number']);
+	$info['Page Number'] = $info['Page Number'][0] + 1;
+	
+	if ($opt) {
+		return isset($info[$opt]) ? $info[$opt] : false;
+	}
+	
+	return $info;
 }
 ?>

@@ -271,4 +271,17 @@ if(!DB::IsError($legacy_settings)) {
 } else {
 	out(_("already done"));
 }
+
+$set['value'] = 'www.freepbx.org';
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 1;
+$set['hidden'] = 1;
+$set['module'] = '';
+$set['category'] = 'Styling and Logos';
+$set['emptyok'] = 0;
+$set['name'] = 'tiff2pdf Author';
+$set['description'] = "Author to pass to tiff2pdf's -a option";
+$set['type'] = CONF_TYPE_TEXT;
+$freepbx_conf =& freepbx_conf::create();
+$freepbx_conf->define_conf_setting('PDFAUTHOR', $set, true);
 ?>
