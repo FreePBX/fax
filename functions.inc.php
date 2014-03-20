@@ -393,7 +393,7 @@ function fax_get_config($engine){
   }
 	if (($fax['module'] && ($ast_lt_18 || $fax['ffa'] || $fax['spandsp'])) || $fax_settings['force_detection'] == 'yes') {
 	  if ($ast_ge_16 && isset($core_conf) && is_a($core_conf, "core_conf")) {
-		  $core_conf->addSipGeneral('faxdetect','yes');
+			$core_conf->addSipGeneral('faxdetect','no');
 	  }
 
 		$ext->add('ext-did-0001', 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
@@ -623,6 +623,8 @@ function fax_hookGet_config($engine){
         }
 			  $ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_RX_EMAIL',$fax_rx_email));
       }
+			//If we have fax incoming, we need to set fax detection to yes
+			$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAXOPT(faxdetect)', 'yes'));
 		  $ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
       if ($route['detection'] == 'nvfax') {
 		    $ext->splice($context, $extension, 'dest-ext', new ext_playtones('ring'));
