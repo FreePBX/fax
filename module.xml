@@ -2,15 +2,17 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>2.11.0.8</version>
-	<publisher>Schmoozecom.com</publisher>
-	<license>GPLv2+</license>
+	<version>2.11.0.9</version>
+	<publisher>Schmooze Com Inc</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Settings</category>
 	<menuitems>
 		<fax>Fax Configuration</fax>
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*2.11.0.9* Update license file
 		*2.11.0.8* Fix issues with older Asterisk versions caused by fixing #5816
 		*2.11.0.7* #5816, Adds ru_RU and ja_JP languages
 		*2.11.0.6* Allow specifying email attachment type(s) on inbound fax.
