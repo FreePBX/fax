@@ -29,6 +29,32 @@ class Fax implements BMO {
 
 	}
 
+	public function getSettings() {
+		$settings = sql('SELECT * FROM fax_details', 'getAssoc', 'DB_FETCHMODE_ASSOC');
+		foreach($settings as $setting => $value){
+			$set[$setting]=$value['0'];
+		}
+		if(!is_array($set)){$set=array();}//never return a null value
+		return $set;
+	}
+
+	public function saveUser($faxext,$faxenabled,$faxemail = '',$faxattachformat = 'pdf') {
+		$sth = $this->db->prepare('REPLACE INTO fax_users (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)');
+		try {
+			$sth->execute(array($faxext, $faxenabled, $faxemail, $faxattachformat));
+		} catch(\Exception $e) {
+			return false;
+		}
+		return true;
+	}
+
+	public function getUser($user) {
+		$sth = $this->db->prepare('SELECT * FROM fax_users WHERE user = ?');
+		$sth->execute(array($user));
+		$out = $sth->fetchAll(PDO::FETCH_ASSOC);
+		return (!empty($out[0]) && $out[0]['faxenabled']) ? $out[0] : false;
+	}
+
 	public function faxDetect() {
 		$fax=null;
 		$appfax = $receivefax = false;//return false by default in case asterisk isnt reachable

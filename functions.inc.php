@@ -460,12 +460,7 @@ function fax_get_user($faxext = ''){
 }
 
 function fax_get_settings(){
-	$settings = sql('SELECT * FROM fax_details', 'getAssoc', 'DB_FETCHMODE_ASSOC');
-	foreach($settings as $setting => $value){
-		$set[$setting]=$value['0'];
-	}
-	if(!is_array($set)){$set=array();}//never return a null value
-	return $set;
+	return Freepbx::Fax()->getSettings();
 }
 
 
@@ -688,12 +683,7 @@ function fax_save_settings($settings){
 }
 
 function fax_save_user($faxext,$faxenabled,$faxemail = '',$faxattachformat = 'pdf') {
-	global $db;
-	$sql = 'REPLACE INTO fax_users (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)';
-	$ret = $db->query($sql, array($faxext, $faxenabled, $faxemail, $faxattachformat));
-	db_e($ret);
-
-	return true;
+	return FreePBX::Fax()->saveUser($faxext, $faxenabled, $faxemail, $faxattachformat);
 }
 
 function fax_sip_faxdetect(){
