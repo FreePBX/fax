@@ -6,32 +6,35 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2011-09-23 09:52+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2014-07-22 15:38+0200\n"
+"Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
+"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/fax/bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 msgid "Fax Configuration"
-msgstr ""
+msgstr "Факс Настройки"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
+msgstr "Предоставя възможност за настройки, опции и GUI на входящи факсове"
 
 #, php-format
 msgid "Fax user %s"
-msgstr ""
+msgstr "Факс потребител %s"
 
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
-msgstr ""
+msgstr "Детектиране на Входящ Факс: %s (%s)"
 
 msgid "Fax"
-msgstr ""
+msgstr "Факс"
 
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
