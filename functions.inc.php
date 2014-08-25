@@ -779,7 +779,7 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 				dbug('gs not found, not converting ' . $in);
 				return $in;
 			}
-			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=letter ';
+			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=letter -g1728x2156 -r204x196 ';
 			break;
 		case 'tif2pdf':
 			$tiff2pdf = fpbx_which('tiff2pdf');
