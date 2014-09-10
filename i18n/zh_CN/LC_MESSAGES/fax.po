@@ -20,12 +20,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2010-08-19 11:48+0800\n"
-"Last-Translator: voip88_chris <voip88@hotmail.com>\n"
-"Language-Team: voip88.com \n"
+"PO-Revision-Date: 2014-09-11 01:54+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://git.freepbx.org/projects/freepbx/fax/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.10-dev\n"
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -40,11 +44,11 @@ msgstr "为呼入传真增加设置，选项，界面"
 
 #, php-format
 msgid "Fax user %s"
-msgstr "传真用户"
+msgstr "传真用户 %s"
 
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
-msgstr "传真呼入检测"
+msgstr "传真呼入检测: %s(%s)"
 
 msgid "Fax"
 msgstr "传真"
@@ -243,7 +247,7 @@ msgstr "合并"
 
 #, php-format
 msgid "Removing field %s from incoming table.."
-msgstr "从呼入的列表中移动值"
+msgstr "从呼入的列表中移动值 %s"
 
 msgid "not present"
 msgstr "当前没有"
@@ -264,9 +268,9 @@ msgstr ""
 msgid "blank"
 msgstr "空白"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%s FAX Migrations Failed"
-msgstr "传真合成失败"
+msgstr "%s 传真合成失败"
 
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
