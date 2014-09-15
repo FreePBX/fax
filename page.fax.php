@@ -102,5 +102,6 @@ $trans_rates = array(
 </form>
 <?php
 //add hooks
+$module_hook = moduleHook::create();
 echo $module_hook->hookHtml;
 ?>

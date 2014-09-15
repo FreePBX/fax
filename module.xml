@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*12.0.5* Redo module_hook calls to use static obj
 		*12.0.4* Tweaks to max res and widths
 		*12.0.3* FREEPBX-7140 Set page max resolution and widths so that all pages are the same sizes
 		*12.0.2* Dont Copy duplicate functions
@@ -41,7 +42,7 @@
 		*2.9.0.0* #4562, #4326, #4557, #4632, #4651, #4653
 	</changelog>
 	<depends>
-		<version>12.0.1alpha40</version>
+		<version>12.0.1rc16</version>
 	</depends>
 	<supported>
 		<version>12.0</version>
