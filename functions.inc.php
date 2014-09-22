@@ -29,6 +29,7 @@ function fax_getdestinfo($dest) {
 
 function fax_check_destinations($dest=true) {
 	global $active_modules;
+	global $version;
 
 	$ast_lt_18 = version_compare($version, '1.8', 'lt');
 	$fax=fax_detect();
