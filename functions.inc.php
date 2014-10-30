@@ -99,18 +99,18 @@ function fax_configpageload() {
 		//check for fax prereqs, and alert the user if something is amiss
 		$fax=fax_detect();
 		if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp'])) || !$ast_lt_18){//missing modules
-			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.').'</font>'));
+			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.').'</font>'),"Advanced");
 		}elseif($fax['ffa'] && $fax['license'] < 1){//missing license
-			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.').'</font>'));
+			$currentcomponent->addguielem($section, new gui_label('error','<font color="red">'._('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.').'</font>'),"Advanced");
 		}
 		$usage_list = framework_display_destination_usage(fax_getdest($extdisplay));
 		if (!empty($usage_list)) {
 			$currentcomponent->addguielem('_top', new gui_link_label('faxdests', "&nbsp;Fax".$usage_list['text'], $usage_list['tooltip'], true), 5);
 		}
 
-		$currentcomponent->addguielem($section, new gui_checkbox('faxenabled',$faxenabled,_('Enabled'), _('Enable this user to receive faxes'),'true','',$toggleemail));
+		$currentcomponent->addguielem($section, new gui_radio('faxenabled',array(array("value" => "yes", "text" => _("Yes")), array("value" => "no", "text" => _("No"))), (($faxenabled) ? "yes" : "no"),_('Enabled'), _('Enable this user to receive faxes')),"Advanced");
 
-		$currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _('Fax Email'), _('Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'));
+		$currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _('Fax Email'), _('Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'),"Advanced");
 
 		$currentcomponent->addoptlist('faxattachformatopts', false);
 		$currentcomponent->addoptlistitem('faxattachformatopts', 'pdf', 'pdf');
@@ -124,8 +124,10 @@ function fax_configpageload() {
 				$faxattachformat,
 				_('Attachment Format'),
 				_('Formats to convert incoming fax files to before emailing.'),
-				false
-			)
+				false,
+				'',
+				true
+			), "Advanced"
 		);
 	}
 }
