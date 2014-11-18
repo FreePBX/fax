@@ -96,7 +96,6 @@ function fax_configpageload() {
 		}//get settings in to variables
 		$section = _('Fax');
 		$category = "advanced";
-		$toggleemail='if($(this).attr(\'checked\')){$(\'[id^=fax]\').removeAttr(\'disabled\');}else{$(\'[id^=fax]\').attr(\'disabled\',\'true\');$(this).removeAttr(\'disabled\');}';
 		//check for fax prereqs, and alert the user if something is amiss
 		$fax=fax_detect();
 		if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp'])) || !$ast_lt_18){//missing modules
@@ -109,27 +108,95 @@ function fax_configpageload() {
 			$currentcomponent->addguielem('_top', new gui_link_label('faxdests', "&nbsp;Fax".$usage_list['text'], $usage_list['tooltip'], true), 5, null, $category);
 		}
 
-		$currentcomponent->addguielem($section, new gui_radio('faxenabled',array(array("value" => "yes", "text" => _("Yes")), array("value" => "no", "text" => _("No"))), (($faxenabled) ? "yes" : "no"),_('Enabled'), _('Enable this user to receive faxes')),$category);
+		$disabled = !($faxenabled == 'true');
 
-		$currentcomponent->addguielem($section, new gui_textbox('faxemail', $faxemail, _('Fax Email'), _('Enter an email address where faxes sent to this extension will be delivered.'), '!isEmail()', _('Please Enter a valid email address for fax delivery.'), TRUE, '', ($faxenabled == 'true')?'':'true'),$category);
+		$js = "
+		var dval = $('#faxenabled0').prop('checked') ? false : true;
+		$('.fpbx-fax').prop('disabled',dval);
+		if(!$('html').hasClass('firsttypeofselector')) {
+			$('.radioset').buttonset('refresh');
+		}
+		return true;
+		";
+		$currentcomponent->addjsfunc('faxEnabled(notused)', $js);
 
-		$currentcomponent->addoptlist('faxattachformatopts', false);
-		$currentcomponent->addoptlistitem('faxattachformatopts', 'pdf', 'pdf');
-		$currentcomponent->addoptlistitem('faxattachformatopts', 'tif', 'tif');
-		$currentcomponent->addoptlistitem('faxattachformatopts', 'both', 'both');
+		$js = 'return (theForm.faxenabled.value == "true");';
+		$currentcomponent->addjsfunc('isFaxEnabled(notused)',$js);
 
-		$currentcomponent->addguielem($section,
-			new gui_selectbox(
-				'faxattachformat',
-				$currentcomponent->getoptlist('faxattachformatopts'),
-				$faxattachformat,
-				_('Attachment Format'),
-				_('Formats to convert incoming fax files to before emailing.'),
-				false,
-				'',
-				true
-			), $category
+		$guidefaults = array(
+			"elemname" => "",
+			"prompttext" => "",
+			"helptext" => "",
+			"currentvalue" => "",
+			"valarray" => array(),
+			"jsonclick" => '',
+			"jsvalidation" => "",
+			"failvalidationmsg" => "",
+			"canbeempty" => true,
+			"maxchars" => 0,
+			"disable" => false,
+			"inputgroup" => false,
+			"class" => ""
 		);
+		$el = array(
+			"elemname" => "faxenabled",
+			"prompttext" => _('Enabled'),
+			"helptext" => _('Enable this user to receive faxes'),
+			"currentvalue" => (($faxenabled == 'true') ? "true" : "false"),
+			"valarray" => array(
+				array(
+					"value" => "true",
+					"text" => _("Yes")
+				),
+				array(
+					"value" => "false",
+					"text" => _("No")
+				)
+			),
+			"jsonclick" => "frm_${display}_faxEnabled()",
+			"pairedvalues" => false
+		);
+		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)),$category);
+
+
+		$el = array(
+			"elemname" => "faxemail",
+			"prompttext" => _('Fax Email'),
+			"helptext" => _('Enter an email address where faxes sent to this extension will be delivered.'),
+			"currentvalue" => $faxemail,
+			"class" => "fpbx-fax",
+			"jsvalidation" => "frm_${display}_isFaxEnabled() && !isEmail()",
+			"failvalidationmsg" => _('Please Enter a valid email address for fax delivery.'),
+			"disable" => $disabled,
+			"canbeempty" => false
+		);
+		$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+
+		$el = array(
+			"elemname" => "faxattachformat",
+			"prompttext" => _('Attachment Format'),
+			"helptext" => _('Formats to convert incoming fax files to before emailing.'),
+			"currentvalue" => $faxattachformat,
+			"valarray" => array(
+				array(
+					"value" => "pdf",
+					"text" => _("pdf")
+				),
+				array(
+					"value" => "tif",
+					"text" => _("tiff")
+				),
+				array(
+					"value" => "both",
+					"text" => _("both")
+				)
+			),
+			"canbeempty" => false,
+			"class" => "fpbx-fax",
+			"disable" => $disabled
+		);
+		$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)),$category);
+
 	}
 }
 
@@ -151,7 +218,7 @@ function fax_configpageinit($pagename) {
 function fax_configprocess() {
 	$action		= isset($_REQUEST['action']) ?$_REQUEST['action']:null;
 	$ext		= isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:$_REQUEST['extension'];
-	$faxenabled	= isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:null;
+	$faxenabled	= isset($_REQUEST['faxenabled']) && $_REQUEST['faxenabled'] == "true"?"true":null;
 	$faxemail	= isset($_REQUEST['faxemail'])?$_REQUEST['faxemail']:null;
 	$faxattachformat= isset($_REQUEST['faxattachformat'])?$_REQUEST['faxattachformat']:null;
 	switch ($action) {
