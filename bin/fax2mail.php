@@ -17,10 +17,13 @@ $var['attachformat']	= !empty($var['attachformat']) ? $var['attachformat'] : 'pd
 
 //double check some of the options
 foreach ($var as $k => $v) {
+  if (!is_string($k)) {
+    continue;
+  }
 	switch ($k) {
 		case 'file':
 			if (!file_exists($var['file'])) {
-				die_fax('email-fax dying, file ' . $file . ' not found!');
+				die_fax('email-fax dying, file ' . $var['file'] . ' not found!');
 			}
 			break;
 		case 'to':
