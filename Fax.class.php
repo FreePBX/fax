@@ -26,7 +26,32 @@ class Fax implements BMO {
 
 	}
 	public function genConfig() {
+		global $version;
+		$conf = array();
 
+		$fax = $this->faxDetect();
+		$ast_lt_18 = version_compare($version, '1.8', 'lt');
+		if($fax['module'] && ($ast_lt_18 || $fax['ffa'] || $fax['spandsp'])){ //dont continue unless we have a fax module in asterisk
+
+			$settings = $this->getSettings();
+			$conf['res_fax.conf']['general'][] = "#include res_fax_custom.conf";
+			if(!empty($settings['minrate'])) {
+				$conf['res_fax.conf']['general']['minrate'] = $settings['minrate'];
+			}
+			if(!empty($settings['maxrate'])) {
+				$conf['res_fax.conf']['general']['maxrate'] = $settings['maxrate'];
+			}
+
+			$conf['res_fax_digium.conf']['general'][] = "#include res_fax_digium_custom.conf";
+			if(!empty($settings['ecm'])) {
+				$conf['res_fax_digium.conf']['general']['ecm'] = $settings['ecm'];
+			}
+		}
+
+		return $conf;
+	}
+	public function writeConfig($conf){
+		$this->FreePBX->WriteConfig($conf);
 	}
 
 	public function getSettings() {

@@ -443,10 +443,6 @@ function fax_get_config($engine){
     $ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
 	  $ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
-
-		//write out res_fax.conf and res_fax_digium.conf
-		fax_write_conf();
-
     $modulename = 'fax';
     $fcc = new featurecode($modulename, 'simu_fax');
     $fc_simu_fax = $fcc->getCodeActive();
@@ -507,6 +503,7 @@ function fax_get_incoming($extension=null,$cidnum=null){
 	}else{
 		$sql="SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
 		$settings=$db->getAll($sql, DB_FETCHMODE_ASSOC);
+
 	}
 	return $settings;
 }
@@ -760,30 +757,6 @@ function fax_save_user($faxext,$faxenabled,$faxemail = '',$faxattachformat = 'pd
 function fax_sip_faxdetect(){
 	global $asterisk_conf;
  	return true;
-}
-
-//write out res_fax.conf and res_fax_digium.conf
-function fax_write_conf(){
-	global $amp_conf, $WARNING_BANNER;
-	$set=fax_get_settings();
-	//res_fax.conf
-	$data=$WARNING_BANNER;
-	$data.="[general]\n";
-	$data.="#include res_fax_custom.conf\n";
-	$data.='minrate='.$set['minrate']."\n";
-	$data.='maxrate='.$set['maxrate']."\n";
-	$file=fopen($amp_conf['ASTETCDIR'].'/res_fax.conf','w');
-	fwrite($file, $data);
-	fclose($file);
-
-	//res_fax_digium.conf
-	$data=$WARNING_BANNER;
-	$data.="[general]\n";
-	$data.="#include res_fax_digium_custom.conf\n";
-	$data.='ecm='.$set['ecm']."\n";
-	$file=fopen($amp_conf['ASTETCDIR'].'/res_fax_digium.conf','w');
-	fwrite($file, $data);
-	fclose($file);
 }
 
 /**
