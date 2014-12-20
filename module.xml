@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>12.0.6</version>
+	<version>12.0.7</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*12.0.7* Dont write blank values Asterisk cant understand
 		*12.0.6* FREEPBX-8159 check for incorrect arguments in fail2mail
 		*12.0.5* Redo module_hook calls to use static obj
 		*12.0.4* Tweaks to max res and widths
