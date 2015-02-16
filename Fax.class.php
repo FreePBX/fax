@@ -10,7 +10,26 @@ class Fax implements BMO {
 	}
 
 	public function doConfigPageInit($page) {
-
+		$request = $_REQUEST;
+		$get_vars = array(
+			'ecm'				=> '',
+			'fax_rx_email'		=> '',
+			'force_detection'	=> 'no',
+			'headerinfo'		=> '',
+			'legacy_mode'		=> 'no',
+			'localstationid'	=> '',
+			'maxrate'			=> '',
+			'minrate'			=> '',
+			'modem'				=> '',
+			'sender_address'	=> '',
+		);
+		foreach($get_vars as $k => $v){
+			$fax[$k] = isset($request[$k]) ? $request[$k] : $v;
+		}
+		// get/put options
+		if (isset($request['action']) &&  $request['action'] == 'edit'){
+			fax_save_settings($fax);
+		}
 	}
 
 	public function install() {
@@ -143,5 +162,24 @@ class Fax implements BMO {
 			$fax['license'] = isset($data['Licensed Channels']) ? $data['Licensed Channels'] : '';
 		}
 		return $fax;
+	}
+	public function getActionBar($request) {
+		switch ($request['display']) {
+			case 'fax':
+				$buttons = array(
+						'submit' => array(
+							'name' => 'submit',
+							'id' => 'submit',
+							'value' => _("Submit")
+						),
+						'reset' => array(
+							'name' => 'reset',
+							'id' => 'reset',
+							'value' => _("Reset")
+						),
+					);
+				return $buttons;
+			break;
+		}
 	}
 }
