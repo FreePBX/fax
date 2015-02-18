@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-//include freepbx configuration 
+//include freepbx configuration
 $restrict_mods = array('fax' => true);
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
     include_once('/etc/asterisk/freepbx.conf');
@@ -11,16 +11,19 @@ $var['from']		= sql('SELECT value FROM fax_details WHERE `key` = "sender_address
 $var['from']		= $var['from'] ? $var['from'] : 'fax@freepbx.pbx';
 $var['subject']		= '';
 $var 				= array_merge($var, get_opt());
-$var['callerid']	= $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
-$var['keep_file']	= $var['delete'] == 'true' ? false : true;
-$var['attachformat']	= $var['attachformat'] ? $var['attachformat'] : 'pdf';
+$var['callerid']	= empty($var['callerid']) || $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
+$var['keep_file']	= !empty($var['delete']) && $var['delete'] == 'true' ? false : true;
+$var['attachformat']	= !empty($var['attachformat']) ? $var['attachformat'] : 'pdf';
 
 //double check some of the options
 foreach ($var as $k => $v) {
+  if (!is_string($k)) {
+    continue;
+  }
 	switch ($k) {
 		case 'file':
 			if (!file_exists($var['file'])) {
-				die_fax('email-fax dying, file ' . $file . ' not found!');
+				die_fax('email-fax dying, file ' . $var['file'] . ' not found!');
 			}
 			break;
 		case 'to':
@@ -39,7 +42,7 @@ foreach ($var as $k => $v) {
 						$var['subject'] = 'New fax received';
 					}
 				}
-				
+
 			}
 			break;
 	}
@@ -57,7 +60,7 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg = 'Enclosed, please find a new fax ';
 	if ($var['callerid']) {
 		$msg .= 'from: ' . $var['callerid'] ;
-	} 
+	}
 	$msg .= "\n";
 	$msg .= 'Received & processed: ' . date('r') . "\n";
 	$msg .= 'On: ' . $var['hostname'] . "\n";

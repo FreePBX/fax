@@ -373,10 +373,6 @@ function fax_get_config($engine){
     $ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
 	  $ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
-
-		//write out res_fax.conf and res_fax_digium.conf
-		fax_write_conf();
-
     $modulename = 'fax';
     $fcc = new featurecode($modulename, 'simu_fax');
     $fc_simu_fax = $fcc->getCodeActive();
@@ -437,6 +433,7 @@ function fax_get_incoming($extension=null,$cidnum=null){
 	}else{
 		$sql="SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
 		$settings=$db->getAll($sql, DB_FETCHMODE_ASSOC);
+
 	}
 	return $settings;
 }
@@ -461,12 +458,7 @@ function fax_get_user($faxext = ''){
 }
 
 function fax_get_settings(){
-	$settings = sql('SELECT * FROM fax_details', 'getAssoc', 'DB_FETCHMODE_ASSOC');
-	foreach($settings as $setting => $value){
-		$set[$setting]=$value['0'];
-	}
-	if(!is_array($set)){$set=array();}//never return a null value
-	return $set;
+	return Freepbx::Fax()->getSettings();
 }
 
 
@@ -689,41 +681,12 @@ function fax_save_settings($settings){
 }
 
 function fax_save_user($faxext,$faxenabled,$faxemail = '',$faxattachformat = 'pdf') {
-	global $db;
-	$sql = 'REPLACE INTO fax_users (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)';
-	$ret = $db->query($sql, array($faxext, $faxenabled, $faxemail, $faxattachformat));
-	db_e($ret);
-
-	return true;
+	return FreePBX::Fax()->saveUser($faxext, $faxenabled, $faxemail, $faxattachformat);
 }
 
 function fax_sip_faxdetect(){
 	global $asterisk_conf;
  	return true;
-}
-
-//write out res_fax.conf and res_fax_digium.conf
-function fax_write_conf(){
-	global $amp_conf, $WARNING_BANNER;
-	$set=fax_get_settings();
-	//res_fax.conf
-	$data=$WARNING_BANNER;
-	$data.="[general]\n";
-	$data.="#include res_fax_custom.conf\n";
-	$data.='minrate='.$set['minrate']."\n";
-	$data.='maxrate='.$set['maxrate']."\n";
-	$file=fopen($amp_conf['ASTETCDIR'].'/res_fax.conf','w');
-	fwrite($file, $data);
-	fclose($file);
-
-	//res_fax_digium.conf
-	$data=$WARNING_BANNER;
-	$data.="[general]\n";
-	$data.="#include res_fax_digium_custom.conf\n";
-	$data.='ecm='.$set['ecm']."\n";
-	$file=fopen($amp_conf['ASTETCDIR'].'/res_fax_digium.conf','w');
-	fwrite($file, $data);
-	fclose($file);
 }
 
 /**
@@ -790,7 +753,7 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 				dbug('gs not found, not converting ' . $in);
 				return $in;
 			}
-			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=letter ';
+			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -g1728x1145 -r209x98 ';
 			break;
 		case 'tif2pdf':
 			$tiff2pdf = fpbx_which('tiff2pdf');
