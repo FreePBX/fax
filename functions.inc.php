@@ -588,8 +588,8 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			 * callback so that we ait for the fits animation to complete before
 			 * playing the second
 			 */
-			$faxing = isset($fax);
-			$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.(!$faxing?'':'CHECKED').'/><label for="faxenabled_no">' . _('No') . '</label>';
+			$faxing = !empty($fax);
+			$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.(!$faxing?'CHECKED':'').'/><label for="faxenabled_no">' . _('No') . '</label>';
 			$fdinput.= '<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($faxing?'CHECKED':'').' onclick="'.$jsyes.'"/><label for="faxenabled_yes">' . _('Yes') . '</label>';
 			if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
 				$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/><label for="faxenabled_legacy">' . _('Legacy');
