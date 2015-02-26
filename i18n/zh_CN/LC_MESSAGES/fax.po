@@ -45,9 +45,9 @@ msgid ""
 msgstr ""
 
 #: install.php:263
-#, fuzzy, php-format
+#, php-format
 msgid "%s FAX Migrations Failed"
-msgstr "%s 传真合成失败"
+msgstr "传真合成失败"
 
 #: install.php:264
 #, php-format
