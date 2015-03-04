@@ -628,9 +628,6 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		$fdthelp .= '<li>'._("Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files").'</li>';
 		$fdthelp .= '<li>'._("NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk").'</li>';
 		$fdthelp .= '</ul>';
-		$fdtopt.='<option value="dahdi" '.($fax['detection'] == 'dahdi' ? 'SELECTED' : '').' '.($fax_dahdi_faxdetect?'':'disabled').'>'.$dahdi.'</option>';
-		$fdtopt.='<option value="nvfax"'.($fax['detection'] == 'nvfax' ? 'SELECTED' : '').($fax_detect['nvfax']?'':'disabled').'>'. _("NVFax").'</option>';
-		$fdtopt.='<option value="sip" '.($fax['detection'] == 'sip' ? 'SELECTED' : '').' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>'. _("Sip").'</option>';
 		$html .='
 		<!--Fax Detection type-->
 		<div class="element-container '.($faxing?'':"hidden").'" id="fdtype">
@@ -642,10 +639,13 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 								<label class="control-label" for="faxdetection">'._("Fax Detection type").'</label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetection"></i>
 							</div>
-							<div class="col-md-9">
-								<select name="faxdetection" id="faxdetection" class="form-control" tabindex="'.++$tabindex.'">
-									'.$fdtopt.'
-								</select>
+							<div class="col-md-9 radioset">
+								<input type="radio" name="faxdetection" id="faxdetectiondahdi" value="dahdi" '. ($faxdetection == "dahdi"?"CHECKED":"").' '.($fax_dahdi_faxdetect?'':'disabled').'>
+								<label for="faxdetectiondahdi">'. _("Dahdi").'</label>
+								<input type="radio" name="faxdetection" id="faxdetectionnvfax" value="nvfax" '. ($faxdetection == "nvfax"?"CHECKED":"").' '.($fax_detect['nvfax']?'':'disabled').'>
+								<label for="faxdetectionnvfax">'. _("NVFax").'</label>
+								<input type="radio" name="faxdetection" id="faxdetectionsip" value="sip" '. ($faxdetection == "sip"?"CHECKED":"").' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>
+								<label for="faxdetectionsip">'. _("SIP").'</label>
 							</div>
 						</div>
 					</div>
