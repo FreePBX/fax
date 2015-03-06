@@ -32,6 +32,28 @@ class Fax implements BMO {
 		}
 	}
 
+	public function getQuickCreateDisplay() {
+		return array(
+			1 => array(
+				array(
+					'html' => load_view(__DIR__.'/views/quickCreate.php',array())
+				)
+			)
+		);
+	}
+
+	/**
+	* Quick Create hook
+	* @param string $tech      The device tech
+	* @param int $extension The extension number
+	* @param array $data      The associated data
+	*/
+	public function processQuickCreate($tech, $extension, $data) {
+		if($data['faxenabled'] == "yes") {
+			$this->saveUser($extension, "true", $data['email'], "pdf");
+		}
+	}
+
 	public function install() {
 
 	}
