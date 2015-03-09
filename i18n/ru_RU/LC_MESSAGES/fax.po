@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 19:19-0500\n"
+"POT-Creation-Date: 2015-02-20 19:30-0500\n"
 "PO-Revision-Date: 2010-06-23 04:00+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
@@ -99,10 +99,6 @@ msgstr ""
 #: functions.inc.php:505
 msgid "Attempt to detect faxes on this DID."
 msgstr "Попытка детектировать факсы на этом входящем DID."
-
-#: fax.i18n.php:9
-msgid "Author to pass to tiff2pdf\\'s -a option"
-msgstr ""
 
 #: install.php:254
 msgid "Checking for failed migrations.."
@@ -428,10 +424,6 @@ msgstr ""
 "Sip: использовать распознавание факса в канале Sip (t38). Требуется asterisk "
 "1.6.2 или выше и опция 'faxdetect=yes' в sip конфигурационных файлах"
 
-#: fax.i18n.php:7
-msgid "Styling and Logos"
-msgstr ""
-
 #: page.fax.php:100
 msgid "Submit"
 msgstr "Сохранить"
@@ -567,10 +559,6 @@ msgstr "удалено"
 #: install.php:136
 msgid "starting migration"
 msgstr "начинаем миграцию"
-
-#: fax.i18n.php:8
-msgid "tiff2pdf Author"
-msgstr ""
 
 #: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"

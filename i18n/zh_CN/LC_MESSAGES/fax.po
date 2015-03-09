@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 19:19-0500\n"
+"POT-Creation-Date: 2015-02-20 19:30-0500\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -45,9 +45,9 @@ msgid ""
 msgstr ""
 
 #: install.php:263
-#, fuzzy, php-format
+#, php-format
 msgid "%s FAX Migrations Failed"
-msgstr "%s 传真合成失败"
+msgstr "传真合成失败"
 
 #: install.php:264
 #, php-format
@@ -85,10 +85,6 @@ msgstr ""
 
 #: functions.inc.php:505
 msgid "Attempt to detect faxes on this DID."
-msgstr ""
-
-#: fax.i18n.php:9
-msgid "Author to pass to tiff2pdf\\'s -a option"
 msgstr ""
 
 #: install.php:254
@@ -373,10 +369,6 @@ msgid ""
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
-#: fax.i18n.php:7
-msgid "Styling and Logos"
-msgstr ""
-
 #: page.fax.php:100
 msgid "Submit"
 msgstr "提交"
@@ -500,10 +492,6 @@ msgstr "已移动"
 #: install.php:136
 msgid "starting migration"
 msgstr "开始合并"
-
-#: fax.i18n.php:8
-msgid "tiff2pdf Author"
-msgstr ""
 
 #: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"

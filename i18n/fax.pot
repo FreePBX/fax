@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 19:19-0500\n"
+"POT-Creation-Date: 2015-02-20 19:30-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,10 +69,6 @@ msgstr ""
 
 #: functions.inc.php:505
 msgid "Attempt to detect faxes on this DID."
-msgstr ""
-
-#: fax.i18n.php:9
-msgid "Author to pass to tiff2pdf\\'s -a option"
 msgstr ""
 
 #: install.php:254
@@ -358,10 +354,6 @@ msgid ""
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
-#: fax.i18n.php:7
-msgid "Styling and Logos"
-msgstr ""
-
 #: page.fax.php:100
 msgid "Submit"
 msgstr ""
@@ -486,10 +478,6 @@ msgstr ""
 
 #: install.php:136
 msgid "starting migration"
-msgstr ""
-
-#: fax.i18n.php:8
-msgid "tiff2pdf Author"
 msgstr ""
 
 #: install.php:75 /usr/src/freepbx/fax/install.php:80

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 19:19-0500\n"
+"POT-Creation-Date: 2015-02-20 19:30-0500\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -116,10 +116,6 @@ msgstr ""
 #: functions.inc.php:505
 msgid "Attempt to detect faxes on this DID."
 msgstr "このダイヤルインでfax検知を試みる。"
-
-#: fax.i18n.php:9
-msgid "Author to pass to tiff2pdf\\'s -a option"
-msgstr ""
 
 #: install.php:254
 msgid "Checking for failed migrations.."
@@ -436,10 +432,6 @@ msgstr ""
 "Sip: sip fax検知(t38)を使用します。asterisk 1.6.2以降と、sip設定ファイルで "
 "'faxdetect=yes' とする必要があります。"
 
-#: fax.i18n.php:7
-msgid "Styling and Logos"
-msgstr ""
-
 #: page.fax.php:100
 msgid "Submit"
 msgstr "送信"
@@ -574,10 +566,6 @@ msgstr "削除済み"
 #: install.php:136
 msgid "starting migration"
 msgstr "移行を開始"
-
-#: fax.i18n.php:8
-msgid "tiff2pdf Author"
-msgstr ""
 
 #: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"

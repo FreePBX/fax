@@ -27,7 +27,7 @@ foreach ($var as $k => $v) {
 			}
 			break;
 		case 'to':
-			if(!$var['to']) {
+			if(empty($var['to'])) {
 				die_fax('email-fax dying, no destination found ($var[\'to\'] is empty)');
 			}
 			break;
