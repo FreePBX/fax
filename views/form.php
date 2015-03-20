@@ -283,9 +283,11 @@ if(!$fax_detect['module']){
 </div>
 <!--END Always Allow Legacy Mode-->
 <?php echo $aghtml //if not fax_detect ?>
-</form>
+
 
 <?php
 //add hooks
 $module_hook = moduleHook::create();
 echo $module_hook->hookHtml;
+?>
+</form>
