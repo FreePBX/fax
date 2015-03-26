@@ -228,14 +228,14 @@ if(!$fax_detect['module']){
 	</div>
 </div>
 <!--END Maximum transfer rate-->
-<!--Paper Size-->
+<!--Default Paper Size-->
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="papersize"><?php echo _("Paper Size") ?></label>
+						<label class="control-label" for="papersize"><?php echo _("Default Paper Size") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="papersize"></i>
 					</div>
 					<div class="col-md-9 radioset">
@@ -250,11 +250,11 @@ if(!$fax_detect['module']){
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="papersize-help" class="help-block fpbx-help-block"><?php echo _("Select paper size")?></span>
+			<span id="papersize-help" class="help-block fpbx-help-block"><?php echo _("Select the default paper size.<br/>This specifies the size that should be used if the document does not specify a size.<br/> If the document does specify a size that size will be used.")?></span>
 		</div>
 	</div>
 </div>
-<!--END Paper Size-->
+<!--END Default Paper Size-->
 <!--Always Allow Legacy Mode-->
 <div class="element-container">
 	<div class="row">
