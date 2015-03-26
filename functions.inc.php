@@ -377,7 +377,7 @@ function fax_get_config($engine){
       we try to trap and report on all cases.
     */
     $exten = 's';
-	  $ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	$ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
     $ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
     $ext->add($context, $exten, 'receivefax', new ext_stopplaytones(''));
     switch ($fax['module']) {
@@ -937,7 +937,7 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 				dbug('gs not found, not converting ' . $in);
 				return $in;
 			}
-			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -g1728x1145 -r209x98 ';
+			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE='.$opts['papersize']?$opts['papersize']:'letter'.' -g1728x1145 -r209x98 ';
 			break;
 		case 'tif2pdf':
 			$tiff2pdf = fpbx_which('tiff2pdf');

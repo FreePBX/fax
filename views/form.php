@@ -49,7 +49,7 @@ if(!$fax_detect['module']){
 	';
 }
 ?>
-<form name="edit" id="edit" class="fpbx-submit" action="" method=POST>
+<form name="edit" id="edit" class="fpbx-submit" action="" method="POST">
 <input type="hidden" value="fax" name="display"/>
 <input type="hidden" name="action" value="edit">
 <!--Default Fax header-->
@@ -239,9 +239,9 @@ if(!$fax_detect['module']){
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="papersize"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="radio" class="form-control" id="papersizeletter" name="papersize" value="letter" CHECKED>
+						<input type="radio" class="form-control" id="papersizeletter" name="papersize" value="letter" <?php echo (($fax['papersize'] == 'letter')?'checked':'')?>>
 						<label for="papersizeletter"><?php echo _("Letter")?></label>
-						<input type="radio" class="form-control" id="papersizea4" name="papersize" value="a4" disabled>
+						<input type="radio" class="form-control" id="papersizea4" name="papersize" value="a4" <?php echo (($fax['papersize'] == 'a4')?'checked':'')?>>
 						<label for="papersizea4"><?php echo _("A4")?></label>
 					</div>
 				</div>
@@ -283,8 +283,6 @@ if(!$fax_detect['module']){
 </div>
 <!--END Always Allow Legacy Mode-->
 <?php echo $aghtml //if not fax_detect ?>
-
-
 <?php
 //add hooks
 $module_hook = moduleHook::create();

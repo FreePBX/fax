@@ -11,6 +11,7 @@ class Fax implements BMO {
 
 	public function doConfigPageInit($page) {
 		$request = $_REQUEST;
+		dbug($request);
 		$get_vars = array(
 			'ecm'				=> '',
 			'fax_rx_email'		=> '',
@@ -22,6 +23,8 @@ class Fax implements BMO {
 			'minrate'			=> '',
 			'modem'				=> '',
 			'sender_address'	=> '',
+			'papersize' 		=> 'letter',
+
 		);
 		foreach($get_vars as $k => $v){
 			$fax[$k] = isset($request[$k]) ? $request[$k] : $v;
