@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 12:38-0400\n"
+"POT-Creation-Date: 2015-03-30 19:07-0400\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -111,6 +111,10 @@ msgstr "默认传真头"
 msgid "Default Local Station Identifier"
 msgstr "默认终端"
 
+#: views/form.php:238
+msgid "Default Paper Size"
+msgstr ""
+
 #: functions.inc.php:606
 msgid "Detect Faxes"
 msgstr "检测传真"
@@ -163,6 +167,15 @@ msgstr "允许这个用户接收传真"
 #: functions.inc.php:143
 msgid "Enabled"
 msgstr "启用"
+
+#: bin/fax2mail.php:67
+msgid "Enclosed, please find a new fax"
+msgstr ""
+
+#: bin/fax2mail.php:65
+#, php-format
+msgid "Enclosed, please find a new fax from: %s"
+msgstr ""
 
 #: functions.inc.php:165
 msgid ""
@@ -223,6 +236,10 @@ msgstr ""
 #, php-format
 msgid "Fax user %s"
 msgstr "传真用户 %s"
+
+#: bin/fax2mail.php:74
+msgid "For extension"
+msgstr ""
 
 #: functions.inc.php:178
 msgid "Formats to convert incoming fax files to before emailing."
@@ -312,6 +329,15 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
+#: bin/fax2mail.php:42
+#, php-format
+msgid "New fax from: %s"
+msgstr ""
+
+#: bin/fax2mail.php:44
+msgid "New fax received"
+msgstr ""
+
 #: functions.inc.php:153 functions.inc.php:592 views/form.php:36
 #: views/form.php:165 views/form.php:272 views/quickCreate.php:7
 msgid "No"
@@ -333,17 +359,26 @@ msgid ""
 "OR fax."
 msgstr ""
 
+#: bin/fax2mail.php:71
+msgid "On"
+msgstr ""
+
 #: views/form.php:110
 msgid "Outgoing Email address"
 msgstr ""
 
-#: views/form.php:238
-msgid "Paper Size"
+#: bin/fax2mail.php:39
+msgid "Outgoing fax results"
 msgstr ""
 
 #: functions.inc.php:169
 msgid "Please Enter a valid email address for fax delivery."
 msgstr "传真发生需要有效的邮件地址"
+
+#: bin/fax2mail.php:70
+#, php-format
+msgid "Received & processed: %s"
+msgstr ""
 
 #: install.php:234
 #, php-format
@@ -354,7 +389,7 @@ msgstr "从呼入的列表中移动值 %s"
 msgid "Removing old globals.."
 msgstr ""
 
-#: Fax.class.php:200
+#: Fax.class.php:203
 msgid "Reset"
 msgstr ""
 
@@ -363,7 +398,10 @@ msgid "SIP"
 msgstr ""
 
 #: views/form.php:253
-msgid "Select paper size"
+msgid ""
+"Select the default paper size.<br/>This specifies the size that should be "
+"used if the document does not specify a size.<br/> If the document does "
+"specify a size that size will be used."
 msgstr ""
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
@@ -380,7 +418,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:195
+#: Fax.class.php:198
 msgid "Submit"
 msgstr "提交"
 
@@ -415,6 +453,10 @@ msgstr "被使用的传真检测格式"
 #: install.php:85
 msgid "Updating simu_fax in miscdest table.."
 msgstr "正在更新在miscdest列表的sium_fax"
+
+#: bin/fax2mail.php:72
+msgid "Via"
+msgstr ""
 
 #: install.php:296
 msgid "WARINING: fax_users table may still be using the old schema!"

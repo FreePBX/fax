@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 12:38-0400\n"
+"POT-Creation-Date: 2015-03-30 19:07-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,6 +96,10 @@ msgstr ""
 msgid "Default Local Station Identifier"
 msgstr ""
 
+#: views/form.php:238
+msgid "Default Paper Size"
+msgstr ""
+
 #: functions.inc.php:606
 msgid "Detect Faxes"
 msgstr ""
@@ -148,6 +152,15 @@ msgstr ""
 
 #: functions.inc.php:143
 msgid "Enabled"
+msgstr ""
+
+#: bin/fax2mail.php:67
+msgid "Enclosed, please find a new fax"
+msgstr ""
+
+#: bin/fax2mail.php:65
+#, php-format
+msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
 
 #: functions.inc.php:165
@@ -208,6 +221,10 @@ msgstr ""
 #: functions.inc.php:21
 #, php-format
 msgid "Fax user %s"
+msgstr ""
+
+#: bin/fax2mail.php:74
+msgid "For extension"
 msgstr ""
 
 #: functions.inc.php:178
@@ -299,6 +316,15 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
+#: bin/fax2mail.php:42
+#, php-format
+msgid "New fax from: %s"
+msgstr ""
+
+#: bin/fax2mail.php:44
+msgid "New fax received"
+msgstr ""
+
 #: functions.inc.php:153
 #: functions.inc.php:592
 #: views/form.php:36
@@ -324,16 +350,25 @@ msgid ""
 "OR fax."
 msgstr ""
 
+#: bin/fax2mail.php:71
+msgid "On"
+msgstr ""
+
 #: views/form.php:110
 msgid "Outgoing Email address"
 msgstr ""
 
-#: views/form.php:238
-msgid "Paper Size"
+#: bin/fax2mail.php:39
+msgid "Outgoing fax results"
 msgstr ""
 
 #: functions.inc.php:169
 msgid "Please Enter a valid email address for fax delivery."
+msgstr ""
+
+#: bin/fax2mail.php:70
+#, php-format
+msgid "Received & processed: %s"
 msgstr ""
 
 #: install.php:234
@@ -345,7 +380,7 @@ msgstr ""
 msgid "Removing old globals.."
 msgstr ""
 
-#: Fax.class.php:200
+#: Fax.class.php:203
 msgid "Reset"
 msgstr ""
 
@@ -354,7 +389,10 @@ msgid "SIP"
 msgstr ""
 
 #: views/form.php:253
-msgid "Select paper size"
+msgid ""
+"Select the default paper size.<br/>This specifies the size that should be "
+"used if the document does not specify a size.<br/> If the document does "
+"specify a size that size will be used."
 msgstr ""
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
@@ -371,7 +409,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:195
+#: Fax.class.php:198
 msgid "Submit"
 msgstr ""
 
@@ -405,6 +443,10 @@ msgstr ""
 
 #: install.php:85
 msgid "Updating simu_fax in miscdest table.."
+msgstr ""
+
+#: bin/fax2mail.php:72
+msgid "Via"
 msgstr ""
 
 #: install.php:296

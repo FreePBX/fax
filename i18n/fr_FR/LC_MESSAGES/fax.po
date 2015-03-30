@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 12:38-0400\n"
+"POT-Creation-Date: 2015-03-30 19:07-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
 "Language-Team: \n"
@@ -124,6 +124,10 @@ msgstr "En tête des Fax par défaut:"
 msgid "Default Local Station Identifier"
 msgstr "Identifiant de station locale par défaut"
 
+#: views/form.php:238
+msgid "Default Paper Size"
+msgstr ""
+
 #: functions.inc.php:606
 msgid "Detect Faxes"
 msgstr "Détecter les Fax"
@@ -183,6 +187,15 @@ msgstr "Active la réception de fax pour cet utilisateur"
 #: functions.inc.php:143
 msgid "Enabled"
 msgstr "Activé"
+
+#: bin/fax2mail.php:67
+msgid "Enclosed, please find a new fax"
+msgstr ""
+
+#: bin/fax2mail.php:65
+#, php-format
+msgid "Enclosed, please find a new fax from: %s"
+msgstr ""
 
 #: functions.inc.php:165
 msgid ""
@@ -244,6 +257,10 @@ msgstr ""
 #, php-format
 msgid "Fax user %s"
 msgstr "Utilisateur Fax %s"
+
+#: bin/fax2mail.php:74
+msgid "For extension"
+msgstr ""
 
 #: functions.inc.php:178
 msgid "Formats to convert incoming fax files to before emailing."
@@ -347,6 +364,15 @@ msgstr ""
 msgid "NVFax"
 msgstr "NVFax"
 
+#: bin/fax2mail.php:42
+#, php-format
+msgid "New fax from: %s"
+msgstr ""
+
+#: bin/fax2mail.php:44
+msgid "New fax received"
+msgstr ""
+
 #: functions.inc.php:153 functions.inc.php:592 views/form.php:36
 #: views/form.php:165 views/form.php:272 views/quickCreate.php:7
 msgid "No"
@@ -373,17 +399,26 @@ msgstr ""
 "envoyés à la destination paramétrée en dessous. Utiliser cette option si ce "
 "SDA est utilisé uniquement pour la voix ou pour les fax"
 
+#: bin/fax2mail.php:71
+msgid "On"
+msgstr ""
+
 #: views/form.php:110
 msgid "Outgoing Email address"
 msgstr ""
 
-#: views/form.php:238
-msgid "Paper Size"
+#: bin/fax2mail.php:39
+msgid "Outgoing fax results"
 msgstr ""
 
 #: functions.inc.php:169
 msgid "Please Enter a valid email address for fax delivery."
 msgstr "Merci d'entrer une adresse email valide pour la distribution de fax"
+
+#: bin/fax2mail.php:70
+#, php-format
+msgid "Received & processed: %s"
+msgstr ""
 
 #: install.php:234
 #, php-format
@@ -394,7 +429,7 @@ msgstr "Suppression des champs %s provenant de la nouvelle table"
 msgid "Removing old globals.."
 msgstr "Suppression des anciennes déclarations.."
 
-#: Fax.class.php:200
+#: Fax.class.php:203
 msgid "Reset"
 msgstr ""
 
@@ -403,7 +438,10 @@ msgid "SIP"
 msgstr ""
 
 #: views/form.php:253
-msgid "Select paper size"
+msgid ""
+"Select the default paper size.<br/>This specifies the size that should be "
+"used if the document does not specify a size.<br/> If the document does "
+"specify a size that size will be used."
 msgstr ""
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
@@ -422,7 +460,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:195
+#: Fax.class.php:198
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -464,6 +502,10 @@ msgstr "Type de détection de fax à utiliser"
 #: install.php:85
 msgid "Updating simu_fax in miscdest table.."
 msgstr "Mise à jour de simu_fax dans la table miscdest.."
+
+#: bin/fax2mail.php:72
+msgid "Via"
+msgstr ""
 
 #: install.php:296
 msgid "WARINING: fax_users table may still be using the old schema!"
