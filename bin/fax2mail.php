@@ -3,8 +3,9 @@
 //include freepbx configuration
 $restrict_mods = array('fax' => true);
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-    include_once('/etc/asterisk/freepbx.conf');
+	include_once('/etc/asterisk/freepbx.conf');
 }
+\modgettext::push_textdomain("fax");
 
 $var['hostname'] 	= gethostname();
 $var['from']		= sql('SELECT value FROM fax_details WHERE `key` = "sender_address"','getOne');
@@ -14,12 +15,13 @@ $var 				= array_merge($var, get_opt());
 $var['callerid']	= empty($var['callerid']) || $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
 $var['keep_file']	= !empty($var['delete']) && $var['delete'] == 'true' ? false : true;
 $var['attachformat']	= !empty($var['attachformat']) ? $var['attachformat'] : 'pdf';
+$var['remotestationid'] = !empty($var['remotestationid']) ? $var['remotestationid'] : '';
 
 //double check some of the options
 foreach ($var as $k => $v) {
-  if (!is_string($k)) {
-    continue;
-  }
+	if (!is_string($k)) {
+		continue;
+	}
 	switch ($k) {
 		case 'file':
 			if (!file_exists($var['file'])) {
@@ -34,12 +36,12 @@ foreach ($var as $k => $v) {
 		case 'subject':
 			if (!$var['subject']) {
 				if (isset($var['direction']) && $var['direction'] == 'outgoing') {
-					$var['subject'] = 'Outgoing fax results';
+					$var['subject'] = _('Outgoing fax results');
 				} else {
 					if ($var['callerid']) {
-						$var['subject'] = 'New fax from: ' . $var['callerid'];
+						$var['subject'] = sprintf(_('New fax from: %s'),$var['callerid']);
 					} else {
-						$var['subject'] = 'New fax received';
+						$var['subject'] = _('New fax received');
 					}
 				}
 
@@ -57,16 +59,19 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 		$msg .= 'For extension: ' . $var['exten'] . "\n";
 	}
 } else {
-	$msg = 'Enclosed, please find a new fax ';
-	if ($var['callerid']) {
-		$msg .= 'from: ' . $var['callerid'] ;
+	$callerid = !empty($var['callerid']) && !preg_match('/""\s*<>/',$var['callerid']) ? $var['callerid'] : $var['remotestationid'];
+
+	if (!empty($callerid)) {
+		$msg = sprintf(_('Enclosed, please find a new fax from: %s'), $callerid);
+	} else {
+		$msg = _('Enclosed, please find a new fax');
 	}
 	$msg .= "\n";
-	$msg .= 'Received & processed: ' . date('r') . "\n";
-	$msg .= 'On: ' . $var['hostname'] . "\n";
-	$msg .= 'Via: ' . $var['dest'] . "\n";
+	$msg .= sprintf(_('Received & processed: %s'),date('r')) . "\n";
+	$msg .= _('On').': ' . $var['hostname'] . "\n";
+	$msg .= _('Via').': ' . $var['dest'] . "\n";
 	if ($var['exten']) {
-		$msg .= 'For extension: ' . $var['exten'] . "\n";
+		$msg .= _('For extension').': ' . $var['exten'] . "\n";
 	}
 }
 

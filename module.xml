@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.1alpha1</version>
+	<version>13.0.1alpha2</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.1alpha2* FREEPBX-7177 Check for remote station id, fix incoming settings
 		*13.0.1alpha1* Bump for layout
 		*12.0.5* Redo module_hook calls to use static obj
 		*12.0.4* Tweaks to max res and widths

@@ -377,7 +377,7 @@ function fax_get_config($engine){
       we try to trap and report on all cases.
     */
     $exten = 's';
-	$ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+	  $ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
     $ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
     $ext->add($context, $exten, 'receivefax', new ext_stopplaytones(''));
     switch ($fax['module']) {
@@ -430,9 +430,9 @@ function fax_get_config($engine){
 
 	//strreplace wasn't put into asterisk until 10, so fallback to replace to older asterisk versions
 	if ($ast_ge_10) {
-		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
 	} else {
-		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${REPLACE(CALLERID(all),\', )}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${REPLACE(CALLERID(all),\', )}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
 	}
 
 	  $ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
@@ -640,11 +640,11 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetection"></i>
 							</div>
 							<div class="col-md-9 radioset">
-								<input type="radio" name="faxdetection" id="faxdetectiondahdi" value="dahdi" '. ($faxdetection == "dahdi"?"CHECKED":"").' '.($fax_dahdi_faxdetect?'':'disabled').'>
+								<input type="radio" name="faxdetection" id="faxdetectiondahdi" value="dahdi" '. ($fax['detection'] == "dahdi"?"CHECKED":"").' '.($fax_dahdi_faxdetect?'':'disabled').'>
 								<label for="faxdetectiondahdi">'. _("Dahdi").'</label>
-								<input type="radio" name="faxdetection" id="faxdetectionnvfax" value="nvfax" '. ($faxdetection == "nvfax"?"CHECKED":"").' '.($fax_detect['nvfax']?'':'disabled').'>
+								<input type="radio" name="faxdetection" id="faxdetectionnvfax" value="nvfax" '. ($fax['detection'] == "nvfax"?"CHECKED":"").' '.($fax_detect['nvfax']?'':'disabled').'>
 								<label for="faxdetectionnvfax">'. _("NVFax").'</label>
-								<input type="radio" name="faxdetection" id="faxdetectionsip" value="sip" '. ($faxdetection == "sip"?"CHECKED":"").' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>
+								<input type="radio" name="faxdetection" id="faxdetectionsip" value="sip" '. ($fax['detection'] == "sip"?"CHECKED":"").' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>
 								<label for="faxdetectionsip">'. _("SIP").'</label>
 							</div>
 						</div>
@@ -937,7 +937,7 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 				dbug('gs not found, not converting ' . $in);
 				return $in;
 			}
-			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE='.$opts['papersize']?$opts['papersize']:'letter'.' -g1728x1145 -r209x98 ';
+			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -g1728x1145 -r209x98 ';
 			break;
 		case 'tif2pdf':
 			$tiff2pdf = fpbx_which('tiff2pdf');
