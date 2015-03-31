@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:30-0500\n"
-"PO-Revision-Date: 2015-03-31 07:32+0200\n"
+"PO-Revision-Date: 2015-03-31 07:49+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/fax/es_ES/>\n"
@@ -271,6 +271,7 @@ msgstr ""
 #: functions.inc.php:556
 msgid "How long to wait and try to detect fax. Please note that callers to a "
 msgstr ""
+"Cuanto esperar y tratar de detectar fax. Por favor note que llamantes a "
 
 #: page.fax.php:82
 msgid ""
@@ -327,12 +328,14 @@ msgstr "Migrando tablafax_incoming..."
 
 #: install.php:292
 msgid "Migrating fax_users table to add faxattachformat..."
-msgstr ""
+msgstr "Migrando tabla de fax_users para agregar faxattachfromat..."
 
 #: install.php:280
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
+"Migrando campo faxemail en la tabla fax_users para permitir emails mas "
+"largos..."
 
 #: page.fax.php:75
 msgid "Minimum transfer rate"
@@ -406,7 +409,7 @@ msgstr "Eliminando globales antiguos.."
 
 #: fax.i18n.php:4
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 #: functions.inc.php:553
 msgid "Sip"
@@ -430,11 +433,11 @@ msgstr "Migrado con Exito tabla fax_incoming!"
 
 #: install.php:298
 msgid "Successfully migrated fax_users table!"
-msgstr ""
+msgstr "Tabla fax_users satisfactoriamente migrada!"
 
 #: install.php:286
 msgid "Successfully migrated faxemail field"
-msgstr ""
+msgstr "Campo faxemail migrado Satisfactoriamente"
 
 #: install.php:257
 msgid ""
@@ -465,14 +468,16 @@ msgstr "Actualizando simu_fax en tabla miscdest.."
 #: install.php:296
 msgid "WARINING: fax_users table may still be using the old schema!"
 msgstr ""
+"ADVERTENCIA: tabla fax_users puede estar usando todavía el viejo esquema!"
 
 #: install.php:284
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
 msgstr ""
+"ADVERTENCIA: Migración Fallida. El correo esta limitado a 50 caracteres."
 
 #: install.php:57
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
-msgstr ""
+msgstr "ADVERTENCIA: tabla fax_incoming puede aun estar usando el esquema 2.6!"
 
 #: page.fax.php:89
 msgid ""
