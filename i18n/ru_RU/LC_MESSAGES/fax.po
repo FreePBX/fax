@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:30-0500\n"
+"POT-Creation-Date: 2015-03-31 18:34-0400\n"
 "PO-Revision-Date: 2010-06-23 04:00+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
@@ -80,7 +80,7 @@ msgstr ""
 "маршрут будет обновлён. Эта устаревшая опция не будет больше доступна после "
 "изменений. Она служит только для миграции с предыдущих версий FreePBX."
 
-#: fax.i18n.php:5
+#: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr "Добавить конфигурацию, опции и интерфейс для входящих факсов"
 
@@ -203,7 +203,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Факс"
 
-#: fax.i18n.php:3 /usr/src/freepbx/fax/fax.i18n.php:6
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Конфигурация факса"
 
@@ -408,7 +408,7 @@ msgstr "Удаляем поле %s из таблицы входящих.."
 msgid "Removing old globals.."
 msgstr "Удаление старых значений globals.."
 
-#: fax.i18n.php:4
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
 msgstr "Настройки"
 

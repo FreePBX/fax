@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:30-0500\n"
+"POT-Creation-Date: 2015-03-31 18:34-0400\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -67,7 +67,7 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
-#: fax.i18n.php:5
+#: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr "为呼入传真增加设置，选项，界面"
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Fax"
 msgstr "传真"
 
-#: fax.i18n.php:3 /usr/src/freepbx/fax/fax.i18n.php:6
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "传真设置"
 
@@ -355,7 +355,7 @@ msgstr "从呼入的列表中移动值 %s"
 msgid "Removing old globals.."
 msgstr ""
 
-#: fax.i18n.php:4
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
 msgstr ""
 

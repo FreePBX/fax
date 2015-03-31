@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:30-0500\n"
+"POT-Creation-Date: 2015-03-31 18:34-0400\n"
 "PO-Revision-Date: 2015-03-31 07:49+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/fax/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/fax/"
+"es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -58,18 +58,18 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
-"Dirección de correo electrónico de faxes para la detección de fax<br /> NOTA:"
-" En esta versión del Sistema, se puede establecer el destino de fax desde "
-"una lista de destinos. Las extensiones/usuarios pueden tener habilitado el "
-"fax en el menu usuario/extensión y establecer una dirección de correo allí. "
-"Esto creará un nuevo tipo de destino que se puede seleccionar. Para "
-"actualizar esta opción para la lista completa de destinos, seleccione la "
-"opción SI en Detectar Faxes y seleccione un destino. Después de hacer click, "
-"esta ruta será presentada. Esta opción Legado ya no estará disponible "
+"Dirección de correo electrónico de faxes para la detección de fax<br /> "
+"NOTA: En esta versión del Sistema, se puede establecer el destino de fax "
+"desde una lista de destinos. Las extensiones/usuarios pueden tener "
+"habilitado el fax en el menu usuario/extensión y establecer una dirección de "
+"correo allí. Esto creará un nuevo tipo de destino que se puede seleccionar. "
+"Para actualizar esta opción para la lista completa de destinos, seleccione "
+"la opción SI en Detectar Faxes y seleccione un destino. Después de hacer "
+"click, esta ruta será presentada. Esta opción Legado ya no estará disponible "
 "después del cambio, esto se hace para manejar las migraciones de fax de las "
 "versiones anteriores del Sistema."
 
-#: fax.i18n.php:5
+#: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr "Configuraciones Adicionales, Opciones y GUI para fax entrante"
 
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:3 /usr/src/freepbx/fax/fax.i18n.php:6
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Configuracion de Fax"
 
@@ -407,7 +407,7 @@ msgstr "Eliminando campo %s desde tabla incoming.."
 msgid "Removing old globals.."
 msgstr "Eliminando globales antiguos.."
 
-#: fax.i18n.php:4
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
 msgstr "Configuración"
 
