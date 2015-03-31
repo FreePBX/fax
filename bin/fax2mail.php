@@ -104,6 +104,9 @@ $email->send();
 
 if ($var['keep_file'] === false) {
 	unlink($tif);
+	if(isset($pdf)) {
+		unlink($pdf);
+	}
 }
 
 function die_fax($error) {
