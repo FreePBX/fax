@@ -10,14 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:30-0500\n"
-"PO-Revision-Date: 2015-02-20 19:30-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-03-31 07:32+0200\n"
+"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/fax/es_ES/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: functions.inc.php:548
 msgid ""
@@ -69,7 +71,7 @@ msgstr ""
 
 #: fax.i18n.php:5
 msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
+msgstr "Configuraciones Adicionales, Opciones y GUI para fax entrante"
 
 #: page.fax.php:82
 msgid "Always Allow Legacy Mode"
@@ -81,7 +83,7 @@ msgstr "Generar siempre Código de Detección"
 
 #: functions.inc.php:125
 msgid "Attachment Format"
-msgstr ""
+msgstr "Formato de Anexos"
 
 #: functions.inc.php:505
 msgid "Attempt to detect faxes on this DID."
@@ -121,6 +123,10 @@ msgid ""
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
+"ERROR: ¡No hay módulos FAX detectados! <br> dialplan relacionados con Fax "
+"<b>NO</b> se generará <br> Este módulo requiere Fax para Asterisk "
+"(res_fax_digium.so) o app_fax basado spandsp (res_fax_spandsp.so) para "
+"funcionar.."
 
 #: functions.inc.php:104
 msgid ""
@@ -182,6 +188,8 @@ msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
 msgstr ""
+"Modo de Corrección de Errores (ECM) se utiliza para especificar si ↵\n"
+" →→→ usar el modo ECM o no."
 
 #: functions.inc.php:97
 msgid "Fax"
@@ -189,7 +197,7 @@ msgstr "Fax"
 
 #: fax.i18n.php:3 /usr/src/freepbx/fax/fax.i18n.php:6
 msgid "Fax Configuration"
-msgstr ""
+msgstr "Configuracion de Fax"
 
 #: functions.inc.php:571
 msgid "Fax Destination"
@@ -247,6 +255,8 @@ msgstr "Usuario Fax %s"
 #: functions.inc.php:126
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
+"Formatos para convertir faxes entrantes para después enviar por correo "
+"electrónico."
 
 #: page.fax.php:46
 msgid ""
