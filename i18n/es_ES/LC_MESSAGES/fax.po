@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:30-0500\n"
-"PO-Revision-Date: 2015-03-31 07:49+0200\n"
+"PO-Revision-Date: 2015-03-31 07:50+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/fax/es_ES/>\n"
@@ -44,7 +44,7 @@ msgstr "%s Migracion Fax fallida"
 #: install.php:264
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
-msgstr "% Migracion FAX Fallida, vea panel de notificaciones para detalles"
+msgstr "%s Migracion FAX Fallida, vea panel de notificaciones para detalles"
 
 #: functions.inc.php:566
 msgid ""
@@ -344,7 +344,7 @@ msgstr "Mínima velocidad de transferencia"
 #: page.fax.php:76
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
-"Mínima velocidad de transferencia utilizada durante la negociación de fax"
+"Mínima velocidad de transferencia utilizada durante la negociación de fax."
 
 #: install.php:68
 msgid "Moving simu_fax feature code from core.."
@@ -360,7 +360,7 @@ msgstr ""
 
 #: functions.inc.php:552
 msgid "NVFax"
-msgstr "NVFax"
+msgstr "NvFax"
 
 #: functions.inc.php:537 page.fax.php:67 /usr/src/freepbx/fax/page.fax.php:84
 #: page.fax.php:91
@@ -413,7 +413,7 @@ msgstr "Configuración"
 
 #: functions.inc.php:553
 msgid "Sip"
-msgstr "Sip"
+msgstr "SIP"
 
 #: functions.inc.php:548
 msgid ""
@@ -513,7 +513,7 @@ msgstr ""
 
 #: functions.inc.php:492
 msgid "Zaptel"
-msgstr "Zaptel"
+msgstr "zaptel"
 
 #: install.php:266
 msgid "all migrations succeeded successfully"
