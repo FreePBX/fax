@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:30-0500\n"
+"POT-Creation-Date: 2015-03-31 18:34-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
-#: fax.i18n.php:5
+#: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Fax"
 msgstr ""
 
-#: fax.i18n.php:3 /usr/src/freepbx/fax/fax.i18n.php:6
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr ""
 
@@ -350,7 +350,7 @@ msgstr ""
 msgid "Removing old globals.."
 msgstr ""
 
-#: fax.i18n.php:4
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
 msgstr ""
 

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:30-0500\n"
+"POT-Creation-Date: 2015-03-31 18:34-0400\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -97,7 +97,7 @@ msgstr ""
 "バージョンのFreePBXからのレガシー移行をサポートするためにだけ提供されていま"
 "す。"
 
-#: fax.i18n.php:5
+#: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:3 /usr/src/freepbx/fax/fax.i18n.php:6
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Fax設定"
 
@@ -416,7 +416,7 @@ msgstr "incoming テーブルからフィールド %s を削除する.."
 msgid "Removing old globals.."
 msgstr "古いglobalsを削除.."
 
-#: fax.i18n.php:4
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
 msgstr "設定"
 
