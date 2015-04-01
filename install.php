@@ -12,7 +12,7 @@ $sql[]='CREATE TABLE IF NOT EXISTS `fax_details` (
   `key` varchar(50) default NULL,
   `value` varchar(510) default NULL,
   UNIQUE KEY `key` (`key`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;';
+) ENGINE=MyISAM;';
 
 
 $sql[]='CREATE TABLE IF NOT EXISTS `fax_incoming` (
@@ -45,8 +45,8 @@ $sql='describe fax_incoming';
 $fields=$db->getAssoc($sql);
 if(array_key_exists('faxdestination',$fields)){
 	out(_('Migrating fax_incoming table...'));
-	$sql='alter table fax_incoming 
-				change faxdetection detection varchar(20) default NULL, 
+	$sql='alter table fax_incoming
+				change faxdetection detection varchar(20) default NULL,
 				change faxdetectionwait detectionwait varchar(5) default NULL,
 				change faxdestination destination varchar(50) default NULL,
 				add legacy_email varchar(50) default NULL,
@@ -105,7 +105,7 @@ if(!$set['maxrate']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("
 if(!$set['ecm']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("ecm","yes")';}
 if(!$set['legacy_mode']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("legacy_mode","no")';}
 if(!$set['force_detection']){$sql[]='REPLACE INTO fax_details (`key`, `value`) VALUES ("force_detection","no")';}
- 
+
 if(isset($sql)){
 	foreach ($sql as $statement){
 		$check = $db->query($statement);
@@ -141,7 +141,7 @@ if(!DB::IsError($legacy_settings)) {
   $globalvars = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 
   foreach ($globalvars as $globalvar) {
-	  $global[trim($globalvar['variable'])] = $globalvar['value'];	
+	  $global[trim($globalvar['variable'])] = $globalvar['value'];
   }
   $fax_rx =          isset($global['FAX_RX'])       ? $global['FAX_RX'] : 'disabled';
   $fax_rx_email =    isset($global['FAX_RX_EMAIL']) ? $global['FAX_RX_EMAIL'] : '';
@@ -208,7 +208,7 @@ if(!DB::IsError($legacy_settings)) {
         default:
           if (ctype_digit($row['faxexten'])) {
             $sql = "SELECT `user` FROM `devices` WHERE `id` = '".$row['faxexten']."'";
-            $user = $db->getOne($sql); 
+            $user = $db->getOne($sql);
             if (ctype_digit($user)) {
               $destination = "from-did-direct,$user,1";
             } else {
@@ -234,7 +234,7 @@ if(!DB::IsError($legacy_settings)) {
 				outn(sprintf(_("Removing field %s from incoming table.."),$field));
 				$sql = "ALTER TABLE `incoming` DROP `".$field."`";
 				$results = $db->query($sql);
-				if (DB::IsError($results)) { 
+				if (DB::IsError($results)) {
 					out(_("not present"));
 				} else {
 					out(_("removed"));
@@ -244,7 +244,7 @@ if(!DB::IsError($legacy_settings)) {
       $sql = "DELETE FROM globals WHERE variable IN ('FAX_RX', 'FAX_RX_EMAIL', 'FAX_RX_FROM')";
 
 			$results = $db->query($sql);
-			if (DB::IsError($results)) { 
+			if (DB::IsError($results)) {
 				out(_("failed"));
 			} else {
 				out(_("removed"));
