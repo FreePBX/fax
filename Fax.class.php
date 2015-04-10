@@ -11,7 +11,6 @@ class Fax implements BMO {
 
 	public function doConfigPageInit($page) {
 		$request = $_REQUEST;
-		dbug($request);
 		$get_vars = array(
 			'ecm'				=> '',
 			'fax_rx_email'		=> '',
@@ -43,6 +42,77 @@ class Fax implements BMO {
 				)
 			)
 		);
+	}
+
+	public function usermanShowPage() {
+		global $version;
+		if(isset($_REQUEST['action'])) {
+			switch($_REQUEST['action']) {
+				case 'showuser':
+					$user = $this->FreePBX->Userman->getUserByID($_REQUEST['user']);
+					$ast_lt_18 = version_compare($version, '1.8', 'lt');
+					if(!empty($user) && $user['default_extension'] !== "none") {
+						$fax = $this->getUser($user['default_extension']);
+						if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp'])) || !$ast_lt_18){//missing modules
+							$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.');
+						}elseif($fax['ffa'] && $fax['license'] < 1){//missing license
+							$error = _('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.');
+						}
+						$usage_list = framework_display_destination_usage(fax_getdest($extdisplay));
+						if (!empty($usage_list)) {
+							//$currentcomponent->addguielem('_top', new gui_link_label('faxdests', "&nbsp;Fax".$usage_list['text'], $usage_list['tooltip'], true), 5, null, $category);
+						}
+						return array(
+							array(
+								"title" => _("Fax"),
+								"rawname" => "fax",
+								"content" => load_view(__DIR__.'/views/fax.php',array("fax" => $fax, "disabled" => ($fax['faxenabled'] != "true")))
+							)
+						);
+					}
+				break;
+			}
+			return array();
+		}
+	}
+
+	/**
+	 * Hook functionality from userman when a user is deleted
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
+	public function usermanDelUser($id, $display, $data) {
+		$user = $this->FreePBX->Userman->getUserByID($id);
+		if($user['default_extension'] !== "none") {
+			$this->deleteUser($user['default_extension']);
+		}
+	}
+
+	/**
+	 * Hook functionality from userman when a user is added
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
+	public function usermanAddUser($id, $display, $data) {
+		$user = $this->FreePBX->Userman->getUserByID($id);
+		if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
+			$this->saveUser($user['default_extension'],$_POST['faxenabled'],$user['email'],$_POST['faxattachformat']);
+		}
+	}
+
+	/**
+	 * Hook functionality from userman when a user is updated
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
+	public function usermanUpdateUser($id, $display, $data) {
+		$user = $this->FreePBX->Userman->getUserByID($id);
+		if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
+			$this->saveUser($user['default_extension'],$_POST['faxenabled'],$user['email'],$_POST['faxattachformat']);
+		}
 	}
 
 	/**
@@ -105,6 +175,11 @@ class Fax implements BMO {
 		}
 		if(!is_array($set)){$set=array();}//never return a null value
 		return $set;
+	}
+
+	public function deleteUser($faxext) {
+		$sth = $this->db->prepare('DELETE FROM fax_users where user = ?');
+		$sth->execute(array($faxext));
 	}
 
 	public function saveUser($faxext,$faxenabled,$faxemail = '',$faxattachformat = 'pdf') {

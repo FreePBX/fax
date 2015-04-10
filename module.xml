@@ -53,10 +53,15 @@
 	</supported>
 	<hooks>
 			<core namespace="FreePBX\modules" class="Core">
-					<method class="Fax" callingMethod="getQuickCreateDisplay">getQuickCreateDisplay</method>
-					<method class="Fax" callingMethod="processQuickCreate">processQuickCreate</method>
-
+				<method class="Fax" callingMethod="getQuickCreateDisplay">getQuickCreateDisplay</method>
+				<method class="Fax" callingMethod="processQuickCreate">processQuickCreate</method>
 			</core>
+			<userman namespace="FreePBX\modules" class="Userman">
+				<method class="Fax" callingMethod="myShowPage">usermanShowPage</method>
+				<method class="Fax" callingMethod="delUser">usermanDelUser</method>
+				<method class="Fax" callingMethod="addUser">usermanAddUser</method>
+				<method class="Fax" callingMethod="updateUser">usermanUpdateUser</method>
+			</userman>
 	</hooks>
 	<location>release/2.11/fax-2.11.0.5.tgz</location>
 	<md5sum>70d070401263f9b348729aed98d0fdea</md5sum>
