@@ -48,6 +48,7 @@ class Fax implements BMO {
 		global $version;
 		if(isset($_REQUEST['action'])) {
 			switch($_REQUEST['action']) {
+				case 'showgroup':
 				case 'showuser':
 					$user = $this->FreePBX->Userman->getUserByID($_REQUEST['user']);
 					$ast_lt_18 = version_compare($version, '1.8', 'lt');
