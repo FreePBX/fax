@@ -57,6 +57,9 @@
 				<method class="Fax" callingMethod="processQuickCreate">processQuickCreate</method>
 			</core>
 			<userman namespace="FreePBX\modules" class="Userman">
+				<method class="Fax" callingMethod="delGroup">usermanDelGroup</method>
+				<method class="Fax" callingMethod="addGroup">usermanAddGroup</method>
+				<method class="Fax" callingMethod="updateGroup">usermanUpdateGroup</method>
 				<method class="Fax" callingMethod="myShowPage">usermanShowPage</method>
 				<method class="Fax" callingMethod="delUser">usermanDelUser</method>
 				<method class="Fax" callingMethod="addUser">usermanAddUser</method>

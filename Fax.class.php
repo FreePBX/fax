@@ -7,6 +7,7 @@ class Fax implements BMO {
 
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
+		$this->userman = $freepbx->Userman;
 	}
 
 	public function doConfigPageInit($page) {
@@ -47,33 +48,66 @@ class Fax implements BMO {
 	public function usermanShowPage() {
 		global $version;
 		if(isset($_REQUEST['action'])) {
+			$error = "";
+			$faxStatus = $this->faxDetect();
+			if(!$faxStatus['module'] || ($faxStatus['module'] && (!$faxStatus['ffa'] && !$faxStatus['spandsp']))){//missing modules
+				$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.');
+			}elseif($faxStatus['ffa'] && $faxStatus['license'] < 1){//missing license
+				$error = _('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.');
+			}
 			switch($_REQUEST['action']) {
 				case 'showgroup':
+					$fax = $this->userman->getModuleSettingByGID($_REQUEST['group'],'fax','settings');
+					return array(
+						array(
+							"title" => _("Fax"),
+							"rawname" => "fax",
+							"content" => load_view(__DIR__.'/views/fax.php',array("error" => $error, "fax" => $fax, "disabled" => ($fax['faxenabled'] != "true")))
+						)
+					);
+				break;
 				case 'showuser':
-					$user = $this->FreePBX->Userman->getUserByID($_REQUEST['user']);
+					$user = $this->userman->getUserByID($_REQUEST['user']);
 					$ast_lt_18 = version_compare($version, '1.8', 'lt');
 					if(!empty($user) && $user['default_extension'] !== "none") {
 						$fax = $this->getUser($user['default_extension']);
-						if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp'])) || !$ast_lt_18){//missing modules
-							$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.');
-						}elseif($fax['ffa'] && $fax['license'] < 1){//missing license
-							$error = _('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.');
-						}
+						/*
 						$usage_list = framework_display_destination_usage(fax_getdest($extdisplay));
 						if (!empty($usage_list)) {
 							//$currentcomponent->addguielem('_top', new gui_link_label('faxdests', "&nbsp;Fax".$usage_list['text'], $usage_list['tooltip'], true), 5, null, $category);
 						}
+						*/
 						return array(
 							array(
 								"title" => _("Fax"),
 								"rawname" => "fax",
-								"content" => load_view(__DIR__.'/views/fax.php',array("fax" => $fax, "disabled" => ($fax['faxenabled'] != "true")))
+								"content" => load_view(__DIR__.'/views/fax.php',array("error" => $error, "fax" => $fax, "disabled" => ($fax['faxenabled'] != "true")))
 							)
 						);
 					}
 				break;
 			}
 			return array();
+		}
+	}
+
+	public function usermanDelGroup($id,$display,$data) {
+	}
+
+	public function usermanAddGroup($id, $display, $data) {
+		$this->usermanUpdateGroup($id,$display,$data);
+	}
+
+	public function usermanUpdateGroup($id,$display,$data) {
+		if($_POST['faxenabled'] == "true") {
+			$this->userman->setModuleSettingByGID($id,'fax','settings', array(
+				"faxenabled" => "true",
+				"faxformat" => $_POST['faxattachformat']
+			));
+		} else {
+			$this->userman->setModuleSettingByGID($id,'fax','settings', array(
+				"faxenabled" => "false"
+			));
 		}
 	}
 
