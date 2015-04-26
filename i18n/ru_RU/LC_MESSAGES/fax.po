@@ -25,12 +25,17 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-31 18:34-0400\n"
-"PO-Revision-Date: 2010-06-23 04:00+0100\n"
-"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
-"Language-Team: Russian <faq@postmet.com>\n"
+"PO-Revision-Date: 2015-04-25 23:58+0200\n"
+"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
+"Language-Team: Russian "
+"<http://weblate.freepbx.org/projects/freepbx/fax/ru_RU/>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: functions.inc.php:548
 msgid ""
@@ -50,7 +55,7 @@ msgstr ""
 #: install.php:263
 #, php-format
 msgid "%s FAX Migrations Failed"
-msgstr "Миграция %s факса не удалась!"
+msgstr "Миграция %s факса не удалась"
 
 #: install.php:264
 #, php-format
@@ -94,7 +99,7 @@ msgstr "Всегда генерировать код распознавания"
 
 #: functions.inc.php:125
 msgid "Attachment Format"
-msgstr ""
+msgstr "Формат вложения"
 
 #: functions.inc.php:505
 msgid "Attempt to detect faxes on this DID."
@@ -134,6 +139,10 @@ msgid ""
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
+"ОШИБКА: Не найдено модулей для факса! План набора, связанный с факсом "
+"генерироваться <b>НЕ</b> будет. Этот модуль для работы требует факсовых "
+"модулей для Астериска - res_fax_digium.so или основанных на spandsp app_fax "
+"(res_fax_spandsp.so)."
 
 #: functions.inc.php:104
 msgid ""
@@ -191,13 +200,12 @@ msgid "Error Correction Mode"
 msgstr "Режим коррекции ошибок (ЕСМ)"
 
 #: page.fax.php:64
-#, fuzzy
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
 msgstr ""
-"Укеазывается - использовать режим коррекии ошибок (ЕСМ)\n"
-"\t\t\t\t или нет"
+"Указывается - использовать режим коррекции ошибок (ЕСМ)\n"
+"\t\t\t\t или нет."
 
 #: functions.inc.php:97
 msgid "Fax"
@@ -263,6 +271,8 @@ msgstr "Пользватель факса %s"
 #: functions.inc.php:126
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
+"Форматы для преобразования входящих факсимильных файлов для отправки по "
+"электронной почте."
 
 #: page.fax.php:46
 msgid ""
@@ -317,7 +327,7 @@ msgstr ""
 "Устаревший: тоже, что и ДА, но требуется указать только адрес эл. почты в "
 "качестве назначения. Эта опция служит ТОЛЬКО для поддержки устаревших "
 "маршрутов для факсов. Нужно обновить этот маршрут указав ДА и выбрать "
-"действительное назначение."
+"действительное назначение!"
 
 #: page.fax.php:70
 msgid "Maximum transfer rate"
@@ -325,7 +335,7 @@ msgstr "Максимальная скорость передачи"
 
 #: page.fax.php:71
 msgid "Maximum transfer rate used during fax rate negotiation."
-msgstr "Максимальная скорость передачи для распознавания скорости факсов"
+msgstr "Максимальная скорость передачи для распознавания скорости факсов."
 
 #: install.php:47
 msgid "Migrating fax_incoming table..."
@@ -333,12 +343,14 @@ msgstr "Переносим таблицу fax_incoming...."
 
 #: install.php:292
 msgid "Migrating fax_users table to add faxattachformat..."
-msgstr ""
+msgstr "Переход в fax_users таблицу, для добавления faxattachformat..."
 
 #: install.php:280
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
+"Переход в faxemail поле в таблице fax_users, для разрешения электронной "
+"почты..."
 
 #: page.fax.php:75
 msgid "Minimum transfer rate"
@@ -346,7 +358,7 @@ msgstr "Минимальная скорость передачи"
 
 #: page.fax.php:76
 msgid "Minimum transfer rate used during fax rate negotiation."
-msgstr "Минимальная скорость передачи для распознавания скорости факсов"
+msgstr "Минимальная скорость передачи для распознавания скорости факсов."
 
 #: install.php:68
 msgid "Moving simu_fax feature code from core.."
@@ -357,9 +369,8 @@ msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
 msgstr ""
-"NV Fax Detect: Использовать метод детектировани NV Fax; требуется "
-"инсталлировать NV Fax Detect дополнительно, чтобы он распознавался в "
-"Asterisk."
+"NV Fax Detect: Использовать метод детектирования NV Fax; требуется "
+"инсталлировать NV Fax Detect дополнительно, чтобы он распознавался в Asterisk"
 
 #: functions.inc.php:552
 msgid "NVFax"
@@ -434,11 +445,11 @@ msgstr "Успешно перенесена таблица fax_incoming!"
 
 #: install.php:298
 msgid "Successfully migrated fax_users table!"
-msgstr ""
+msgstr "Успешный перенос таблицы fax_users!"
 
 #: install.php:286
 msgid "Successfully migrated faxemail field"
-msgstr ""
+msgstr "Успешный перенос поля faxemail"
 
 #: install.php:257
 msgid ""
@@ -467,14 +478,16 @@ msgstr "Обновляется simu_fax в таблице miscdest.."
 #: install.php:296
 msgid "WARINING: fax_users table may still be using the old schema!"
 msgstr ""
+"Предупреждение: таблица fax_users все еще может использовать старую схему!"
 
 #: install.php:284
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
-msgstr ""
+msgstr "Предупреждение: Ошибка переноса. Длина e-mail ограничена 50 символами."
 
 #: install.php:57
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
+"Предупреждение: таблица fax_incoming все еще может использовать 2.6 схему!"
 
 #: page.fax.php:89
 msgid ""
@@ -506,7 +519,7 @@ msgstr ""
 "Да: попытка детектировать входящий звонок; если будет распознан как факс-"
 "звонок, то он будет направлен по назначению для факсов. В противном случае "
 "звонок будет обработан обычным образом. Используйте эту опцию если получаете "
-"и голосовые, и факсовые входящие вызовы на этой линии."
+"и голосовые, и факсовые входящие вызовы на этой линии"
 
 #: functions.inc.php:492
 msgid "Zaptel"
@@ -566,7 +579,7 @@ msgstr "неизвестная ошибка"
 
 #: functions.inc.php:548
 msgid "use "
-msgstr "использовать"
+msgstr "использовать "
 
 #~ msgid ""
 #~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "
