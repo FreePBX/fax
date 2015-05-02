@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-31 18:34-0400\n"
-"PO-Revision-Date: 2015-04-25 23:58+0200\n"
+"PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/fax/ru_RU/>\n"
@@ -115,7 +115,7 @@ msgstr "Проверяем необходимость миграции уста�
 
 #: functions.inc.php:492
 msgid "Dahdi"
-msgstr "Dahdi"
+msgstr "DAHDI"
 
 #: page.fax.php:46
 msgid "Default Fax header"
@@ -374,7 +374,7 @@ msgstr ""
 
 #: functions.inc.php:552
 msgid "NVFax"
-msgstr "NVFax"
+msgstr "NVFAX"
 
 #: functions.inc.php:537 page.fax.php:67 /usr/src/freepbx/fax/page.fax.php:84
 #: page.fax.php:91
@@ -425,7 +425,7 @@ msgstr "Настройки"
 
 #: functions.inc.php:553
 msgid "Sip"
-msgstr "Sip"
+msgstr "SIP"
 
 #: functions.inc.php:548
 msgid ""
@@ -523,7 +523,7 @@ msgstr ""
 
 #: functions.inc.php:492
 msgid "Zaptel"
-msgstr "Zaptel"
+msgstr "ZAPTEL"
 
 #: install.php:266
 msgid "all migrations succeeded successfully"
