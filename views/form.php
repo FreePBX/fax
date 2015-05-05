@@ -13,10 +13,12 @@ $trans_rates = array(
 			'12000'	=> '12000',
 			'14400'	=> '14400'
 			);
+$minrateopts = $maxrateopts = '';
 foreach($trans_rates as $rate){
 	$minrateopts .= '<option value='.$rate.' '.(($rate == $fax['minrate'])?"SELECTED":"").'>'.$rate.'</option>';
 	$maxrateopts .= '<option value='.$rate.' '.(($rate == $fax['maxrate'])?"SELECTED":"").'>'.$rate.'</option>';
 }
+$aghtml = '';
 if(!$fax_detect['module']){
 	$aghtml = '
 		<!--Always Generate Detection Code-->
