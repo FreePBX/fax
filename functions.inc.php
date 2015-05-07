@@ -394,7 +394,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 	}
 
 	$fax=fax_get_incoming($extension,$cidnum);
-	$html='';
+	$html=$fdinput='';
 	if($target_menuid == 'did'){
     $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
     $fax_sip_faxdetect=fax_sip_faxdetect();
@@ -429,7 +429,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 			 */
 			$faxing = !empty($fax);
 			$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.(!$faxing?'CHECKED':'').'/><label for="faxenabled_no">' . _('No') . '</label>';
-			$fdinput.= '<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($faxing?'CHECKED':'').' onclick="'.$jsyes.'"/><label for="faxenabled_yes">' . _('Yes') . '</label>';
+			$fdinput.= '<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($faxing?'CHECKED':'').' /><label for="faxenabled_yes">' . _('Yes') . '</label>';
 			if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
 				$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/><label for="faxenabled_legacy">' . _('Legacy');
 			}
@@ -526,7 +526,7 @@ function fax_hook_core($viewing_itemid, $target_menuid){
 		</div>
 		<!--END Fax Detection Time-->
 		';
-		if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
+		if(!empty($fax['legacy_email']) || $fax_settings['legacy_mode'] == 'yes'){
 			$fedhelp = _("Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of FreePBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of FreePBX only.");
 			$html .= '
 			<!--Fax Email Destination-->
