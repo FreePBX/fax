@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 18:36-0400\n"
+"POT-Creation-Date: 2015-05-08 18:51-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,12 +28,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: functions.inc.php:627
+#: functions.inc.php:466
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 
-#: functions.inc.php:569
+#: functions.inc.php:408
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -49,11 +49,11 @@ msgstr ""
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
 
-#: views/form.php:245
+#: views/form.php:247
 msgid "A4"
 msgstr ""
 
-#: functions.inc.php:691
+#: functions.inc.php:530
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -66,24 +66,24 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
-
-#: views/form.php:265
+#: views/form.php:267
 msgid "Always Allow Legacy Mode"
 msgstr ""
 
-#: views/form.php:29
+#: views/form.php:31
 msgid "Always Generate Detection Code"
 msgstr ""
 
-#: functions.inc.php:177
+#: views/fax.php:52
 msgid "Attachment Format"
 msgstr ""
 
-#: functions.inc.php:570
+#: functions.inc.php:409
 msgid "Attempt to detect faxes on this DID."
+msgstr ""
+
+#: views/fax.php:59
+msgid "Both"
 msgstr ""
 
 #: install.php:254
@@ -94,23 +94,23 @@ msgstr ""
 msgid "Checking if legacy fax needs migrating.."
 msgstr ""
 
-#: functions.inc.php:562 functions.inc.php:644
+#: functions.inc.php:401 functions.inc.php:483
 msgid "Dahdi"
 msgstr ""
 
-#: views/form.php:62
+#: views/form.php:64
 msgid "Default Fax header"
 msgstr ""
 
-#: views/form.php:86
+#: views/form.php:88
 msgid "Default Local Station Identifier"
 msgstr ""
 
-#: views/form.php:238
+#: views/form.php:240
 msgid "Default Paper Size"
 msgstr ""
 
-#: functions.inc.php:606
+#: functions.inc.php:445
 msgid "Detect Faxes"
 msgstr ""
 
@@ -118,14 +118,14 @@ msgstr ""
 msgid "Dial System FAX"
 msgstr ""
 
-#: functions.inc.php:102
+#: Fax.class.php:54
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
 
-#: functions.inc.php:104
+#: Fax.class.php:56
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -133,17 +133,17 @@ msgid ""
 "free) and must be installed."
 msgstr ""
 
-#: views/form.php:134
+#: views/form.php:136
 msgid "Email address"
 msgstr ""
 
-#: views/form.php:122
+#: views/form.php:124
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
 
-#: views/form.php:146
+#: views/form.php:148
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -155,11 +155,11 @@ msgstr ""
 msgid "Enable Fax"
 msgstr ""
 
-#: functions.inc.php:144 views/quickCreate.php:9
+#: views/fax.php:42 views/quickCreate.php:9
 msgid "Enable this user to receive faxes"
 msgstr ""
 
-#: functions.inc.php:143
+#: views/fax.php:23
 msgid "Enabled"
 msgstr ""
 
@@ -172,50 +172,37 @@ msgstr ""
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
 
-#: functions.inc.php:165
-msgid ""
-"Enter an email address where faxes sent to this extension will be delivered."
-msgstr ""
-
-#: views/form.php:158
+#: views/form.php:160
 msgid "Error Correction Mode"
 msgstr ""
 
-#: views/form.php:173
+#: views/form.php:175
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
 msgstr ""
 
-#: functions.inc.php:97
+#: Fax.class.php:65 /usr/src/freepbx/fax/Fax.class.php:80
 msgid "Fax"
 msgstr ""
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr ""
-
-#: functions.inc.php:728
+#: functions.inc.php:567
 msgid "Fax Destination"
 msgstr ""
 
-#: functions.inc.php:672
+#: functions.inc.php:511
 msgid "Fax Detection Time"
 msgstr ""
 
-#: functions.inc.php:639
+#: functions.inc.php:478
 msgid "Fax Detection type"
-msgstr ""
-
-#: functions.inc.php:164
-msgid "Fax Email"
 msgstr ""
 
 #: page.fax.php:6
 msgid "Fax Options"
 msgstr ""
 
-#: functions.inc.php:264
+#: functions.inc.php:103
 msgid "Fax Recipient"
 msgstr ""
 
@@ -236,25 +223,25 @@ msgstr ""
 msgid "For extension"
 msgstr ""
 
-#: functions.inc.php:178
+#: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
-#: views/form.php:74
+#: views/form.php:76
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
 "person or entity sending the fax."
 msgstr ""
 
-#: functions.inc.php:663
+#: functions.inc.php:502
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: views/form.php:280
+#: views/form.php:282
 msgid ""
 "In earlier versions, it was possible to provide an email address with the "
 "incoming FAX detection to route faxes that were being handled by fax-to-"
@@ -270,26 +257,30 @@ msgstr ""
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr ""
 
-#: functions.inc.php:595
+#: views/fax.php:32
+msgid "Inherit"
+msgstr ""
+
+#: functions.inc.php:434
 msgid "Legacy"
 msgstr ""
 
-#: functions.inc.php:575
+#: functions.inc.php:414
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
 "upgrade this route by choosing YES, and selecting a valid destination!"
 msgstr ""
 
-#: views/form.php:243
+#: views/form.php:245
 msgid "Letter"
 msgstr ""
 
-#: views/form.php:186 views/form.php:212
+#: views/form.php:188 views/form.php:214
 msgid "Maximum transfer rate"
 msgstr ""
 
-#: views/form.php:200
+#: views/form.php:202
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
 
@@ -306,7 +297,7 @@ msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
 
-#: views/form.php:226
+#: views/form.php:228
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 
@@ -314,13 +305,13 @@ msgstr ""
 msgid "Moving simu_fax feature code from core.."
 msgstr ""
 
-#: functions.inc.php:629
+#: functions.inc.php:468
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
 msgstr ""
 
-#: functions.inc.php:646
+#: functions.inc.php:485
 msgid "NVFax"
 msgstr ""
 
@@ -333,8 +324,8 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: functions.inc.php:153 functions.inc.php:592 views/form.php:36
-#: views/form.php:165 views/form.php:272 views/quickCreate.php:7
+#: functions.inc.php:431 views/fax.php:29 views/form.php:38 views/form.php:167
+#: views/form.php:274 views/quickCreate.php:7
 msgid "No"
 msgstr ""
 
@@ -342,12 +333,12 @@ msgstr ""
 msgid "No Inbound Routes to migrate"
 msgstr ""
 
-#: functions.inc.php:580
+#: functions.inc.php:419
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 
-#: functions.inc.php:572
+#: functions.inc.php:411
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination below. Use this option if this DID is used exclusively for voice "
@@ -358,7 +349,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: views/form.php:110
+#: views/form.php:112
 msgid "Outgoing Email address"
 msgstr ""
 
@@ -366,8 +357,8 @@ msgstr ""
 msgid "Outgoing fax results"
 msgstr ""
 
-#: functions.inc.php:169
-msgid "Please Enter a valid email address for fax delivery."
+#: views/fax.php:57
+msgid "PDF"
 msgstr ""
 
 #: bin/fax2mail.php:70
@@ -384,26 +375,22 @@ msgstr ""
 msgid "Removing old globals.."
 msgstr ""
 
-#: Fax.class.php:203
+#: Fax.class.php:339
 msgid "Reset"
 msgstr ""
 
-#: functions.inc.php:648
+#: functions.inc.php:487
 msgid "SIP"
 msgstr ""
 
-#: views/form.php:253
+#: views/form.php:255
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
-msgid "Settings"
-msgstr ""
-
-#: functions.inc.php:628
+#: functions.inc.php:467
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -413,7 +400,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:198
+#: Fax.class.php:334
 msgid "Submit"
 msgstr ""
 
@@ -429,6 +416,10 @@ msgstr ""
 msgid "Successfully migrated faxemail field"
 msgstr ""
 
+#: views/fax.php:58
+msgid "TIFF"
+msgstr ""
+
 #: install.php:257
 msgid ""
 "The following Inbound Routes had FAX processing that failed migration "
@@ -437,11 +428,11 @@ msgid ""
 "remove this notice."
 msgstr ""
 
-#: views/form.php:98
+#: views/form.php:100
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-#: functions.inc.php:625
+#: functions.inc.php:464
 msgid "Type of fax detection to use."
 msgstr ""
 
@@ -465,7 +456,7 @@ msgstr ""
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
 
-#: views/form.php:44
+#: views/form.php:46
 msgid ""
 "When no fax modules are detected the module will not generate any detection "
 "dialplan by default. If the system is being used with phyical FAX devices, "
@@ -473,23 +464,23 @@ msgid ""
 "to be generated here."
 msgstr ""
 
-#: functions.inc.php:719
+#: functions.inc.php:558
 msgid "Where to send the faxes"
 msgstr ""
 
-#: functions.inc.php:149 functions.inc.php:593 views/form.php:34
-#: views/form.php:163 views/form.php:270 views/quickCreate.php:5
+#: functions.inc.php:432 views/fax.php:28 views/form.php:36 views/form.php:165
+#: views/form.php:272 views/quickCreate.php:5
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:573
+#: functions.inc.php:412
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
 msgstr ""
 
-#: functions.inc.php:562
+#: functions.inc.php:401
 msgid "Zaptel"
 msgstr ""
 
@@ -503,10 +494,6 @@ msgstr ""
 
 #: install.php:259 /usr/src/freepbx/fax/install.php:260
 msgid "blank"
-msgstr ""
-
-#: functions.inc.php:191
-msgid "both"
 msgstr ""
 
 #: install.php:83 /usr/src/freepbx/fax/install.php:90
@@ -537,10 +524,6 @@ msgstr ""
 msgid "not present"
 msgstr ""
 
-#: functions.inc.php:183
-msgid "pdf"
-msgstr ""
-
 #: install.php:77 /usr/src/freepbx/fax/install.php:240 install.php:250
 msgid "removed"
 msgstr ""
@@ -549,14 +532,10 @@ msgstr ""
 msgid "starting migration"
 msgstr ""
 
-#: functions.inc.php:187
-msgid "tiff"
-msgstr ""
-
 #: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"
 msgstr ""
 
-#: functions.inc.php:627
+#: functions.inc.php:466
 msgid "use "
 msgstr ""
