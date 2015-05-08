@@ -56,9 +56,10 @@ class Fax implements BMO {
 				$error = _('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.');
 			}
 			switch($_REQUEST['action']) {
+				case 'addgroup':
 				case 'showgroup':
-					$enabled = $this->userman->getModuleSettingByGID($_REQUEST['group'],'fax','enabled');
-					$attachformat = $this->userman->getModuleSettingByGID($_REQUEST['group'],'fax','attachformat');
+					$enabled = ($_REQUEST['action'] == "addgroup") ? true : $this->userman->getModuleSettingByGID($_REQUEST['group'],'fax','enabled');
+					$attachformat = ($_REQUEST['action'] == "addgroup") ? 'pdf' : $this->userman->getModuleSettingByGID($_REQUEST['group'],'fax','attachformat');
 					return array(
 						array(
 							"title" => _("Fax"),
@@ -67,6 +68,7 @@ class Fax implements BMO {
 						)
 					);
 				break;
+				case 'adduser':
 				case 'showuser':
 					$user = $this->userman->getUserByID($_REQUEST['user']);
 					if(!empty($user) && $user['default_extension'] !== "none") {
