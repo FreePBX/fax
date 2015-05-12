@@ -14,6 +14,7 @@ $trans_rates = array(
 			'14400'	=> '14400'
 			);
 $minrateopts = $maxrateopts = '';
+
 foreach($trans_rates as $rate){
 	$minrateopts .= '<option value='.$rate.' '.(($rate == $fax['minrate'])?"SELECTED":"").'>'.$rate.'</option>';
 	$maxrateopts .= '<option value='.$rate.' '.(($rate == $fax['maxrate'])?"SELECTED":"").'>'.$rate.'</option>';
@@ -49,7 +50,10 @@ if(!$fax_detect['module']){
 		</div>
 		<!--END Always Generate Detection Code-->
 	';
+}else{
+	$aghtml ='';
 }
+$fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 ?>
 <form name="edit" id="edit" class="fpbx-submit" action="" method="POST">
 <input type="hidden" value="fax" name="display"/>
