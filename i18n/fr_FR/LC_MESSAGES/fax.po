@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 18:51-0400\n"
+"POT-Creation-Date: 2015-06-09 15:45-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
 "Language-Team: \n"
@@ -55,7 +55,7 @@ msgstr ""
 "%s Migration de FAX échouée, vérifiez le panneau d'information pour plus de "
 "détails"
 
-#: views/form.php:247
+#: views/form.php:251
 msgid "A4"
 msgstr ""
 
@@ -82,11 +82,11 @@ msgstr ""
 "disponible après le changement, elle est seulement fournie pour permettre "
 "des migrations depuis des versions précédentes de FreePBX."
 
-#: views/form.php:267
+#: views/form.php:271
 msgid "Always Allow Legacy Mode"
 msgstr "Toujours autoriser le mode héritage"
 
-#: views/form.php:31
+#: views/form.php:32
 msgid "Always Generate Detection Code"
 msgstr "Toujours générer un code de détection"
 
@@ -114,15 +114,15 @@ msgstr "Vérifie si le mode héritage du fax a besoin d'être migré.."
 msgid "Dahdi"
 msgstr "Dahdi"
 
-#: views/form.php:64
+#: views/form.php:68
 msgid "Default Fax header"
 msgstr "En tête des Fax par défaut:"
 
-#: views/form.php:88
+#: views/form.php:92
 msgid "Default Local Station Identifier"
 msgstr "Identifiant de station locale par défaut"
 
-#: views/form.php:240
+#: views/form.php:244
 msgid "Default Paper Size"
 msgstr ""
 
@@ -149,11 +149,11 @@ msgid ""
 "free) and must be installed."
 msgstr ""
 
-#: views/form.php:136
+#: views/form.php:140
 msgid "Email address"
 msgstr ""
 
-#: views/form.php:124
+#: views/form.php:128
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
@@ -161,7 +161,7 @@ msgstr ""
 "L'adresse email qui apparaitra sur le fax si le 'système par défaut' a été "
 "choisi comme extension de fax par défaut."
 
-#: views/form.php:148
+#: views/form.php:152
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -174,11 +174,11 @@ msgstr ""
 "continuent d'utiliser ce mode et qu'elles n'ont pas d'adresse email "
 "spécifiée."
 
-#: views/quickCreate.php:2
+#: views/quickCreate.php:7
 msgid "Enable Fax"
 msgstr ""
 
-#: views/fax.php:42 views/quickCreate.php:9
+#: views/fax.php:42 views/quickCreate.php:24
 msgid "Enable this user to receive faxes"
 msgstr "Active la réception de fax pour cet utilisateur"
 
@@ -195,11 +195,11 @@ msgstr ""
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
 
-#: views/form.php:160
+#: views/form.php:164
 msgid "Error Correction Mode"
 msgstr "Correction d'erreur"
 
-#: views/form.php:175
+#: views/form.php:179
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
-#: views/form.php:76
+#: views/form.php:80
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -267,7 +267,7 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: views/form.php:282
+#: views/form.php:286
 msgid ""
 "In earlier versions, it was possible to provide an email address with the "
 "incoming FAX detection to route faxes that were being handled by fax-to-"
@@ -307,15 +307,15 @@ msgstr ""
 "de fax hérités d'une migration. Vous devriez mettre à jour cet itinéraire en "
 "choisissant OUI, et en sélectionnant une destination valide."
 
-#: views/form.php:245
+#: views/form.php:249
 msgid "Letter"
 msgstr ""
 
-#: views/form.php:188 views/form.php:214
+#: views/form.php:192 views/form.php:218
 msgid "Maximum transfer rate"
 msgstr "taux de transfert maximum"
 
-#: views/form.php:202
+#: views/form.php:206
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "Taux de transfert maximum à utiliser pendant la négociation d'un Fax"
 
@@ -332,7 +332,7 @@ msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
 
-#: views/form.php:228
+#: views/form.php:232
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "Taux de transfert minimum à utiliser pendant la négociation d'un Fax"
 
@@ -361,8 +361,8 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: functions.inc.php:431 views/fax.php:29 views/form.php:38 views/form.php:167
-#: views/form.php:274 views/quickCreate.php:7
+#: functions.inc.php:431 views/fax.php:29 views/form.php:39 views/form.php:171
+#: views/form.php:278 views/quickCreate.php:15
 msgid "No"
 msgstr "Non"
 
@@ -391,7 +391,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: views/form.php:112
+#: views/form.php:116
 msgid "Outgoing Email address"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgstr ""
 msgid "SIP"
 msgstr ""
 
-#: views/form.php:255
+#: views/form.php:259
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
@@ -477,7 +477,7 @@ msgstr ""
 "mise à jour. Cliquer sur l'icone effacer à droite afin de supprimer cette "
 "notification."
 
-#: views/form.php:100
+#: views/form.php:104
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 "L'identifiant de la machine envoyant le Fax. C'est généralement votre numéro "
@@ -507,7 +507,7 @@ msgstr ""
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
 
-#: views/form.php:46
+#: views/form.php:47
 msgid ""
 "When no fax modules are detected the module will not generate any detection "
 "dialplan by default. If the system is being used with phyical FAX devices, "
@@ -523,8 +523,8 @@ msgstr ""
 msgid "Where to send the faxes"
 msgstr ""
 
-#: functions.inc.php:432 views/fax.php:28 views/form.php:36 views/form.php:165
-#: views/form.php:272 views/quickCreate.php:5
+#: functions.inc.php:432 views/fax.php:28 views/form.php:37 views/form.php:169
+#: views/form.php:276 views/quickCreate.php:13
 msgid "Yes"
 msgstr "Oui"
 
