@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.1alpha6</version>
+	<version>13.0.1alpha7</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.1alpha7* Move did hook to BMO
 		*13.0.1alpha6* Quick create styling fixes
 		*13.0.1alpha5* Group support in Userman
 		*13.0.1alpha4* Follow database scheme
@@ -57,6 +58,7 @@
 			<core namespace="FreePBX\modules" class="Core">
 				<method class="Fax" callingMethod="getQuickCreateDisplay">getQuickCreateDisplay</method>
 				<method class="Fax" callingMethod="processQuickCreate">processQuickCreate</method>
+				<method class="Fax" callingMethod="hookTabs">coreDIDHook</method>
 			</core>
 			<userman namespace="FreePBX\modules" class="Userman">
 				<method class="Fax" callingMethod="delGroup">usermanDelGroup</method>
