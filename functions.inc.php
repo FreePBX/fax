@@ -435,31 +435,9 @@ function fax_hookGet_config($engine){
 		}
 	}
 }
-
-function fax_hookProcess_core(){
-	$display=isset($_REQUEST['display'])?$_REQUEST['display']:'';
-	$action=isset($_REQUEST['action'])?$_REQUEST['action']:'';
-	if ($display == 'did' && $action!=''){
-
-	  $cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
-	  $extension=isset($_REQUEST['extension'])?$_REQUEST['extension']:'';
-	  $extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
-	  $enabled=isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:'false';
-	  $detection=isset($_REQUEST['faxdetection'])?$_REQUEST['faxdetection']:'';
-	  $detectionwait=isset($_REQUEST['faxdetectionwait'])?$_REQUEST['faxdetectionwait']:'';
-	  $dest=(isset($_REQUEST['gotoFAX'])?$_REQUEST['gotoFAX'].'FAX':null);
-	  $dest=isset($_REQUEST[$dest])?$_REQUEST[$dest]:'';
-    if ($enabled != 'legacy') {
-      $legacy_email = null;
-    } else {
-	    $legacy_email=isset($_REQUEST['legacy_email'])?$_REQUEST['legacy_email']:'';
-    }
-		fax_delete_incoming($extdisplay);	//remove mature entry on edit or delete
-		if (($action == 'edtIncoming' || $action == 'addIncoming') && $enabled != 'false'){
-			fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email);
-		}
-	}
-}
+/** Moved in to BMO Class
+function fax_hookProcess_core()
+*/
 
 
 function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email){

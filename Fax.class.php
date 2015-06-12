@@ -9,29 +9,53 @@ class Fax implements BMO {
 		$this->db = $freepbx->Database;
 		$this->userman = $freepbx->Userman;
 	}
-
+	public static function myConfigPageInits() { return array("did"); }
 	public function doConfigPageInit($page) {
-		$request = $_REQUEST;
-		$get_vars = array(
-			'ecm'				=> '',
-			'fax_rx_email'		=> '',
-			'force_detection'	=> 'no',
-			'headerinfo'		=> '',
-			'legacy_mode'		=> 'no',
-			'localstationid'	=> '',
-			'maxrate'			=> '',
-			'minrate'			=> '',
-			'modem'				=> '',
-			'sender_address'	=> '',
-			'papersize' 		=> 'letter',
+		switch ($page) {
+			case 'fax':
+				$request = $_REQUEST;
+				$get_vars = array(
+					'ecm'				=> '',
+					'fax_rx_email'		=> '',
+					'force_detection'	=> 'no',
+					'headerinfo'		=> '',
+					'legacy_mode'		=> 'no',
+					'localstationid'	=> '',
+					'maxrate'			=> '',
+					'minrate'			=> '',
+					'modem'				=> '',
+					'sender_address'	=> '',
+					'papersize' 		=> 'letter',
 
-		);
-		foreach($get_vars as $k => $v){
-			$fax[$k] = isset($request[$k]) ? $request[$k] : $v;
-		}
-		// get/put options
-		if (isset($request['action']) &&  $request['action'] == 'edit'){
-			fax_save_settings($fax);
+				);
+				foreach($get_vars as $k => $v){
+					$fax[$k] = isset($request[$k]) ? $request[$k] : $v;
+				}
+				// get/put options
+				if (isset($request['action']) &&  $request['action'] == 'edit'){
+					fax_save_settings($fax);
+				}
+			break;
+			case "did":
+				$action=isset($_REQUEST['action'])?$_REQUEST['action']:'';
+				$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
+				$extension=isset($_REQUEST['extension'])?$_REQUEST['extension']:'';
+				$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
+				$enabled=isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:'false';
+				$detection=isset($_REQUEST['faxdetection'])?$_REQUEST['faxdetection']:'';
+				$detectionwait=isset($_REQUEST['faxdetectionwait'])?$_REQUEST['faxdetectionwait']:'';
+				$dest=(isset($_REQUEST['gotoFAX'])?$_REQUEST['gotoFAX'].'FAX':null);
+				$dest=isset($_REQUEST[$dest])?$_REQUEST[$dest]:'';
+				if ($enabled != 'legacy') {
+					$legacy_email = null;
+				} else {
+					$legacy_email=isset($_REQUEST['legacy_email'])?$_REQUEST['legacy_email']:'';
+				}
+				fax_delete_incoming($extdisplay);	//remove mature entry on edit or delete
+				if (($action == 'edtIncoming' || $action == 'addIncoming') && $enabled != 'false'){
+					fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email);
+				}
+			break;
 		}
 	}
 
@@ -400,7 +424,6 @@ class Fax implements BMO {
 					 * playing the second
 					 */
 					$faxing = !empty($fax);
-					dbug($faxing);
 					$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.(!$faxing?'CHECKED':'').'/><label for="faxenabled_no">' . _('No') . '</label>';
 					$fdinput.= '<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($faxing?'CHECKED':'').' /><label for="faxenabled_yes">' . _('Yes') . '</label>';
 					if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
