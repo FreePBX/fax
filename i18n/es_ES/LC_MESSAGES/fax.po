@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:10-0400\n"
+"POT-Creation-Date: 2015-06-24 20:56-0400\n"
 "PO-Revision-Date: 2015-02-20 19:30-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -19,14 +19,14 @@ msgstr ""
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Fax.class.php:462
+#: Fax.class.php:472
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 " detección de fax; requiere que 'faxdetect=' sea fijado a 'incoming' o "
 "'both' en "
 
-#: Fax.class.php:404
+#: Fax.class.php:414
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -48,7 +48,7 @@ msgstr "%s Migracion FAX Fallida, vea panel de notificaciones para detalles"
 msgid "A4"
 msgstr ""
 
-#: Fax.class.php:526
+#: Fax.class.php:536
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -83,7 +83,7 @@ msgstr "Generar siempre Código de Detección"
 msgid "Attachment Format"
 msgstr "Formato de Anexos"
 
-#: Fax.class.php:405
+#: Fax.class.php:415
 msgid "Attempt to detect faxes on this DID."
 msgstr "Intentar detectar faxes en este DID."
 
@@ -99,7 +99,7 @@ msgstr "Verificando migracion fallida.."
 msgid "Checking if legacy fax needs migrating.."
 msgstr "Comprobando si legado de fax necesita migracion.."
 
-#: Fax.class.php:397 Fax.class.php:479
+#: Fax.class.php:407 Fax.class.php:489
 msgid "Dahdi"
 msgstr "DAHDi"
 
@@ -115,7 +115,7 @@ msgstr "Identificador Estación Local"
 msgid "Default Paper Size"
 msgstr ""
 
-#: Fax.class.php:441
+#: Fax.class.php:451
 msgid "Detect Faxes"
 msgstr "Detección de Faxes"
 
@@ -123,7 +123,7 @@ msgstr "Detección de Faxes"
 msgid "Dial System FAX"
 msgstr "Marcación Sistema FAX"
 
-#: Fax.class.php:78
+#: Fax.class.php:88
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
@@ -134,7 +134,7 @@ msgstr ""
 "(res_fax_digium.so) o app_fax basado spandsp (res_fax_spandsp.so) para "
 "funcionar.."
 
-#: Fax.class.php:80
+#: Fax.class.php:90
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -203,19 +203,19 @@ msgstr ""
 "Modo de Corrección de Errores (ECM) se utiliza para especificar si ↵\n"
 " →→→ usar el modo ECM o no."
 
-#: Fax.class.php:89 Fax.class.php:104 Fax.class.php:598
+#: Fax.class.php:99 Fax.class.php:114 Fax.class.php:608
 msgid "Fax"
 msgstr "Fax"
 
-#: Fax.class.php:563
+#: Fax.class.php:573
 msgid "Fax Destination"
 msgstr "Destino de Fax"
 
-#: Fax.class.php:507
+#: Fax.class.php:517
 msgid "Fax Detection Time"
 msgstr "Tiempo Detección Fax"
 
-#: Fax.class.php:474
+#: Fax.class.php:484
 msgid "Fax Detection type"
 msgstr "Tipo de detección de Fax"
 
@@ -260,7 +260,7 @@ msgstr ""
 "fax y aparece impreso en la parte superior de cada página. Por lo general, "
 "contiene el nombre de la persona o entidad que envía el fax."
 
-#: Fax.class.php:498
+#: Fax.class.php:508
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -296,11 +296,11 @@ msgstr "Detección Fax Entrante: %s (%s)"
 msgid "Inherit"
 msgstr ""
 
-#: Fax.class.php:430
+#: Fax.class.php:440
 msgid "Legacy"
 msgstr "Legado"
 
-#: Fax.class.php:410
+#: Fax.class.php:420
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Moving simu_fax feature code from core.."
 msgstr "Moviendo el codigo simu_fax del nucleo .."
 
-#: Fax.class.php:464
+#: Fax.class.php:474
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
@@ -357,7 +357,7 @@ msgstr ""
 "Detección NV Fax: Utiliza detección NV Fax; Requiere que detección NV Fax "
 "esté instalado y reconocido por asterisk"
 
-#: Fax.class.php:481
+#: Fax.class.php:491
 #, fuzzy
 msgid "NVFax"
 msgstr "NvFax"
@@ -371,7 +371,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:427 views/fax.php:29 views/form.php:39 views/form.php:171
+#: Fax.class.php:437 views/fax.php:29 views/form.php:39 views/form.php:171
 #: views/form.php:278 views/quickCreate.php:15
 msgid "No"
 msgstr "No"
@@ -380,14 +380,14 @@ msgstr "No"
 msgid "No Inbound Routes to migrate"
 msgstr "No hay Ruta Entrante a migrar"
 
-#: Fax.class.php:415
+#: Fax.class.php:425
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "No hay métodos de detección de fax que se encuentren o no hay licencia "
 "válida. El módulo de fax no puede estar activado."
 
-#: Fax.class.php:407
+#: Fax.class.php:417
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination below. Use this option if this DID is used exclusively for voice "
@@ -427,11 +427,11 @@ msgstr "Eliminando campo %s desde tabla incoming.."
 msgid "Removing old globals.."
 msgstr "Eliminando globales antiguos.."
 
-#: Fax.class.php:363
+#: Fax.class.php:373
 msgid "Reset"
 msgstr ""
 
-#: Fax.class.php:483
+#: Fax.class.php:493
 msgid "SIP"
 msgstr ""
 
@@ -442,7 +442,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: Fax.class.php:463
+#: Fax.class.php:473
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -454,7 +454,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:358
+#: Fax.class.php:368
 msgid "Submit"
 msgstr "Aplicar Cambios"
 
@@ -492,7 +492,7 @@ msgstr ""
 "El identificador de la máquina de fax. Esto es por lo general el número de "
 "fax."
 
-#: Fax.class.php:460
+#: Fax.class.php:470
 msgid "Type of fax detection to use."
 msgstr "Tipo de detección de fax a utilizar."
 
@@ -531,16 +531,16 @@ msgstr ""
 "configuraciones de fax externas se puede forzar el dialplan a que se genere "
 "aquí."
 
-#: Fax.class.php:554
+#: Fax.class.php:564
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:428 views/fax.php:28 views/form.php:37 views/form.php:169
+#: Fax.class.php:438 views/fax.php:28 views/form.php:37 views/form.php:169
 #: views/form.php:276 views/quickCreate.php:13
 msgid "Yes"
 msgstr "Si"
 
-#: Fax.class.php:408
+#: Fax.class.php:418
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -550,7 +550,7 @@ msgstr ""
 "el destino de fax si llamada es de fax, si no envia a su destino regular. "
 "Use esta opción si recibe llamadas de voz y fax en esta línea"
 
-#: Fax.class.php:397
+#: Fax.class.php:407
 #, fuzzy
 msgid "Zaptel"
 msgstr "zaptel"
@@ -607,7 +607,7 @@ msgstr "iniciando migracion"
 msgid "unknown error"
 msgstr "error desconocido"
 
-#: Fax.class.php:462
+#: Fax.class.php:472
 msgid "use "
 msgstr "Utiliza "
 
