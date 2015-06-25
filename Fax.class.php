@@ -51,9 +51,19 @@ class Fax implements BMO {
 				} else {
 					$legacy_email=isset($_REQUEST['legacy_email'])?$_REQUEST['legacy_email']:'';
 				}
-				fax_delete_incoming($extdisplay);	//remove mature entry on edit or delete
-				if (($action == 'edtIncoming' || $action == 'addIncoming') && $enabled != 'false'){
-					fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email);
+
+				switch($action) {
+					case "edtIncoming":
+						fax_delete_incoming($extdisplay);
+					//fall through to next level on purpose
+					case "addIncoming":
+						if($enabled != 'false') {
+							fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email);
+						}
+					break;
+					case "delIncoming":
+						fax_delete_incoming($extdisplay);
+					break;
 				}
 			break;
 		}
