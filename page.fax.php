@@ -1,6 +1,9 @@
 <?php /* $Id */
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-
+$engineinfo = engine_getinfo();
+$version =  $engineinfo['version'];
+$ast_ge_13 = version_compare($version, '13', 'ge');
+$ast13message = '<div class="alert alert-warning">'._("You are running Asterisk 13 which does NOT support Fax for Asterisk. If availible spandsp will be used instead.").'</div>';
 $get_vars = array(
 	'ecm'				=> '',
 	'fax_rx_email'		=> '',
@@ -38,6 +41,7 @@ $trans_rates = array(
 ?>
 
 <h2><?php echo _("Fax Options")?></h2>
+<?php echo $ast_ge_13?$ast13message:''?>
 <form name="edit" action="" method=POST>
 	<table id="faxoptionstable">
 		<tbody>
