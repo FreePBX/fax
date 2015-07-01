@@ -2,8 +2,8 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>12.0.8</version>
-	<publisher>Schmooze Com Inc</publisher>
+	<version>12.0.9</version>
+	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Settings</category>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*12.0.9* FREEPBX-9577 Drop res_fax_digium support for Asterisk 13			
 		*12.0.8* FREEPBX-8638 delete PDFs as well as TIFFs when requested
 		*12.0.7* Dont write blank values Asterisk cant understand
 		*12.0.6* FREEPBX-8159 check for incorrect arguments in fail2mail

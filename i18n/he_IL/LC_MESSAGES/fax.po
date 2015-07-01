@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 18:34-0400\n"
+"POT-Creation-Date: 2015-07-01 15:08-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,15 +62,11 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
-
-#: page.fax.php:82
+#: page.fax.php:86
 msgid "Always Allow Legacy Mode"
 msgstr ""
 
-#: page.fax.php:89
+#: page.fax.php:93
 msgid "Always Generate Detection Code"
 msgstr ""
 
@@ -94,11 +90,11 @@ msgstr ""
 msgid "Dahdi"
 msgstr ""
 
-#: page.fax.php:46
+#: page.fax.php:50
 msgid "Default Fax header"
 msgstr ""
 
-#: page.fax.php:49
+#: page.fax.php:53
 msgid "Default Local Station Identifier"
 msgstr ""
 
@@ -125,13 +121,13 @@ msgid ""
 "free) and must be installed."
 msgstr ""
 
-#: page.fax.php:53
+#: page.fax.php:57
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
 
-#: page.fax.php:58
+#: page.fax.php:62
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -139,7 +135,7 @@ msgid ""
 "addresses specified."
 msgstr ""
 
-#: page.fax.php:58
+#: page.fax.php:62
 msgid "Email address:"
 msgstr ""
 
@@ -156,11 +152,11 @@ msgid ""
 "Enter an email address where faxes sent to this extension will be delivered."
 msgstr ""
 
-#: page.fax.php:63
+#: page.fax.php:67
 msgid "Error Correction Mode"
 msgstr ""
 
-#: page.fax.php:64
+#: page.fax.php:68
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -168,10 +164,6 @@ msgstr ""
 
 #: functions.inc.php:97
 msgid "Fax"
-msgstr ""
-
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
 msgstr ""
 
 #: functions.inc.php:571
@@ -198,19 +190,19 @@ msgstr ""
 msgid "Fax Email Destination"
 msgstr ""
 
-#: page.fax.php:56
+#: page.fax.php:60
 msgid "Fax Feature Code Options"
 msgstr ""
 
-#: page.fax.php:80
+#: page.fax.php:84
 msgid "Fax Module Options"
 msgstr ""
 
-#: page.fax.php:40
+#: page.fax.php:43
 msgid "Fax Options"
 msgstr ""
 
-#: page.fax.php:44
+#: page.fax.php:48
 msgid "Fax Presentation Options"
 msgstr ""
 
@@ -218,7 +210,7 @@ msgstr ""
 msgid "Fax Recipient"
 msgstr ""
 
-#: page.fax.php:62
+#: page.fax.php:66
 msgid "Fax Transport Options"
 msgstr ""
 
@@ -231,7 +223,7 @@ msgstr ""
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
-#: page.fax.php:46
+#: page.fax.php:50
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -242,7 +234,7 @@ msgstr ""
 msgid "How long to wait and try to detect fax. Please note that callers to a "
 msgstr ""
 
-#: page.fax.php:82
+#: page.fax.php:86
 msgid ""
 "In earlier versions, it was possible to provide an email address with the "
 "incoming FAX detection to route faxes that were being handled by fax-to-"
@@ -269,11 +261,11 @@ msgid ""
 "upgrade this route by choosing YES, and selecting a valid destination!"
 msgstr ""
 
-#: page.fax.php:70
+#: page.fax.php:74
 msgid "Maximum transfer rate"
 msgstr ""
 
-#: page.fax.php:71
+#: page.fax.php:75
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
 
@@ -290,11 +282,11 @@ msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
 
-#: page.fax.php:75
+#: page.fax.php:79
 msgid "Minimum transfer rate"
 msgstr ""
 
-#: page.fax.php:76
+#: page.fax.php:80
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 
@@ -312,8 +304,8 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-#: functions.inc.php:537 page.fax.php:67 /usr/src/freepbx/fax/page.fax.php:84
-#: page.fax.php:91
+#: functions.inc.php:537 page.fax.php:71 /usr/src/freepbx/fax/page.fax.php:88
+#: page.fax.php:95
 msgid "No"
 msgstr ""
 
@@ -333,7 +325,7 @@ msgid ""
 "OR fax."
 msgstr ""
 
-#: page.fax.php:53
+#: page.fax.php:57
 msgid "Outgoing Email address:"
 msgstr ""
 
@@ -350,10 +342,6 @@ msgstr ""
 msgid "Removing old globals.."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
-msgid "Settings"
-msgstr ""
-
 #: functions.inc.php:553
 msgid "Sip"
 msgstr ""
@@ -364,7 +352,7 @@ msgid ""
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
-#: page.fax.php:100
+#: page.fax.php:104
 msgid "Submit"
 msgstr ""
 
@@ -388,7 +376,7 @@ msgid ""
 "remove this notice."
 msgstr ""
 
-#: page.fax.php:49
+#: page.fax.php:53
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
@@ -412,7 +400,7 @@ msgstr ""
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
 
-#: page.fax.php:89
+#: page.fax.php:93
 msgid ""
 "When no fax modules are detected the module will not generate any detection "
 "dialplan by default. If the system is being used with phyical FAX devices, "
@@ -424,8 +412,8 @@ msgstr ""
 msgid "Where to send the call if we detect that its a fax"
 msgstr ""
 
-#: functions.inc.php:538 page.fax.php:66 /usr/src/freepbx/fax/page.fax.php:83
-#: page.fax.php:90
+#: functions.inc.php:538 page.fax.php:70 /usr/src/freepbx/fax/page.fax.php:87
+#: page.fax.php:94
 msgid "Yes"
 msgstr ""
 
@@ -434,6 +422,12 @@ msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
+msgstr ""
+
+#: page.fax.php:6
+msgid ""
+"You are running Asterisk 13 which does NOT support Fax for Asterisk. If "
+"availible spandsp will be used instead."
 msgstr ""
 
 #: functions.inc.php:492

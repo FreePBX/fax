@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 18:34-0400\n"
+"POT-Creation-Date: 2015-07-01 15:08-0400\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -97,15 +97,11 @@ msgstr ""
 "バージョンのFreePBXからのレガシー移行をサポートするためにだけ提供されていま"
 "す。"
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
-
-#: page.fax.php:82
+#: page.fax.php:86
 msgid "Always Allow Legacy Mode"
 msgstr "常にレガシーモードを許可"
 
-#: page.fax.php:89
+#: page.fax.php:93
 msgid "Always Generate Detection Code"
 msgstr "常に検知コードを生成"
 
@@ -129,11 +125,11 @@ msgstr "レガシーfaxに移行が必要かどうかをチェック中.."
 msgid "Dahdi"
 msgstr "Dahdi"
 
-#: page.fax.php:46
+#: page.fax.php:50
 msgid "Default Fax header"
 msgstr "デフォルトFaxヘッダー"
 
-#: page.fax.php:49
+#: page.fax.php:53
 msgid "Default Local Station Identifier"
 msgstr "デフォルトの送信側FAX ID"
 
@@ -164,7 +160,7 @@ msgstr ""
 "Asteriskがインストールされていることを検知しました。<br>少なくとも1ライセンス"
 "(無料で利用できます)がインストールされている必要があります。"
 
-#: page.fax.php:53
+#: page.fax.php:57
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
@@ -172,7 +168,7 @@ msgstr ""
 "デフォルトfax内線として、'システムデフォルト'が選択された場合にfax情報を送信"
 "するEメールアドレス。"
 
-#: page.fax.php:58
+#: page.fax.php:62
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -184,7 +180,7 @@ msgstr ""
 "いルートがまだある場合には、fax検知のためのデフォルトのEメールアドレスにもな"
 "ります。"
 
-#: page.fax.php:58
+#: page.fax.php:62
 msgid "Email address:"
 msgstr "Eメールアドレス："
 
@@ -201,11 +197,11 @@ msgid ""
 "Enter an email address where faxes sent to this extension will be delivered."
 msgstr "この内線に送信されたfaxが配送されるEメールアドレスを入力してください。"
 
-#: page.fax.php:63
+#: page.fax.php:67
 msgid "Error Correction Mode"
 msgstr "エラー訂正モード"
 
-#: page.fax.php:64
+#: page.fax.php:68
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -216,10 +212,6 @@ msgstr ""
 #: functions.inc.php:97
 msgid "Fax"
 msgstr "Fax"
-
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr "Fax設定"
 
 #: functions.inc.php:571
 msgid "Fax Destination"
@@ -245,19 +237,19 @@ msgstr "Fax Email"
 msgid "Fax Email Destination"
 msgstr "Fax Eメール宛先"
 
-#: page.fax.php:56
+#: page.fax.php:60
 msgid "Fax Feature Code Options"
 msgstr "Faxキーコードオプション"
 
-#: page.fax.php:80
+#: page.fax.php:84
 msgid "Fax Module Options"
 msgstr "Fax モジュールオプション"
 
-#: page.fax.php:40
+#: page.fax.php:43
 msgid "Fax Options"
 msgstr "Faxオプション"
 
-#: page.fax.php:44
+#: page.fax.php:48
 msgid "Fax Presentation Options"
 msgstr "Faxプレゼンテーションオプション"
 
@@ -265,7 +257,7 @@ msgstr "Faxプレゼンテーションオプション"
 msgid "Fax Recipient"
 msgstr "Fax受信者"
 
-#: page.fax.php:62
+#: page.fax.php:66
 msgid "Fax Transport Options"
 msgstr "Fax転送オプション"
 
@@ -278,7 +270,7 @@ msgstr "Fax ユーザー %s"
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
-#: page.fax.php:46
+#: page.fax.php:50
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -291,7 +283,7 @@ msgstr ""
 msgid "How long to wait and try to detect fax. Please note that callers to a "
 msgstr "どれぐらいの間待ち、fax検知を試みるか。"
 
-#: page.fax.php:82
+#: page.fax.php:86
 msgid ""
 "In earlier versions, it was possible to provide an email address with the "
 "incoming FAX detection to route faxes that were being handled by fax-to-"
@@ -329,11 +321,11 @@ msgstr ""
 "みで使用されます。「はい」を選択し、有効な宛先を選択することにより、このルー"
 "トをアップグレードする必要があります"
 
-#: page.fax.php:70
+#: page.fax.php:74
 msgid "Maximum transfer rate"
 msgstr "最大転送レート"
 
-#: page.fax.php:71
+#: page.fax.php:75
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "faxレートネゴシエーション中に使用される最大転送レート"
 
@@ -351,11 +343,11 @@ msgid ""
 msgstr ""
 "長いEメールを可能にする為に、fax_usersテーブルのfaxemailフィールドを移行中..."
 
-#: page.fax.php:75
+#: page.fax.php:79
 msgid "Minimum transfer rate"
 msgstr "最小転送レート"
 
-#: page.fax.php:76
+#: page.fax.php:80
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "faxレートネゴシエーション中に使用される最小転送レート"
 
@@ -375,8 +367,8 @@ msgstr ""
 msgid "NVFax"
 msgstr "NVFax"
 
-#: functions.inc.php:537 page.fax.php:67 /usr/src/freepbx/fax/page.fax.php:84
-#: page.fax.php:91
+#: functions.inc.php:537 page.fax.php:71 /usr/src/freepbx/fax/page.fax.php:88
+#: page.fax.php:95
 msgid "No"
 msgstr "いいえ"
 
@@ -399,7 +391,7 @@ msgstr ""
 "信される全てのコール。もしこのダイヤルイン番号が排他的に音声もしくはfaxに使用"
 "される場合にこのオプションを使用します。"
 
-#: page.fax.php:53
+#: page.fax.php:57
 msgid "Outgoing Email address:"
 msgstr "送信Eメールアドレス："
 
@@ -416,10 +408,6 @@ msgstr "incoming テーブルからフィールド %s を削除する.."
 msgid "Removing old globals.."
 msgstr "古いglobalsを削除.."
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
-msgid "Settings"
-msgstr "設定"
-
 #: functions.inc.php:553
 msgid "Sip"
 msgstr "Sip"
@@ -432,7 +420,7 @@ msgstr ""
 "Sip: sip fax検知(t38)を使用します。asterisk 1.6.2以降と、sip設定ファイルで "
 "'faxdetect=yes' とする必要があります。"
 
-#: page.fax.php:100
+#: page.fax.php:104
 msgid "Submit"
 msgstr "送信"
 
@@ -460,7 +448,7 @@ msgstr ""
 "する必要があります。この通知を削除するには右側にある削除アイコンをクリックし"
 "てください。"
 
-#: page.fax.php:49
+#: page.fax.php:53
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "送信するFAXのID。通常あなたのfax番号。"
 
@@ -484,7 +472,7 @@ msgstr "警告: 移行に失敗しました。Eメールは50文字の制限が�
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr "警告: fax_incoming テーブルはまだ 2.6のスキーマを使用しています!"
 
-#: page.fax.php:89
+#: page.fax.php:93
 msgid ""
 "When no fax modules are detected the module will not generate any detection "
 "dialplan by default. If the system is being used with phyical FAX devices, "
@@ -500,8 +488,8 @@ msgstr ""
 msgid "Where to send the call if we detect that its a fax"
 msgstr "faxを検出した際にコールを送信する宛先"
 
-#: functions.inc.php:538 page.fax.php:66 /usr/src/freepbx/fax/page.fax.php:83
-#: page.fax.php:90
+#: functions.inc.php:538 page.fax.php:70 /usr/src/freepbx/fax/page.fax.php:87
+#: page.fax.php:94
 msgid "Yes"
 msgstr "はい"
 
@@ -514,6 +502,12 @@ msgstr ""
 "はい: コールタイプの自動決定を試みます; コールがfaxの場合はfax宛先にルーティ"
 "ングし、それ以外の場合は通常の宛先に送信します。この回線上のコールで音声もfax"
 "も受信する場合にこのオプションを使用します。"
+
+#: page.fax.php:6
+msgid ""
+"You are running Asterisk 13 which does NOT support Fax for Asterisk. If "
+"availible spandsp will be used instead."
+msgstr ""
 
 #: functions.inc.php:492
 msgid "Zaptel"
@@ -574,6 +568,15 @@ msgstr "不明なエラー"
 #: functions.inc.php:548
 msgid "use "
 msgstr "使用"
+
+#~ msgid "Adds configurations, options and GUI for inbound faxing"
+#~ msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
+
+#~ msgid "Fax Configuration"
+#~ msgstr "Fax設定"
+
+#~ msgid "Settings"
+#~ msgstr "設定"
 
 #~ msgid ""
 #~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "
