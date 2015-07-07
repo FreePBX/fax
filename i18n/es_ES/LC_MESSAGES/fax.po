@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:10-0400\n"
+"POT-Creation-Date: 2015-07-01 15:09-0400\n"
 "PO-Revision-Date: 2015-02-20 19:30-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -19,14 +19,14 @@ msgstr ""
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Fax.class.php:462
+#: Fax.class.php:472
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 " detección de fax; requiere que 'faxdetect=' sea fijado a 'incoming' o "
 "'both' en "
 
-#: Fax.class.php:404
+#: Fax.class.php:414
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -48,7 +48,7 @@ msgstr "%s Migracion FAX Fallida, vea panel de notificaciones para detalles"
 msgid "A4"
 msgstr ""
 
-#: Fax.class.php:526
+#: Fax.class.php:536
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -71,10 +71,6 @@ msgstr ""
 "después del cambio, esto se hace para manejar las migraciones de fax de las "
 "versiones anteriores del Sistema."
 
-#: views/form.php:271
-msgid "Always Allow Legacy Mode"
-msgstr "Habilitar Siempre Modo Legado"
-
 #: views/form.php:32
 msgid "Always Generate Detection Code"
 msgstr "Generar siempre Código de Detección"
@@ -83,7 +79,7 @@ msgstr "Generar siempre Código de Detección"
 msgid "Attachment Format"
 msgstr "Formato de Anexos"
 
-#: Fax.class.php:405
+#: Fax.class.php:415
 msgid "Attempt to detect faxes on this DID."
 msgstr "Intentar detectar faxes en este DID."
 
@@ -99,7 +95,7 @@ msgstr "Verificando migracion fallida.."
 msgid "Checking if legacy fax needs migrating.."
 msgstr "Comprobando si legado de fax necesita migracion.."
 
-#: Fax.class.php:397 Fax.class.php:479
+#: Fax.class.php:407 Fax.class.php:489
 msgid "Dahdi"
 msgstr "DAHDi"
 
@@ -115,7 +111,7 @@ msgstr "Identificador Estación Local"
 msgid "Default Paper Size"
 msgstr ""
 
-#: Fax.class.php:441
+#: Fax.class.php:451
 msgid "Detect Faxes"
 msgstr "Detección de Faxes"
 
@@ -123,7 +119,7 @@ msgstr "Detección de Faxes"
 msgid "Dial System FAX"
 msgstr "Marcación Sistema FAX"
 
-#: Fax.class.php:78
+#: Fax.class.php:88
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
@@ -134,7 +130,7 @@ msgstr ""
 "(res_fax_digium.so) o app_fax basado spandsp (res_fax_spandsp.so) para "
 "funcionar.."
 
-#: Fax.class.php:80
+#: Fax.class.php:90
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -203,23 +199,23 @@ msgstr ""
 "Modo de Corrección de Errores (ECM) se utiliza para especificar si ↵\n"
 " →→→ usar el modo ECM o no."
 
-#: Fax.class.php:89 Fax.class.php:104 Fax.class.php:598
+#: Fax.class.php:99 Fax.class.php:114 Fax.class.php:608
 msgid "Fax"
 msgstr "Fax"
 
-#: Fax.class.php:563
+#: Fax.class.php:573
 msgid "Fax Destination"
 msgstr "Destino de Fax"
 
-#: Fax.class.php:507
+#: Fax.class.php:517
 msgid "Fax Detection Time"
 msgstr "Tiempo Detección Fax"
 
-#: Fax.class.php:474
+#: Fax.class.php:484
 msgid "Fax Detection type"
 msgstr "Tipo de detección de Fax"
 
-#: page.fax.php:6
+#: page.fax.php:9
 msgid "Fax Options"
 msgstr "Opciones de Fax"
 
@@ -227,11 +223,11 @@ msgstr "Opciones de Fax"
 msgid "Fax Recipient"
 msgstr "Destinatario de fax"
 
-#: page.fax.php:8
+#: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
 msgstr ""
 
-#: page.fax.php:10
+#: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
 msgstr ""
 
@@ -260,32 +256,12 @@ msgstr ""
 "fax y aparece impreso en la parte superior de cada página. Por lo general, "
 "contiene el nombre de la persona o entidad que envía el fax."
 
-#: Fax.class.php:498
+#: Fax.class.php:508
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
-
-#: views/form.php:286
-msgid ""
-"In earlier versions, it was possible to provide an email address with the "
-"incoming FAX detection to route faxes that were being handled by fax-to-"
-"email detection. This has been deprecated in favor of Extension/User FAX "
-"destinations where an email address can be provided. During migration, the "
-"old email address remains present for routes configured this way but goes "
-"away once 'properly' configured. This options forces the Legacy Mode to "
-"always be present as an option."
-msgstr ""
-"En las versiones anteriores, es posible proporcionar una dirección de correo "
-"electrónico con la entrada de detección de FAX para enrutar los faxes que "
-"estaban siendo utilizados por la detección fax a correo electrónico. Esto ha "
-"quedado obsoleto en favor de los destinos extensión/usuario FAX donde se "
-"puede proporcionar una dirección de correo electrónico. Durante la "
-"migración, la dirección de correo electrónico antigua sigue estando presente "
-"en las rutas configuradas pero desaparece una vez configurada "
-"'correctamente'. Esta opción obliga al modo Legado a estar siempre presente "
-"como una opción."
 
 #: functions.inc.php:61
 #, php-format
@@ -296,11 +272,11 @@ msgstr "Detección Fax Entrante: %s (%s)"
 msgid "Inherit"
 msgstr ""
 
-#: Fax.class.php:430
+#: Fax.class.php:440
 msgid "Legacy"
 msgstr "Legado"
 
-#: Fax.class.php:410
+#: Fax.class.php:420
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -340,7 +316,6 @@ msgstr ""
 "largos..."
 
 #: views/form.php:232
-#, fuzzy
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 "Mínima velocidad de transferencia utilizada durante la negociación de fax."
@@ -349,7 +324,7 @@ msgstr ""
 msgid "Moving simu_fax feature code from core.."
 msgstr "Moviendo el codigo simu_fax del nucleo .."
 
-#: Fax.class.php:464
+#: Fax.class.php:474
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
@@ -357,7 +332,7 @@ msgstr ""
 "Detección NV Fax: Utiliza detección NV Fax; Requiere que detección NV Fax "
 "esté instalado y reconocido por asterisk"
 
-#: Fax.class.php:481
+#: Fax.class.php:491
 #, fuzzy
 msgid "NVFax"
 msgstr "NvFax"
@@ -371,8 +346,8 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:427 views/fax.php:29 views/form.php:39 views/form.php:171
-#: views/form.php:278 views/quickCreate.php:15
+#: Fax.class.php:437 views/fax.php:29 views/form.php:39 views/form.php:171
+#: views/quickCreate.php:15
 msgid "No"
 msgstr "No"
 
@@ -380,14 +355,14 @@ msgstr "No"
 msgid "No Inbound Routes to migrate"
 msgstr "No hay Ruta Entrante a migrar"
 
-#: Fax.class.php:415
+#: Fax.class.php:425
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "No hay métodos de detección de fax que se encuentren o no hay licencia "
 "válida. El módulo de fax no puede estar activado."
 
-#: Fax.class.php:407
+#: Fax.class.php:417
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination below. Use this option if this DID is used exclusively for voice "
@@ -427,11 +402,11 @@ msgstr "Eliminando campo %s desde tabla incoming.."
 msgid "Removing old globals.."
 msgstr "Eliminando globales antiguos.."
 
-#: Fax.class.php:363
+#: Fax.class.php:373
 msgid "Reset"
 msgstr ""
 
-#: Fax.class.php:483
+#: Fax.class.php:493
 msgid "SIP"
 msgstr ""
 
@@ -442,7 +417,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: Fax.class.php:463
+#: Fax.class.php:473
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -450,11 +425,11 @@ msgstr ""
 "Sip: Utiliza la detección de fax (t38). Requiere asterisk 1.6.2 o superior y "
 "'faxdetect =yes' en la configuración de archivos sip"
 
-#: page.fax.php:11
+#: page.fax.php:14
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:358
+#: Fax.class.php:368
 msgid "Submit"
 msgstr "Aplicar Cambios"
 
@@ -492,7 +467,7 @@ msgstr ""
 "El identificador de la máquina de fax. Esto es por lo general el número de "
 "fax."
 
-#: Fax.class.php:460
+#: Fax.class.php:470
 msgid "Type of fax detection to use."
 msgstr "Tipo de detección de fax a utilizar."
 
@@ -531,16 +506,16 @@ msgstr ""
 "configuraciones de fax externas se puede forzar el dialplan a que se genere "
 "aquí."
 
-#: Fax.class.php:554
+#: Fax.class.php:564
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:428 views/fax.php:28 views/form.php:37 views/form.php:169
-#: views/form.php:276 views/quickCreate.php:13
+#: Fax.class.php:438 views/fax.php:28 views/form.php:37 views/form.php:169
+#: views/quickCreate.php:13
 msgid "Yes"
 msgstr "Si"
 
-#: Fax.class.php:408
+#: Fax.class.php:418
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -550,8 +525,7 @@ msgstr ""
 "el destino de fax si llamada es de fax, si no envia a su destino regular. "
 "Use esta opción si recibe llamadas de voz y fax en esta línea"
 
-#: Fax.class.php:397
-#, fuzzy
+#: Fax.class.php:407
 msgid "Zaptel"
 msgstr "zaptel"
 
@@ -607,9 +581,55 @@ msgstr "iniciando migracion"
 msgid "unknown error"
 msgstr "error desconocido"
 
-#: Fax.class.php:462
+#: Fax.class.php:472
 msgid "use "
 msgstr "Utiliza "
+
+#~ msgid "Always Allow Legacy Mode"
+#~ msgstr "Habilitar Siempre Modo Legado"
+
+#~ msgid ""
+#~ "In earlier versions, it was possible to provide an email address with the "
+#~ "incoming FAX detection to route faxes that were being handled by fax-to-"
+#~ "email detection. This has been deprecated in favor of Extension/User FAX "
+#~ "destinations where an email address can be provided. During migration, "
+#~ "the old email address remains present for routes configured this way but "
+#~ "goes away once 'properly' configured. This options forces the Legacy Mode "
+#~ "to always be present as an option."
+#~ msgstr ""
+#~ "En las versiones anteriores, es posible proporcionar una dirección de "
+#~ "correo electrónico con la entrada de detección de FAX para enrutar los "
+#~ "faxes que estaban siendo utilizados por la detección fax a correo "
+#~ "electrónico. Esto ha quedado obsoleto en favor de los destinos extensión/"
+#~ "usuario FAX donde se puede proporcionar una dirección de correo "
+#~ "electrónico. Durante la migración, la dirección de correo electrónico "
+#~ "antigua sigue estando presente en las rutas configuradas pero desaparece "
+#~ "una vez configurada 'correctamente'. Esta opción obliga al modo Legado a "
+#~ "estar siempre presente como una opción."
+
+#~ msgid "Sip"
+#~ msgstr "SIP"
+
+#~ msgid "Email address:"
+#~ msgstr "Dirección Email:"
+
+#~ msgid "Fax Feature Code Options"
+#~ msgstr "Opciones de Código de Servicio de Fax"
+
+#~ msgid "Fax Module Options"
+#~ msgstr "Opciones Módulo Fax"
+
+#~ msgid "Fax Presentation Options"
+#~ msgstr "Opciones de Presentación de Fax"
+
+#~ msgid "Fax Transport Options"
+#~ msgstr "Opciones de Transporte de Fax"
+
+#~ msgid "Minimum transfer rate"
+#~ msgstr "Mínima velocidad de transferencia"
+
+#~ msgid "Outgoing Email address:"
+#~ msgstr "Dirección Email saliente:"
 
 #~ msgid "Adds configurations, options and GUI for inbound faxing"
 #~ msgstr "Configuraciones Adicionales, Opciones y GUI para fax entrante"
@@ -624,8 +644,19 @@ msgstr "Utiliza "
 #~ msgid "Fax Configuration"
 #~ msgstr "Configuracion de Fax"
 
+#~ msgid "Fax Detect"
+#~ msgstr "Detección de Fax"
+
 #~ msgid "Fax Email"
 #~ msgstr "Correo Fax"
+
+#~ msgid "Fax Email Destination"
+#~ msgstr "Destino Correo Fax"
+
+#~ msgid ""
+#~ "How long to wait and try to detect fax. Please note that callers to a "
+#~ msgstr ""
+#~ "Cuanto esperar y tratar de detectar fax. Por favor note que llamantes a "
 
 #~ msgid "Please Enter a valid email address for fax delivery."
 #~ msgstr ""
@@ -634,42 +665,6 @@ msgstr "Utiliza "
 
 #~ msgid "Settings"
 #~ msgstr "Configuración"
-
-#, fuzzy
-#~ msgid "Sip"
-#~ msgstr "Sip"
-
-#~ msgid "Email address:"
-#~ msgstr "Dirección Email:"
-
-#~ msgid "Fax Detect"
-#~ msgstr "Detección de Fax"
-
-#~ msgid "Fax Email Destination"
-#~ msgstr "Destino Correo Fax"
-
-#~ msgid "Fax Feature Code Options"
-#~ msgstr "Opciones de Código de Servicio de Fax"
-
-#~ msgid "Fax Module Options"
-#~ msgstr "Opciones Módulo Fax"
-
-#~ msgid "Fax Presentation Options"
-#~ msgstr "Opciones de Presentación de Fax"
-
-#~ msgid "Fax Transport Options"
-#~ msgstr "Opciones de Transporte de Fax"
-
-#~ msgid ""
-#~ "How long to wait and try to detect fax. Please note that callers to a "
-#~ msgstr ""
-#~ "Cuanto esperar y tratar de detectar fax. Por favor note que llamantes a "
-
-#~ msgid "Minimum transfer rate"
-#~ msgstr "Mínima velocidad de transferencia"
-
-#~ msgid "Outgoing Email address:"
-#~ msgstr "Dirección Email saliente:"
 
 #~ msgid "Where to send the call if we detect that its a fax"
 #~ msgstr "Donde enviar la llamada, si detectamos que es fax"

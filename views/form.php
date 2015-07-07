@@ -262,32 +262,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 </div>
 <!--END Default Paper Size-->
 <!--Always Allow Legacy Mode-->
-<div class="element-container">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="legacy_mode_yes"><?php echo _("Always Allow Legacy Mode") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="legacy_mode_yes"></i>
-					</div>
-					<div class="col-md-9 radioset">
-						<input type="radio" class="form-control" id="legacy_mode_yes" name="legacy_mode" value="yes" <?php echo (($fax['legacy_mode'] == 'yes')?'checked':'')?>>
-						<label for="legacy_mode_yes"><?php echo _("Yes")?></label>
-						<input type="radio" class="form-control" id="legacy_mode_no" name="legacy_mode" value="no" <?php echo (($fax['legacy_mode'] == 'no')?'checked':'')?>>
-						<label for="legacy_mode_no"><?php echo _("No")?></label>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<span id="legacy_mode_yes-help" class="help-block fpbx-help-block"><?php echo _("In earlier versions, it was possible to provide an email address with the incoming FAX detection to route faxes that were being handled by fax-to-email detection. This has been deprecated in favor of Extension/User FAX destinations where an email address can be provided. During migration, the old email address remains present for routes configured this way but goes away once 'properly' configured. This options forces the Legacy Mode to always be present as an option.")?></span>
-		</div>
-	</div>
-</div>
-<!--END Always Allow Legacy Mode-->
+<input type="hidden" id="legacy_mode" name="legacy_mode" value="<?php echo isset($fax['legacy_mode'])?$fax['legacy_mode']:'no'?>">
+
 <?php echo $aghtml //if not fax_detect ?>
 <?php
 //add hooks

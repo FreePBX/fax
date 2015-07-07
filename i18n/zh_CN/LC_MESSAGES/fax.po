@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:10-0400\n"
+"POT-Creation-Date: 2015-07-01 15:09-0400\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -33,12 +33,12 @@ msgstr ""
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: Fax.class.php:462
+#: Fax.class.php:472
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr "传真检测，要求faxdetect 设置成 incoming 或者 both"
 
-#: Fax.class.php:404
+#: Fax.class.php:414
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -58,7 +58,7 @@ msgstr ""
 msgid "A4"
 msgstr ""
 
-#: Fax.class.php:526
+#: Fax.class.php:536
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -71,10 +71,6 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
-#: views/form.php:271
-msgid "Always Allow Legacy Mode"
-msgstr "总是允许旧的模式"
-
 #: views/form.php:32
 msgid "Always Generate Detection Code"
 msgstr ""
@@ -83,7 +79,7 @@ msgstr ""
 msgid "Attachment Format"
 msgstr ""
 
-#: Fax.class.php:405
+#: Fax.class.php:415
 msgid "Attempt to detect faxes on this DID."
 msgstr ""
 
@@ -99,7 +95,7 @@ msgstr "检查失败的合并"
 msgid "Checking if legacy fax needs migrating.."
 msgstr "检查如果旧的传真需要合并"
 
-#: Fax.class.php:397 Fax.class.php:479
+#: Fax.class.php:407 Fax.class.php:489
 msgid "Dahdi"
 msgstr "dahdi通道"
 
@@ -115,7 +111,7 @@ msgstr "默认终端"
 msgid "Default Paper Size"
 msgstr ""
 
-#: Fax.class.php:441
+#: Fax.class.php:451
 msgid "Detect Faxes"
 msgstr "检测传真"
 
@@ -123,14 +119,14 @@ msgstr "检测传真"
 msgid "Dial System FAX"
 msgstr "拨系统传真"
 
-#: Fax.class.php:78
+#: Fax.class.php:88
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
 
-#: Fax.class.php:80
+#: Fax.class.php:90
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -187,23 +183,23 @@ msgid ""
 "\t\t\t to use ecm mode or not."
 msgstr ""
 
-#: Fax.class.php:89 Fax.class.php:104 Fax.class.php:598
+#: Fax.class.php:99 Fax.class.php:114 Fax.class.php:608
 msgid "Fax"
 msgstr "传真"
 
-#: Fax.class.php:563
+#: Fax.class.php:573
 msgid "Fax Destination"
 msgstr "传真目的地"
 
-#: Fax.class.php:507
+#: Fax.class.php:517
 msgid "Fax Detection Time"
 msgstr "传真检测时间"
 
-#: Fax.class.php:474
+#: Fax.class.php:484
 msgid "Fax Detection type"
 msgstr "传真检测格式"
 
-#: page.fax.php:6
+#: page.fax.php:9
 msgid "Fax Options"
 msgstr "传真选项"
 
@@ -211,11 +207,11 @@ msgstr "传真选项"
 msgid "Fax Recipient"
 msgstr "传真接收者"
 
-#: page.fax.php:8
+#: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
 msgstr ""
 
-#: page.fax.php:10
+#: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
 msgstr ""
 
@@ -239,22 +235,11 @@ msgid ""
 "person or entity sending the fax."
 msgstr ""
 
-#: Fax.class.php:498
+#: Fax.class.php:508
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)."
-msgstr ""
-
-#: views/form.php:286
-msgid ""
-"In earlier versions, it was possible to provide an email address with the "
-"incoming FAX detection to route faxes that were being handled by fax-to-"
-"email detection. This has been deprecated in favor of Extension/User FAX "
-"destinations where an email address can be provided. During migration, the "
-"old email address remains present for routes configured this way but goes "
-"away once 'properly' configured. This options forces the Legacy Mode to "
-"always be present as an option."
 msgstr ""
 
 #: functions.inc.php:61
@@ -266,11 +251,11 @@ msgstr "传真呼入检测: %s(%s)"
 msgid "Inherit"
 msgstr ""
 
-#: Fax.class.php:430
+#: Fax.class.php:440
 msgid "Legacy"
 msgstr ""
 
-#: Fax.class.php:410
+#: Fax.class.php:420
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -310,13 +295,13 @@ msgstr ""
 msgid "Moving simu_fax feature code from core.."
 msgstr ""
 
-#: Fax.class.php:464
+#: Fax.class.php:474
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
 msgstr ""
 
-#: Fax.class.php:481
+#: Fax.class.php:491
 msgid "NVFax"
 msgstr ""
 
@@ -329,8 +314,8 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:427 views/fax.php:29 views/form.php:39 views/form.php:171
-#: views/form.php:278 views/quickCreate.php:15
+#: Fax.class.php:437 views/fax.php:29 views/form.php:39 views/form.php:171
+#: views/quickCreate.php:15
 msgid "No"
 msgstr "否"
 
@@ -338,12 +323,12 @@ msgstr "否"
 msgid "No Inbound Routes to migrate"
 msgstr "无呼入路由合并"
 
-#: Fax.class.php:415
+#: Fax.class.php:425
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 
-#: Fax.class.php:407
+#: Fax.class.php:417
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination below. Use this option if this DID is used exclusively for voice "
@@ -380,11 +365,11 @@ msgstr "从呼入的列表中移动值 %s"
 msgid "Removing old globals.."
 msgstr ""
 
-#: Fax.class.php:363
+#: Fax.class.php:373
 msgid "Reset"
 msgstr ""
 
-#: Fax.class.php:483
+#: Fax.class.php:493
 msgid "SIP"
 msgstr ""
 
@@ -395,17 +380,17 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: Fax.class.php:463
+#: Fax.class.php:473
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
-#: page.fax.php:11
+#: page.fax.php:14
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:358
+#: Fax.class.php:368
 msgid "Submit"
 msgstr "提交"
 
@@ -437,7 +422,7 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-#: Fax.class.php:460
+#: Fax.class.php:470
 msgid "Type of fax detection to use."
 msgstr "被使用的传真检测格式"
 
@@ -469,23 +454,23 @@ msgid ""
 "to be generated here."
 msgstr ""
 
-#: Fax.class.php:554
+#: Fax.class.php:564
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:428 views/fax.php:28 views/form.php:37 views/form.php:169
-#: views/form.php:276 views/quickCreate.php:13
+#: Fax.class.php:438 views/fax.php:28 views/form.php:37 views/form.php:169
+#: views/quickCreate.php:13
 msgid "Yes"
 msgstr "是"
 
-#: Fax.class.php:408
+#: Fax.class.php:418
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
 msgstr ""
 
-#: Fax.class.php:397
+#: Fax.class.php:407
 msgid "Zaptel"
 msgstr "zaptel通道"
 
@@ -541,26 +526,39 @@ msgstr "开始合并"
 msgid "unknown error"
 msgstr "不清楚的错误"
 
-#: Fax.class.php:462
+#: Fax.class.php:472
 msgid "use "
 msgstr "：使用"
 
+#~ msgid "Always Allow Legacy Mode"
+#~ msgstr "总是允许旧的模式"
+
+#~ msgid "Email address:"
+#~ msgstr "邮件地址"
+
+#~ msgid "Fax Feature Code Options"
+#~ msgstr "传真快捷键选项"
+
+#~ msgid "Fax Module Options"
+#~ msgstr "传真模块选项"
+
+#~ msgid "Fax Presentation Options"
+#~ msgstr "传真格式选项"
+
+#~ msgid "Fax Transport Options"
+#~ msgstr "传真传输选项"
+
+#~ msgid "Minimum transfer rate"
+#~ msgstr "最小传输速度"
+
+#~ msgid "Outgoing Email address:"
+#~ msgstr "出局邮件地址"
+
+#~ msgid "Sip"
+#~ msgstr "SIP协议"
+
 #~ msgid "Adds configurations, options and GUI for inbound faxing"
 #~ msgstr "为呼入传真增加设置，选项，界面"
-
-#~ msgid ""
-#~ "Enter an email address where faxes sent to this extension will be "
-#~ "delivered."
-#~ msgstr "输入分机发送传真的邮件地址"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "传真设置"
-
-#~ msgid "Fax Email"
-#~ msgstr "传真邮件"
-
-#~ msgid "Please Enter a valid email address for fax delivery."
-#~ msgstr "传真发生需要有效的邮件地址"
 
 #~ msgid "Basic"
 #~ msgstr "基本设置"
@@ -576,37 +574,30 @@ msgstr "：使用"
 #~ "extension."
 #~ msgstr "如果系统默认作为默认的传真分机的话，需要有邮件地址"
 
-#~ msgid "Email address:"
-#~ msgstr "邮件地址"
+#~ msgid ""
+#~ "Enter an email address where faxes sent to this extension will be "
+#~ "delivered."
+#~ msgstr "输入分机发送传真的邮件地址"
 
 #~ msgid ""
 #~ "Error Correction Mode (ECM) option is used to specify whether\n"
 #~ "\t\t\t\t to use ecm mode or not."
 #~ msgstr "错误纠正模式选项是用来检测是否使用ECM的"
 
+#~ msgid "Fax Configuration"
+#~ msgstr "传真设置"
+
 #~ msgid "Fax Detect"
 #~ msgstr "传真检测"
+
+#~ msgid "Fax Email"
+#~ msgstr "传真邮件"
 
 #~ msgid "Fax Email Destination"
 #~ msgstr "传真邮件目的地"
 
-#~ msgid "Fax Feature Code Options"
-#~ msgstr "传真快捷键选项"
-
-#~ msgid "Fax Module Options"
-#~ msgstr "传真模块选项"
-
-#~ msgid "Fax Presentation Options"
-#~ msgstr "传真格式选项"
-
 #~ msgid "Fax Receive Options"
 #~ msgstr "传真接收选项"
-
-#~ msgid "Fax Transport Options"
-#~ msgstr "传真传输选项"
-
-#~ msgid "Minimum transfer rate"
-#~ msgstr "最小传输速度"
 
 #~ msgid "Modem"
 #~ msgstr "modem"
@@ -614,11 +605,8 @@ msgstr "：使用"
 #~ msgid "Modem Type."
 #~ msgstr "modem型号"
 
-#~ msgid "Outgoing Email address:"
-#~ msgstr "出局邮件地址"
-
-#~ msgid "Sip"
-#~ msgstr "SIP协议"
+#~ msgid "Please Enter a valid email address for fax delivery."
+#~ msgstr "传真发生需要有效的邮件地址"
 
 #~ msgid "disabled"
 #~ msgstr "关闭"

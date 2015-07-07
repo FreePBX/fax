@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:10-0400\n"
+"POT-Creation-Date: 2015-07-01 15:09-0400\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -48,14 +48,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.8\n"
 
-#: Fax.class.php:462
+#: Fax.class.php:472
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 " fax 検知; 'faxdetect=' を 'incoming' もしくは 'both' に設定する必要がありま"
 "す。"
 
-#: Fax.class.php:404
+#: Fax.class.php:414
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -79,7 +79,7 @@ msgstr ""
 msgid "A4"
 msgstr ""
 
-#: Fax.class.php:526
+#: Fax.class.php:536
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -101,10 +101,6 @@ msgstr ""
 "バージョンのFreePBXからのレガシー移行をサポートするためにだけ提供されていま"
 "す。"
 
-#: views/form.php:271
-msgid "Always Allow Legacy Mode"
-msgstr "常にレガシーモードを許可"
-
 #: views/form.php:32
 msgid "Always Generate Detection Code"
 msgstr "常に検知コードを生成"
@@ -113,7 +109,7 @@ msgstr "常に検知コードを生成"
 msgid "Attachment Format"
 msgstr ""
 
-#: Fax.class.php:405
+#: Fax.class.php:415
 msgid "Attempt to detect faxes on this DID."
 msgstr "このダイヤルインでfax検知を試みる。"
 
@@ -129,7 +125,7 @@ msgstr "失敗した移行の確認.."
 msgid "Checking if legacy fax needs migrating.."
 msgstr "レガシーfaxに移行が必要かどうかをチェック中.."
 
-#: Fax.class.php:397 Fax.class.php:479
+#: Fax.class.php:407 Fax.class.php:489
 msgid "Dahdi"
 msgstr "Dahdi"
 
@@ -145,7 +141,7 @@ msgstr "デフォルトの送信側FAX ID"
 msgid "Default Paper Size"
 msgstr ""
 
-#: Fax.class.php:441
+#: Fax.class.php:451
 msgid "Detect Faxes"
 msgstr "Faxを検知"
 
@@ -153,14 +149,14 @@ msgstr "Faxを検知"
 msgid "Dial System FAX"
 msgstr "ダイヤルシステムFAX"
 
-#: Fax.class.php:78
+#: Fax.class.php:88
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
 
-#: Fax.class.php:80
+#: Fax.class.php:90
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -229,23 +225,23 @@ msgstr ""
 "エラー転送モード(ECM)オプションは次を指定する為に使用\n"
 "\t\t\tecmモードの使用有無。"
 
-#: Fax.class.php:89 Fax.class.php:104 Fax.class.php:598
+#: Fax.class.php:99 Fax.class.php:114 Fax.class.php:608
 msgid "Fax"
 msgstr "Fax"
 
-#: Fax.class.php:563
+#: Fax.class.php:573
 msgid "Fax Destination"
 msgstr "Fax宛先"
 
-#: Fax.class.php:507
+#: Fax.class.php:517
 msgid "Fax Detection Time"
 msgstr "Fax検知時間"
 
-#: Fax.class.php:474
+#: Fax.class.php:484
 msgid "Fax Detection type"
 msgstr "Fax検知タイプ"
 
-#: page.fax.php:6
+#: page.fax.php:9
 msgid "Fax Options"
 msgstr "Faxオプション"
 
@@ -253,11 +249,11 @@ msgstr "Faxオプション"
 msgid "Fax Recipient"
 msgstr "Fax受信者"
 
-#: page.fax.php:8
+#: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
 msgstr ""
 
-#: page.fax.php:10
+#: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
 msgstr ""
 
@@ -283,30 +279,12 @@ msgstr ""
 "fax転送のリモート側に送出され、全てのページのトップにプリントされるヘッダー情"
 "報。通常faxを送信する人の名前や実体の名前を含ませます。"
 
-#: Fax.class.php:498
+#: Fax.class.php:508
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
-
-#: views/form.php:286
-msgid ""
-"In earlier versions, it was possible to provide an email address with the "
-"incoming FAX detection to route faxes that were being handled by fax-to-"
-"email detection. This has been deprecated in favor of Extension/User FAX "
-"destinations where an email address can be provided. During migration, the "
-"old email address remains present for routes configured this way but goes "
-"away once 'properly' configured. This options forces the Legacy Mode to "
-"always be present as an option."
-msgstr ""
-"以前のバージョンでは、「ファックスから電子メール検知」によって処理されるFAXを"
-"ルーティングするための「着信FAX検知」に使用されるメールアドレスを提供すること"
-"が可能でした。これは、電子メールアドレスを提供することができる 内線/ユーザFAX"
-"の宛先 の採用により廃止されました。移行中は、古いメールアドレスは、このように"
-"設定されたルートのために存在したままとなりますが、一度 \"適切に\"設定されると"
-"消えます。このオプションは強制的にレガシーモードを常にオプションとして存在さ"
-"せます。"
 
 #: functions.inc.php:61
 #, php-format
@@ -317,11 +295,11 @@ msgstr "インバウンド Fax 検知： %s (%s)"
 msgid "Inherit"
 msgstr ""
 
-#: Fax.class.php:430
+#: Fax.class.php:440
 msgid "Legacy"
 msgstr "レガシー"
 
-#: Fax.class.php:410
+#: Fax.class.php:420
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -366,7 +344,7 @@ msgstr "faxレートネゴシエーション中に使用される最小転送レ
 msgid "Moving simu_fax feature code from core.."
 msgstr "simu_faxキーコードをコアから移動中.."
 
-#: Fax.class.php:464
+#: Fax.class.php:474
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
@@ -374,7 +352,7 @@ msgstr ""
 "NV Fax検知: NV Fax検知を使用します; NV Fax検知がインストールされ、asteriskに"
 "認識されている必要があります。"
 
-#: Fax.class.php:481
+#: Fax.class.php:491
 msgid "NVFax"
 msgstr "NVFax"
 
@@ -387,8 +365,8 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:427 views/fax.php:29 views/form.php:39 views/form.php:171
-#: views/form.php:278 views/quickCreate.php:15
+#: Fax.class.php:437 views/fax.php:29 views/form.php:39 views/form.php:171
+#: views/quickCreate.php:15
 msgid "No"
 msgstr "いいえ"
 
@@ -396,12 +374,12 @@ msgstr "いいえ"
 msgid "No Inbound Routes to migrate"
 msgstr "移行するインバウンドルートがありません。"
 
-#: Fax.class.php:415
+#: Fax.class.php:425
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr "fax検知方法又は有効なライセンスが見つかりません。Faxが有効になりません"
 
-#: Fax.class.php:407
+#: Fax.class.php:417
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination below. Use this option if this DID is used exclusively for voice "
@@ -441,11 +419,11 @@ msgstr "incoming テーブルからフィールド %s を削除する.."
 msgid "Removing old globals.."
 msgstr "古いglobalsを削除.."
 
-#: Fax.class.php:363
+#: Fax.class.php:373
 msgid "Reset"
 msgstr ""
 
-#: Fax.class.php:483
+#: Fax.class.php:493
 msgid "SIP"
 msgstr ""
 
@@ -456,7 +434,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: Fax.class.php:463
+#: Fax.class.php:473
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -464,11 +442,11 @@ msgstr ""
 "Sip: sip fax検知(t38)を使用します。asterisk 1.6.2以降と、sip設定ファイルで "
 "'faxdetect=yes' とする必要があります。"
 
-#: page.fax.php:11
+#: page.fax.php:14
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:358
+#: Fax.class.php:368
 msgid "Submit"
 msgstr "送信"
 
@@ -504,7 +482,7 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "送信するFAXのID。通常あなたのfax番号。"
 
-#: Fax.class.php:460
+#: Fax.class.php:470
 msgid "Type of fax detection to use."
 msgstr "使用されるfax検知タイプ"
 
@@ -540,16 +518,16 @@ msgstr ""
 "や、他の外部fax設定と一緒に使用されている場合、ここで生成されるダイヤルプラン"
 "を強制実行することができます。"
 
-#: Fax.class.php:554
+#: Fax.class.php:564
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:428 views/fax.php:28 views/form.php:37 views/form.php:169
-#: views/form.php:276 views/quickCreate.php:13
+#: Fax.class.php:438 views/fax.php:28 views/form.php:37 views/form.php:169
+#: views/quickCreate.php:13
 msgid "Yes"
 msgstr "はい"
 
-#: Fax.class.php:408
+#: Fax.class.php:418
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -559,7 +537,7 @@ msgstr ""
 "ングし、それ以外の場合は通常の宛先に送信します。この回線上のコールで音声もfax"
 "も受信する場合にこのオプションを使用します。"
 
-#: Fax.class.php:397
+#: Fax.class.php:407
 msgid "Zaptel"
 msgstr "Zaptel"
 
@@ -615,30 +593,53 @@ msgstr "移行を開始"
 msgid "unknown error"
 msgstr "不明なエラー"
 
-#: Fax.class.php:462
+#: Fax.class.php:472
 msgid "use "
 msgstr "使用"
 
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
+#~ msgid "Always Allow Legacy Mode"
+#~ msgstr "常にレガシーモードを許可"
 
 #~ msgid ""
-#~ "Enter an email address where faxes sent to this extension will be "
-#~ "delivered."
+#~ "In earlier versions, it was possible to provide an email address with the "
+#~ "incoming FAX detection to route faxes that were being handled by fax-to-"
+#~ "email detection. This has been deprecated in favor of Extension/User FAX "
+#~ "destinations where an email address can be provided. During migration, "
+#~ "the old email address remains present for routes configured this way but "
+#~ "goes away once 'properly' configured. This options forces the Legacy Mode "
+#~ "to always be present as an option."
 #~ msgstr ""
-#~ "この内線に送信されたfaxが配送されるEメールアドレスを入力してください。"
+#~ "以前のバージョンでは、「ファックスから電子メール検知」によって処理される"
+#~ "FAXをルーティングするための「着信FAX検知」に使用されるメールアドレスを提供"
+#~ "することが可能でした。これは、電子メールアドレスを提供することができる 内"
+#~ "線/ユーザFAXの宛先 の採用により廃止されました。移行中は、古いメールアドレ"
+#~ "スは、このように設定されたルートのために存在したままとなりますが、一度 "
+#~ "\"適切に\"設定されると消えます。このオプションは強制的にレガシーモードを常"
+#~ "にオプションとして存在させます。"
 
-#~ msgid "Fax Configuration"
-#~ msgstr "Fax設定"
+#~ msgid "Email address:"
+#~ msgstr "Eメールアドレス："
 
-#~ msgid "Fax Email"
-#~ msgstr "Fax Email"
+#~ msgid "Fax Feature Code Options"
+#~ msgstr "Faxキーコードオプション"
 
-#~ msgid "Please Enter a valid email address for fax delivery."
-#~ msgstr "faxが配送される有効なEメールアドレスを入力してください。"
+#~ msgid "Fax Module Options"
+#~ msgstr "Fax モジュールオプション"
 
-#~ msgid "Settings"
-#~ msgstr "設定"
+#~ msgid "Fax Presentation Options"
+#~ msgstr "Faxプレゼンテーションオプション"
+
+#~ msgid "Fax Transport Options"
+#~ msgstr "Fax転送オプション"
+
+#~ msgid "Minimum transfer rate"
+#~ msgstr "最小転送レート"
+
+#~ msgid "Outgoing Email address:"
+#~ msgstr "送信Eメールアドレス："
+
+#~ msgid "Sip"
+#~ msgstr "Sip"
 
 #~ msgid ""
 #~ " channel will hear ringing for this amount of time (i.e. the system wont "
@@ -647,6 +648,9 @@ msgstr "使用"
 #~ "チャネルへの発信者がここで指定した時間、リングトーンを聞くことになることに"
 #~ "注意してください。(すなわちシステムはコールに応答せずに、リング音だけ再生"
 #~ "します。)"
+
+#~ msgid "Adds configurations, options and GUI for inbound faxing"
+#~ msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
 
 #~ msgid "Default Recipient Email address:"
 #~ msgstr "デフォルト受信 Eメールアドレス："
@@ -670,36 +674,30 @@ msgstr "使用"
 #~ "デフォルトのFax内線として'システムデフォルト'が選択された際に使用するEメー"
 #~ "ルアドレス。"
 
-#~ msgid "Email address:"
-#~ msgstr "Eメールアドレス："
+#~ msgid ""
+#~ "Enter an email address where faxes sent to this extension will be "
+#~ "delivered."
+#~ msgstr ""
+#~ "この内線に送信されたfaxが配送されるEメールアドレスを入力してください。"
+
+#~ msgid "Fax Configuration"
+#~ msgstr "Fax設定"
 
 #~ msgid "Fax Detect"
 #~ msgstr "Fax検知"
 
+#~ msgid "Fax Email"
+#~ msgstr "Fax Email"
+
 #~ msgid "Fax Email Destination"
 #~ msgstr "Fax Eメール宛先"
-
-#~ msgid "Fax Feature Code Options"
-#~ msgstr "Faxキーコードオプション"
-
-#~ msgid "Fax Module Options"
-#~ msgstr "Fax モジュールオプション"
-
-#~ msgid "Fax Presentation Options"
-#~ msgstr "Faxプレゼンテーションオプション"
 
 #~ msgid "Fax Receive Options"
 #~ msgstr "Fax受信オプション"
 
-#~ msgid "Fax Transport Options"
-#~ msgstr "Fax転送オプション"
-
 #~ msgid ""
 #~ "How long to wait and try to detect fax. Please note that callers to a "
 #~ msgstr "どれぐらいの間待ち、fax検知を試みるか。"
-
-#~ msgid "Minimum transfer rate"
-#~ msgstr "最小転送レート"
 
 #~ msgid "Modem"
 #~ msgstr "モデム"
@@ -707,8 +705,8 @@ msgstr "使用"
 #~ msgid "Modem Type."
 #~ msgstr "モデムタイプ。"
 
-#~ msgid "Outgoing Email address:"
-#~ msgstr "送信Eメールアドレス："
+#~ msgid "Please Enter a valid email address for fax delivery."
+#~ msgstr "faxが配送される有効なEメールアドレスを入力してください。"
 
 #~ msgid ""
 #~ "Select 'system default' to have the system act as a fax instance. You can "
@@ -723,8 +721,8 @@ msgstr "使用"
 #~ "す。これは、Asteriskの内部的な機能で実装することができ、また物理的なfax装"
 #~ "置のように外部の内線を使用することができます。"
 
-#~ msgid "Sip"
-#~ msgstr "Sip"
+#~ msgid "Settings"
+#~ msgstr "設定"
 
 #~ msgid "Where to send the call if we detect that its a fax"
 #~ msgstr "faxを検出した際にコールを送信する宛先"
