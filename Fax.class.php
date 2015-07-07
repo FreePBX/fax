@@ -121,20 +121,22 @@ class Fax implements BMO {
 	}
 
 	public function usermanUpdateGroup($id,$display,$data) {
-		if($_POST['faxenabled'] == "true") {
-			$this->userman->setModuleSettingByGID($id,'fax','enabled',true);
-			$this->userman->setModuleSettingByGID($id,'fax','attachformat',$_POST['faxattachformat']);
-		} else {
-			$this->userman->setModuleSettingByGID($id,'fax','enabled',false);
-			$this->userman->setModuleSettingByGID($id,'fax','attachformat',"pdf");
-		}
-		$group = $this->userman->getGroupByGID($id);
-		foreach($group['users'] as $user) {
-			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
-			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
-			$userData = $this->userman->getUserByID($user);
-			if($userData['default_extension'] !== "none" && $display == "userman") {
-				$this->saveUser($userData['default_extension'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
+		if(isset($_POST['faxenabled'])) {
+			if($_POST['faxenabled'] == "true") {
+				$this->userman->setModuleSettingByGID($id,'fax','enabled',true);
+				$this->userman->setModuleSettingByGID($id,'fax','attachformat',$_POST['faxattachformat']);
+			} else {
+				$this->userman->setModuleSettingByGID($id,'fax','enabled',false);
+				$this->userman->setModuleSettingByGID($id,'fax','attachformat',"pdf");
+			}
+			$group = $this->userman->getGroupByGID($id);
+			foreach($group['users'] as $user) {
+				$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
+				$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
+				$userData = $this->userman->getUserByID($user);
+				if($userData['default_extension'] !== "none" && $display == "userman") {
+					$this->saveUser($userData['default_extension'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
+				}
 			}
 		}
 	}
@@ -159,20 +161,22 @@ class Fax implements BMO {
 	 * @param {array} $data    Array of data to be able to use
 	 */
 	public function usermanAddUser($id, $display, $data) {
-		if($_POST['faxenabled'] == "true") {
-			$this->userman->setModuleSettingByID($id,'fax','enabled',true);
-			$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
-		} elseif($_POST['faxenabled'] == "false") {
-			$this->userman->setModuleSettingByID($id,'fax','enabled',false);
-		} else {
-			$this->userman->setModuleSettingByID($id,'fax','enabled',null);
-		}
-		$enabled = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
-		$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'attachformat');
+		if(isset($_POST['faxenabled'])) {
+			if($_POST['faxenabled'] == "true") {
+				$this->userman->setModuleSettingByID($id,'fax','enabled',true);
+				$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
+			} elseif($_POST['faxenabled'] == "false") {
+				$this->userman->setModuleSettingByID($id,'fax','enabled',false);
+			} else {
+				$this->userman->setModuleSettingByID($id,'fax','enabled',null);
+			}
+			$enabled = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
+			$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'attachformat');
 
-		$user = $this->FreePBX->Userman->getUserByID($id);
-		if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
-			$this->saveUser($user['default_extension'],($enabled ? "true" : "false"),$user['email'],$attachformat);
+			$user = $this->FreePBX->Userman->getUserByID($id);
+			if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
+				$this->saveUser($user['default_extension'],($enabled ? "true" : "false"),$user['email'],$attachformat);
+			}
 		}
 	}
 
@@ -183,20 +187,22 @@ class Fax implements BMO {
 	 * @param {array} $data    Array of data to be able to use
 	 */
 	public function usermanUpdateUser($id, $display, $data) {
-		if($_POST['faxenabled'] == "true") {
-			$this->userman->setModuleSettingByID($id,'fax','enabled',true);
-			$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
-		} elseif($_POST['faxenabled'] == "false") {
-			$this->userman->setModuleSettingByID($id,'fax','enabled',false);
-		} else {
-			$this->userman->setModuleSettingByID($id,'fax','enabled',null);
-		}
-		$enabled = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
-		$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'attachformat', 'enabled');
+		if(isset($_POST['faxenabled'])) {
+			if($_POST['faxenabled'] == "true") {
+				$this->userman->setModuleSettingByID($id,'fax','enabled',true);
+				$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
+			} elseif($_POST['faxenabled'] == "false") {
+				$this->userman->setModuleSettingByID($id,'fax','enabled',false);
+			} else {
+				$this->userman->setModuleSettingByID($id,'fax','enabled',null);
+			}
+			$enabled = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
+			$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'attachformat', 'enabled');
 
-		$user = $this->FreePBX->Userman->getUserByID($id);
-		if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
-			$this->saveUser($user['default_extension'],($enabled ? "true" : "false"),$user['email'],$attachformat);
+			$user = $this->FreePBX->Userman->getUserByID($id);
+			if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
+				$this->saveUser($user['default_extension'],($enabled ? "true" : "false"),$user['email'],$attachformat);
+			}
 		}
 	}
 
@@ -601,5 +607,54 @@ class Fax implements BMO {
 			);
 			return $ret;
 		}
+	}
+
+	public function bulkhandlerGetHeaders($type) {
+		switch ($type) {
+		case 'usermanusers':
+		case 'usermangroups':
+			$headers = array(
+				'faxenabled' => array(
+					'identifier' => _('Fax Enabled'),
+					'description' => _('Fax Enabled'),
+				),
+				'faxattachformat' => array(
+					'identifier' => _('Fax Attach Format'),
+					'description' => _('Fax Attach Format (e.g. pdf, tif, both)'),
+				),
+
+			);
+
+			return $headers;
+		}
+	}
+
+	public function bulkhandlerExport($type) {
+		$data = NULL;
+
+		switch ($type) {
+		case 'usermanusers':
+			$users = $this->userman->getAllUsers();
+			foreach ($users as $user) {
+				$data[$user['id']] = array(
+					'faxenabled' => $this->userman->getModuleSettingByID($user['id'],'fax','enabled'),
+					'faxattachformat' => $this->userman->getModuleSettingByID($user['id'],'fax','attachformat'),
+				);
+			}
+
+			break;
+		case 'usermangroups':
+			$groups = $this->userman->getAllGroups();
+			foreach ($groups as $group) {
+				$data[$group['id']] = array(
+					'faxenabled' => $this->userman->getModuleSettingByGID($group['id'],'fax','enabled'),
+					'faxattachformat' => $this->userman->getModuleSettingByGID($group['id'],'fax','attachformat'),
+				);
+			}
+
+			break;
+		}
+
+		return $data;
 	}
 }

@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.2</version>
+	<version>13.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.3* Add support for userman bulkhandler hooks
 		*13.0.2* Version bump Beta
 		*13.0.1alpha7* Move did hook to BMO
 		*13.0.1alpha6* Quick create styling fixes
@@ -70,6 +71,10 @@
 				<method callingMethod="addUser" class="Fax">usermanAddUser</method>
 				<method callingMethod="updateUser" class="Fax">usermanUpdateUser</method>
 			</userman>
+			<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
+				<method callingMethod="getHeaders" class="Fax">bulkhandlerGetHeaders</method>
+				<method callingMethod="export" class="Fax">bulkhandlerExport</method>
+			</bulkhandler>
 	</hooks>
 	<location>release/2.11/fax-2.11.0.5.tgz</location>
 	<md5sum>70d070401263f9b348729aed98d0fdea</md5sum>
