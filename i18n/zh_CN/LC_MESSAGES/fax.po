@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-07 13:33-0500\n"
+"POT-Creation-Date: 2015-07-13 19:14-0400\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -54,7 +54,7 @@ msgstr "传真合成失败"
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
 
-#: views/form.php:251
+#: views/form.php:257
 msgid "A4"
 msgstr ""
 
@@ -99,15 +99,15 @@ msgstr "检查如果旧的传真需要合并"
 msgid "Dahdi"
 msgstr "dahdi通道"
 
-#: views/form.php:68
+#: views/form.php:74
 msgid "Default Fax header"
 msgstr "默认传真头"
 
-#: views/form.php:92
+#: views/form.php:98
 msgid "Default Local Station Identifier"
 msgstr "默认终端"
 
-#: views/form.php:244
+#: views/form.php:250
 msgid "Default Paper Size"
 msgstr ""
 
@@ -134,17 +134,17 @@ msgid ""
 "free) and must be installed."
 msgstr ""
 
-#: views/form.php:140
+#: views/form.php:146
 msgid "Email address"
 msgstr ""
 
-#: views/form.php:128
+#: views/form.php:134
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
 
-#: views/form.php:152
+#: views/form.php:158
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -173,11 +173,11 @@ msgstr ""
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
 
-#: views/form.php:164
+#: views/form.php:170
 msgid "Error Correction Mode"
 msgstr "错误纠正模式"
 
-#: views/form.php:179
+#: views/form.php:185
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -240,7 +240,7 @@ msgstr ""
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
-#: views/form.php:80
+#: views/form.php:86
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -274,15 +274,15 @@ msgid ""
 "upgrade this route by choosing YES, and selecting a valid destination!"
 msgstr ""
 
-#: views/form.php:249
+#: views/form.php:255
 msgid "Letter"
 msgstr ""
 
-#: views/form.php:192 views/form.php:218
+#: views/form.php:198
 msgid "Maximum transfer rate"
 msgstr "最大传输速度"
 
-#: views/form.php:206
+#: views/form.php:212
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
 
@@ -299,7 +299,11 @@ msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
 
-#: views/form.php:232
+#: views/form.php:224
+msgid "Minimum transfer rate"
+msgstr "最小传输速度"
+
+#: views/form.php:238
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 
@@ -326,7 +330,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:171
+#: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:15
 msgid "No"
 msgstr "否"
@@ -351,7 +355,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: views/form.php:116
+#: views/form.php:122
 msgid "Outgoing Email address"
 msgstr ""
 
@@ -385,7 +389,7 @@ msgstr ""
 msgid "SIP"
 msgstr ""
 
-#: views/form.php:259
+#: views/form.php:265
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
@@ -430,7 +434,7 @@ msgid ""
 "remove this notice."
 msgstr ""
 
-#: views/form.php:104
+#: views/form.php:110
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
@@ -470,7 +474,7 @@ msgstr ""
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:169
+#: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:13
 msgid "Yes"
 msgstr "是"
@@ -480,6 +484,18 @@ msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
+msgstr ""
+
+#: views/form.php:62
+msgid ""
+"Your maximum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
+msgstr ""
+
+#: views/form.php:59
+msgid ""
+"Your minimum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
 msgstr ""
 
 #: Fax.class.php:413
@@ -494,11 +510,11 @@ msgstr "所有合并成功"
 msgid "already done"
 msgstr "已经完成"
 
-#: install.php:259 install.php:260
+#: install.php:259 /usr/src/freepbx/fax/install.php:260
 msgid "blank"
 msgstr "空白"
 
-#: install.php:83 install.php:90
+#: install.php:83 /usr/src/freepbx/fax/install.php:90
 msgid "done"
 msgstr "完成"
 
@@ -506,7 +522,7 @@ msgstr "完成"
 msgid "duplicate, removing old from core.."
 msgstr ""
 
-#: install.php:166 install.php:248
+#: install.php:166 /usr/src/freepbx/fax/install.php:248
 msgid "failed"
 msgstr "失败"
 
@@ -526,7 +542,7 @@ msgstr "不需要"
 msgid "not present"
 msgstr "当前没有"
 
-#: install.php:77 install.php:240 install.php:250
+#: install.php:77 /usr/src/freepbx/fax/install.php:240 install.php:250
 msgid "removed"
 msgstr "已移动"
 
@@ -534,7 +550,7 @@ msgstr "已移动"
 msgid "starting migration"
 msgstr "开始合并"
 
-#: install.php:75 install.php:80
+#: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"
 msgstr "不清楚的错误"
 
@@ -559,9 +575,6 @@ msgstr "：使用"
 
 #~ msgid "Fax Transport Options"
 #~ msgstr "传真传输选项"
-
-#~ msgid "Minimum transfer rate"
-#~ msgstr "最小传输速度"
 
 #~ msgid "Outgoing Email address:"
 #~ msgstr "出局邮件地址"

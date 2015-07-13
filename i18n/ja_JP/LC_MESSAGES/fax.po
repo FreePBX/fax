@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-07 13:33-0500\n"
+"POT-Creation-Date: 2015-07-13 19:14-0400\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -75,7 +75,7 @@ msgstr ""
 "%s FAX マイグレーションは失敗しました。詳しい情報はパネル通知をチェックしてく"
 "ださい。"
 
-#: views/form.php:251
+#: views/form.php:257
 msgid "A4"
 msgstr ""
 
@@ -129,15 +129,15 @@ msgstr "レガシーfaxに移行が必要かどうかをチェック中.."
 msgid "Dahdi"
 msgstr "Dahdi"
 
-#: views/form.php:68
+#: views/form.php:74
 msgid "Default Fax header"
 msgstr "デフォルトFaxヘッダー"
 
-#: views/form.php:92
+#: views/form.php:98
 msgid "Default Local Station Identifier"
 msgstr "デフォルトの送信側FAX ID"
 
-#: views/form.php:244
+#: views/form.php:250
 msgid "Default Paper Size"
 msgstr ""
 
@@ -168,11 +168,11 @@ msgstr ""
 "Asteriskがインストールされていることを検知しました。<br>少なくとも1ライセンス"
 "(無料で利用できます)がインストールされている必要があります。"
 
-#: views/form.php:140
+#: views/form.php:146
 msgid "Email address"
 msgstr ""
 
-#: views/form.php:128
+#: views/form.php:134
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
@@ -180,7 +180,7 @@ msgstr ""
 "デフォルトfax内線として、'システムデフォルト'が選択された場合にfax情報を送信"
 "するEメールアドレス。"
 
-#: views/form.php:152
+#: views/form.php:158
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -213,11 +213,11 @@ msgstr ""
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
 
-#: views/form.php:164
+#: views/form.php:170
 msgid "Error Correction Mode"
 msgstr "エラー訂正モード"
 
-#: views/form.php:179
+#: views/form.php:185
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -282,7 +282,7 @@ msgstr ""
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
-#: views/form.php:80
+#: views/form.php:86
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -322,15 +322,15 @@ msgstr ""
 "みで使用されます。「はい」を選択し、有効な宛先を選択することにより、このルー"
 "トをアップグレードする必要があります"
 
-#: views/form.php:249
+#: views/form.php:255
 msgid "Letter"
 msgstr ""
 
-#: views/form.php:192 views/form.php:218
+#: views/form.php:198
 msgid "Maximum transfer rate"
 msgstr "最大転送レート"
 
-#: views/form.php:206
+#: views/form.php:212
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "faxレートネゴシエーション中に使用される最大転送レート"
 
@@ -348,7 +348,11 @@ msgid ""
 msgstr ""
 "長いEメールを可能にする為に、fax_usersテーブルのfaxemailフィールドを移行中..."
 
-#: views/form.php:232
+#: views/form.php:224
+msgid "Minimum transfer rate"
+msgstr "最小転送レート"
+
+#: views/form.php:238
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "faxレートネゴシエーション中に使用される最小転送レート"
 
@@ -377,7 +381,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:171
+#: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:15
 msgid "No"
 msgstr "いいえ"
@@ -405,7 +409,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: views/form.php:116
+#: views/form.php:122
 msgid "Outgoing Email address"
 msgstr ""
 
@@ -439,7 +443,7 @@ msgstr ""
 msgid "SIP"
 msgstr ""
 
-#: views/form.php:259
+#: views/form.php:265
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
@@ -490,7 +494,7 @@ msgstr ""
 "する必要があります。この通知を削除するには右側にある削除アイコンをクリックし"
 "てください。"
 
-#: views/form.php:104
+#: views/form.php:110
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "送信するFAXのID。通常あなたのfax番号。"
 
@@ -534,7 +538,7 @@ msgstr ""
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:169
+#: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:13
 msgid "Yes"
 msgstr "はい"
@@ -549,6 +553,18 @@ msgstr ""
 "ングし、それ以外の場合は通常の宛先に送信します。この回線上のコールで音声もfax"
 "も受信する場合にこのオプションを使用します。"
 
+#: views/form.php:62
+msgid ""
+"Your maximum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
+msgstr ""
+
+#: views/form.php:59
+msgid ""
+"Your minimum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
+msgstr ""
+
 #: Fax.class.php:413
 msgid "Zaptel"
 msgstr "Zaptel"
@@ -561,11 +577,11 @@ msgstr "全ての移行に成功しました。"
 msgid "already done"
 msgstr "既に実行済み"
 
-#: install.php:259 install.php:260
+#: install.php:259 /usr/src/freepbx/fax/install.php:260
 msgid "blank"
 msgstr "空白"
 
-#: install.php:83 install.php:90
+#: install.php:83 /usr/src/freepbx/fax/install.php:90
 msgid "done"
 msgstr "完了"
 
@@ -573,7 +589,7 @@ msgstr "完了"
 msgid "duplicate, removing old from core.."
 msgstr "重複しています、古いのをコアから削除.."
 
-#: install.php:166 install.php:248
+#: install.php:166 /usr/src/freepbx/fax/install.php:248
 msgid "failed"
 msgstr "失敗"
 
@@ -593,7 +609,7 @@ msgstr "必要なし"
 msgid "not present"
 msgstr "存在しません。"
 
-#: install.php:77 install.php:240 install.php:250
+#: install.php:77 /usr/src/freepbx/fax/install.php:240 install.php:250
 msgid "removed"
 msgstr "削除済み"
 
@@ -601,7 +617,7 @@ msgstr "削除済み"
 msgid "starting migration"
 msgstr "移行を開始"
 
-#: install.php:75 install.php:80
+#: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"
 msgstr "不明なエラー"
 
@@ -643,9 +659,6 @@ msgstr "使用"
 
 #~ msgid "Fax Transport Options"
 #~ msgstr "Fax転送オプション"
-
-#~ msgid "Minimum transfer rate"
-#~ msgstr "最小転送レート"
 
 #~ msgid "Outgoing Email address:"
 #~ msgstr "送信Eメールアドレス："

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-07 13:33-0500\n"
+"POT-Creation-Date: 2015-07-13 19:14-0400\n"
 "PO-Revision-Date: 2015-02-20 19:30-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -44,7 +44,7 @@ msgstr "%s Migracion Fax fallida"
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr "%s Migracion FAX Fallida, vea panel de notificaciones para detalles"
 
-#: views/form.php:251
+#: views/form.php:257
 msgid "A4"
 msgstr ""
 
@@ -99,15 +99,15 @@ msgstr "Comprobando si legado de fax necesita migracion.."
 msgid "Dahdi"
 msgstr "DAHDi"
 
-#: views/form.php:68
+#: views/form.php:74
 msgid "Default Fax header"
 msgstr "Encabezado por defecto de Fax"
 
-#: views/form.php:92
+#: views/form.php:98
 msgid "Default Local Station Identifier"
 msgstr "Identificador Estación Local"
 
-#: views/form.php:244
+#: views/form.php:250
 msgid "Default Paper Size"
 msgstr ""
 
@@ -142,11 +142,11 @@ msgstr ""
 "para Asterisk está instalado sin una licencia.<br>Por lo menos se requiere "
 "una licencia (que esté disponible) y debe estar instalada."
 
-#: views/form.php:140
+#: views/form.php:146
 msgid "Email address"
 msgstr ""
 
-#: views/form.php:128
+#: views/form.php:134
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
@@ -154,7 +154,7 @@ msgstr ""
 "Dirección Email desde donde los faxes parecen provenir 'sistema por defecto' "
 "ha sido elegido como la extensión de fax predeterminada."
 
-#: views/form.php:152
+#: views/form.php:158
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -187,11 +187,11 @@ msgstr ""
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
 
-#: views/form.php:164
+#: views/form.php:170
 msgid "Error Correction Mode"
 msgstr "Modo Correción Errores"
 
-#: views/form.php:179
+#: views/form.php:185
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -258,7 +258,7 @@ msgstr ""
 "Formatos para convertir faxes entrantes para después enviar por correo "
 "electrónico."
 
-#: views/form.php:80
+#: views/form.php:86
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -299,15 +299,15 @@ msgstr ""
 "apoyar a migrar rutas de fax. Usted debe actualizar esta ruta, eligiendo Si, "
 "y la seleccionar un destino válido!"
 
-#: views/form.php:249
+#: views/form.php:255
 msgid "Letter"
 msgstr ""
 
-#: views/form.php:192 views/form.php:218
+#: views/form.php:198
 msgid "Maximum transfer rate"
 msgstr "Máxima velocidad de transferencia"
 
-#: views/form.php:206
+#: views/form.php:212
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
 "Máxima velocidad de transferencia utilizada durante la negociación de fax."
@@ -327,7 +327,11 @@ msgstr ""
 "Migrando campo faxemail en la tabla fax_users para permitir emails mas "
 "largos..."
 
-#: views/form.php:232
+#: views/form.php:224
+msgid "Minimum transfer rate"
+msgstr "Mínima velocidad de transferencia"
+
+#: views/form.php:238
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 "Mínima velocidad de transferencia utilizada durante la negociación de fax."
@@ -358,7 +362,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:171
+#: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:15
 msgid "No"
 msgstr "No"
@@ -388,7 +392,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: views/form.php:116
+#: views/form.php:122
 msgid "Outgoing Email address"
 msgstr ""
 
@@ -422,7 +426,7 @@ msgstr ""
 msgid "SIP"
 msgstr ""
 
-#: views/form.php:259
+#: views/form.php:265
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
@@ -473,7 +477,7 @@ msgstr ""
 "Esto ha sido deshabilitado y necesita ser actualizado. Haga click en el "
 "icono de eliminar a la derecha para eliminar este aviso."
 
-#: views/form.php:104
+#: views/form.php:110
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 "El identificador de la máquina de fax. Esto es por lo general el número de "
@@ -522,7 +526,7 @@ msgstr ""
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:169
+#: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:13
 msgid "Yes"
 msgstr "Si"
@@ -537,6 +541,18 @@ msgstr ""
 "el destino de fax si llamada es de fax, si no envia a su destino regular. "
 "Use esta opción si recibe llamadas de voz y fax en esta línea"
 
+#: views/form.php:62
+msgid ""
+"Your maximum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
+msgstr ""
+
+#: views/form.php:59
+msgid ""
+"Your minimum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
+msgstr ""
+
 #: Fax.class.php:413
 msgid "Zaptel"
 msgstr "zaptel"
@@ -549,11 +565,11 @@ msgstr "todas las migraciones han sido realizadas"
 msgid "already done"
 msgstr "todo realizado"
 
-#: install.php:259 install.php:260
+#: install.php:259 /usr/src/freepbx/fax/install.php:260
 msgid "blank"
 msgstr "en blanco"
 
-#: install.php:83 install.php:90
+#: install.php:83 /usr/src/freepbx/fax/install.php:90
 msgid "done"
 msgstr "hecho"
 
@@ -561,7 +577,7 @@ msgstr "hecho"
 msgid "duplicate, removing old from core.."
 msgstr "duplicado, eliminando obsoleto desde nucleo.."
 
-#: install.php:166 install.php:248
+#: install.php:166 /usr/src/freepbx/fax/install.php:248
 msgid "failed"
 msgstr "fallido"
 
@@ -581,7 +597,7 @@ msgstr "no es necesario"
 msgid "not present"
 msgstr "no presente"
 
-#: install.php:77 install.php:240 install.php:250
+#: install.php:77 /usr/src/freepbx/fax/install.php:240 install.php:250
 msgid "removed"
 msgstr "eliminado"
 
@@ -589,7 +605,7 @@ msgstr "eliminado"
 msgid "starting migration"
 msgstr "iniciando migracion"
 
-#: install.php:75 install.php:80
+#: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"
 msgstr "error desconocido"
 
@@ -636,9 +652,6 @@ msgstr "Utiliza "
 
 #~ msgid "Fax Transport Options"
 #~ msgstr "Opciones de Transporte de Fax"
-
-#~ msgid "Minimum transfer rate"
-#~ msgstr "Mínima velocidad de transferencia"
 
 #~ msgid "Outgoing Email address:"
 #~ msgstr "Dirección Email saliente:"
