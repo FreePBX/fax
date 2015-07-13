@@ -55,6 +55,12 @@ if(!$fax_detect['module']){
 }
 $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 ?>
+<?php if($fax['minrate'] == 2400) { ?>
+	<div class="alert alert-warning" role="alert"><?php echo _("Your minimum transfer rate is set to 2400 in certain circumstances this can break faxing")?></div>
+<?php } ?>
+<?php if($fax['mmaxrate'] == 2400) { ?>
+	<div class="alert alert-warning" role="alert"><?php echo _("Your maximum transfer rate is set to 2400 in certain circumstances this can break faxing")?></div>
+<?php } ?>
 <form name="edit" id="edit" class="fpbx-submit" action="" method="POST">
 <input type="hidden" value="fax" name="display"/>
 <input type="hidden" name="action" value="edit">
@@ -208,14 +214,14 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 	</div>
 </div>
 <!--END Maximum transfer rate-->
-<!--Maximum transfer rate-->
+<!--Minimum transfer rate-->
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="minrate"><?php echo _("Maximum transfer rate") ?></label>
+						<label class="control-label" for="minrate"><?php echo _("Minimum transfer rate") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="minrate"></i>
 					</div>
 					<div class="col-md-9">
@@ -233,7 +239,7 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 		</div>
 	</div>
 </div>
-<!--END Maximum transfer rate-->
+<!--END Minimum transfer rate-->
 <!--Default Paper Size-->
 <div class="element-container">
 	<div class="row">

@@ -16,7 +16,7 @@ $ast_ge_13 = version_compare($version, '13', 'ge');
 	</div>
 	<div class = "display full-border">
 		<div class="row">
-			<div class="col-sm-11">
+			<div class="col-sm-12">
 				<div class="fpbx-container">
 					<div class="display full-border">
 						<?php echo load_view(__DIR__.'/views/form.php', array('request' => $request))?>
