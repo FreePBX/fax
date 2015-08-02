@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 19:14-0400\n"
+"POT-Creation-Date: 2015-08-02 15:01-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
 "Language-Team: \n"
@@ -170,11 +170,11 @@ msgstr ""
 "continuent d'utiliser ce mode et qu'elles n'ont pas d'adresse email "
 "spécifiée."
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Fax"
 msgstr ""
 
-#: views/fax.php:42 views/quickCreate.php:24
+#: views/fax.php:42
 msgid "Enable this user to receive faxes"
 msgstr "Active la réception de fax pour cet utilisateur"
 
@@ -358,7 +358,7 @@ msgid "New fax received"
 msgstr ""
 
 #: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
-#: views/quickCreate.php:15
+#: views/quickCreate.php:12
 msgid "No"
 msgstr "Non"
 
@@ -520,7 +520,7 @@ msgid "Where to send the faxes"
 msgstr ""
 
 #: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
-#: views/quickCreate.php:13
+#: views/quickCreate.php:10
 msgid "Yes"
 msgstr "Oui"
 

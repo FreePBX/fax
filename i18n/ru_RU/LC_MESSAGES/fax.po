@@ -24,24 +24,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 19:14-0400\n"
+"POT-Creation-Date: 2015-08-02 15:01-0700\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
-"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/ru_RU/>\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
+"ru_RU/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: Fax.class.php:478
-msgid " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
-msgstr " детектирование факса; требуется установить параметр 'faxdetect=' в 'incoming' (входящие) или 'both' (оба направления) в "
+msgid ""
+" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
+msgstr ""
+" детектирование факса; требуется установить параметр 'faxdetect=' в "
+"'incoming' (входящие) или 'both' (оба направления) в "
 
 #: Fax.class.php:420
-msgid "\"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to.\""
-msgstr "\"Вы выбрали детектирование факсов на этом маршруте. Укажите назначение, куда будут направляться звонки, определённые как факсы.\""
+msgid ""
+"\"You have selected Fax Detection on this route. Please select a valid "
+"destination to route calls detected as faxes to.\""
+msgstr ""
+"\"Вы выбрали детектирование факсов на этом маршруте. Укажите назначение, "
+"куда будут направляться звонки, определённые как факсы.\""
 
 #: install.php:263
 #, php-format
@@ -51,15 +60,34 @@ msgstr "Миграция %s факса не удалась"
 #: install.php:264
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
-msgstr "Миграция %s факса не удалась, смотрите в панель сообщений для подробностей"
+msgstr ""
+"Миграция %s факса не удалась, смотрите в панель сообщений для подробностей"
 
 #: views/form.php:257
 msgid "A4"
 msgstr ""
 
 #: Fax.class.php:542
-msgid "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of FreePBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of FreePBX only."
-msgstr "Адрес эл. почты для распознанных и принятых факсов.<br />ЗАМЕЧАНИЕ: в этой версии FreePBX можно указать назначение для факса из списка всех назначений. Для внутренних номеров/пользователей использование факса доступно в модуле Внутренние номера, где указывается адрес их эл. почты. Это создаёт новый тип назначения, который может быть указан в дальнейшем.Чтобы обновить эту опцию до полного списка назначений выберите ДА в разделе Детектировать факсы и укажите назначение. После подтверждения изменений в вэб интерфейсе этот маршрут будет обновлён. Эта устаревшая опция не будет больше доступна после изменений. Она служит только для миграции с предыдущих версий FreePBX."
+msgid ""
+"Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
+"version of FreePBX, you can now set the fax destination from a list of "
+"destinations. Extensions/Users can be fax enabled in the user/extension "
+"screen and set an email address there. This will create a new destination "
+"type that can be selected. To upgrade this option to the full destination "
+"list, select YES to Detect Faxes and select a destination. After clicking "
+"submit, this route will be upgraded. This Legacy option will no longer be "
+"available after the change, it is provided to handle legacy migrations from "
+"previous versions of FreePBX only."
+msgstr ""
+"Адрес эл. почты для распознанных и принятых факсов.<br />ЗАМЕЧАНИЕ: в этой "
+"версии FreePBX можно указать назначение для факса из списка всех назначений. "
+"Для внутренних номеров/пользователей использование факса доступно в модуле "
+"Внутренние номера, где указывается адрес их эл. почты. Это создаёт новый тип "
+"назначения, который может быть указан в дальнейшем.Чтобы обновить эту опцию "
+"до полного списка назначений выберите ДА в разделе Детектировать факсы и "
+"укажите назначение. После подтверждения изменений в вэб интерфейсе этот "
+"маршрут будет обновлён. Эта устаревшая опция не будет больше доступна после "
+"изменений. Она служит только для миграции с предыдущих версий FreePBX."
 
 #: views/form.php:32
 msgid "Always Generate Detection Code"
@@ -110,30 +138,57 @@ msgid "Dial System FAX"
 msgstr "Набрать системный факс"
 
 #: Fax.class.php:88
-msgid "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function."
-msgstr "ОШИБКА: Не найдено модулей для факса! План набора, связанный с факсом генерироваться <b>НЕ</b> будет. Этот модуль для работы требует факсовых модулей для Астериска - res_fax_digium.so или основанных на spandsp app_fax (res_fax_spandsp.so)."
+msgid ""
+"ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
+"generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
+"spandsp based app_fax (res_fax_spandsp.so) to function."
+msgstr ""
+"ОШИБКА: Не найдено модулей для факса! План набора, связанный с факсом "
+"генерироваться <b>НЕ</b> будет. Этот модуль для работы требует факсовых "
+"модулей для Астериска - res_fax_digium.so или основанных на spandsp app_fax "
+"(res_fax_spandsp.so)."
 
 #: Fax.class.php:90
-msgid "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed."
-msgstr "ОШИБКА: Не обнаружено лицензии на ФАКС.<br>Диал-план для факса <b>НЕ</b> сгенерирован.<br>Модуль обнаружил проинсталлированую аппликацию Fax for Asterisk без лицензии.<br>По крайней мере одна лицензия должна быть установлена (одну можно получить бесплатно)."
+msgid ""
+"ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
+"generated!<br>This module has detected that Fax for Asterisk is installed "
+"without a license.<br>At least one license is required (it is available for "
+"free) and must be installed."
+msgstr ""
+"ОШИБКА: Не обнаружено лицензии на ФАКС.<br>Диал-план для факса <b>НЕ</b> "
+"сгенерирован.<br>Модуль обнаружил проинсталлированую аппликацию Fax for "
+"Asterisk без лицензии.<br>По крайней мере одна лицензия должна быть "
+"установлена (одну можно получить бесплатно)."
 
 #: views/form.php:146
 msgid "Email address"
 msgstr ""
 
 #: views/form.php:134
-msgid "Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension."
-msgstr "Адрес электронной почты, от которого посылается сообщение с факсом, если указано 'системный (по умолчанию)' в качестве назначения для факса."
+msgid ""
+"Email address that faxes appear to come from if 'system default' has been "
+"chosen as the default fax extension."
+msgstr ""
+"Адрес электронной почты, от которого посылается сообщение с факсом, если "
+"указано 'системный (по умолчанию)' в качестве назначения для факса."
 
 #: views/form.php:158
-msgid "Email address that faxes are sent to when using the \"Dial System Fax\" feature code. This is also the default email for fax detection in legacy mode, if there are routes still running in this mode that do not have email addresses specified."
-msgstr "Адрес эл. почты куда будут посылаться факсы, если набран сервисный код \"Набрать системный факс\". Это также адрес эл. почты по умолчанию для устаревшего режима детектирования факса, если маршрут по прежнему использует этот режим и не указан никакой другой адрес эл. почты."
+msgid ""
+"Email address that faxes are sent to when using the \"Dial System Fax\" "
+"feature code. This is also the default email for fax detection in legacy "
+"mode, if there are routes still running in this mode that do not have email "
+"addresses specified."
+msgstr ""
+"Адрес эл. почты куда будут посылаться факсы, если набран сервисный код "
+"\"Набрать системный факс\". Это также адрес эл. почты по умолчанию для "
+"устаревшего режима детектирования факса, если маршрут по прежнему использует "
+"этот режим и не указан никакой другой адрес эл. почты."
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Fax"
 msgstr ""
 
-#: views/fax.php:42 views/quickCreate.php:24
+#: views/fax.php:42
 msgid "Enable this user to receive faxes"
 msgstr "Разрешить этому пользователю принимать факсы"
 
@@ -217,14 +272,25 @@ msgstr ""
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
-msgstr "Форматы для преобразования входящих факсимильных файлов для отправки по электронной почте."
+msgstr ""
+"Форматы для преобразования входящих факсимильных файлов для отправки по "
+"электронной почте."
 
 #: views/form.php:86
-msgid "Header information that is passed to remote side of the fax transmission and is printed on top of every page. This usually contains the name of the person or entity sending the fax."
-msgstr "Заголовок факсимильного сообщения передаётся на принимающий факс и выпечатывается сверху на каждой странице. Обычно он содержит имя персоны или компании, передающий это факсимильное сообщение."
+msgid ""
+"Header information that is passed to remote side of the fax transmission and "
+"is printed on top of every page. This usually contains the name of the "
+"person or entity sending the fax."
+msgstr ""
+"Заголовок факсимильного сообщения передаётся на принимающий факс и "
+"выпечатывается сверху на каждой странице. Обычно он содержит имя персоны или "
+"компании, передающий это факсимильное сообщение."
 
 #: Fax.class.php:514
-msgid "How long to wait and try to detect fax. Please note that callers to a Dahdi channel will hear ringing for this amount of time (i.e. the system wont \"answer\" the call, it will just play ringing)."
+msgid ""
+"How long to wait and try to detect fax. Please note that callers to a Dahdi "
+"channel will hear ringing for this amount of time (i.e. the system wont "
+"\"answer\" the call, it will just play ringing)."
 msgstr ""
 
 #: functions.inc.php:61
@@ -241,8 +307,15 @@ msgid "Legacy"
 msgstr "Устаревший"
 
 #: Fax.class.php:426
-msgid "Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!"
-msgstr "Устаревший: тоже, что и ДА, но требуется указать только адрес эл. почты в качестве назначения. Эта опция служит ТОЛЬКО для поддержки устаревших маршрутов для факсов. Нужно обновить этот маршрут указав ДА и выбрать действительное назначение!"
+msgid ""
+"Legacy: Same as YES, only you can enter an email address as the destination. "
+"This option is ONLY for supporting migrated legacy fax routes. You should "
+"upgrade this route by choosing YES, and selecting a valid destination!"
+msgstr ""
+"Устаревший: тоже, что и ДА, но требуется указать только адрес эл. почты в "
+"качестве назначения. Эта опция служит ТОЛЬКО для поддержки устаревших "
+"маршрутов для факсов. Нужно обновить этот маршрут указав ДА и выбрать "
+"действительное назначение!"
 
 #: views/form.php:255
 msgid "Letter"
@@ -265,8 +338,11 @@ msgid "Migrating fax_users table to add faxattachformat..."
 msgstr "Переход в fax_users таблицу, для добавления faxattachformat..."
 
 #: install.php:280
-msgid "Migrating faxemail field in the fax_users table to allow longer emails..."
-msgstr "Переход в faxemail поле в таблице fax_users, для разрешения электронной почты..."
+msgid ""
+"Migrating faxemail field in the fax_users table to allow longer emails..."
+msgstr ""
+"Переход в faxemail поле в таблице fax_users, для разрешения электронной "
+"почты..."
 
 #: views/form.php:224
 msgid "Minimum transfer rate"
@@ -281,8 +357,12 @@ msgid "Moving simu_fax feature code from core.."
 msgstr "Убрать опцию simu_fax из кода."
 
 #: Fax.class.php:480
-msgid "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk"
-msgstr "NV Fax Detect: Использовать метод детектирования NV Fax; требуется инсталлировать NV Fax Detect дополнительно, чтобы он распознавался в Asterisk"
+msgid ""
+"NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
+"and recognized by asterisk"
+msgstr ""
+"NV Fax Detect: Использовать метод детектирования NV Fax; требуется "
+"инсталлировать NV Fax Detect дополнительно, чтобы он распознавался в Asterisk"
 
 #: Fax.class.php:497
 msgid "NVFax"
@@ -298,7 +378,7 @@ msgid "New fax received"
 msgstr ""
 
 #: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
-#: views/quickCreate.php:15
+#: views/quickCreate.php:12
 msgid "No"
 msgstr "Нет"
 
@@ -307,12 +387,21 @@ msgid "No Inbound Routes to migrate"
 msgstr "Нет входящих маршрутов для миграций"
 
 #: Fax.class.php:431
-msgid "No fax detection methods found or no valid license. Faxing cannot be enabled."
-msgstr "Не найдено метода определения факса в текущей лицензии. Факсимильные сообщения не могут быть задействованы."
+msgid ""
+"No fax detection methods found or no valid license. Faxing cannot be enabled."
+msgstr ""
+"Не найдено метода определения факса в текущей лицензии. Факсимильные "
+"сообщения не могут быть задействованы."
 
 #: Fax.class.php:423
-msgid "No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax."
-msgstr "Нет: не будет попыток автораспознавания типа звонка; всё будет перенаправлено по назначению ниже. Используйте эту опцию в том случае, если этот DID используется исключительно для голоса ИЛИ факса."
+msgid ""
+"No: No attempts are made to auto-determine the call type; all calls sent to "
+"destination below. Use this option if this DID is used exclusively for voice "
+"OR fax."
+msgstr ""
+"Нет: не будет попыток автораспознавания типа звонка; всё будет "
+"перенаправлено по назначению ниже. Используйте эту опцию в том случае, если "
+"этот DID используется исключительно для голоса ИЛИ факса."
 
 #: bin/fax2mail.php:71
 msgid "On"
@@ -353,12 +442,19 @@ msgid "SIP"
 msgstr ""
 
 #: views/form.php:265
-msgid "Select the default paper size.<br/>This specifies the size that should be used if the document does not specify a size.<br/> If the document does specify a size that size will be used."
+msgid ""
+"Select the default paper size.<br/>This specifies the size that should be "
+"used if the document does not specify a size.<br/> If the document does "
+"specify a size that size will be used."
 msgstr ""
 
 #: Fax.class.php:479
-msgid "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files"
-msgstr "Sip: использовать распознавание факса в канале Sip (t38). Требуется asterisk 1.6.2 или выше и опция 'faxdetect=yes' в sip конфигурационных файлах"
+msgid ""
+"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
+"'faxdetect=yes' in the sip config files"
+msgstr ""
+"Sip: использовать распознавание факса в канале Sip (t38). Требуется asterisk "
+"1.6.2 или выше и опция 'faxdetect=yes' в sip конфигурационных файлах"
 
 #: page.fax.php:14
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
@@ -385,8 +481,16 @@ msgid "TIFF"
 msgstr ""
 
 #: install.php:257
-msgid "The following Inbound Routes had FAX processing that failed migration because they were accessing a device with no associated user. They have been disabled and will need to be updated. Click delete icon on the right to remove this notice."
-msgstr "Следующие входящие маршруты имеют опции обработки факсов, при миграции которых возникли трудности в результатет того, что нет ассоциации указаного устройства и соответствующего пользователя. Маршруты выключены и требуют корректировки. Кликните на иконку Удалить справа чтобы удалить это сообщение."
+msgid ""
+"The following Inbound Routes had FAX processing that failed migration "
+"because they were accessing a device with no associated user. They have been "
+"disabled and will need to be updated. Click delete icon on the right to "
+"remove this notice."
+msgstr ""
+"Следующие входящие маршруты имеют опции обработки факсов, при миграции "
+"которых возникли трудности в результатет того, что нет ассоциации указаного "
+"устройства и соответствующего пользователя. Маршруты выключены и требуют "
+"корректировки. Кликните на иконку Удалить справа чтобы удалить это сообщение."
 
 #: views/form.php:110
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
@@ -406,7 +510,8 @@ msgstr ""
 
 #: install.php:296
 msgid "WARINING: fax_users table may still be using the old schema!"
-msgstr "Предупреждение: таблица fax_users все еще может использовать старую схему!"
+msgstr ""
+"Предупреждение: таблица fax_users все еще может использовать старую схему!"
 
 #: install.php:284
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
@@ -414,31 +519,51 @@ msgstr "Предупреждение: Ошибка переноса. Длина 
 
 #: install.php:57
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
-msgstr "Предупреждение: таблица fax_incoming все еще может использовать 2.6 схему!"
+msgstr ""
+"Предупреждение: таблица fax_incoming все еще может использовать 2.6 схему!"
 
 #: views/form.php:47
-msgid "When no fax modules are detected the module will not generate any detection dialplan by default. If the system is being used with phyical FAX devices, hylafax + iaxmodem, or other outside fax setups you can force the dialplan to be generated here."
-msgstr "Если в системе нет никакого факс-приложения, то модуль не генерирует распознавания диалплана по умолчанию. Если система использует, например, физические факс-аппараты, или связку hylafax + iaxmodem, или какое-то другое стороннее факс-решение, можно форсировать распознавание в диалплане."
+msgid ""
+"When no fax modules are detected the module will not generate any detection "
+"dialplan by default. If the system is being used with phyical FAX devices, "
+"hylafax + iaxmodem, or other outside fax setups you can force the dialplan "
+"to be generated here."
+msgstr ""
+"Если в системе нет никакого факс-приложения, то модуль не генерирует "
+"распознавания диалплана по умолчанию. Если система использует, например, "
+"физические факс-аппараты, или связку hylafax + iaxmodem, или какое-то другое "
+"стороннее факс-решение, можно форсировать распознавание в диалплане."
 
 #: Fax.class.php:570
 msgid "Where to send the faxes"
 msgstr ""
 
 #: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
-#: views/quickCreate.php:13
+#: views/quickCreate.php:10
 msgid "Yes"
 msgstr "Да"
 
 #: Fax.class.php:424
-msgid "Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"
-msgstr "Да: попытка детектировать входящий звонок; если будет распознан как факс-звонок, то он будет направлен по назначению для факсов. В противном случае звонок будет обработан обычным образом. Используйте эту опцию если получаете и голосовые, и факсовые входящие вызовы на этой линии"
+msgid ""
+"Yes: try to auto determine the type of call; route to the fax destination if "
+"call is a fax, otherwise send to regular destination. Use this option if you "
+"receive both voice and fax calls on this line"
+msgstr ""
+"Да: попытка детектировать входящий звонок; если будет распознан как факс-"
+"звонок, то он будет направлен по назначению для факсов. В противном случае "
+"звонок будет обработан обычным образом. Используйте эту опцию если получаете "
+"и голосовые, и факсовые входящие вызовы на этой линии"
 
 #: views/form.php:62
-msgid "Your maximum transfer rate is set to 2400 in certain circumstances this can break faxing"
+msgid ""
+"Your maximum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
 msgstr ""
 
 #: views/form.php:59
-msgid "Your minimum transfer rate is set to 2400 in certain circumstances this can break faxing"
+msgid ""
+"Your minimum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
 msgstr ""
 
 #: Fax.class.php:413
@@ -501,12 +626,19 @@ msgstr "неизвестная ошибка"
 msgid "use "
 msgstr "использовать "
 
-#: page.fax.php:6
-msgid "You are running Asterisk 13 which does NOT support Fax for Asterisk. If availible spandsp will be used instead."
-msgstr "Вы запустили Asterisk 13, который НЕ поддерживает факс для Asterisk. Если доступен spandsp, он будет использоваться вместо этого."
+#~ msgid ""
+#~ "You are running Asterisk 13 which does NOT support Fax for Asterisk. If "
+#~ "availible spandsp will be used instead."
+#~ msgstr ""
+#~ "Вы запустили Asterisk 13, который НЕ поддерживает факс для Asterisk. Если "
+#~ "доступен spandsp, он будет использоваться вместо этого."
 
-#~ msgid " channel will hear ringing for this amount of time (i.e. the system wont \"answer\" the call, it will just play ringing)"
-#~ msgstr "слышать гудки вызова всё это время (то есть система делает \"answer\" на входящий звонок и просто даёт гудки вызова (КПВ) всё это время."
+#~ msgid ""
+#~ " channel will hear ringing for this amount of time (i.e. the system wont "
+#~ "\"answer\" the call, it will just play ringing)"
+#~ msgstr ""
+#~ "слышать гудки вызова всё это время (то есть система делает \"answer\" на "
+#~ "входящий звонок и просто даёт гудки вызова (КПВ) всё это время."
 
 #~ msgid "Adds configurations, options and GUI for inbound faxing"
 #~ msgstr "Добавить конфигурацию, опции и интерфейс для входящих факсов"
@@ -523,23 +655,53 @@ msgstr "Вы запустили Asterisk 13, который НЕ поддерж�
 #~ msgid "Default fax instance:"
 #~ msgstr "Реализаци факса:"
 
-#~ msgid "ERROR: No FAX modules detected! Fax-related dialplan will <b>NOT</b> be generated. This module requires Fax for Asterisk or spandsp based app_fax or app_rxfax to function."
-#~ msgstr "ОШИБКА: Не найдено ни одного факс-приложения! Эта часть диалплана, отвечающего за приём факсов <b>НЕ</b> будет сгенерирована. Этот модуль использует приложение Fax for Asterisk, или app_fax, основанный на spandsp, или app_rxfax для обработки."
+#~ msgid ""
+#~ "ERROR: No FAX modules detected! Fax-related dialplan will <b>NOT</b> be "
+#~ "generated. This module requires Fax for Asterisk or spandsp based app_fax "
+#~ "or app_rxfax to function."
+#~ msgstr ""
+#~ "ОШИБКА: Не найдено ни одного факс-приложения! Эта часть диалплана, "
+#~ "отвечающего за приём факсов <b>НЕ</b> будет сгенерирована. Этот модуль "
+#~ "использует приложение Fax for Asterisk, или app_fax, основанный на "
+#~ "spandsp, или app_rxfax для обработки."
 
-#~ msgid "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk or spandsp based app_fax or app_rxfax to function."
-#~ msgstr "ОШИБКА: Не обнаружено ФАКС-модуля!<br>Диал-план для факса <b>НЕ</b> сгенерирован.<br>Чтобы задействовать этот модуль потребуется либо Fax for Asterisk, либо app_fax, или app_rxfax, основанные на spandsp."
+#~ msgid ""
+#~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "
+#~ "be generated.<br>This module requires Fax for Asterisk or spandsp based "
+#~ "app_fax or app_rxfax to function."
+#~ msgstr ""
+#~ "ОШИБКА: Не обнаружено ФАКС-модуля!<br>Диал-план для факса <b>НЕ</b> "
+#~ "сгенерирован.<br>Чтобы задействовать этот модуль потребуется либо Fax for "
+#~ "Asterisk, либо app_fax, или app_rxfax, основанные на spandsp."
 
-#~ msgid "ERROR: No Fax license detected. Fax-related dialplan will <b>NOT</b> be generated! This module has detected that Fax for Asterisk is installed without a license. At least one license is required (it is available for free) and must be installed."
-#~ msgstr "ОШИБКА: Не обнаружено лицензии на факс. Эта часть диалплана, отвечающего за приём факсов <b>НЕ</b> будет сгенерирована! Модуль обнаружил, что приложение Fax for Asterisk установлено без лицензии. Требуется по крайней мере одна лицензия (одна всегда доступна бесплатно), которую тем не менее нужно установить."
+#~ msgid ""
+#~ "ERROR: No Fax license detected. Fax-related dialplan will <b>NOT</b> be "
+#~ "generated! This module has detected that Fax for Asterisk is installed "
+#~ "without a license. At least one license is required (it is available for "
+#~ "free) and must be installed."
+#~ msgstr ""
+#~ "ОШИБКА: Не обнаружено лицензии на факс. Эта часть диалплана, отвечающего "
+#~ "за приём факсов <b>НЕ</b> будет сгенерирована! Модуль обнаружил, что "
+#~ "приложение Fax for Asterisk установлено без лицензии. Требуется по "
+#~ "крайней мере одна лицензия (одна всегда доступна бесплатно), которую тем "
+#~ "не менее нужно установить."
 
-#~ msgid "Email address used if 'system default' has been chosen as the default fax extension."
-#~ msgstr "Адрес эл. почты, используемый в качестве назначения по умолчанию, если выбрана реализация факса 'системный (по умолчанию)'."
+#~ msgid ""
+#~ "Email address used if 'system default' has been chosen as the default fax "
+#~ "extension."
+#~ msgstr ""
+#~ "Адрес эл. почты, используемый в качестве назначения по умолчанию, если "
+#~ "выбрана реализация факса 'системный (по умолчанию)'."
 
 #~ msgid "Email address:"
 #~ msgstr "Адрес эл. почты:"
 
-#~ msgid "Enter an email address where faxes sent to this extension will be delivered."
-#~ msgstr "Введите адрес эл. почты, на который будут пересылаться посланные факсимильные сообщения."
+#~ msgid ""
+#~ "Enter an email address where faxes sent to this extension will be "
+#~ "delivered."
+#~ msgstr ""
+#~ "Введите адрес эл. почты, на который будут пересылаться посланные "
+#~ "факсимильные сообщения."
 
 #~ msgid "Fax Configuration"
 #~ msgstr "Конфигурация факса"
@@ -568,11 +730,29 @@ msgstr "Вы запустили Asterisk 13, который НЕ поддерж�
 #~ msgid "Fax Transport Options"
 #~ msgstr "Транспортная опция факса"
 
-#~ msgid "How long to wait and try to detect fax. Please note that callers to a "
-#~ msgstr "Как долго будут предприниматься попытки распознать факс при входящем звонке. Примите во внимание, что звонящий будет "
+#~ msgid ""
+#~ "How long to wait and try to detect fax. Please note that callers to a "
+#~ msgstr ""
+#~ "Как долго будут предприниматься попытки распознать факс при входящем "
+#~ "звонке. Примите во внимание, что звонящий будет "
 
-#~ msgid "In earlier versions, it was possible to provide an email address with the incoming FAX detection to route faxes that were being handled by fax-to-email detection. This has been deprecated in favor of Extension/User FAX destinations where an email address can be provided. During migration, the old email address remains present for routes configured this way but goes away once 'properly' configured. This options forces the Legacy Mode to always be present as an option."
-#~ msgstr "В ранних версиях было возможно указать адрес эл. почты на детектировании входящих факсов, которые поддерживались специально для fax-to-email. Это устарело для дальнейшего использования назначений в модуле Внутренние номера/Пользователи, где также указывается адрес эл. почты. В процессе миграции старые адреса остаются на маршрутах, уже сконфигурированных таким образом, но пропадут если не будет включена эта опция и потребуется их снова правильно сконфигурировать. Эта опция служит для поддержки старого режима в текущей реализации."
+#~ msgid ""
+#~ "In earlier versions, it was possible to provide an email address with the "
+#~ "incoming FAX detection to route faxes that were being handled by fax-to-"
+#~ "email detection. This has been deprecated in favor of Extension/User FAX "
+#~ "destinations where an email address can be provided. During migration, "
+#~ "the old email address remains present for routes configured this way but "
+#~ "goes away once 'properly' configured. This options forces the Legacy Mode "
+#~ "to always be present as an option."
+#~ msgstr ""
+#~ "В ранних версиях было возможно указать адрес эл. почты на детектировании "
+#~ "входящих факсов, которые поддерживались специально для fax-to-email. Это "
+#~ "устарело для дальнейшего использования назначений в модуле Внутренние "
+#~ "номера/Пользователи, где также указывается адрес эл. почты. В процессе "
+#~ "миграции старые адреса остаются на маршрутах, уже сконфигурированных "
+#~ "таким образом, но пропадут если не будет включена эта опция и потребуется "
+#~ "их снова правильно сконфигурировать. Эта опция служит для поддержки "
+#~ "старого режима в текущей реализации."
 
 #~ msgid "Modem"
 #~ msgstr "Модем"
@@ -586,8 +766,18 @@ msgstr "Вы запустили Asterisk 13, который НЕ поддерж�
 #~ msgid "Please Enter a valid email address for fax delivery."
 #~ msgstr "Введите действительный адрес эл. почты для доставки факсов."
 
-#~ msgid "Select 'system default' to have the system act as a fax instance. You can then route faxes to this instance and avoid having to route faxes to an instance associated with a specific entity. This can be the system using Asterisk's internal capabilities or it can be an external extension, such as a physical fax machine"
-#~ msgstr "Выбирайте 'системный (по умолчанию)' если используете вашу IP-PBX станцию в качестве факсимильной машины для приёма и отправки факсов. Вы сможете маршрутизировать факсы на этот объект, ассоциированное с этой реализацией. Это может быть сам Астериск или какой-либо внутренний номер с подключенной физической факсимильной машиной."
+#~ msgid ""
+#~ "Select 'system default' to have the system act as a fax instance. You can "
+#~ "then route faxes to this instance and avoid having to route faxes to an "
+#~ "instance associated with a specific entity. This can be the system using "
+#~ "Asterisk's internal capabilities or it can be an external extension, such "
+#~ "as a physical fax machine"
+#~ msgstr ""
+#~ "Выбирайте 'системный (по умолчанию)' если используете вашу IP-PBX станцию "
+#~ "в качестве факсимильной машины для приёма и отправки факсов. Вы сможете "
+#~ "маршрутизировать факсы на этот объект, ассоциированное с этой "
+#~ "реализацией. Это может быть сам Астериск или какой-либо внутренний номер "
+#~ "с подключенной физической факсимильной машиной."
 
 #~ msgid "Settings"
 #~ msgstr "Настройки"
@@ -599,7 +789,9 @@ msgstr "Вы запустили Asterisk 13, который НЕ поддерж�
 #~ msgstr "Успешно перенесена таблица fax_incoming!"
 
 #~ msgid "WARINING: fax_incoming table may still be using the 2.6 schema!"
-#~ msgstr "ВНИМАНИЕ: таблица fax_incoming может использоваться только в схеме версии 2.6!"
+#~ msgstr ""
+#~ "ВНИМАНИЕ: таблица fax_incoming может использоваться только в схеме версии "
+#~ "2.6!"
 
 #~ msgid "Where to send the call if we detect that its a fax"
 #~ msgstr "Куда направлять входящий звонок распознанный как факс"

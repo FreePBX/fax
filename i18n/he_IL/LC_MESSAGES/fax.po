@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 19:14-0400\n"
+"POT-Creation-Date: 2015-08-02 15:01-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,11 +147,11 @@ msgid ""
 "addresses specified."
 msgstr ""
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Fax"
 msgstr ""
 
-#: views/fax.php:42 views/quickCreate.php:24
+#: views/fax.php:42
 msgid "Enable this user to receive faxes"
 msgstr ""
 
@@ -326,7 +326,7 @@ msgid "New fax received"
 msgstr ""
 
 #: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
-#: views/quickCreate.php:15
+#: views/quickCreate.php:12
 msgid "No"
 msgstr ""
 
@@ -470,7 +470,7 @@ msgid "Where to send the faxes"
 msgstr ""
 
 #: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
-#: views/quickCreate.php:13
+#: views/quickCreate.php:10
 msgid "Yes"
 msgstr ""
 

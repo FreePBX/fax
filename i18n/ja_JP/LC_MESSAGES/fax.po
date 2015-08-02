@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 19:14-0400\n"
+"POT-Creation-Date: 2015-08-02 15:01-0700\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -192,11 +192,11 @@ msgstr ""
 "いルートがまだある場合には、fax検知のためのデフォルトのEメールアドレスにもな"
 "ります。"
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Fax"
 msgstr ""
 
-#: views/fax.php:42 views/quickCreate.php:24
+#: views/fax.php:42
 msgid "Enable this user to receive faxes"
 msgstr "このユーザーがfaxを受信できるようにする"
 
@@ -382,7 +382,7 @@ msgid "New fax received"
 msgstr ""
 
 #: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
-#: views/quickCreate.php:15
+#: views/quickCreate.php:12
 msgid "No"
 msgstr "いいえ"
 
@@ -539,7 +539,7 @@ msgid "Where to send the faxes"
 msgstr ""
 
 #: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
-#: views/quickCreate.php:13
+#: views/quickCreate.php:10
 msgid "Yes"
 msgstr "はい"
 
