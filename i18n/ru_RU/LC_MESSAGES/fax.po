@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 19:14-0400\n"
+"POT-Creation-Date: 2015-08-02 15:01-0700\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -184,11 +184,11 @@ msgstr ""
 "устаревшего режима детектирования факса, если маршрут по прежнему использует "
 "этот режим и не указан никакой другой адрес эл. почты."
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Fax"
 msgstr ""
 
-#: views/fax.php:42 views/quickCreate.php:24
+#: views/fax.php:42
 msgid "Enable this user to receive faxes"
 msgstr "Разрешить этому пользователю принимать факсы"
 
@@ -378,7 +378,7 @@ msgid "New fax received"
 msgstr ""
 
 #: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
-#: views/quickCreate.php:15
+#: views/quickCreate.php:12
 msgid "No"
 msgstr "Нет"
 
@@ -539,7 +539,7 @@ msgid "Where to send the faxes"
 msgstr ""
 
 #: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
-#: views/quickCreate.php:13
+#: views/quickCreate.php:10
 msgid "Yes"
 msgstr "Да"
 
@@ -626,47 +626,12 @@ msgstr "неизвестная ошибка"
 msgid "use "
 msgstr "использовать "
 
-#~ msgid "Always Allow Legacy Mode"
-#~ msgstr "Всегда использовать устаревший режим"
-
 #~ msgid ""
-#~ "In earlier versions, it was possible to provide an email address with the "
-#~ "incoming FAX detection to route faxes that were being handled by fax-to-"
-#~ "email detection. This has been deprecated in favor of Extension/User FAX "
-#~ "destinations where an email address can be provided. During migration, "
-#~ "the old email address remains present for routes configured this way but "
-#~ "goes away once 'properly' configured. This options forces the Legacy Mode "
-#~ "to always be present as an option."
+#~ "You are running Asterisk 13 which does NOT support Fax for Asterisk. If "
+#~ "availible spandsp will be used instead."
 #~ msgstr ""
-#~ "В ранних версиях было возможно указать адрес эл. почты на детектировании "
-#~ "входящих факсов, которые поддерживались специально для fax-to-email. Это "
-#~ "устарело для дальнейшего использования назначений в модуле Внутренние "
-#~ "номера/Пользователи, где также указывается адрес эл. почты. В процессе "
-#~ "миграции старые адреса остаются на маршрутах, уже сконфигурированных "
-#~ "таким образом, но пропадут если не будет включена эта опция и потребуется "
-#~ "их снова правильно сконфигурировать. Эта опция служит для поддержки "
-#~ "старого режима в текущей реализации."
-
-#~ msgid "Email address:"
-#~ msgstr "Адрес эл. почты:"
-
-#~ msgid "Fax Feature Code Options"
-#~ msgstr "Опции отсылки факса"
-
-#~ msgid "Fax Module Options"
-#~ msgstr "Опции модуля факса"
-
-#~ msgid "Fax Presentation Options"
-#~ msgstr "Опции презентации факса"
-
-#~ msgid "Fax Transport Options"
-#~ msgstr "Транспортная опция факса"
-
-#~ msgid "Outgoing Email address:"
-#~ msgstr "Адрес исходящей эл. почты:"
-
-#~ msgid "Sip"
-#~ msgstr "SIP"
+#~ "Вы запустили Asterisk 13, который НЕ поддерживает факс для Asterisk. Если "
+#~ "доступен spandsp, он будет использоваться вместо этого."
 
 #~ msgid ""
 #~ " channel will hear ringing for this amount of time (i.e. the system wont "
@@ -677,6 +642,9 @@ msgstr "использовать "
 
 #~ msgid "Adds configurations, options and GUI for inbound faxing"
 #~ msgstr "Добавить конфигурацию, опции и интерфейс для входящих факсов"
+
+#~ msgid "Always Allow Legacy Mode"
+#~ msgstr "Всегда использовать устаревший режим"
 
 #~ msgid "Basic"
 #~ msgstr "Основные настройки"
@@ -725,6 +693,9 @@ msgstr "использовать "
 #~ "Адрес эл. почты, используемый в качестве назначения по умолчанию, если "
 #~ "выбрана реализация факса 'системный (по умолчанию)'."
 
+#~ msgid "Email address:"
+#~ msgstr "Адрес эл. почты:"
+
 #~ msgid ""
 #~ "Enter an email address where faxes sent to this extension will be "
 #~ "delivered."
@@ -744,8 +715,20 @@ msgstr "использовать "
 #~ msgid "Fax Email Destination"
 #~ msgstr "Адрес эл. почты для факсов"
 
+#~ msgid "Fax Feature Code Options"
+#~ msgstr "Опции отсылки факса"
+
+#~ msgid "Fax Module Options"
+#~ msgstr "Опции модуля факса"
+
+#~ msgid "Fax Presentation Options"
+#~ msgstr "Опции презентации факса"
+
 #~ msgid "Fax Receive Options"
 #~ msgstr "Опции приёма факса"
+
+#~ msgid "Fax Transport Options"
+#~ msgstr "Транспортная опция факса"
 
 #~ msgid ""
 #~ "How long to wait and try to detect fax. Please note that callers to a "
@@ -753,11 +736,32 @@ msgstr "использовать "
 #~ "Как долго будут предприниматься попытки распознать факс при входящем "
 #~ "звонке. Примите во внимание, что звонящий будет "
 
+#~ msgid ""
+#~ "In earlier versions, it was possible to provide an email address with the "
+#~ "incoming FAX detection to route faxes that were being handled by fax-to-"
+#~ "email detection. This has been deprecated in favor of Extension/User FAX "
+#~ "destinations where an email address can be provided. During migration, "
+#~ "the old email address remains present for routes configured this way but "
+#~ "goes away once 'properly' configured. This options forces the Legacy Mode "
+#~ "to always be present as an option."
+#~ msgstr ""
+#~ "В ранних версиях было возможно указать адрес эл. почты на детектировании "
+#~ "входящих факсов, которые поддерживались специально для fax-to-email. Это "
+#~ "устарело для дальнейшего использования назначений в модуле Внутренние "
+#~ "номера/Пользователи, где также указывается адрес эл. почты. В процессе "
+#~ "миграции старые адреса остаются на маршрутах, уже сконфигурированных "
+#~ "таким образом, но пропадут если не будет включена эта опция и потребуется "
+#~ "их снова правильно сконфигурировать. Эта опция служит для поддержки "
+#~ "старого режима в текущей реализации."
+
 #~ msgid "Modem"
 #~ msgstr "Модем"
 
 #~ msgid "Modem Type."
 #~ msgstr "Тип модема"
+
+#~ msgid "Outgoing Email address:"
+#~ msgstr "Адрес исходящей эл. почты:"
 
 #~ msgid "Please Enter a valid email address for fax delivery."
 #~ msgstr "Введите действительный адрес эл. почты для доставки факсов."
@@ -777,6 +781,9 @@ msgstr "использовать "
 
 #~ msgid "Settings"
 #~ msgstr "Настройки"
+
+#~ msgid "Sip"
+#~ msgstr "SIP"
 
 #~ msgid "Sucsessfuly migraded fax_incoming table!"
 #~ msgstr "Успешно перенесена таблица fax_incoming!"

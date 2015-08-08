@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 19:14-0400\n"
+"POT-Creation-Date: 2015-08-02 15:01-0700\n"
 "PO-Revision-Date: 2015-02-20 19:30-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -166,11 +166,11 @@ msgstr ""
 "para la detección de fax en el modo Legado, si hay rutas que siguen "
 "funcionando en este modo que no tienen dirección de correo especificadas."
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Fax"
 msgstr ""
 
-#: views/fax.php:42 views/quickCreate.php:24
+#: views/fax.php:42
 msgid "Enable this user to receive faxes"
 msgstr "Habilitar este usuario para recibir faxes"
 
@@ -363,7 +363,7 @@ msgid "New fax received"
 msgstr ""
 
 #: Fax.class.php:443 views/fax.php:29 views/form.php:39 views/form.php:177
-#: views/quickCreate.php:15
+#: views/quickCreate.php:12
 msgid "No"
 msgstr "No"
 
@@ -527,7 +527,7 @@ msgid "Where to send the faxes"
 msgstr ""
 
 #: Fax.class.php:444 views/fax.php:28 views/form.php:37 views/form.php:175
-#: views/quickCreate.php:13
+#: views/quickCreate.php:10
 msgid "Yes"
 msgstr "Si"
 
@@ -613,51 +613,21 @@ msgstr "error desconocido"
 msgid "use "
 msgstr "Utiliza "
 
-#~ msgid "Always Allow Legacy Mode"
-#~ msgstr "Habilitar Siempre Modo Legado"
-
 #~ msgid ""
-#~ "In earlier versions, it was possible to provide an email address with the "
-#~ "incoming FAX detection to route faxes that were being handled by fax-to-"
-#~ "email detection. This has been deprecated in favor of Extension/User FAX "
-#~ "destinations where an email address can be provided. During migration, "
-#~ "the old email address remains present for routes configured this way but "
-#~ "goes away once 'properly' configured. This options forces the Legacy Mode "
-#~ "to always be present as an option."
+#~ "You are running Asterisk 13 which does NOT support Fax for Asterisk. If "
+#~ "availible spandsp will be used instead."
 #~ msgstr ""
-#~ "En las versiones anteriores, es posible proporcionar una dirección de "
-#~ "correo electrónico con la entrada de detección de FAX para enrutar los "
-#~ "faxes que estaban siendo utilizados por la detección fax a correo "
-#~ "electrónico. Esto ha quedado obsoleto en favor de los destinos extensión/"
-#~ "usuario FAX donde se puede proporcionar una dirección de correo "
-#~ "electrónico. Durante la migración, la dirección de correo electrónico "
-#~ "antigua sigue estando presente en las rutas configuradas pero desaparece "
-#~ "una vez configurada 'correctamente'. Esta opción obliga al modo Legado a "
-#~ "estar siempre presente como una opción."
-
-#~ msgid "Sip"
-#~ msgstr "SIP"
-
-#~ msgid "Email address:"
-#~ msgstr "Dirección Email:"
-
-#~ msgid "Fax Feature Code Options"
-#~ msgstr "Opciones de Código de Servicio de Fax"
-
-#~ msgid "Fax Module Options"
-#~ msgstr "Opciones Módulo Fax"
-
-#~ msgid "Fax Presentation Options"
-#~ msgstr "Opciones de Presentación de Fax"
-
-#~ msgid "Fax Transport Options"
-#~ msgstr "Opciones de Transporte de Fax"
-
-#~ msgid "Outgoing Email address:"
-#~ msgstr "Dirección Email saliente:"
+#~ "Usted esta usando Asterisk 13 el cual NO soporta \"Fax for Asterisk\". Si "
+#~ "esta disponible spandsp este será usado en su lugar."
 
 #~ msgid "Adds configurations, options and GUI for inbound faxing"
 #~ msgstr "Configuraciones Adicionales, Opciones y GUI para fax entrante"
+
+#~ msgid "Always Allow Legacy Mode"
+#~ msgstr "Habilitar Siempre Modo Legado"
+
+#~ msgid "Email address:"
+#~ msgstr "Dirección Email:"
 
 #~ msgid ""
 #~ "Enter an email address where faxes sent to this extension will be "
@@ -678,10 +648,44 @@ msgstr "Utiliza "
 #~ msgid "Fax Email Destination"
 #~ msgstr "Destino Correo Fax"
 
+#~ msgid "Fax Feature Code Options"
+#~ msgstr "Opciones de Código de Servicio de Fax"
+
+#~ msgid "Fax Module Options"
+#~ msgstr "Opciones Módulo Fax"
+
+#~ msgid "Fax Presentation Options"
+#~ msgstr "Opciones de Presentación de Fax"
+
+#~ msgid "Fax Transport Options"
+#~ msgstr "Opciones de Transporte de Fax"
+
 #~ msgid ""
 #~ "How long to wait and try to detect fax. Please note that callers to a "
 #~ msgstr ""
 #~ "Cuanto esperar y tratar de detectar fax. Por favor note que llamantes a "
+
+#~ msgid ""
+#~ "In earlier versions, it was possible to provide an email address with the "
+#~ "incoming FAX detection to route faxes that were being handled by fax-to-"
+#~ "email detection. This has been deprecated in favor of Extension/User FAX "
+#~ "destinations where an email address can be provided. During migration, "
+#~ "the old email address remains present for routes configured this way but "
+#~ "goes away once 'properly' configured. This options forces the Legacy Mode "
+#~ "to always be present as an option."
+#~ msgstr ""
+#~ "En las versiones anteriores, es posible proporcionar una dirección de "
+#~ "correo electrónico con la entrada de detección de FAX para enrutar los "
+#~ "faxes que estaban siendo utilizados por la detección fax a correo "
+#~ "electrónico. Esto ha quedado obsoleto en favor de los destinos extensión/"
+#~ "usuario FAX donde se puede proporcionar una dirección de correo "
+#~ "electrónico. Durante la migración, la dirección de correo electrónico "
+#~ "antigua sigue estando presente en las rutas configuradas pero desaparece "
+#~ "una vez configurada 'correctamente'. Esta opción obliga al modo Legado a "
+#~ "estar siempre presente como una opción."
+
+#~ msgid "Outgoing Email address:"
+#~ msgstr "Dirección Email saliente:"
 
 #~ msgid "Please Enter a valid email address for fax delivery."
 #~ msgstr ""
@@ -690,6 +694,9 @@ msgstr "Utiliza "
 
 #~ msgid "Settings"
 #~ msgstr "Configuración"
+
+#~ msgid "Sip"
+#~ msgstr "SIP"
 
 #~ msgid "Where to send the call if we detect that its a fax"
 #~ msgstr "Donde enviar la llamada, si detectamos que es fax"
