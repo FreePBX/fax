@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.7</version>
+	<version>13.0.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.8* Specify a more exact version of User Manager
 		*13.0.7* FREEPBX-9953 Add Userman requirement
 		*13.0.6* Add warning for invalid baud rates
 		*13.0.5* Add support for userman bulkhandler hooks
@@ -56,7 +57,7 @@
 	</changelog>
 	<depends>
 		<version>12.0.1rc16</version>
-		<module>userman ge 13</module>
+		<module>userman ge 13.0</module>
 	</depends>
 	<supported>
 		<version>13.0</version>
