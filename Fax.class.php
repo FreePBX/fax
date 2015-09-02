@@ -69,16 +69,6 @@ class Fax implements BMO {
 		}
 	}
 
-	public function getQuickCreateDisplay() {
-		return array(
-			1 => array(
-				array(
-					'html' => load_view(__DIR__.'/views/quickCreate.php',array())
-				)
-			)
-		);
-	}
-
 	public function usermanShowPage() {
 		global $version;
 		if(isset($_REQUEST['action'])) {
@@ -213,18 +203,6 @@ class Fax implements BMO {
 			if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
 				$this->saveUser($user['default_extension'],($enabled ? "true" : "false"),$user['email'],$attachformat);
 			}
-		}
-	}
-
-	/**
-	* Quick Create hook
-	* @param string $tech      The device tech
-	* @param int $extension The extension number
-	* @param array $data      The associated data
-	*/
-	public function processQuickCreate($tech, $extension, $data) {
-		if($data['faxenabled'] == "yes") {
-			$this->saveUser($extension, "true", $data['email'], "pdf");
 		}
 	}
 

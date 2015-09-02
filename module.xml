@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.8</version>
+	<version>13.0.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.9* Remove quick create options for fax
 		*13.0.8* Specify a more exact version of User Manager
 		*13.0.7* FREEPBX-9953 Add Userman requirement
 		*13.0.6* Add warning for invalid baud rates
@@ -64,8 +65,6 @@
 	</supported>
 	<hooks>
 			<core class="Core" namespace="FreePBX\modules">
-				<method callingMethod="getQuickCreateDisplay" class="Fax">getQuickCreateDisplay</method>
-				<method callingMethod="processQuickCreate" class="Fax">processQuickCreate</method>
 				<method callingMethod="hookTabs" class="Fax">coreDIDHook</method>
 			</core>
 			<userman class="Userman" namespace="FreePBX\modules">
