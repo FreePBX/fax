@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-02 15:46-0700\n"
+"POT-Creation-Date: 2015-09-22 12:58-0700\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -37,14 +37,14 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Fax.class.php:456
+#: Fax.class.php:465
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 " детектирование факса; требуется установить параметр 'faxdetect=' в "
 "'incoming' (входящие) или 'both' (оба направления) в "
 
-#: Fax.class.php:398
+#: Fax.class.php:407
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -67,7 +67,7 @@ msgstr ""
 msgid "A4"
 msgstr ""
 
-#: Fax.class.php:520
+#: Fax.class.php:529
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -97,7 +97,7 @@ msgstr "Всегда генерировать код распознавания"
 msgid "Attachment Format"
 msgstr "Формат вложения"
 
-#: Fax.class.php:399
+#: Fax.class.php:408
 msgid "Attempt to detect faxes on this DID."
 msgstr "Попытка детектировать факсы на этом входящем DID."
 
@@ -113,7 +113,7 @@ msgstr "Проверка неудавшихся миграций.."
 msgid "Checking if legacy fax needs migrating.."
 msgstr "Проверяем необходимость миграции устаревших факс приложений.."
 
-#: Fax.class.php:391 Fax.class.php:473
+#: Fax.class.php:400 Fax.class.php:482
 msgid "Dahdi"
 msgstr "DAHDI"
 
@@ -129,7 +129,7 @@ msgstr "Идентификатор местонахождения станции
 msgid "Default Paper Size"
 msgstr ""
 
-#: Fax.class.php:435
+#: Fax.class.php:444
 msgid "Detect Faxes"
 msgstr "Детектировать факсы"
 
@@ -217,31 +217,31 @@ msgstr ""
 "Указывается - использовать режим коррекции ошибок (ЕСМ)\n"
 "\t\t\t\t или нет."
 
-#: Fax.class.php:89 Fax.class.php:104 Fax.class.php:592
+#: Fax.class.php:89 Fax.class.php:104 Fax.class.php:601
 msgid "Fax"
 msgstr "Факс"
 
-#: Fax.class.php:610
+#: Fax.class.php:619
 msgid "Fax Attach Format"
 msgstr ""
 
-#: Fax.class.php:611
+#: Fax.class.php:620
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
 msgstr ""
 
-#: Fax.class.php:557
+#: Fax.class.php:566
 msgid "Fax Destination"
 msgstr "Назначение факса"
 
-#: Fax.class.php:501
+#: Fax.class.php:510
 msgid "Fax Detection Time"
 msgstr "Время для детектирования факса"
 
-#: Fax.class.php:468
+#: Fax.class.php:477
 msgid "Fax Detection type"
 msgstr "Метод детектирования факса"
 
-#: Fax.class.php:606 Fax.class.php:607
+#: Fax.class.php:615 Fax.class.php:616
 msgid "Fax Enabled"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 "выпечатывается сверху на каждой странице. Обычно он содержит имя персоны или "
 "компании, передающий это факсимильное сообщение."
 
-#: Fax.class.php:492
+#: Fax.class.php:501
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -302,11 +302,11 @@ msgstr "Распознавать входящий факс: %s (%s)"
 msgid "Inherit"
 msgstr ""
 
-#: Fax.class.php:424
+#: Fax.class.php:433
 msgid "Legacy"
 msgstr "Устаревший"
 
-#: Fax.class.php:404
+#: Fax.class.php:413
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -356,7 +356,7 @@ msgstr "Минимальная скорость передачи для расп
 msgid "Moving simu_fax feature code from core.."
 msgstr "Убрать опцию simu_fax из кода."
 
-#: Fax.class.php:458
+#: Fax.class.php:467
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
@@ -364,7 +364,7 @@ msgstr ""
 "NV Fax Detect: Использовать метод детектирования NV Fax; требуется "
 "инсталлировать NV Fax Detect дополнительно, чтобы он распознавался в Asterisk"
 
-#: Fax.class.php:475
+#: Fax.class.php:484
 msgid "NVFax"
 msgstr "NVFAX"
 
@@ -377,7 +377,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:421 views/fax.php:29 views/form.php:39 views/form.php:177
+#: Fax.class.php:430 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:12
 msgid "No"
 msgstr "Нет"
@@ -386,14 +386,14 @@ msgstr "Нет"
 msgid "No Inbound Routes to migrate"
 msgstr "Нет входящих маршрутов для миграций"
 
-#: Fax.class.php:409
+#: Fax.class.php:418
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "Не найдено метода определения факса в текущей лицензии. Факсимильные "
 "сообщения не могут быть задействованы."
 
-#: Fax.class.php:401
+#: Fax.class.php:410
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination below. Use this option if this DID is used exclusively for voice "
@@ -433,11 +433,11 @@ msgstr "Удаляем поле %s из таблицы входящих.."
 msgid "Removing old globals.."
 msgstr "Удаление старых значений globals.."
 
-#: Fax.class.php:357
+#: Fax.class.php:366
 msgid "Reset"
 msgstr ""
 
-#: Fax.class.php:477
+#: Fax.class.php:486
 msgid "SIP"
 msgstr ""
 
@@ -448,7 +448,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: Fax.class.php:457
+#: Fax.class.php:466
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -460,7 +460,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:352
+#: Fax.class.php:361
 msgid "Submit"
 msgstr "Сохранить"
 
@@ -496,7 +496,7 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "Идентификатор факс аппарата. Обычно это просто тел. номер факса."
 
-#: Fax.class.php:454
+#: Fax.class.php:463
 msgid "Type of fax detection to use."
 msgstr "Какой метод детектирования будет использоваться."
 
@@ -534,16 +534,16 @@ msgstr ""
 "физические факс-аппараты, или связку hylafax + iaxmodem, или какое-то другое "
 "стороннее факс-решение, можно форсировать распознавание в диалплане."
 
-#: Fax.class.php:548
+#: Fax.class.php:557
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:422 views/fax.php:28 views/form.php:37 views/form.php:175
+#: Fax.class.php:431 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr "Да"
 
-#: Fax.class.php:402
+#: Fax.class.php:411
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -566,7 +566,7 @@ msgid ""
 "break faxing"
 msgstr ""
 
-#: Fax.class.php:391
+#: Fax.class.php:400
 msgid "Zaptel"
 msgstr "ZAPTEL"
 
@@ -622,7 +622,7 @@ msgstr "начинаем миграцию"
 msgid "unknown error"
 msgstr "неизвестная ошибка"
 
-#: Fax.class.php:456
+#: Fax.class.php:465
 msgid "use "
 msgstr "использовать "
 
