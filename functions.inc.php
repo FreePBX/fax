@@ -330,13 +330,18 @@ function fax_get_destinations(){
 	if(DB::IsError($results)) {
 		die_freepbx($results->getMessage()."<br><br>Error selecting from fax");
 	}
-	foreach($results as &$res) {
+	$final = array();
+	foreach($results as $res) {
 		$o = \FreePBX::Userman()->getUserByDefaultExtension($res['user']);
-		$res['uname'] = $o['username'];
-		$res['name'] = !empty($o['displayname']) ? $o['displayname'] : $o['fname'] . " " . $o['lname'];
-		$res['name'] = !empty($res['name']) ? $res['name'] : $o['username'];
+		if(!empty($o)) {
+			$res['uname'] = $o['username'];
+			$res['name'] = !empty($o['displayname']) ? $o['displayname'] : $o['fname'] . " " . $o['lname'];
+			$res['name'] = !empty($res['name']) ? $res['name'] : $o['username'];
+			$final[] = $res;
+		}
+
 	}
-	return $results;
+	return $final;
 }
 
 function fax_get_incoming($extension=null,$cidnum=null){
@@ -358,17 +363,34 @@ function fax_get_user($faxext = ''){
 	if ($faxext) {
 		$sql		= "SELECT * FROM fax_users WHERE user = ?";
 		$settings	= $db->getRow($sql, array($faxext), DB_FETCHMODE_ASSOC);
+		db_e($settings);
+		if(is_array($settings)) {
+			$o = \FreePBX::Userman()->getUserByDefaultExtension($settings['user']);
+			if(empty($o)) {
+				return array();
+			}
+		} else {
+			return array();
+		}
 	} else {
 		$sql		= "SELECT * FROM fax_users";
 		$settings	= $db->getAll($sql, DB_FETCHMODE_ASSOC);
+		db_e($settings);
+		$final = array();
+		if(is_array($settings)) {
+			foreach($settings as $setting) {
+				if(!empty($setting)) {
+					$o = \FreePBX::Userman()->getUserByDefaultExtension($setting['user']);
+					if(!empty($o)) {
+						$final[] = $setting;
+					}
+				}
+			}
+			$settings = $final;
+		} else {
+			return array();
+		}
 	}
-	db_e($settings);
-
-	//make sure were retuning an array (even if its blank)
-	if (!is_array($settings)) {
-		$settings = array();
-	}
-
 	return $settings;
 }
 
