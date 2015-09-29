@@ -17,9 +17,8 @@ function fax_getdestinfo($dest) {
 		if (empty($thisusr)) {
 			return array();
 		} else {
-			$display = ($amp_conf['AMPEXTENSIONS'] == "deviceanduser")?'users':'extensions';
 			return array('description' => sprintf(_("Fax user %s"),$usr),
-			             'edit_url' => 'config.php?display='.$display.'&extdisplay='.urlencode($usr),
+			             'edit_url' => 'config.php?userman&action=showuser&user='.urlencode($usr),
 								  );
 		}
 	} else {
@@ -59,7 +58,7 @@ function fax_check_destinations($dest=true) {
 		$destlist[] = array(
 			'dest' => $thisdest,
 			'description' => sprintf(_("Inbound Fax Detection: %s (%s)"),$result['description'],$thisid),
-			'edit_url' => 'config.php?display=did&extdisplay='.urlencode($thisid),
+			'edit_url' => 'config.php?userman&action=showuser&user='.urlencode($thisid),
 		);
 	}
 	return $destlist;
@@ -332,7 +331,7 @@ function fax_get_destinations(){
 	}
 	$final = array();
 	foreach($results as $res) {
-		$o = \FreePBX::Userman()->getUserByDefaultExtension($res['user']);
+		$o = \FreePBX::Userman()->getUserByID($res['user']);
 		if(!empty($o)) {
 			$res['uname'] = $o['username'];
 			$res['name'] = !empty($o['displayname']) ? $o['displayname'] : $o['fname'] . " " . $o['lname'];
@@ -365,7 +364,7 @@ function fax_get_user($faxext = ''){
 		$settings	= $db->getRow($sql, array($faxext), DB_FETCHMODE_ASSOC);
 		db_e($settings);
 		if(is_array($settings)) {
-			$o = \FreePBX::Userman()->getUserByDefaultExtension($settings['user']);
+			$o = \FreePBX::Userman()->getUserByID($settings['user']);
 			if(empty($o)) {
 				return array();
 			}
@@ -380,7 +379,7 @@ function fax_get_user($faxext = ''){
 		if(is_array($settings)) {
 			foreach($settings as $setting) {
 				if(!empty($setting)) {
-					$o = \FreePBX::Userman()->getUserByDefaultExtension($setting['user']);
+					$o = \FreePBX::Userman()->getUserByID($setting['user']);
 					if(!empty($o)) {
 						$final[] = $setting;
 					}

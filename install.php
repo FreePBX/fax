@@ -312,23 +312,37 @@ $set['type'] = CONF_TYPE_TEXT;
 $freepbx_conf =& freepbx_conf::create();
 $freepbx_conf->define_conf_setting('PDFAUTHOR', $set, true);
 
-$sql = "SELECT fax_users.user,fax_users.faxemail,fax_users.faxattachformat,fax_users.faxenabled FROM fax_users ORDER BY fax_users.user";
-$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-if(DB::IsError($results)) {
-  die_freepbx($results->getMessage()."<br><br>Error selecting from fax");
-}
-foreach($results as $res) {
-  $o = \FreePBX::Userman()->getUserByDefaultExtension($res['user']);
-  if(empty($o)) {
-    //migrate and add for upgrades
-    $user = \FreePBX::Userman()->addUser($res['user'], bin2hex(openssl_random_pseudo_bytes(4)), $res['user'], _("Auto generated migrated user for Fax"), array("email" => $res['faxemail']));
-    if($user['status']) {
-      \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','enabled',($res['faxenabled'] == "true"));
-      \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','attachformat',$res['faxattachformat']);
-      \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','migrate',true);
-    } else {
-      //hmmmmm
-    }
-
+if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
+  $sql = "SELECT fax_users.user,fax_users.faxemail,fax_users.faxattachformat,fax_users.faxenabled FROM fax_users ORDER BY fax_users.user";
+  $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+  if(DB::IsError($results)) {
+    die_freepbx($results->getMessage()."<br><br>Error selecting from fax");
   }
+  $ma = array();
+  foreach($results as $res) {
+    $o = \FreePBX::Userman()->getUserByDefaultExtension($res['user']);
+    if(empty($o)) {
+      //migrate and add for upgrades
+      $user = \FreePBX::Userman()->addUser($res['user'], bin2hex(openssl_random_pseudo_bytes(4)), $res['user'], _("Auto generated migrated user for Fax"), array("email" => $res['faxemail']));
+      if($user['status']) {
+        \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','enabled',($res['faxenabled'] == "true"));
+        \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','attachformat',$res['faxattachformat']);
+        \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','migrate',true);
+      } else {
+        //TODO: Unable to migrate some what do we do here??
+        continue;
+      }
+      $o = $user;
+    }
+    $ma[$res['user']] = $o['id'];
+    $sql = "UPDATE fax_users SET user = ? WHERE user = ?";
+    $sth = \FreePBX::Database()->prepare($sql);
+    $sth->execute(array($o['id'],$res['user']));
+
+    $sql = "UPDATE fax_incoming SET destination = ? WHERE destination = ?";
+    $sth = \FreePBX::Database()->prepare($sql);
+    $sth->execute(array("ext-fax,".$o['id'].",1","ext-fax,".$res['user'].",1"));
+  }
+  \FreePBX::Fax()->setConfig("usermanMigrateArray",$ma);
+  \FreePBX::Fax()->setConfig("usermanMigrate",true);
 }

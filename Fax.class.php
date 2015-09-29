@@ -1,5 +1,5 @@
 <?php
-class Fax implements BMO {
+class Fax extends \FreePBX_Helpers implements \BMO {
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new Exception("Not given a FreePBX Object");
@@ -95,8 +95,8 @@ class Fax implements BMO {
 				case 'adduser':
 				case 'showuser':
 					$user = $this->userman->getUserByID($_REQUEST['user']);
-					if(!empty($user) && $user['default_extension'] !== "none") {
-						$fax = $this->getUser($user['default_extension']);
+					if(!empty($user)) {
+						$fax = $this->getUser($user['id']);
 						$enabled = $this->userman->getModuleSettingByID($_REQUEST['user'],'fax','enabled',true);
 						$attachformat = $this->userman->getModuleSettingByID($_REQUEST['user'],'fax','attachformat',true);
 						return array(
@@ -114,6 +114,14 @@ class Fax implements BMO {
 	}
 
 	public function usermanDelGroup($id,$display,$data) {
+		foreach($data['users'] as $user) {
+			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
+			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
+			$userData = $this->userman->getUserByID($user['id']);
+			if(!empty($userData) && $display == "userman") {
+				$this->saveUser($userData['id'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
+			}
+		}
 	}
 
 	public function usermanAddGroup($id, $display, $data) {
@@ -137,9 +145,9 @@ class Fax implements BMO {
 		foreach($group['users'] as $user) {
 			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
-			$userData = $this->userman->getUserByID($user);
-			if($userData['default_extension'] !== "none" && $display == "userman") {
-				$this->saveUser($userData['default_extension'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
+			$userData = $this->userman->getUserByID($user['id']);
+			if(!empty($userData) && $display == "userman") {
+				$this->saveUser($userData['id'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
 			}
 		}
 	}
@@ -151,10 +159,7 @@ class Fax implements BMO {
 	 * @param {array} $data    Array of data to be able to use
 	 */
 	public function usermanDelUser($id, $display, $data) {
-		$user = $this->FreePBX->Userman->getUserByID($id);
-		if($user['default_extension'] !== "none") {
-			$this->deleteUser($user['default_extension']);
-		}
+		$this->deleteUser($id);
 	}
 
 	/**
@@ -181,8 +186,8 @@ class Fax implements BMO {
 		$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'attachformat');
 
 		$user = $this->FreePBX->Userman->getUserByID($id);
-		if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
-			$this->saveUser($user['default_extension'],($enabled ? "true" : "false"),$user['email'],$attachformat);
+		if(!empty($user) && $display == "userman" && isset($_POST['faxenabled'])) {
+			$this->saveUser($id,($enabled ? "true" : "false"),$user['email'],$attachformat);
 		}
 	}
 
@@ -210,8 +215,8 @@ class Fax implements BMO {
 		$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'attachformat', 'enabled');
 
 		$user = $this->FreePBX->Userman->getUserByID($id);
-		if($user['default_extension'] !== "none" && $display == "userman" && isset($_POST['faxenabled'])) {
-			$this->saveUser($user['default_extension'],($enabled ? "true" : "false"),$user['email'],$attachformat);
+		if(!empty($user) && $display == "userman" && isset($_POST['faxenabled'])) {
+			$this->saveUser($id,($enabled ? "true" : "false"),$user['email'],$attachformat);
 		}
 	}
 
