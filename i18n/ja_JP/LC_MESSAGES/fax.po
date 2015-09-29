@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 12:58-0700\n"
+"POT-Creation-Date: 2015-09-29 14:17-0700\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -112,6 +112,10 @@ msgstr ""
 #: Fax.class.php:408
 msgid "Attempt to detect faxes on this DID."
 msgstr "このダイヤルインでfax検知を試みる。"
+
+#: install.php:324
+msgid "Auto generated migrated user for Fax"
+msgstr ""
 
 #: views/fax.php:59
 msgid "Both"

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 12:58-0700\n"
+"POT-Creation-Date: 2015-09-29 14:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,6 +76,10 @@ msgstr ""
 
 #: Fax.class.php:408
 msgid "Attempt to detect faxes on this DID."
+msgstr ""
+
+#: install.php:324
+msgid "Auto generated migrated user for Fax"
 msgstr ""
 
 #: views/fax.php:59

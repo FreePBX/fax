@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 12:58-0700\n"
+"POT-Creation-Date: 2015-09-29 14:17-0700\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -81,6 +81,10 @@ msgstr ""
 
 #: Fax.class.php:408
 msgid "Attempt to detect faxes on this DID."
+msgstr ""
+
+#: install.php:324
+msgid "Auto generated migrated user for Fax"
 msgstr ""
 
 #: views/fax.php:59

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 12:58-0700\n"
+"POT-Creation-Date: 2015-09-29 14:17-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
 "Language-Team: \n"
@@ -93,6 +93,10 @@ msgstr ""
 #: Fax.class.php:408
 msgid "Attempt to detect faxes on this DID."
 msgstr "Essayer de détecter les fax sur ce SDA."
+
+#: install.php:324
+msgid "Auto generated migrated user for Fax"
+msgstr ""
 
 #: views/fax.php:59
 msgid "Both"
