@@ -100,7 +100,7 @@ function fax_destinations(){
 	global $module_page;
 
 	foreach (fax_get_destinations() as $row) {
-		$extens[] = array('destination' => 'ext-fax,' . $row['user'] . ',1', 'description' => $row['name'].' ('.$row['user'].')', 'category' => _('Fax Recipient'));
+		$extens[] = array('destination' => 'ext-fax,' . $row['user'] . ',1', 'description' => $row['name'].' ('.$row['uname'].')', 'category' => _('Fax Recipient'));
 	}
 	return isset($extens)?$extens:null;
 }
@@ -325,10 +325,16 @@ function fax_get_config($engine){
 
 function fax_get_destinations(){
 	global $db;
-	$sql = "SELECT fax_users.user,fax_users.faxemail,users.name,fax_users.faxattachformat FROM fax_users, users where fax_users.faxenabled = 'true' and users.extension = fax_users.user ORDER BY fax_users.user";
+	$sql = "SELECT fax_users.user,fax_users.faxemail,fax_users.faxattachformat FROM fax_users where fax_users.faxenabled = 'true' ORDER BY fax_users.user";
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
 		die_freepbx($results->getMessage()."<br><br>Error selecting from fax");
+	}
+	foreach($results as &$res) {
+		$o = \FreePBX::Userman()->getUserByDefaultExtension($res['user']);
+		$res['uname'] = $o['username'];
+		$res['name'] = !empty($o['displayname']) ? $o['displayname'] : $o['fname'] . " " . $o['lname'];
+		$res['name'] = !empty($res['name']) ? $res['name'] : $o['username'];
 	}
 	return $results;
 }
