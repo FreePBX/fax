@@ -555,7 +555,9 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 				dbug('gs not found, not converting ' . $in);
 				return $in;
 			}
-			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -g1728x1145 -r209x98 ';
+			$res = isset($opts['res']) ? $opts['res'] : "209x98";
+			$size = isset($opts['size']) ? $opts['size'] : "1728x1145";
+			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -g'.$size.' -r'.$res.' ';
 			break;
 		case 'tif2pdf':
 			$tiff2pdf = fpbx_which('tiff2pdf');
