@@ -333,14 +333,14 @@ if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
           \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','attachformat',$res['faxattachformat']);
           \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','migrate',true);
         } else {
-          out(sprintf(_("Unable to migrate %s, deleting. Please check your inbound faxes"),$res['user']));
+          out(sprintf(_("Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' destinations"),$res['user'],$user['message']));
           $sql = "DELETE FROM fax_users WHERE user = ?";
           $sth = \FreePBX::Database()->prepare($sql);
           $sth->execute(array($res['user']));
           continue;
         }
       } catch(\Exception $e) {
-        out(sprintf(_("Unable to migrate %s, deleting. Please check your inbound faxes"),$res['user']));
+        out(sprintf(_("Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' destinations"),$res['user'],$e->getMessage()));
         $sql = "DELETE FROM fax_users WHERE user = ?";
         $sth = \FreePBX::Database()->prepare($sql);
         $sth->execute(array($res['user']));
@@ -362,4 +362,7 @@ if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
   }
   \FreePBX::Fax()->setConfig("usermanMigrateArray",$ma);
   \FreePBX::Fax()->setConfig("usermanMigrate",true);
+
+  $nt = notifications::create();
+  $nt->add_critical("fax", "usermanMigrate", _("Inbound Fax Destination Change"), _("Inbound faxes now use User Manager users. Therefore you will need to re-assign all of your destinations that used 'Fax Recipients' to point to User Manager users. You may see broken destinations until this is resolved"), "", true, true);
 }
