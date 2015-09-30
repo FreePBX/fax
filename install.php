@@ -359,10 +359,9 @@ if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
   }
   if(!empty($results)) {
     out(_("Finished Migrating fax users to usermanager"));
+    $nt = notifications::create();
+    $nt->add_critical("fax", "usermanMigrate", _("Inbound Fax Destination Change"), _("Inbound faxes now use User Manager users. Therefore you will need to re-assign all of your destinations that used 'Fax Recipients' to point to User Manager users. You may see broken destinations until this is resolved"), "", true, true);
   }
   \FreePBX::Fax()->setConfig("usermanMigrateArray",$ma);
   \FreePBX::Fax()->setConfig("usermanMigrate",true);
-
-  $nt = notifications::create();
-  $nt->add_critical("fax", "usermanMigrate", _("Inbound Fax Destination Change"), _("Inbound faxes now use User Manager users. Therefore you will need to re-assign all of your destinations that used 'Fax Recipients' to point to User Manager users. You may see broken destinations until this is resolved"), "", true, true);
 }

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-30 09:49-0700\n"
+"POT-Creation-Date: 2015-09-30 12:03-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
 "Language-Team: \n"
@@ -283,10 +283,21 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
+#: install.php:363
+msgid "Inbound Fax Destination Change"
+msgstr ""
+
 #: functions.inc.php:60
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Détection Fax entrant : %s (%s)"
+
+#: install.php:363
+msgid ""
+"Inbound faxes now use User Manager users. Therefore you will need to re-"
+"assign all of your destinations that used 'Fax Recipients' to point to User "
+"Manager users. You may see broken destinations until this is resolved"
+msgstr ""
 
 #: views/fax.php:32
 msgid "Inherit"
@@ -497,7 +508,9 @@ msgstr "Type de détection de fax à utiliser"
 
 #: install.php:336 /usr/src/freepbx/fax/install.php:343
 #, php-format
-msgid "Unable to migrate %s, deleting. Please check your inbound faxes"
+msgid ""
+"Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
+"destinations"
 msgstr ""
 
 #: install.php:85
