@@ -319,17 +319,31 @@ if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
     die_freepbx($results->getMessage()."<br><br>Error selecting from fax");
   }
   $ma = array();
+  if(!empty($results)) {
+    out(_("Migrating all fax users to usermanager"));
+  }
   foreach($results as $res) {
     $o = \FreePBX::Userman()->getUserByDefaultExtension($res['user']);
     if(empty($o)) {
       //migrate and add for upgrades
-      $user = \FreePBX::Userman()->addUser($res['user'], bin2hex(openssl_random_pseudo_bytes(4)), $res['user'], _("Auto generated migrated user for Fax"), array("email" => $res['faxemail']));
-      if($user['status']) {
-        \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','enabled',($res['faxenabled'] == "true"));
-        \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','attachformat',$res['faxattachformat']);
-        \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','migrate',true);
-      } else {
-        //TODO: Unable to migrate some what do we do here??
+      try {
+        $user = \FreePBX::Userman()->addUser($res['user'], bin2hex(openssl_random_pseudo_bytes(4)), $res['user'], _("Auto generated migrated user for Fax"), array("email" => $res['faxemail']));
+        if($user['status']) {
+          \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','enabled',($res['faxenabled'] == "true"));
+          \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','attachformat',$res['faxattachformat']);
+          \FreePBX::Userman()->setModuleSettingByID($user['id'],'fax','migrate',true);
+        } else {
+          out(sprintf(_("Unable to migrate %s, deleting. Please check your inbound faxes"),$res['user']));
+          $sql = "DELETE FROM fax_users WHERE user = ?";
+          $sth = \FreePBX::Database()->prepare($sql);
+          $sth->execute(array($res['user']));
+          continue;
+        }
+      } catch(\Exception $e) {
+        out(sprintf(_("Unable to migrate %s, deleting. Please check your inbound faxes"),$res['user']));
+        $sql = "DELETE FROM fax_users WHERE user = ?";
+        $sth = \FreePBX::Database()->prepare($sql);
+        $sth->execute(array($res['user']));
         continue;
       }
       $o = $user;
@@ -342,6 +356,9 @@ if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
     $sql = "UPDATE fax_incoming SET destination = ? WHERE destination = ?";
     $sth = \FreePBX::Database()->prepare($sql);
     $sth->execute(array("ext-fax,".$o['id'].",1","ext-fax,".$res['user'].",1"));
+  }
+  if(!empty($results)) {
+    out(_("Finished Migrating fax users to usermanager"));
   }
   \FreePBX::Fax()->setConfig("usermanMigrateArray",$ma);
   \FreePBX::Fax()->setConfig("usermanMigrate",true);

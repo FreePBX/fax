@@ -4,7 +4,6 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		if ($freepbx == null) {
 			throw new Exception("Not given a FreePBX Object");
 		}
-
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 		$this->userman = $freepbx->Userman;
