@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-30 12:03-0700\n"
+"POT-Creation-Date: 2015-10-01 10:05-0700\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -33,12 +33,12 @@ msgstr ""
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: Fax.class.php:469
+#: Fax.class.php:468
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr "传真检测，要求faxdetect 设置成 incoming 或者 both"
 
-#: Fax.class.php:411
+#: Fax.class.php:410
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -58,7 +58,7 @@ msgstr ""
 msgid "A4"
 msgstr ""
 
-#: Fax.class.php:533
+#: Fax.class.php:532
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Attachment Format"
 msgstr ""
 
-#: Fax.class.php:412
+#: Fax.class.php:411
 msgid "Attempt to detect faxes on this DID."
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr "检查失败的合并"
 msgid "Checking if legacy fax needs migrating.."
 msgstr "检查如果旧的传真需要合并"
 
-#: Fax.class.php:404 Fax.class.php:486
+#: Fax.class.php:403 Fax.class.php:485
 msgid "Dahdi"
 msgstr "dahdi通道"
 
@@ -115,7 +115,7 @@ msgstr "默认终端"
 msgid "Default Paper Size"
 msgstr ""
 
-#: Fax.class.php:448
+#: Fax.class.php:447
 msgid "Detect Faxes"
 msgstr "检测传真"
 
@@ -187,31 +187,31 @@ msgid ""
 "\t\t\t to use ecm mode or not."
 msgstr ""
 
-#: Fax.class.php:88 Fax.class.php:103 Fax.class.php:605
+#: Fax.class.php:88 Fax.class.php:103 Fax.class.php:604
 msgid "Fax"
 msgstr "传真"
 
-#: Fax.class.php:623
+#: Fax.class.php:622
 msgid "Fax Attach Format"
 msgstr ""
 
-#: Fax.class.php:624
+#: Fax.class.php:623
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
 msgstr ""
 
-#: Fax.class.php:570
+#: Fax.class.php:569
 msgid "Fax Destination"
 msgstr "传真目的地"
 
-#: Fax.class.php:514
+#: Fax.class.php:513
 msgid "Fax Detection Time"
 msgstr "传真检测时间"
 
-#: Fax.class.php:481
+#: Fax.class.php:480
 msgid "Fax Detection type"
 msgstr "传真检测格式"
 
-#: Fax.class.php:619 Fax.class.php:620
+#: Fax.class.php:618 Fax.class.php:619
 msgid "Fax Enabled"
 msgstr ""
 
@@ -255,7 +255,7 @@ msgid ""
 "person or entity sending the fax."
 msgstr ""
 
-#: Fax.class.php:505
+#: Fax.class.php:504
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -282,11 +282,11 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: Fax.class.php:437
+#: Fax.class.php:436
 msgid "Legacy"
 msgstr ""
 
-#: Fax.class.php:417
+#: Fax.class.php:416
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -334,13 +334,13 @@ msgstr ""
 msgid "Moving simu_fax feature code from core.."
 msgstr ""
 
-#: Fax.class.php:471
+#: Fax.class.php:470
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
 msgstr ""
 
-#: Fax.class.php:488
+#: Fax.class.php:487
 msgid "NVFax"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:434 views/fax.php:29 views/form.php:39 views/form.php:177
+#: Fax.class.php:433 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:12
 msgid "No"
 msgstr "否"
@@ -362,12 +362,12 @@ msgstr "否"
 msgid "No Inbound Routes to migrate"
 msgstr "无呼入路由合并"
 
-#: Fax.class.php:422
+#: Fax.class.php:421
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 
-#: Fax.class.php:414
+#: Fax.class.php:413
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination below. Use this option if this DID is used exclusively for voice "
@@ -404,11 +404,11 @@ msgstr "从呼入的列表中移动值 %s"
 msgid "Removing old globals.."
 msgstr ""
 
-#: Fax.class.php:370
+#: Fax.class.php:369
 msgid "Reset"
 msgstr ""
 
-#: Fax.class.php:490
+#: Fax.class.php:489
 msgid "SIP"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: Fax.class.php:470
+#: Fax.class.php:469
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -429,7 +429,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr ""
 
-#: Fax.class.php:365
+#: Fax.class.php:364
 msgid "Submit"
 msgstr "提交"
 
@@ -461,7 +461,7 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-#: Fax.class.php:467
+#: Fax.class.php:466
 msgid "Type of fax detection to use."
 msgstr "被使用的传真检测格式"
 
@@ -500,16 +500,16 @@ msgid ""
 "to be generated here."
 msgstr ""
 
-#: Fax.class.php:561
+#: Fax.class.php:560
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:435 views/fax.php:28 views/form.php:37 views/form.php:175
+#: Fax.class.php:434 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr "是"
 
-#: Fax.class.php:415
+#: Fax.class.php:414
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -528,7 +528,7 @@ msgid ""
 "break faxing"
 msgstr ""
 
-#: Fax.class.php:404
+#: Fax.class.php:403
 msgid "Zaptel"
 msgstr "zaptel通道"
 
@@ -584,7 +584,7 @@ msgstr "开始合并"
 msgid "unknown error"
 msgstr "不清楚的错误"
 
-#: Fax.class.php:469
+#: Fax.class.php:468
 msgid "use "
 msgstr "：使用"
 
