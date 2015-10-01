@@ -556,8 +556,8 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 				return $in;
 			}
 			$res = isset($opts['res']) ? $opts['res'] : "204x98";
-			$size = isset($opts['size']) ? $opts['size'] : "1728x1145";
-			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -g'.$size.' -r'.$res.' ';
+			//http://www.soft-switch.org/spandsp_faq/ar01s14.html
+			$gs = $gs . ' -q -dNOPAUSE -dBATCH -dAutoRotatePages=/All -dFIXEDMEDIA -dPDFFitPage -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dCompatibilityLevel=1.4 -r'.$res.' ';
 			break;
 		case 'tif2pdf':
 			$tiff2pdf = fpbx_which('tiff2pdf');
