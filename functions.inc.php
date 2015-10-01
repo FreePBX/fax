@@ -555,7 +555,7 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 				dbug('gs not found, not converting ' . $in);
 				return $in;
 			}
-			$res = isset($opts['res']) ? $opts['res'] : "209x98";
+			$res = isset($opts['res']) ? $opts['res'] : "204x98";
 			$size = isset($opts['size']) ? $opts['size'] : "1728x1145";
 			$gs = $gs . ' -q -dNOPAUSE -dBATCH -sPAPERSIZE=a4 -g'.$size.' -r'.$res.' ';
 			break;
