@@ -659,4 +659,17 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 
 		return $data;
 	}
+
+	/**
+	 * Chown hook for freepbx fwconsole
+	 */
+	public function chownFreepbx() {
+		$webroot = \FreePBX::Config()->get('AMPWEBROOT');
+		$modulebindir = $webroot . '/admin/modules/fax/bin/';
+		$files = array();
+		$files[] = array('type' => 'file',
+												'path' => $modulebindir.'fax2mail.php',
+												'perms' => 0755);
+		return $files;
+	}
 }
