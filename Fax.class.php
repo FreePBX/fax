@@ -93,19 +93,21 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 				break;
 				case 'adduser':
 				case 'showuser':
-					$user = $this->userman->getUserByID($_REQUEST['user']);
-					if(!empty($user)) {
-						$fax = $this->getUser($user['id']);
-						$enabled = $this->userman->getModuleSettingByID($_REQUEST['user'],'fax','enabled',true);
-						$attachformat = $this->userman->getModuleSettingByID($_REQUEST['user'],'fax','attachformat',true);
-						return array(
-							array(
-								"title" => _("Fax"),
-								"rawname" => "fax",
-								"content" => load_view(__DIR__.'/views/fax.php',array("mode" => "user", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
-							)
-						);
+					if(isset($_REQUEST['user'])) {
+						$user = $this->userman->getUserByID($_REQUEST['user']);
+						$enabled = $this->userman->getModuleSettingByID($user['id'],'fax','enabled',true);
+						$attachformat = $this->userman->getModuleSettingByID($user['id'],'fax','attachformat',true);
+					} else {
+						$enabled = null;
+						$attachformat = 'pdf';
 					}
+					return array(
+						array(
+							"title" => _("Fax"),
+							"rawname" => "fax",
+							"content" => load_view(__DIR__.'/views/fax.php',array("mode" => "user", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
+						)
+					);
 				break;
 			}
 			return array();
