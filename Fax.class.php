@@ -116,7 +116,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		foreach($data['users'] as $user) {
 			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
-			$userData = $this->userman->getUserByID($user['id']);
+			$userData = $this->userman->getUserByID($user);
 			if(!empty($userData) && $display == "userman") {
 				$this->saveUser($userData['id'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
 			}
@@ -144,7 +144,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		foreach($group['users'] as $user) {
 			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
-			$userData = $this->userman->getUserByID($user['id']);
+			$userData = $this->userman->getUserByID($user);
 			if(!empty($userData) && $display == "userman") {
 				$this->saveUser($userData['id'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
 			}
