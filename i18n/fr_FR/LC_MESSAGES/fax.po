@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-02 09:51-0700\n"
+"POT-Creation-Date: 2015-10-05 15:40-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
 "Language-Team: \n"
@@ -303,6 +303,10 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
+#: functions.inc.php:350
+msgid "Invalid Email for Inbound Fax"
+msgstr ""
+
 #: Fax.class.php:438
 msgid "Legacy"
 msgstr ""
@@ -399,12 +403,9 @@ msgstr ""
 #: Fax.class.php:415
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
-"destination below. Use this option if this DID is used exclusively for voice "
-"OR fax."
+"destination set in the 'General' tab. Use this option if this DID is used "
+"exclusively for voice OR fax."
 msgstr ""
-"Non, Ne pas déterminer automatiquement le type d'appel; tous les appels sont "
-"envoyés à la destination paramétrée en dessous. Utiliser cette option si ce "
-"SDA est utilisé uniquement pour la voix ou pour les fax"
 
 #: bin/fax2mail.php:71
 msgid "On"
@@ -516,6 +517,13 @@ msgstr ""
 #: install.php:85
 msgid "Updating simu_fax in miscdest table.."
 msgstr "Mise à jour de simu_fax dans la table miscdest.."
+
+#: functions.inc.php:350
+#, php-format
+msgid ""
+"User Manager users '%s' have the ability to receive faxes but have no email "
+"address defined so they will not be able to receive faxes."
+msgstr ""
 
 #: bin/fax2mail.php:72
 msgid "Via"
@@ -636,6 +644,15 @@ msgstr "erreur inconnue"
 #: Fax.class.php:470
 msgid "use "
 msgstr "utiliser "
+
+#~ msgid ""
+#~ "No: No attempts are made to auto-determine the call type; all calls sent "
+#~ "to destination below. Use this option if this DID is used exclusively for "
+#~ "voice OR fax."
+#~ msgstr ""
+#~ "Non, Ne pas déterminer automatiquement le type d'appel; tous les appels "
+#~ "sont envoyés à la destination paramétrée en dessous. Utiliser cette "
+#~ "option si ce SDA est utilisé uniquement pour la voix ou pour les fax"
 
 #~ msgid "Always Allow Legacy Mode"
 #~ msgstr "Toujours autoriser le mode héritage"

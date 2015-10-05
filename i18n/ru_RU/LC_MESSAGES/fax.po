@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-02 09:51-0700\n"
+"POT-Creation-Date: 2015-10-05 15:40-0700\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -321,6 +321,10 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
+#: functions.inc.php:350
+msgid "Invalid Email for Inbound Fax"
+msgstr ""
+
 #: Fax.class.php:438
 msgid "Legacy"
 msgstr "Устаревший"
@@ -419,12 +423,9 @@ msgstr ""
 #: Fax.class.php:415
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
-"destination below. Use this option if this DID is used exclusively for voice "
-"OR fax."
+"destination set in the 'General' tab. Use this option if this DID is used "
+"exclusively for voice OR fax."
 msgstr ""
-"Нет: не будет попыток автораспознавания типа звонка; всё будет "
-"перенаправлено по назначению ниже. Используйте эту опцию в том случае, если "
-"этот DID используется исключительно для голоса ИЛИ факса."
 
 #: bin/fax2mail.php:71
 msgid "On"
@@ -533,6 +534,13 @@ msgstr ""
 #: install.php:85
 msgid "Updating simu_fax in miscdest table.."
 msgstr "Обновляется simu_fax в таблице miscdest.."
+
+#: functions.inc.php:350
+#, php-format
+msgid ""
+"User Manager users '%s' have the ability to receive faxes but have no email "
+"address defined so they will not be able to receive faxes."
+msgstr ""
 
 #: bin/fax2mail.php:72
 msgid "Via"
@@ -655,6 +663,15 @@ msgstr "неизвестная ошибка"
 #: Fax.class.php:470
 msgid "use "
 msgstr "использовать "
+
+#~ msgid ""
+#~ "No: No attempts are made to auto-determine the call type; all calls sent "
+#~ "to destination below. Use this option if this DID is used exclusively for "
+#~ "voice OR fax."
+#~ msgstr ""
+#~ "Нет: не будет попыток автораспознавания типа звонка; всё будет "
+#~ "перенаправлено по назначению ниже. Используйте эту опцию в том случае, "
+#~ "если этот DID используется исключительно для голоса ИЛИ факса."
 
 #~ msgid ""
 #~ "You are running Asterisk 13 which does NOT support Fax for Asterisk. If "

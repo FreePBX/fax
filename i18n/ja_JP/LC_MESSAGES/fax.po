@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-02 09:51-0700\n"
+"POT-Creation-Date: 2015-10-05 15:40-0700\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -326,6 +326,10 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
+#: functions.inc.php:350
+msgid "Invalid Email for Inbound Fax"
+msgstr ""
+
 #: Fax.class.php:438
 msgid "Legacy"
 msgstr "レガシー"
@@ -421,12 +425,9 @@ msgstr "fax検知方法又は有効なライセンスが見つかりません。
 #: Fax.class.php:415
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
-"destination below. Use this option if this DID is used exclusively for voice "
-"OR fax."
+"destination set in the 'General' tab. Use this option if this DID is used "
+"exclusively for voice OR fax."
 msgstr ""
-"いいえ: コールタイプの自動決定に対して何の試みもおこなわない; 以下の宛先に送"
-"信される全てのコール。もしこのダイヤルイン番号が排他的に音声もしくはfaxに使用"
-"される場合にこのオプションを使用します。"
 
 #: bin/fax2mail.php:71
 msgid "On"
@@ -535,6 +536,13 @@ msgstr ""
 #: install.php:85
 msgid "Updating simu_fax in miscdest table.."
 msgstr "miscdestテーブル内のsimu_faxを更新中.."
+
+#: functions.inc.php:350
+#, php-format
+msgid ""
+"User Manager users '%s' have the ability to receive faxes but have no email "
+"address defined so they will not be able to receive faxes."
+msgstr ""
 
 #: bin/fax2mail.php:72
 msgid "Via"
@@ -654,6 +662,15 @@ msgstr "不明なエラー"
 #: Fax.class.php:470
 msgid "use "
 msgstr "使用"
+
+#~ msgid ""
+#~ "No: No attempts are made to auto-determine the call type; all calls sent "
+#~ "to destination below. Use this option if this DID is used exclusively for "
+#~ "voice OR fax."
+#~ msgstr ""
+#~ "いいえ: コールタイプの自動決定に対して何の試みもおこなわない; 以下の宛先に"
+#~ "送信される全てのコール。もしこのダイヤルイン番号が排他的に音声もしくはfax"
+#~ "に使用される場合にこのオプションを使用します。"
 
 #~ msgid "Always Allow Legacy Mode"
 #~ msgstr "常にレガシーモードを許可"
