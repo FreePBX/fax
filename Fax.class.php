@@ -412,7 +412,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 					alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }	}) });</script>';
 				$fdhelp = _("Attempt to detect faxes on this DID.");
 				$fdhelp .= '<ul>';
-				$fdhelp .= '<li>'._("No: No attempts are made to auto-determine the call type; all calls sent to destination below. Use this option if this DID is used exclusively for voice OR fax.").'</li>';
+				$fdhelp .= '<li>'._("No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax.").'</li>';
 				$fdhelp .= '<li>'._("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line").'</li>';
 				if($fax_settings['legacy_mode'] == 'yes' || $fax['legacy_email']!==null){
 		    		$fdhelp .= '<li>'._('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!').'</li>';

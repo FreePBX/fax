@@ -18,7 +18,7 @@ function fax_getdestinfo($dest) {
 			return array();
 		} else {
 			return array('description' => sprintf(_("Fax user %s"),$usr),
-			             'edit_url' => 'config.php?userman&action=showuser&user='.urlencode($usr),
+			             'edit_url' => 'config.php?display=userman&action=showuser&user='.urlencode($usr),
 								  );
 		}
 	} else {
@@ -58,7 +58,7 @@ function fax_check_destinations($dest=true) {
 		$destlist[] = array(
 			'dest' => $thisdest,
 			'description' => sprintf(_("Inbound Fax Detection: %s (%s)"),$result['description'],$thisid),
-			'edit_url' => 'config.php?userman&action=showuser&user='.urlencode($thisid),
+			'edit_url' => 'config.php?display=userman&action=showuser&user='.urlencode($thisid),
 		);
 	}
 	return $destlist;
@@ -330,15 +330,26 @@ function fax_get_destinations(){
 		die_freepbx($results->getMessage()."<br><br>Error selecting from fax");
 	}
 	$final = array();
+	$warning = array();
 	foreach($results as $res) {
 		$o = \FreePBX::Userman()->getUserByID($res['user']);
 		if(!empty($o)) {
+			if(empty($o['email'])) {
+				$warning[] = $o['username'];
+				continue;
+			}
 			$res['uname'] = $o['username'];
 			$res['name'] = !empty($o['displayname']) ? $o['displayname'] : $o['fname'] . " " . $o['lname'];
+			$res['name'] = trim($res['name']);
 			$res['name'] = !empty($res['name']) ? $res['name'] : $o['username'];
 			$final[] = $res;
 		}
-
+	}
+	$nt = \notifications::create();
+	if(!empty($warning)) {
+		$nt->add_warning("fax", "invalid_email", _("Invalid Email for Inbound Fax"), sprintf(_("User Manager users '%s' have the ability to receive faxes but have no email address defined so they will not be able to receive faxes."),implode(",",$warning)), "", true, true);
+	} else {
+		$nt->delete("fax", "invalid_email");
 	}
 	return $final;
 }

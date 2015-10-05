@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.20</version>
+	<version>13.0.21</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.21* FREEPBX-10427, FREEPBX-10414, multiple fax issues resolved
 		*13.0.20* Fix fax permissions
 		*13.0.19* FREEPBX-10410 fax tab missing when creating user
 		*13.0.18* FREEPBX-10412 error on extension create and delete
