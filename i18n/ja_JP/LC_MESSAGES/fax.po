@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-05 15:40-0700\n"
+"POT-Creation-Date: 2015-10-09 10:31-0700\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Fax user %s"
 msgstr "Fax ユーザー %s"
 
-#: install.php:361
+#: install.php:379
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
@@ -306,7 +306,7 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: install.php:363
+#: install.php:381
 msgid "Inbound Fax Destination Change"
 msgstr ""
 
@@ -315,7 +315,7 @@ msgstr ""
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "インバウンド Fax 検知： %s (%s)"
 
-#: install.php:363
+#: install.php:381
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
@@ -526,7 +526,8 @@ msgstr "送信するFAXのID。通常あなたのfax番号。"
 msgid "Type of fax detection to use."
 msgstr "使用されるfax検知タイプ"
 
-#: install.php:336 /usr/src/freepbx/fax/install.php:343
+#: install.php:336 /usr/src/freepbx/fax/install.php:343 install.php:357
+#: /usr/src/freepbx/fax/install.php:367
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "

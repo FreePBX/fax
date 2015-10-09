@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-05 15:40-0700\n"
+"POT-Creation-Date: 2015-10-09 10:31-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Fax user %s"
 msgstr ""
 
-#: install.php:361
+#: install.php:379
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: install.php:363
+#: install.php:381
 msgid "Inbound Fax Destination Change"
 msgstr ""
 
@@ -259,7 +259,7 @@ msgstr ""
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr ""
 
-#: install.php:363
+#: install.php:381
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
@@ -461,6 +461,7 @@ msgid "Type of fax detection to use."
 msgstr ""
 
 #: install.php:336 /usr/src/freepbx/fax/install.php:343
+#: install.php:357 /usr/src/freepbx/fax/install.php:367
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
