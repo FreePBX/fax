@@ -348,15 +348,33 @@ if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
       }
       $o = $user;
     }
-    $ma[$res['user']] = $o['id'];
+
     $sql = "UPDATE fax_users SET user = ? WHERE user = ?";
     $sth = \FreePBX::Database()->prepare($sql);
-    $sth->execute(array($o['id'],$res['user']));
+    try {
+      $sth->execute(array("a".$o['id'],$res['user']));
+    } catch(\Exception $e) {
+      out(sprintf(_("Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' destinations"),$res['user'],$e->getMessage()));
+      continue;
+    }
+    $ma[$res['user']] = $o['id'];
 
     $sql = "UPDATE fax_incoming SET destination = ? WHERE destination = ?";
     $sth = \FreePBX::Database()->prepare($sql);
-    $sth->execute(array("ext-fax,".$o['id'].",1","ext-fax,".$res['user'].",1"));
+    try {
+      $sth->execute(array("ext-fax,".$o['id'].",1","ext-fax,".$res['user'].",1"));
+    } catch(\Exception $e) {
+      out(sprintf(_("Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' destinations"),$res['user'],$e->getMessage()));
+      continue;
+    }
   }
+
+  foreach($ma as $faxuser => $usermanuser) {
+    $sql = "UPDATE fax_users SET user = ? WHERE user = ?";
+    $sth = \FreePBX::Database()->prepare($sql);
+    $sth->execute(array($usermanuser,"a".$usermanuser));
+  }
+
   if(!empty($results)) {
     out(_("Finished Migrating fax users to usermanager"));
     $nt = notifications::create();
