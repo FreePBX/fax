@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-09 10:31-0700\n"
-"PO-Revision-Date: 2015-10-11 01:00+0200\n"
+"PO-Revision-Date: 2015-10-11 13:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/>"
 "\n"
@@ -104,15 +104,15 @@ msgstr "شناسه پیشفرض ایستگاه محلی"
 
 #: views/form.php:250
 msgid "Default Paper Size"
-msgstr ""
+msgstr "اندازه پیشفرض کاغذ"
 
 #: Fax.class.php:449
 msgid "Detect Faxes"
-msgstr ""
+msgstr "تشخیص دورنگار"
 
 #: install.php:6
 msgid "Dial System FAX"
-msgstr ""
+msgstr "سیستم شماره گیری دورنگار"
 
 #: Fax.class.php:77
 msgid ""
@@ -131,7 +131,7 @@ msgstr ""
 
 #: views/form.php:146
 msgid "Email address"
-msgstr ""
+msgstr "آدرس ایمیل"
 
 #: views/form.php:134
 msgid ""
@@ -149,28 +149,28 @@ msgstr ""
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
-msgstr ""
+msgstr "فعال سازی دورنگار"
 
 #: views/fax.php:42
 msgid "Enable this user to receive faxes"
-msgstr ""
+msgstr "دریافت دورنگار را برای کاربر فعال کن"
 
 #: views/fax.php:23
 msgid "Enabled"
-msgstr ""
+msgstr "فعال"
 
 #: bin/fax2mail.php:67
 msgid "Enclosed, please find a new fax"
-msgstr ""
+msgstr "محصور, یک دورنگار جدید پیدا کنید"
 
 #: bin/fax2mail.php:65
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
-msgstr ""
+msgstr "محصور, لطفا یک دورنگار جدید پیدا کنید از：%s"
 
 #: views/form.php:170
 msgid "Error Correction Mode"
-msgstr ""
+msgstr "حالت تصحیح خطا"
 
 #: views/form.php:185
 msgid ""
@@ -180,43 +180,43 @@ msgstr ""
 
 #: Fax.class.php:88 Fax.class.php:106 Fax.class.php:606
 msgid "Fax"
-msgstr ""
+msgstr "دورنگار"
 
 #: Fax.class.php:624
 msgid "Fax Attach Format"
-msgstr ""
+msgstr "فرمت ضمیمه دورنگار"
 
 #: Fax.class.php:625
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
-msgstr ""
+msgstr "فرمت ضمیمه دورنگار (pdf,tif)"
 
 #: Fax.class.php:571
 msgid "Fax Destination"
-msgstr ""
+msgstr "مقصد دورنگار"
 
 #: Fax.class.php:515
 msgid "Fax Detection Time"
-msgstr ""
+msgstr "زمان تشخیص دورنگار"
 
 #: Fax.class.php:482
 msgid "Fax Detection type"
-msgstr ""
+msgstr "تشخیص نوع دورنگار"
 
 #: Fax.class.php:620 Fax.class.php:621
 msgid "Fax Enabled"
-msgstr ""
+msgstr "دورنگار فعال"
 
 #: page.fax.php:9
 msgid "Fax Options"
-msgstr ""
+msgstr "گزینه های دورنگار"
 
 #: functions.inc.php:102
 msgid "Fax Recipient"
-msgstr ""
+msgstr "گیرنده دورنگار"
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
-msgstr ""
+msgstr "درایورهای دورنگار پشتیبانی شده با این ماژول ："
 
 #: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
@@ -225,7 +225,7 @@ msgstr ""
 #: functions.inc.php:20
 #, php-format
 msgid "Fax user %s"
-msgstr ""
+msgstr "دورنگار کاربر %s"
 
 #: install.php:379
 msgid "Finished Migrating fax users to usermanager"
@@ -233,7 +233,7 @@ msgstr ""
 
 #: bin/fax2mail.php:74
 msgid "For extension"
-msgstr ""
+msgstr "داخلی دورنگار"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
@@ -290,11 +290,11 @@ msgstr ""
 
 #: views/form.php:255
 msgid "Letter"
-msgstr ""
+msgstr "نامه"
 
 #: views/form.php:198
 msgid "Maximum transfer rate"
-msgstr ""
+msgstr "بیشترین امتیاز انتقال"
 
 #: views/form.php:212
 msgid "Maximum transfer rate used during fax rate negotiation."
