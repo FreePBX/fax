@@ -10,37 +10,44 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-09 10:31-0700\n"
-"PO-Revision-Date: 2015-10-09 10:31-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-10-11 01:00+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/>"
+"\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: Fax.class.php:470
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
+" تشخیص دورنگار؛ ملزومات 'faxdetect='باید تنظیم شود 'ورودی' یا 'هر دو' در "
 
 #: Fax.class.php:412
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
 msgstr ""
+"\"شما تشخیص دورنگار را برای این مسیر تنطیم کرده اید.لطفا یک مقصد برای تشخیص "
+"دورنگار تعیین کنید.\""
 
 #: install.php:263
 #, php-format
 msgid "%s FAX Migrations Failed"
-msgstr ""
+msgstr "%s جابجایی دورنگار ناموفق"
 
 #: install.php:264
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
-msgstr ""
+msgstr "%s جابجایی دورنگار ناموفق.برای توضیح بیشتر به پنل هشدارها بروید"
 
 #: views/form.php:257
 msgid "A4"
-msgstr ""
+msgstr "A4"
 
 #: Fax.class.php:534
 msgid ""
@@ -57,43 +64,43 @@ msgstr ""
 
 #: views/form.php:32
 msgid "Always Generate Detection Code"
-msgstr ""
+msgstr "تولید همیشگی کد تشخیص"
 
 #: views/fax.php:52
 msgid "Attachment Format"
-msgstr ""
+msgstr "فرمت پیوست"
 
 #: Fax.class.php:413
 msgid "Attempt to detect faxes on this DID."
-msgstr ""
+msgstr "تلاش برای تشخیص دورنگار در این داخلی مستقیم."
 
 #: install.php:330
 msgid "Auto generated migrated user for Fax"
-msgstr ""
+msgstr "جابجایی خودکار کاربر برای دورنگار"
 
 #: views/fax.php:59
 msgid "Both"
-msgstr ""
+msgstr "هردو"
 
 #: install.php:254
 msgid "Checking for failed migrations.."
-msgstr ""
+msgstr "بررسی برای جابجایی ناموفق.."
 
 #: install.php:132
 msgid "Checking if legacy fax needs migrating.."
-msgstr ""
+msgstr "بررسی جابجایی دورنگار در صورت نیاز.."
 
 #: Fax.class.php:405 Fax.class.php:487
 msgid "Dahdi"
-msgstr ""
+msgstr "Dahdi"
 
 #: views/form.php:74
 msgid "Default Fax header"
-msgstr ""
+msgstr "سربرگ پیشفرض دورنگار"
 
 #: views/form.php:98
 msgid "Default Local Station Identifier"
-msgstr ""
+msgstr "شناسه پیشفرض ایستگاه محلی"
 
 #: views/form.php:250
 msgid "Default Paper Size"
