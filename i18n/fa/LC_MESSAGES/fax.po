@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 10:31-0700\n"
+"POT-Creation-Date: 2015-12-09 13:49-0800\n"
 "PO-Revision-Date: 2015-10-11 13:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/>"
-"\n"
-"Language: fa\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -60,6 +60,10 @@ msgid ""
 "submit, this route will be upgraded. This Legacy option will no longer be "
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
+msgstr ""
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr ""
 
 #: views/form.php:32
@@ -190,6 +194,10 @@ msgstr "فرمت ضمیمه دورنگار"
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
 msgstr "فرمت ضمیمه دورنگار (pdf,tif)"
 
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr ""
+
 #: Fax.class.php:571
 msgid "Fax Destination"
 msgstr "مقصد دورنگار"
@@ -231,9 +239,9 @@ msgstr "دورنگار کاربر %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:74
-msgid "For extension"
-msgstr "داخلی دورنگار"
+#: bin/fax2mail.php:82
+msgid "For User"
+msgstr ""
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
@@ -414,6 +422,10 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+msgid "Settings"
+msgstr ""
+
 #: Fax.class.php:471
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -590,3 +602,6 @@ msgstr ""
 #: Fax.class.php:470
 msgid "use "
 msgstr ""
+
+#~ msgid "For extension"
+#~ msgstr "داخلی دورنگار"

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 10:31-0700\n"
+"POT-Creation-Date: 2015-12-09 13:49-0800\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -100,6 +100,10 @@ msgstr ""
 "アップグレードされます。このレガシーオプションは変更後は利用できません、前の"
 "バージョンのFreePBXからのレガシー移行をサポートするためにだけ提供されていま"
 "す。"
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
 
 #: views/form.php:32
 msgid "Always Generate Detection Code"
@@ -241,6 +245,10 @@ msgstr ""
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
 msgstr ""
 
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Fax設定"
+
 #: Fax.class.php:571
 msgid "Fax Destination"
 msgstr "Fax宛先"
@@ -282,8 +290,8 @@ msgstr "Fax ユーザー %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:74
-msgid "For extension"
+#: bin/fax2mail.php:82
+msgid "For User"
 msgstr ""
 
 #: views/fax.php:68
@@ -473,6 +481,10 @@ msgid ""
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
 msgstr ""
+
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+msgid "Settings"
+msgstr "設定"
 
 #: Fax.class.php:471
 msgid ""
@@ -722,9 +734,6 @@ msgstr "使用"
 #~ "注意してください。(すなわちシステムはコールに応答せずに、リング音だけ再生"
 #~ "します。)"
 
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
-
 #~ msgid "Default Recipient Email address:"
 #~ msgstr "デフォルト受信 Eメールアドレス："
 
@@ -752,9 +761,6 @@ msgstr "使用"
 #~ "delivered."
 #~ msgstr ""
 #~ "この内線に送信されたfaxが配送されるEメールアドレスを入力してください。"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Fax設定"
 
 #~ msgid "Fax Detect"
 #~ msgstr "Fax検知"
@@ -793,9 +799,6 @@ msgstr "使用"
 #~ "付けられたインスタンスへfaxをルーティングすることを回避することができま"
 #~ "す。これは、Asteriskの内部的な機能で実装することができ、また物理的なfax装"
 #~ "置のように外部の内線を使用することができます。"
-
-#~ msgid "Settings"
-#~ msgstr "設定"
 
 #~ msgid "Where to send the call if we detect that its a fax"
 #~ msgstr "faxを検出した際にコールを送信する宛先"

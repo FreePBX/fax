@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 10:31-0700\n"
+"POT-Creation-Date: 2015-12-09 13:49-0800\n"
 "PO-Revision-Date: 2014-07-22 15:38+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/fax/bg/>\n"
@@ -53,6 +53,10 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "Предоставя възможност за настройки, опции и GUI на входящи факсове"
 
 #: views/form.php:32
 msgid "Always Generate Detection Code"
@@ -182,6 +186,10 @@ msgstr ""
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
 msgstr ""
 
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Факс Настройки"
+
 #: Fax.class.php:571
 msgid "Fax Destination"
 msgstr ""
@@ -223,8 +231,8 @@ msgstr "Факс потребител %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:74
-msgid "For extension"
+#: bin/fax2mail.php:82
+msgid "For User"
 msgstr ""
 
 #: views/fax.php:68
@@ -406,6 +414,10 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+msgid "Settings"
+msgstr "Настройки"
+
 #: Fax.class.php:471
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -582,12 +594,3 @@ msgstr ""
 #: Fax.class.php:470
 msgid "use "
 msgstr ""
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "Предоставя възможност за настройки, опции и GUI на входящи факсове"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Факс Настройки"
-
-#~ msgid "Settings"
-#~ msgstr "Настройки"

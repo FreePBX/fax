@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 10:31-0700\n"
+"POT-Creation-Date: 2015-12-09 13:49-0800\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -88,6 +88,10 @@ msgstr ""
 "укажите назначение. После подтверждения изменений в вэб интерфейсе этот "
 "маршрут будет обновлён. Эта устаревшая опция не будет больше доступна после "
 "изменений. Она служит только для миграции с предыдущих версий FreePBX."
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "Добавить конфигурацию, опции и интерфейс для входящих факсов"
 
 #: views/form.php:32
 msgid "Always Generate Detection Code"
@@ -233,6 +237,10 @@ msgstr ""
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
 msgstr ""
 
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Конфигурация факса"
+
 #: Fax.class.php:571
 msgid "Fax Destination"
 msgstr "Назначение факса"
@@ -274,8 +282,8 @@ msgstr "Пользватель факса %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:74
-msgid "For extension"
+#: bin/fax2mail.php:82
+msgid "For User"
 msgstr ""
 
 #: views/fax.php:68
@@ -471,6 +479,10 @@ msgid ""
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
 msgstr ""
+
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+msgid "Settings"
+msgstr "Настройки"
 
 #: Fax.class.php:471
 msgid ""
@@ -688,9 +700,6 @@ msgstr "использовать "
 #~ "слышать гудки вызова всё это время (то есть система делает \"answer\" на "
 #~ "входящий звонок и просто даёт гудки вызова (КПВ) всё это время."
 
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "Добавить конфигурацию, опции и интерфейс для входящих факсов"
-
 #~ msgid "Always Allow Legacy Mode"
 #~ msgstr "Всегда использовать устаревший режим"
 
@@ -750,9 +759,6 @@ msgstr "использовать "
 #~ msgstr ""
 #~ "Введите адрес эл. почты, на который будут пересылаться посланные "
 #~ "факсимильные сообщения."
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Конфигурация факса"
 
 #~ msgid "Fax Detect"
 #~ msgstr "Детектировать факс"
@@ -826,9 +832,6 @@ msgstr "использовать "
 #~ "маршрутизировать факсы на этот объект, ассоциированное с этой "
 #~ "реализацией. Это может быть сам Астериск или какой-либо внутренний номер "
 #~ "с подключенной физической факсимильной машиной."
-
-#~ msgid "Settings"
-#~ msgstr "Настройки"
 
 #~ msgid "Sip"
 #~ msgstr "SIP"

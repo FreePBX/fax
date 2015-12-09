@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 10:31-0700\n"
+"POT-Creation-Date: 2015-12-09 13:49-0800\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -70,6 +70,10 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "为呼入传真增加设置，选项，界面"
 
 #: views/form.php:32
 msgid "Always Generate Detection Code"
@@ -199,6 +203,10 @@ msgstr ""
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
 msgstr ""
 
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "传真设置"
+
 #: Fax.class.php:571
 msgid "Fax Destination"
 msgstr "传真目的地"
@@ -240,8 +248,8 @@ msgstr "传真用户 %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:74
-msgid "For extension"
+#: bin/fax2mail.php:82
+msgid "For User"
 msgstr ""
 
 #: views/fax.php:68
@@ -421,6 +429,10 @@ msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
+msgstr ""
+
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+msgid "Settings"
 msgstr ""
 
 #: Fax.class.php:471
@@ -624,9 +636,6 @@ msgstr "：使用"
 #~ msgid "Sip"
 #~ msgstr "SIP协议"
 
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "为呼入传真增加设置，选项，界面"
-
 #~ msgid "Basic"
 #~ msgstr "基本设置"
 
@@ -650,9 +659,6 @@ msgstr "：使用"
 #~ "Error Correction Mode (ECM) option is used to specify whether\n"
 #~ "\t\t\t\t to use ecm mode or not."
 #~ msgstr "错误纠正模式选项是用来检测是否使用ECM的"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "传真设置"
 
 #~ msgid "Fax Detect"
 #~ msgstr "传真检测"

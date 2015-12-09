@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 10:31-0700\n"
+"POT-Creation-Date: 2015-12-09 13:49-0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
 "Language-Team: \n"
@@ -81,6 +81,12 @@ msgstr ""
 "soumettre, la route va être mise à jour. L'option d'héritage ne sera plus "
 "disponible après le changement, elle est seulement fournie pour permettre "
 "des migrations depuis des versions précédentes de FreePBX."
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr ""
+"Ajoute des paramètres, des options et une interface graphique pour gérer les "
+"fax entrants"
 
 #: views/form.php:32
 msgid "Always Generate Detection Code"
@@ -217,6 +223,10 @@ msgstr ""
 msgid "Fax Attach Format (e.g. pdf, tif, both)"
 msgstr ""
 
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Configuration du Fax"
+
 #: Fax.class.php:571
 msgid "Fax Destination"
 msgstr "Destination du Fax"
@@ -258,8 +268,8 @@ msgstr "Utilisateur Fax %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:74
-msgid "For extension"
+#: bin/fax2mail.php:82
+msgid "For User"
 msgstr ""
 
 #: views/fax.php:68
@@ -450,6 +460,10 @@ msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
+msgstr ""
+
+#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+msgid "Settings"
 msgstr ""
 
 #: Fax.class.php:471
@@ -701,11 +715,6 @@ msgstr "utiliser "
 #~ "entendra la sonnerie pendant le temps de détection (cad : le système ne "
 #~ "répond pas à l'appel et continue de sonner)"
 
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr ""
-#~ "Ajoute des paramètres, des options et une interface graphique pour gérer "
-#~ "les fax entrants"
-
 #~ msgid "Basic"
 #~ msgstr "Basique"
 
@@ -753,9 +762,6 @@ msgstr "utiliser "
 #~ "Error Correction Mode (ECM) option is used to specify whether\n"
 #~ "\t\t\t\t to use ecm mode or not."
 #~ msgstr "Active ou non la correction d'erreur."
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Configuration du Fax"
 
 #~ msgid "Fax Detect"
 #~ msgstr "Détection de Fax"
