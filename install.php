@@ -12,7 +12,7 @@ $sql[]='CREATE TABLE IF NOT EXISTS `fax_details` (
   `key` varchar(50) default NULL,
   `value` varchar(510) default NULL,
   UNIQUE KEY `key` (`key`)
-) ENGINE=MyISAM;';
+)';
 
 
 $sql[]='CREATE TABLE IF NOT EXISTS `fax_incoming` (

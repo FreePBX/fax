@@ -71,7 +71,15 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg .= _('On').': ' . $var['hostname'] . "\n";
 	$msg .= _('Via').': ' . $var['dest'] . "\n";
 	if ($var['exten']) {
-		$msg .= _('For extension').': ' . $var['exten'] . "\n";
+		$user = \FreePBX::Userman()->getUserByID($var['exten']);
+		if(!empty($user)) {
+			$name = !empty($user['displayname']) ? $user['displayname'] : trim($user['fname'] . " " . $user['lname']);
+			$name  = !empty($name) ? $name  : $user['username'];
+		} else {
+			$name = $var['exten'];
+		}
+
+		$msg .= _('For User').': ' . $name . "\n";
 	}
 }
 
