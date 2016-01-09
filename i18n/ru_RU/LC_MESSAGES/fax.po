@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-09 13:49-0800\n"
+"POT-Creation-Date: 2016-01-08 17:51-0800\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -229,31 +229,31 @@ msgstr ""
 msgid "Fax"
 msgstr "Факс"
 
-#: Fax.class.php:624
-msgid "Fax Attach Format"
-msgstr ""
-
-#: Fax.class.php:625
-msgid "Fax Attach Format (e.g. pdf, tif, both)"
-msgstr ""
-
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Конфигурация факса"
 
-#: Fax.class.php:571
+#: Fax.class.php:571 Fax.class.php:631
 msgid "Fax Destination"
 msgstr "Назначение факса"
+
+#: Fax.class.php:623
+msgid "Fax Detection"
+msgstr ""
 
 #: Fax.class.php:515
 msgid "Fax Detection Time"
 msgstr "Время для детектирования факса"
 
+#: Fax.class.php:627
+msgid "Fax Detection Wait"
+msgstr ""
+
 #: Fax.class.php:482
 msgid "Fax Detection type"
 msgstr "Метод детектирования факса"
 
-#: Fax.class.php:620 Fax.class.php:621
+#: Fax.class.php:619 Fax.class.php:620
 msgid "Fax Enabled"
 msgstr ""
 
@@ -301,6 +301,10 @@ msgstr ""
 "Заголовок факсимильного сообщения передаётся на принимающий факс и "
 "выпечатывается сверху на каждой странице. Обычно он содержит имя персоны или "
 "компании, передающий это факсимильное сообщение."
+
+#: Fax.class.php:628
+msgid "How long to wait and try to detect fax"
+msgstr ""
 
 #: Fax.class.php:506
 msgid ""
@@ -412,7 +416,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:435 views/fax.php:29 views/form.php:39 views/form.php:177
+#: Fax.class.php:436 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:12
 msgid "No"
 msgstr "Нет"
@@ -532,6 +536,10 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "Идентификатор факс аппарата. Обычно это просто тел. номер факса."
 
+#: Fax.class.php:624
+msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
+msgstr ""
+
 #: Fax.class.php:468
 msgid "Type of fax detection to use."
 msgstr "Какой метод детектирования будет использоваться."
@@ -585,11 +593,11 @@ msgstr ""
 "физические факс-аппараты, или связку hylafax + iaxmodem, или какое-то другое "
 "стороннее факс-решение, можно форсировать распознавание в диалплане."
 
-#: Fax.class.php:562
+#: Fax.class.php:562 Fax.class.php:632
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:436 views/fax.php:28 views/form.php:37 views/form.php:175
+#: Fax.class.php:435 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr "Да"

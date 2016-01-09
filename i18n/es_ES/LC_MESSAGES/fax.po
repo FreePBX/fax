@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-09 13:49-0800\n"
+"POT-Creation-Date: 2016-01-08 17:51-0800\n"
 "PO-Revision-Date: 2015-02-20 19:30-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -211,31 +211,31 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: Fax.class.php:624
-msgid "Fax Attach Format"
-msgstr ""
-
-#: Fax.class.php:625
-msgid "Fax Attach Format (e.g. pdf, tif, both)"
-msgstr ""
-
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Configuracion de Fax"
 
-#: Fax.class.php:571
+#: Fax.class.php:571 Fax.class.php:631
 msgid "Fax Destination"
 msgstr "Destino de Fax"
+
+#: Fax.class.php:623
+msgid "Fax Detection"
+msgstr ""
 
 #: Fax.class.php:515
 msgid "Fax Detection Time"
 msgstr "Tiempo Detección Fax"
 
+#: Fax.class.php:627
+msgid "Fax Detection Wait"
+msgstr ""
+
 #: Fax.class.php:482
 msgid "Fax Detection type"
 msgstr "Tipo de detección de Fax"
 
-#: Fax.class.php:620 Fax.class.php:621
+#: Fax.class.php:619 Fax.class.php:620
 msgid "Fax Enabled"
 msgstr ""
 
@@ -283,6 +283,10 @@ msgstr ""
 "Información de encabezado que se pasa al lado remoto de la transmisión de "
 "fax y aparece impreso en la parte superior de cada página. Por lo general, "
 "contiene el nombre de la persona o entidad que envía el fax."
+
+#: Fax.class.php:628
+msgid "How long to wait and try to detect fax"
+msgstr ""
 
 #: Fax.class.php:506
 msgid ""
@@ -397,7 +401,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:435 views/fax.php:29 views/form.php:39 views/form.php:177
+#: Fax.class.php:436 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:12
 msgid "No"
 msgstr "No"
@@ -519,6 +523,10 @@ msgstr ""
 "El identificador de la máquina de fax. Esto es por lo general el número de "
 "fax."
 
+#: Fax.class.php:624
+msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
+msgstr ""
+
 #: Fax.class.php:468
 msgid "Type of fax detection to use."
 msgstr "Tipo de detección de fax a utilizar."
@@ -573,11 +581,11 @@ msgstr ""
 "configuraciones de fax externas se puede forzar el dialplan a que se genere "
 "aquí."
 
-#: Fax.class.php:562
+#: Fax.class.php:562 Fax.class.php:632
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:436 views/fax.php:28 views/form.php:37 views/form.php:175
+#: Fax.class.php:435 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr "Si"

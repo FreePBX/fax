@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-09 13:49-0800\n"
+"POT-Creation-Date: 2016-01-08 17:51-0800\n"
 "PO-Revision-Date: 2015-10-11 13:44+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/"
@@ -186,31 +186,31 @@ msgstr ""
 msgid "Fax"
 msgstr "دورنگار"
 
-#: Fax.class.php:624
-msgid "Fax Attach Format"
-msgstr "فرمت ضمیمه دورنگار"
-
-#: Fax.class.php:625
-msgid "Fax Attach Format (e.g. pdf, tif, both)"
-msgstr "فرمت ضمیمه دورنگار (pdf,tif)"
-
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr ""
 
-#: Fax.class.php:571
+#: Fax.class.php:571 Fax.class.php:631
 msgid "Fax Destination"
 msgstr "مقصد دورنگار"
+
+#: Fax.class.php:623
+msgid "Fax Detection"
+msgstr ""
 
 #: Fax.class.php:515
 msgid "Fax Detection Time"
 msgstr "زمان تشخیص دورنگار"
 
+#: Fax.class.php:627
+msgid "Fax Detection Wait"
+msgstr ""
+
 #: Fax.class.php:482
 msgid "Fax Detection type"
 msgstr "تشخیص نوع دورنگار"
 
-#: Fax.class.php:620 Fax.class.php:621
+#: Fax.class.php:619 Fax.class.php:620
 msgid "Fax Enabled"
 msgstr "دورنگار فعال"
 
@@ -252,6 +252,10 @@ msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
 "person or entity sending the fax."
+msgstr ""
+
+#: Fax.class.php:628
+msgid "How long to wait and try to detect fax"
 msgstr ""
 
 #: Fax.class.php:506
@@ -356,7 +360,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:435 views/fax.php:29 views/form.php:39 views/form.php:177
+#: Fax.class.php:436 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:12
 msgid "No"
 msgstr ""
@@ -468,6 +472,10 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
+#: Fax.class.php:624
+msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
+msgstr ""
+
 #: Fax.class.php:468
 msgid "Type of fax detection to use."
 msgstr ""
@@ -515,11 +523,11 @@ msgid ""
 "to be generated here."
 msgstr ""
 
-#: Fax.class.php:562
+#: Fax.class.php:562 Fax.class.php:632
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:436 views/fax.php:28 views/form.php:37 views/form.php:175
+#: Fax.class.php:435 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr ""
@@ -602,6 +610,12 @@ msgstr ""
 #: Fax.class.php:470
 msgid "use "
 msgstr ""
+
+#~ msgid "Fax Attach Format"
+#~ msgstr "فرمت ضمیمه دورنگار"
+
+#~ msgid "Fax Attach Format (e.g. pdf, tif, both)"
+#~ msgstr "فرمت ضمیمه دورنگار (pdf,tif)"
 
 #~ msgid "For extension"
 #~ msgstr "داخلی دورنگار"

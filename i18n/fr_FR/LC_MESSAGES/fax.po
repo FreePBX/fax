@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-09 13:49-0800\n"
+"POT-Creation-Date: 2016-01-08 17:51-0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
 "Language-Team: \n"
@@ -215,31 +215,31 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: Fax.class.php:624
-msgid "Fax Attach Format"
-msgstr ""
-
-#: Fax.class.php:625
-msgid "Fax Attach Format (e.g. pdf, tif, both)"
-msgstr ""
-
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Configuration du Fax"
 
-#: Fax.class.php:571
+#: Fax.class.php:571 Fax.class.php:631
 msgid "Fax Destination"
 msgstr "Destination du Fax"
+
+#: Fax.class.php:623
+msgid "Fax Detection"
+msgstr ""
 
 #: Fax.class.php:515
 msgid "Fax Detection Time"
 msgstr "Durée de détection"
 
+#: Fax.class.php:627
+msgid "Fax Detection Wait"
+msgstr ""
+
 #: Fax.class.php:482
 msgid "Fax Detection type"
 msgstr "Type de détection"
 
-#: Fax.class.php:620 Fax.class.php:621
+#: Fax.class.php:619 Fax.class.php:620
 msgid "Fax Enabled"
 msgstr ""
 
@@ -285,6 +285,10 @@ msgstr ""
 "Les informations d'en tête sont transmises lors de l'envoi du fax et sont "
 "imprimées en haut de chaque page. Elles contiennent généralement le nom de "
 "la personne ou de l'entité qui émet le fax."
+
+#: Fax.class.php:628
+msgid "How long to wait and try to detect fax"
+msgstr ""
 
 #: Fax.class.php:506
 msgid ""
@@ -394,7 +398,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:435 views/fax.php:29 views/form.php:39 views/form.php:177
+#: Fax.class.php:436 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:12
 msgid "No"
 msgstr "Non"
@@ -517,6 +521,10 @@ msgstr ""
 "L'identifiant de la machine envoyant le Fax. C'est généralement votre numéro "
 "de Fax."
 
+#: Fax.class.php:624
+msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
+msgstr ""
+
 #: Fax.class.php:468
 msgid "Type of fax detection to use."
 msgstr "Type de détection de fax à utiliser"
@@ -568,11 +576,11 @@ msgstr ""
 "hylafax+iaxmodem, ou tout autre fax externe, vous pouvez alors forcer le "
 "plan de numérotation en utilisant cette option."
 
-#: Fax.class.php:562
+#: Fax.class.php:562 Fax.class.php:632
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:436 views/fax.php:28 views/form.php:37 views/form.php:175
+#: Fax.class.php:435 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr "Oui"

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-09 13:49-0800\n"
+"POT-Creation-Date: 2016-01-08 17:51-0800\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -237,31 +237,31 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: Fax.class.php:624
-msgid "Fax Attach Format"
-msgstr ""
-
-#: Fax.class.php:625
-msgid "Fax Attach Format (e.g. pdf, tif, both)"
-msgstr ""
-
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Fax設定"
 
-#: Fax.class.php:571
+#: Fax.class.php:571 Fax.class.php:631
 msgid "Fax Destination"
 msgstr "Fax宛先"
+
+#: Fax.class.php:623
+msgid "Fax Detection"
+msgstr ""
 
 #: Fax.class.php:515
 msgid "Fax Detection Time"
 msgstr "Fax検知時間"
 
+#: Fax.class.php:627
+msgid "Fax Detection Wait"
+msgstr ""
+
 #: Fax.class.php:482
 msgid "Fax Detection type"
 msgstr "Fax検知タイプ"
 
-#: Fax.class.php:620 Fax.class.php:621
+#: Fax.class.php:619 Fax.class.php:620
 msgid "Fax Enabled"
 msgstr ""
 
@@ -306,6 +306,10 @@ msgid ""
 msgstr ""
 "fax転送のリモート側に送出され、全てのページのトップにプリントされるヘッダー情"
 "報。通常faxを送信する人の名前や実体の名前を含ませます。"
+
+#: Fax.class.php:628
+msgid "How long to wait and try to detect fax"
+msgstr ""
 
 #: Fax.class.php:506
 msgid ""
@@ -416,7 +420,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:435 views/fax.php:29 views/form.php:39 views/form.php:177
+#: Fax.class.php:436 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:12
 msgid "No"
 msgstr "いいえ"
@@ -534,6 +538,10 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "送信するFAXのID。通常あなたのfax番号。"
 
+#: Fax.class.php:624
+msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
+msgstr ""
+
 #: Fax.class.php:468
 msgid "Type of fax detection to use."
 msgstr "使用されるfax検知タイプ"
@@ -585,11 +593,11 @@ msgstr ""
 "や、他の外部fax設定と一緒に使用されている場合、ここで生成されるダイヤルプラン"
 "を強制実行することができます。"
 
-#: Fax.class.php:562
+#: Fax.class.php:562 Fax.class.php:632
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:436 views/fax.php:28 views/form.php:37 views/form.php:175
+#: Fax.class.php:435 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr "はい"
