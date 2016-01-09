@@ -421,8 +421,8 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 						//dont allow detection to be set if we have no valid detection types
 				if(!$fax_dahdi_faxdetect && !$fax_sip_faxdetect && !$fax_detect['nvfax']){
 					$js="if ($(this).val() == 'true'){alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
-					$fdinput.='<input type="radio" id="faxenabled_no" name="faxenabled" value="false" CHECKED /><label for="faxenabled_no">No</label>';
 					$fdinput.='<input type="radio" name="faxenabled" id="faxenabled_yes" value="true"  onclick="'.$js.'"/><label for="faxenabled_yes">Yes</label></span>';
+					$fdinput.='<input type="radio" id="faxenabled_no" name="faxenabled" value="false" CHECKED /><label for="faxenabled_no">No</label>';
 				}else{
 					/*
 					 * show detection options
@@ -432,8 +432,8 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 					 * playing the second
 					 */
 					$faxing = !empty($fax);
-					$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.(!$faxing?'CHECKED':'').'/><label for="faxenabled_no">' . _('No') . '</label>';
 					$fdinput.= '<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($faxing?'CHECKED':'').' /><label for="faxenabled_yes">' . _('Yes') . '</label>';
+					$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.(!$faxing?'CHECKED':'').'/><label for="faxenabled_no">' . _('No') . '</label>';
 					if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
 						$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/><label for="faxenabled_legacy">' . _('Legacy');
 					}
@@ -613,21 +613,27 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 
 	public function bulkhandlerGetHeaders($type) {
 		switch ($type) {
-		case 'usermanusers':
-		case 'usermangroups':
-			$headers = array(
-				'faxenabled' => array(
-					'identifier' => _('Fax Enabled'),
-					'description' => _('Fax Enabled'),
-				),
-				'faxattachformat' => array(
-					'identifier' => _('Fax Attach Format'),
-					'description' => _('Fax Attach Format (e.g. pdf, tif, both)'),
-				),
-
-			);
-
-			return $headers;
+			case 'dids':
+				$headers = array(
+					'fax_enable' => array(
+						'identifier' => _('Fax Enabled'),
+						'description' => _('Fax Enabled'),
+					),
+					'fax_detection' => array(
+						'identifier' => _('Fax Detection'),
+						'description' => _('Type of fax detection to use (e.g. SIP or DAHDI)'),
+					),
+					'fax_detectionwait' => array(
+						'identifier' => _('Fax Detection Wait'),
+						'description' => _('How long to wait and try to detect fax'),
+					),
+					'fax_destination' => array(
+						'identifier' => _('Fax Destination'),
+						'description' => _('Where to send the faxes'),
+					),
+				);
+				return $headers;
+			break;
 		}
 	}
 
@@ -635,29 +641,104 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		$data = NULL;
 
 		switch ($type) {
-		case 'usermanusers':
-			$users = $this->userman->getAllUsers();
-			foreach ($users as $user) {
-				$data[$user['id']] = array(
-					'faxenabled' => $this->userman->getModuleSettingByID($user['id'],'fax','enabled'),
-					'faxattachformat' => $this->userman->getModuleSettingByID($user['id'],'fax','attachformat'),
-				);
-			}
-
+			case 'usermanusers':
+				$users = $this->userman->getAllUsers();
+				foreach ($users as $user) {
+					$en = $this->userman->getModuleSettingByID($user['id'],'fax','enabled',true);
+					$data[$user['id']] = array(
+						'fax_enabled' => is_null($en) ? "inherit" : (empty($en) ? 'no' : 'yes'),
+						'fax_attachformat' => $this->userman->getModuleSettingByID($user['id'],'fax','attachformat'),
+					);
+				}
 			break;
-		case 'usermangroups':
-			$groups = $this->userman->getAllGroups();
-			foreach ($groups as $group) {
-				$data[$group['id']] = array(
-					'faxenabled' => $this->userman->getModuleSettingByGID($group['id'],'fax','enabled'),
-					'faxattachformat' => $this->userman->getModuleSettingByGID($group['id'],'fax','attachformat'),
-				);
-			}
-
+			case 'usermangroups':
+				$groups = $this->userman->getAllGroups();
+				foreach ($groups as $group) {
+					$en = $this->userman->getModuleSettingByGID($group['id'],'fax','enabled');
+					$data[$group['id']] = array(
+						'fax_enabled' => empty($en) ? 'no' : 'yes',
+						'fax_attachformat' => $this->userman->getModuleSettingByGID($group['id'],'fax','attachformat'),
+					);
+				}
+			break;
+			case "dids":
+				$dids = $this->FreePBX->Core->getAllDIDs();
+				$data = array();
+				$this->FreePBX->Modules->loadFunctionsInc("fax");
+				foreach($dids as $did) {
+					$key = $did['extension']."/".$did["cidnum"];
+					$fax = fax_get_incoming($did['extension'],$did["cidnum"]);
+					if(!empty($fax)) {
+						$data[$key] = array(
+							"fax_enable" => "yes",
+							"fax_detection" => $fax['detection'],
+							"fax_detectionwait" => $fax['detectionwait'],
+							"fax_destination" => $fax['destination']
+						);
+					} else {
+						array(
+							"fax_enable" => "",
+							"fax_detection" => "",
+							"fax_detectionwait" => "",
+							"fax_destination" => ""
+						);
+					}
+				}
 			break;
 		}
 
 		return $data;
+	}
+
+	public function bulkhandlerImport($type, $rawData, $replaceExisting = false) {
+		$ret = NULL;
+
+		switch ($type) {
+			case 'usermanusers':
+				foreach ($rawData as $data) {
+					$user = $this->FreePBX->Userman->getUserByUsername($data['username']);
+					if(isset($data['fax_enabled'])) {
+						$en = ($data['fax_enabled'] == "yes") ? true : ($data['fax_enabled'] == "no" ? false : null);
+						$this->userman->setModuleSettingByID($user['id'],'fax','enabled',$en);
+					}
+					if(isset($data['fax_attachformat'])) {
+						$this->userman->setModuleSettingByID($user['id'],'fax','attachformat',$data['fax_attachformat']);
+					}
+				};
+			break;
+			case 'usermangroups':
+				foreach ($rawData as $data) {
+					$group = $this->FreePBX->Userman->getGroupByUsername($data['groupname']);
+					if(isset($data['fax_enabled'])) {
+						$en = ($data['fax_enabled'] == "yes") ? true : false;
+						$this->userman->setModuleSettingByGID($group['id'],'fax','enabled',$en);
+					}
+					if(isset($data['fax_attachformat'])) {
+						$this->userman->setModuleSettingByGID($group['id'],'fax','attachformat',$data['fax_attachformat']);
+					}
+				};
+			break;
+			case 'dids':
+				$this->FreePBX->Modules->loadFunctionsInc("fax");
+				foreach ($rawData as $data) {
+					$settings = array();
+					foreach ($data as $key => $value) {
+						if (substr($key, 0, 4) == 'fax_') {
+							$settingname = substr($key, 4);
+							switch ($settingname) {
+								default:
+									$settings[$settingname] = $value;
+								break;
+							}
+						}
+					}
+					fax_delete_incoming($data['extension']."/".$data["cidnum"]);
+					if(!empty($settings['enable'])) {
+						fax_save_incoming($data["cidnum"],$data['extension'],true,$settings['detection'],$settings['detectionwait'],$settings['destination'],null);
+					}
+				}
+			break;
+		}
 	}
 
 	/**
