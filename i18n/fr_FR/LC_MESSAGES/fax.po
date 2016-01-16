@@ -21,12 +21,16 @@ msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-08 17:51-0800\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2016-01-16 05:56+0200\n"
+"Last-Translator: Nicolas <forums@riendeau.org>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: Fax.class.php:470
 msgid ""
@@ -57,7 +61,7 @@ msgstr ""
 
 #: views/form.php:257
 msgid "A4"
-msgstr ""
+msgstr "A4"
 
 #: Fax.class.php:534
 msgid ""
@@ -94,7 +98,7 @@ msgstr "Toujours générer un code de détection"
 
 #: views/fax.php:52
 msgid "Attachment Format"
-msgstr ""
+msgstr "Format de pièce jointe"
 
 #: Fax.class.php:413
 msgid "Attempt to detect faxes on this DID."
@@ -130,7 +134,7 @@ msgstr "Identifiant de station locale par défaut"
 
 #: views/form.php:250
 msgid "Default Paper Size"
-msgstr ""
+msgstr "Format de papier par défaut"
 
 #: Fax.class.php:449
 msgid "Detect Faxes"
@@ -157,7 +161,7 @@ msgstr ""
 
 #: views/form.php:146
 msgid "Email address"
-msgstr ""
+msgstr "Adresse de courrier électronique"
 
 #: views/form.php:134
 msgid ""
@@ -213,15 +217,15 @@ msgstr ""
 
 #: Fax.class.php:88 Fax.class.php:106 Fax.class.php:606
 msgid "Fax"
-msgstr "Fax"
+msgstr "Télécopieur"
 
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
-msgstr "Configuration du Fax"
+msgstr "Configuration du télécopieur"
 
 #: Fax.class.php:571 Fax.class.php:631
 msgid "Fax Destination"
-msgstr "Destination du Fax"
+msgstr "Destination du télécopieur"
 
 #: Fax.class.php:623
 msgid "Fax Detection"
@@ -241,15 +245,15 @@ msgstr "Type de détection"
 
 #: Fax.class.php:619 Fax.class.php:620
 msgid "Fax Enabled"
-msgstr ""
+msgstr "Télécopieur activé"
 
 #: page.fax.php:9
 msgid "Fax Options"
-msgstr "Options des Fax"
+msgstr "Options de télécopie"
 
 #: functions.inc.php:102
 msgid "Fax Recipient"
-msgstr "Destinataire du Fax"
+msgstr "Destinataire de la télécopie"
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
