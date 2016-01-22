@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 //include freepbx configuration
 $restrict_mods = array('fax' => true);
