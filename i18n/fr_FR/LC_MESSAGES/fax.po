@@ -21,12 +21,16 @@ msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-08 17:51-0800\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Thomas Gagniere <tgagniere@reseau-concept.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2016-02-03 23:36+0200\n"
+"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: Fax.class.php:470
 msgid ""
@@ -46,18 +50,18 @@ msgstr ""
 #: install.php:263
 #, php-format
 msgid "%s FAX Migrations Failed"
-msgstr "%s Migration de FAX échouée"
+msgstr "%s Migration de télécopies échouée"
 
 #: install.php:264
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
-"%s Migration de FAX échouée, vérifiez le panneau d'information pour plus de "
-"détails"
+"%s Migration de télécopies échouée, vérifiez le panneau d'information pour "
+"plus de détails"
 
 #: views/form.php:257
 msgid "A4"
-msgstr ""
+msgstr "A4"
 
 #: Fax.class.php:534
 msgid ""
@@ -71,16 +75,16 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
-"Adresse email où le fax sera envoyé</br>Remarque: Dans cette version de "
-"FreePBX, vous pouvez maintenant paramétrer la destination d'un fax parmis "
-"une liste de destinations. L'activation du fax ainsi que le paramétrage de "
-"l'adresse email pour les Extensions/utilsateurs se fait depuis le menu "
-"Extensions. Cela va créer un nouveau type de destination qui pourra être "
-"sélectionné. Pour utiliser cette possibilité, sélectionnez OUI pour la "
-"détection de Fax, et choisissez une destination. Après avoir cliqué sur "
-"soumettre, la route va être mise à jour. L'option d'héritage ne sera plus "
-"disponible après le changement, elle est seulement fournie pour permettre "
-"des migrations depuis des versions précédentes de FreePBX."
+"Adresse email où la télécopie sera envoyée</br>REMARQUE : Dans cette version "
+"de FreePBX, vous pouvez maintenant paramétrer la destination d'une télécopie "
+"parmis une liste de destinations. L'activation du télécopieur ainsi que le "
+"paramétrage de l'adresse de courriel pour les postes/utilsateurs se fait "
+"depuis le menu Postes. Cela va créer un nouveau type de destination qui "
+"pourra être sélectionné. Pour utiliser cette possibilité, sélectionnez OUI "
+"pour la détection de télécopie, et choisissez une destination. Après avoir "
+"cliqué sur soumettre, la route va être mise à jour. L'option d'héritage ne "
+"sera plus disponible après le changement, elle est seulement fournie pour "
+"permettre des migrations depuis des versions précédentes de FreePBX."
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
@@ -94,19 +98,19 @@ msgstr "Toujours générer un code de détection"
 
 #: views/fax.php:52
 msgid "Attachment Format"
-msgstr ""
+msgstr "Format de pièce jointe"
 
 #: Fax.class.php:413
 msgid "Attempt to detect faxes on this DID."
-msgstr "Essayer de détecter les fax sur ce SDA."
+msgstr "Essayer de détecter les télécopies sur ce DID."
 
 #: install.php:330
 msgid "Auto generated migrated user for Fax"
-msgstr ""
+msgstr "Utilisateur migré auto généré pour les télécopies"
 
 #: views/fax.php:59
 msgid "Both"
-msgstr ""
+msgstr "Les deux"
 
 #: install.php:254
 msgid "Checking for failed migrations.."
@@ -122,7 +126,7 @@ msgstr "Dahdi"
 
 #: views/form.php:74
 msgid "Default Fax header"
-msgstr "En tête des Fax par défaut:"
+msgstr "Entête de télécopie par défaut"
 
 #: views/form.php:98
 msgid "Default Local Station Identifier"
@@ -130,15 +134,15 @@ msgstr "Identifiant de station locale par défaut"
 
 #: views/form.php:250
 msgid "Default Paper Size"
-msgstr ""
+msgstr "Format de papier par défaut"
 
 #: Fax.class.php:449
 msgid "Detect Faxes"
-msgstr "Détecter les Fax"
+msgstr "Détecter les télécopies"
 
 #: install.php:6
 msgid "Dial System FAX"
-msgstr "Système d'appel de FAX"
+msgstr "Système d'appel de télécopie"
 
 #: Fax.class.php:77
 msgid ""
@@ -157,15 +161,15 @@ msgstr ""
 
 #: views/form.php:146
 msgid "Email address"
-msgstr ""
+msgstr "Adresse de courriel"
 
 #: views/form.php:134
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
-"L'adresse email qui apparaitra sur le fax si le 'système par défaut' a été "
-"choisi comme extension de fax par défaut."
+"L'adresse de courriel qui apparaitra sur la télécopie si le 'système par "
+"défaut' a été choisi comme poste de télécopie par défaut."
 
 #: views/form.php:158
 msgid ""
@@ -174,19 +178,19 @@ msgid ""
 "mode, if there are routes still running in this mode that do not have email "
 "addresses specified."
 msgstr ""
-"Adresse email où les fax seront envoyés lors de l'utilisation du code de "
-"caractéristique \"Système d'appel de FAX\". C'est également l'email par "
-"défaut pour la détection de fax en mode héritage, si il y a des routes qui "
-"continuent d'utiliser ce mode et qu'elles n'ont pas d'adresse email "
-"spécifiée."
+"Adresse de courriel où les télécopies seront envoyés lors de l'utilisation "
+"du code de caractéristique \"Système d'appel de télécopie\". C'est également "
+"le courriel par défaut pour la détection de télécopie en mode héritage, si "
+"il y a des routes qui continuent d'utiliser ce mode et qu'elles n'ont pas "
+"d'adresse de courriel spécifiée."
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
-msgstr ""
+msgstr "Activer la télécopie"
 
 #: views/fax.php:42
 msgid "Enable this user to receive faxes"
-msgstr "Active la réception de fax pour cet utilisateur"
+msgstr "Active la réception de télécopies pour cet utilisateur"
 
 #: views/fax.php:23
 msgid "Enabled"
@@ -203,7 +207,7 @@ msgstr ""
 
 #: views/form.php:170
 msgid "Error Correction Mode"
-msgstr "Correction d'erreur"
+msgstr "Mode de correction d'erreur"
 
 #: views/form.php:185
 msgid ""
@@ -213,19 +217,19 @@ msgstr ""
 
 #: Fax.class.php:88 Fax.class.php:106 Fax.class.php:606
 msgid "Fax"
-msgstr "Fax"
+msgstr "Télécopieur"
 
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
-msgstr "Configuration du Fax"
+msgstr "Configuration du télécopieur"
 
 #: Fax.class.php:571 Fax.class.php:631
 msgid "Fax Destination"
-msgstr "Destination du Fax"
+msgstr "Destination du télécopieur"
 
 #: Fax.class.php:623
 msgid "Fax Detection"
-msgstr ""
+msgstr "Détection de télécopie"
 
 #: Fax.class.php:515
 msgid "Fax Detection Time"
@@ -241,15 +245,15 @@ msgstr "Type de détection"
 
 #: Fax.class.php:619 Fax.class.php:620
 msgid "Fax Enabled"
-msgstr ""
+msgstr "Télécopieur activé"
 
 #: page.fax.php:9
 msgid "Fax Options"
-msgstr "Options des Fax"
+msgstr "Options de télécopie"
 
 #: functions.inc.php:102
 msgid "Fax Recipient"
-msgstr "Destinataire du Fax"
+msgstr "Destinataire de la télécopie"
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
@@ -262,7 +266,7 @@ msgstr ""
 #: functions.inc.php:20
 #, php-format
 msgid "Fax user %s"
-msgstr "Utilisateur Fax %s"
+msgstr "Utilisateur de télécopie %s"
 
 #: install.php:379
 msgid "Finished Migrating fax users to usermanager"
@@ -270,11 +274,13 @@ msgstr ""
 
 #: bin/fax2mail.php:82
 msgid "For User"
-msgstr ""
+msgstr "Pour l'utilisateur"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
+"Les formats à utiliser pour convertir les télécopies entrantes avant de les "
+"envoyer par courriel."
 
 #: views/form.php:86
 msgid ""
@@ -282,13 +288,13 @@ msgid ""
 "is printed on top of every page. This usually contains the name of the "
 "person or entity sending the fax."
 msgstr ""
-"Les informations d'en tête sont transmises lors de l'envoi du fax et sont "
-"imprimées en haut de chaque page. Elles contiennent généralement le nom de "
-"la personne ou de l'entité qui émet le fax."
+"Les informations d'en tête sont transmises lors de l'envoi de la télécopie "
+"et sont imprimées en haut de chaque page. Elles contiennent généralement le "
+"nom de la personne ou de l'entité qui émet la télécopie."
 
 #: Fax.class.php:628
 msgid "How long to wait and try to detect fax"
-msgstr ""
+msgstr "Combien de temps attendre pour tenter de détecter une télécopie"
 
 #: Fax.class.php:506
 msgid ""
@@ -315,11 +321,11 @@ msgstr ""
 
 #: views/fax.php:32
 msgid "Inherit"
-msgstr ""
+msgstr "Hérite"
 
 #: functions.inc.php:350
 msgid "Invalid Email for Inbound Fax"
-msgstr ""
+msgstr "Courriel invalide pour les télécopies entrantes"
 
 #: Fax.class.php:438
 msgid "Legacy"
@@ -351,6 +357,8 @@ msgstr "Taux de transfert maximum à utiliser pendant la négociation d'un Fax"
 #: install.php:323
 msgid "Migrating all fax users to usermanager"
 msgstr ""
+"Migration de tous les utilisateurs de télécopie vers le gestionnaire "
+"d'utilisateur"
 
 #: install.php:47
 msgid "Migrating fax_incoming table..."
@@ -392,11 +400,11 @@ msgstr "NVFax"
 #: bin/fax2mail.php:42
 #, php-format
 msgid "New fax from: %s"
-msgstr ""
+msgstr "Nouvelle télécopie de : %s"
 
 #: bin/fax2mail.php:44
 msgid "New fax received"
-msgstr ""
+msgstr "Nouvelle télécopie reçue"
 
 #: Fax.class.php:436 views/fax.php:29 views/form.php:39 views/form.php:177
 #: views/quickCreate.php:12
@@ -423,11 +431,11 @@ msgstr ""
 
 #: bin/fax2mail.php:71
 msgid "On"
-msgstr ""
+msgstr "Activé"
 
 #: views/form.php:122
 msgid "Outgoing Email address"
-msgstr ""
+msgstr "Adresse de courriel sortante"
 
 #: bin/fax2mail.php:39
 msgid "Outgoing fax results"
@@ -435,12 +443,12 @@ msgstr ""
 
 #: views/fax.php:57
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: bin/fax2mail.php:70
 #, php-format
 msgid "Received & processed: %s"
-msgstr ""
+msgstr "Reçue et traitée : %s"
 
 #: install.php:234
 #, php-format
@@ -453,11 +461,11 @@ msgstr "Suppression des anciennes déclarations.."
 
 #: Fax.class.php:371
 msgid "Reset"
-msgstr ""
+msgstr "Remise à 0"
 
 #: Fax.class.php:491
 msgid "SIP"
-msgstr ""
+msgstr "SIP"
 
 #: views/form.php:265
 msgid ""
@@ -488,19 +496,19 @@ msgstr "Soumettre"
 
 #: install.php:59
 msgid "Successfully migrated fax_incoming table!"
-msgstr ""
+msgstr "La table fax_incoming a été migrée avec succès !"
 
 #: install.php:298
 msgid "Successfully migrated fax_users table!"
-msgstr ""
+msgstr "La table fax_users a été migrée avec succès !"
 
 #: install.php:286
 msgid "Successfully migrated faxemail field"
-msgstr ""
+msgstr "Le champ faxemail a été migré avec succès"
 
 #: views/fax.php:58
 msgid "TIFF"
-msgstr ""
+msgstr "TIFF"
 
 #: install.php:257
 msgid ""
@@ -509,7 +517,7 @@ msgid ""
 "disabled and will need to be updated. Click delete icon on the right to "
 "remove this notice."
 msgstr ""
-"Les routes entrantes suivantes ont un traitement de Fax qui ont fait "
+"Les routes entrantes suivantes ont un traitement de télécopie qui ont fait "
 "échouées la migration car elles accèdent à un appareil qui n'a pas "
 "d'utilisateur associé. Elles ont été désactivées et auront besoin d'être "
 "mise à jour. Cliquer sur l'icone effacer à droite afin de supprimer cette "
@@ -518,16 +526,16 @@ msgstr ""
 #: views/form.php:110
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
-"L'identifiant de la machine envoyant le Fax. C'est généralement votre numéro "
-"de Fax."
+"L'identifiant de la machine envoyant la télécopie. C'est généralement votre "
+"numéro de télécopieur."
 
 #: Fax.class.php:624
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
-msgstr ""
+msgstr "Type de détection de télécopie à utiliser (e.g. SIP ou DAHDI)"
 
 #: Fax.class.php:468
 msgid "Type of fax detection to use."
-msgstr "Type de détection de fax à utiliser"
+msgstr "Type de détection de télécopie à utiliser"
 
 #: install.php:336 /usr/src/freepbx/fax/install.php:343 install.php:357
 #: /usr/src/freepbx/fax/install.php:367
@@ -550,7 +558,7 @@ msgstr ""
 
 #: bin/fax2mail.php:72
 msgid "Via"
-msgstr ""
+msgstr "Via"
 
 #: install.php:296
 msgid "WARINING: fax_users table may still be using the old schema!"
@@ -571,14 +579,14 @@ msgid ""
 "hylafax + iaxmodem, or other outside fax setups you can force the dialplan "
 "to be generated here."
 msgstr ""
-"Si aucune application de Fax n'est détectée le module ne générera aucun plan "
-"de numérotation par défaut. Si le système est utilisé avec un télécopieur, "
-"hylafax+iaxmodem, ou tout autre fax externe, vous pouvez alors forcer le "
-"plan de numérotation en utilisant cette option."
+"Si aucune application de télécopie n'est détectée le module ne générera "
+"aucun plan de numérotation par défaut. Si le système est utilisé avec un "
+"télécopieur, hylafax+iaxmodem, ou tout autre fax externe, vous pouvez alors "
+"forcer le plan de numérotation en utilisant cette option."
 
 #: Fax.class.php:562 Fax.class.php:632
 msgid "Where to send the faxes"
-msgstr ""
+msgstr "Où envoyer les télécopies"
 
 #: Fax.class.php:435 views/fax.php:28 views/form.php:37 views/form.php:175
 #: views/quickCreate.php:10
@@ -591,10 +599,10 @@ msgid ""
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
 msgstr ""
-"Oui, Tente de déterminer automatiquement le type d'appel; redirige le fax "
-"vers la destination spécifiée si l'appel reçu est un fax, sinon redirige "
-"l'appel vers la destination normale. Utiliser cette option si vous recevez "
-"des appels vocaux et des faxs sur cette ligne."
+"Oui, Tente de déterminer automatiquement le type d'appel; redirige la "
+"télécopiex vers la destination spécifiée si l'appel reçu est une télécopie, "
+"sinon redirige l'appel vers la destination normale. Utiliser cette option si "
+"vous recevez des appels vocaux et des télécopies sur cette ligne."
 
 #: views/form.php:62
 msgid ""
@@ -626,7 +634,7 @@ msgstr "vide"
 
 #: install.php:83 /usr/src/freepbx/fax/install.php:90
 msgid "done"
-msgstr "effectué"
+msgstr "complété"
 
 #: install.php:72
 msgid "duplicate, removing old from core.."
