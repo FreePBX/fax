@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 17:51-0800\n"
+"POT-Creation-Date: 2016-02-03 11:50-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
 
-#: views/form.php:257
+#: views/form.php:254
 msgid "A4"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr ""
 
-#: views/form.php:32
+#: views/form.php:29
 msgid "Always Generate Detection Code"
 msgstr ""
 
@@ -92,15 +92,15 @@ msgstr ""
 msgid "Dahdi"
 msgstr ""
 
-#: views/form.php:74
+#: views/form.php:71
 msgid "Default Fax header"
 msgstr ""
 
-#: views/form.php:98
+#: views/form.php:95
 msgid "Default Local Station Identifier"
 msgstr ""
 
-#: views/form.php:250
+#: views/form.php:247
 msgid "Default Paper Size"
 msgstr ""
 
@@ -127,17 +127,17 @@ msgid ""
 "free) and must be installed."
 msgstr ""
 
-#: views/form.php:146
+#: views/form.php:143
 msgid "Email address"
 msgstr ""
 
-#: views/form.php:134
+#: views/form.php:131
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
 
-#: views/form.php:158
+#: views/form.php:155
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -166,11 +166,11 @@ msgstr ""
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
 
-#: views/form.php:170
+#: views/form.php:167
 msgid "Error Correction Mode"
 msgstr ""
 
-#: views/form.php:185
+#: views/form.php:182
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
-#: views/form.php:86
+#: views/form.php:83
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -283,7 +283,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: functions.inc.php:350
+#: functions.inc.php:361
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
@@ -298,15 +298,15 @@ msgid ""
 "upgrade this route by choosing YES, and selecting a valid destination!"
 msgstr ""
 
-#: views/form.php:255
+#: views/form.php:252
 msgid "Letter"
 msgstr ""
 
-#: views/form.php:198
+#: views/form.php:195
 msgid "Maximum transfer rate"
 msgstr ""
 
-#: views/form.php:212
+#: views/form.php:209
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
 
@@ -327,11 +327,11 @@ msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
 
-#: views/form.php:224
+#: views/form.php:221
 msgid "Minimum transfer rate"
 msgstr ""
 
-#: views/form.php:238
+#: views/form.php:235
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 
@@ -360,8 +360,8 @@ msgstr ""
 
 #: Fax.class.php:436
 #: views/fax.php:29
-#: views/form.php:39
-#: views/form.php:177
+#: views/form.php:36
+#: views/form.php:174
 #: views/quickCreate.php:12
 msgid "No"
 msgstr ""
@@ -386,7 +386,7 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: views/form.php:122
+#: views/form.php:119
 msgid "Outgoing Email address"
 msgstr ""
 
@@ -420,7 +420,7 @@ msgstr ""
 msgid "SIP"
 msgstr ""
 
-#: views/form.php:265
+#: views/form.php:262
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
@@ -469,7 +469,7 @@ msgid ""
 "remove this notice."
 msgstr ""
 
-#: views/form.php:110
+#: views/form.php:107
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
@@ -493,7 +493,7 @@ msgstr ""
 msgid "Updating simu_fax in miscdest table.."
 msgstr ""
 
-#: functions.inc.php:350
+#: functions.inc.php:361
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -516,7 +516,7 @@ msgstr ""
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
 
-#: views/form.php:47
+#: views/form.php:44
 msgid ""
 "When no fax modules are detected the module will not generate any detection "
 "dialplan by default. If the system is being used with phyical FAX devices, "
@@ -531,8 +531,8 @@ msgstr ""
 
 #: Fax.class.php:435
 #: views/fax.php:28
-#: views/form.php:37
-#: views/form.php:175
+#: views/form.php:34
+#: views/form.php:172
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr ""
@@ -544,13 +544,13 @@ msgid ""
 "receive both voice and fax calls on this line"
 msgstr ""
 
-#: views/form.php:62
+#: views/form.php:59
 msgid ""
 "Your maximum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
 
-#: views/form.php:59
+#: views/form.php:56
 msgid ""
 "Your minimum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
