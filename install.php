@@ -347,7 +347,13 @@ if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
         continue;
       }
       $o = $user;
-    }
+    } elseif(empty($o['email'])) {
+			//no email set for this user so now update user with the fax email
+			\FreePBX::Userman()->updateUserExtraData($o['id'],array("email" => $res['faxemail']));
+		} elseif($o['email'] != $res['faxemail']) {
+			//email was set in userman and it's different than this extension so we keep the usermanager email
+			out(sprintf(_("Migrated user %s but unable to set email address to %s because an email [%s] was already set for User Manager User %s"),$res['user'],$res['faxemail'],$o['email'],$o['username']));
+		}
 
     $sql = "UPDATE fax_users SET user = ? WHERE user = ?";
     $sth = \FreePBX::Database()->prepare($sql);
