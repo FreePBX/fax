@@ -20,15 +20,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 11:50-0800\n"
+"POT-Creation-Date: 2016-03-02 11:12-0800\n"
 "PO-Revision-Date: 2016-02-04 23:22+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/>\n"
-"Language: fr_FR\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -268,7 +268,7 @@ msgstr ""
 msgid "Fax user %s"
 msgstr "Utilisateur de télécopie %s"
 
-#: install.php:379
+#: install.php:385
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
@@ -303,7 +303,7 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: install.php:381
+#: install.php:387
 msgid "Inbound Fax Destination Change"
 msgstr ""
 
@@ -312,7 +312,7 @@ msgstr ""
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Détection Fax entrant : %s (%s)"
 
-#: install.php:381
+#: install.php:387
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
@@ -353,6 +353,13 @@ msgstr "taux de transfert maximum"
 #: views/form.php:209
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "Taux de transfert maximum à utiliser pendant la négociation d'un Fax"
+
+#: install.php:355
+#, php-format
+msgid ""
+"Migrated user %s but unable to set email address to %s because an email [%s] "
+"was already set for User Manager User %s"
+msgstr ""
 
 #: install.php:323
 msgid "Migrating all fax users to usermanager"
@@ -537,8 +544,8 @@ msgstr "Type de détection de télécopie à utiliser (e.g. SIP ou DAHDI)"
 msgid "Type of fax detection to use."
 msgstr "Type de détection de télécopie à utiliser"
 
-#: install.php:336 /usr/src/freepbx/fax/install.php:343 install.php:357
-#: /usr/src/freepbx/fax/install.php:367
+#: install.php:336 /usr/src/freepbx/fax/install.php:343 install.php:363
+#: /usr/src/freepbx/fax/install.php:373
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "

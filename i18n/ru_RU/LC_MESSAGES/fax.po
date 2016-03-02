@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 11:50-0800\n"
+"POT-Creation-Date: 2016-03-02 11:12-0800\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Fax user %s"
 msgstr "Пользватель факса %s"
 
-#: install.php:379
+#: install.php:385
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
@@ -313,7 +313,7 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: install.php:381
+#: install.php:387
 msgid "Inbound Fax Destination Change"
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Распознавать входящий факс: %s (%s)"
 
-#: install.php:381
+#: install.php:387
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
@@ -363,6 +363,13 @@ msgstr "Максимальная скорость передачи"
 #: views/form.php:209
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "Максимальная скорость передачи для распознавания скорости факсов."
+
+#: install.php:355
+#, php-format
+msgid ""
+"Migrated user %s but unable to set email address to %s because an email [%s] "
+"was already set for User Manager User %s"
+msgstr ""
 
 #: install.php:323
 msgid "Migrating all fax users to usermanager"
@@ -544,8 +551,8 @@ msgstr ""
 msgid "Type of fax detection to use."
 msgstr "Какой метод детектирования будет использоваться."
 
-#: install.php:336 /usr/src/freepbx/fax/install.php:343 install.php:357
-#: /usr/src/freepbx/fax/install.php:367
+#: install.php:336 /usr/src/freepbx/fax/install.php:343 install.php:363
+#: /usr/src/freepbx/fax/install.php:373
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
