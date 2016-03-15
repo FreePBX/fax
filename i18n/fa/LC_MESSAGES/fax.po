@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-02 11:12-0800\n"
-"PO-Revision-Date: 2015-10-11 13:44+0200\n"
+"PO-Revision-Date: 2016-03-15 07:23+0300\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/"
-">\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/>"
+"\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -64,7 +64,7 @@ msgstr ""
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
+msgstr "افزودن تنظیمات، گزینه ها و رابط گرافیکی برای دورنگار دریافتی"
 
 #: views/form.php:29
 msgid "Always Generate Detection Code"
@@ -188,7 +188,7 @@ msgstr "دورنگار"
 
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
-msgstr ""
+msgstr "تنظیمات دورنگار"
 
 #: Fax.class.php:571 Fax.class.php:631
 msgid "Fax Destination"
@@ -196,7 +196,7 @@ msgstr "مقصد دورنگار"
 
 #: Fax.class.php:623
 msgid "Fax Detection"
-msgstr ""
+msgstr "تشخیص دورنگار"
 
 #: Fax.class.php:515
 msgid "Fax Detection Time"
@@ -204,7 +204,7 @@ msgstr "زمان تشخیص دورنگار"
 
 #: Fax.class.php:627
 msgid "Fax Detection Wait"
-msgstr ""
+msgstr "انتظار برای تشخیص دورنگار"
 
 #: Fax.class.php:482
 msgid "Fax Detection type"
@@ -228,7 +228,7 @@ msgstr "درایورهای دورنگار پشتیبانی شده با این م
 
 #: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
-msgstr ""
+msgstr "دورنگار برای استریسک (res_fax_digium.so) با مجوز"
 
 #: functions.inc.php:20
 #, php-format
@@ -237,15 +237,17 @@ msgstr "دورنگار کاربر %s"
 
 #: install.php:385
 msgid "Finished Migrating fax users to usermanager"
-msgstr ""
+msgstr "اتمام انتقال دورنگار کاربران به مدیریت کاربر"
 
 #: bin/fax2mail.php:82
 msgid "For User"
-msgstr ""
+msgstr "برای کاربر"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
+"فرمت هایی که دورنگارهای دریافتی باید ب آنها تبدیل شده سپس به ایمیل ارسال "
+"شوند."
 
 #: views/form.php:83
 msgid ""
@@ -256,7 +258,7 @@ msgstr ""
 
 #: Fax.class.php:628
 msgid "How long to wait and try to detect fax"
-msgstr ""
+msgstr "مدت زمان انتظار برای شناسایی دورنگار"
 
 #: Fax.class.php:506
 msgid ""
@@ -267,7 +269,7 @@ msgstr ""
 
 #: install.php:387
 msgid "Inbound Fax Destination Change"
-msgstr ""
+msgstr "تغییر مقصد دورنگار ورودی"
 
 #: functions.inc.php:60
 #, php-format
@@ -283,15 +285,15 @@ msgstr ""
 
 #: views/fax.php:32
 msgid "Inherit"
-msgstr ""
+msgstr "ارثی"
 
 #: functions.inc.php:361
 msgid "Invalid Email for Inbound Fax"
-msgstr ""
+msgstr "ایمیل نادرست برای ارسال دورنگار دریافتی"
 
 #: Fax.class.php:438
 msgid "Legacy"
-msgstr ""
+msgstr "میراث"
 
 #: Fax.class.php:418
 msgid ""
@@ -321,11 +323,11 @@ msgstr ""
 
 #: install.php:323
 msgid "Migrating all fax users to usermanager"
-msgstr ""
+msgstr "انتقال تمام کاربران فکس به مدیریت کاربران"
 
 #: install.php:47
 msgid "Migrating fax_incoming table..."
-msgstr ""
+msgstr "انتقال جدول فکس ورودی..."
 
 #: install.php:292
 msgid "Migrating fax_users table to add faxattachformat..."
@@ -338,7 +340,7 @@ msgstr ""
 
 #: views/form.php:221
 msgid "Minimum transfer rate"
-msgstr ""
+msgstr "حداقل سرعت تبادل اطلاعات"
 
 #: views/form.php:235
 msgid "Minimum transfer rate used during fax rate negotiation."
@@ -356,25 +358,25 @@ msgstr ""
 
 #: Fax.class.php:489
 msgid "NVFax"
-msgstr ""
+msgstr "NVFax"
 
 #: bin/fax2mail.php:42
 #, php-format
 msgid "New fax from: %s"
-msgstr ""
+msgstr "دورنگار جدید از:%s"
 
 #: bin/fax2mail.php:44
 msgid "New fax received"
-msgstr ""
+msgstr "دورنگار جدید دریافت شد"
 
 #: Fax.class.php:436 views/fax.php:29 views/form.php:36 views/form.php:174
 #: views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: install.php:270
 msgid "No Inbound Routes to migrate"
-msgstr ""
+msgstr "مسیر ورودی برای انتقال وجود ندارد"
 
 #: Fax.class.php:423
 msgid ""
@@ -390,19 +392,19 @@ msgstr ""
 
 #: bin/fax2mail.php:71
 msgid "On"
-msgstr ""
+msgstr "روشن"
 
 #: views/form.php:119
 msgid "Outgoing Email address"
-msgstr ""
+msgstr "آدرس ایمیل ارسال فکس"
 
 #: bin/fax2mail.php:39
 msgid "Outgoing fax results"
-msgstr ""
+msgstr "نتایج فکس ارسالی"
 
 #: views/fax.php:57
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: bin/fax2mail.php:70
 #, php-format
@@ -420,11 +422,11 @@ msgstr ""
 
 #: Fax.class.php:371
 msgid "Reset"
-msgstr ""
+msgstr "بازنشانی"
 
 #: Fax.class.php:491
 msgid "SIP"
-msgstr ""
+msgstr "SIP"
 
 #: views/form.php:262
 msgid ""
@@ -435,7 +437,7 @@ msgstr ""
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #: Fax.class.php:471
 msgid ""
@@ -449,7 +451,7 @@ msgstr ""
 
 #: Fax.class.php:366
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: install.php:59
 msgid "Successfully migrated fax_incoming table!"
@@ -465,7 +467,7 @@ msgstr ""
 
 #: views/fax.php:58
 msgid "TIFF"
-msgstr ""
+msgstr "TIFF"
 
 #: install.php:257
 msgid ""
@@ -481,11 +483,11 @@ msgstr ""
 
 #: Fax.class.php:624
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
-msgstr ""
+msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI)"
 
 #: Fax.class.php:468
 msgid "Type of fax detection to use."
-msgstr ""
+msgstr "نوع شناسایی فکس مورد استفاده."
 
 #: install.php:336 /usr/src/freepbx/fax/install.php:343 install.php:363
 #: /usr/src/freepbx/fax/install.php:373
@@ -508,7 +510,7 @@ msgstr ""
 
 #: bin/fax2mail.php:72
 msgid "Via"
-msgstr ""
+msgstr "با"
 
 #: install.php:296
 msgid "WARINING: fax_users table may still be using the old schema!"
@@ -532,12 +534,12 @@ msgstr ""
 
 #: Fax.class.php:562 Fax.class.php:632
 msgid "Where to send the faxes"
-msgstr ""
+msgstr "محلی که دورنگارها به آنجا ارسال میشوند"
 
 #: Fax.class.php:435 views/fax.php:28 views/form.php:34 views/form.php:172
 #: views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "بله"
 
 #: Fax.class.php:416
 msgid ""
@@ -560,63 +562,63 @@ msgstr ""
 
 #: Fax.class.php:405
 msgid "Zaptel"
-msgstr ""
+msgstr "Zaptel"
 
 #: install.php:266
 msgid "all migrations succeeded successfully"
-msgstr ""
+msgstr "تمامی انتقالات با موفقیت انجام شد"
 
 #: install.php:273
 msgid "already done"
-msgstr ""
+msgstr "انجام شد"
 
 #: install.php:259 /usr/src/freepbx/fax/install.php:260
 msgid "blank"
-msgstr ""
+msgstr "خالی"
 
 #: install.php:83 /usr/src/freepbx/fax/install.php:90
 msgid "done"
-msgstr ""
+msgstr "انجام شد"
 
 #: install.php:72
 msgid "duplicate, removing old from core.."
-msgstr ""
+msgstr "چند گانه، نتایج قدیمی حذف میشوند"
 
 #: install.php:166 /usr/src/freepbx/fax/install.php:248
 msgid "failed"
-msgstr ""
+msgstr "نا موفق"
 
 #: install.php:169
 msgid "migrated"
-msgstr ""
+msgstr "انتقال داده شده"
 
 #: install.php:162
 msgid "migrating defaults.."
-msgstr ""
+msgstr "پیشفرضهای انتقال.."
 
 #: install.php:88
 msgid "not needed"
-msgstr ""
+msgstr "لازم نیست"
 
 #: install.php:238
 msgid "not present"
-msgstr ""
+msgstr "موجود نیست"
 
 #: install.php:77 /usr/src/freepbx/fax/install.php:240 install.php:250
 msgid "removed"
-msgstr ""
+msgstr "حذف شده"
 
 #: install.php:136
 msgid "starting migration"
-msgstr ""
+msgstr "شروع عملیات انتقال"
 
 #: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"
-msgstr ""
+msgstr "خطای تعریف نشده"
 
 #: Fax.class.php:470
 msgid "use "
-msgstr ""
+msgstr "استفاده"
 
 #~ msgid "Fax Attach Format"
 #~ msgstr "فرمت ضمیمه دورنگار"
