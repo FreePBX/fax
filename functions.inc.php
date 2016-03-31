@@ -321,10 +321,10 @@ function fax_get_config($engine){
 		$ext->add('ext-did-0002', 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
 
 		// Add fax extension to ivr and announcement as inbound controle may be passed quickly to them and still detection is desired
-		if (function_exists('ivr_list')) {
-			$ivrlist = ivr_list();
+		if (function_exists('ivr_get_details')) {
+			$ivrlist = ivr_get_details();
 			if(is_array($ivrlist)) foreach($ivrlist as $item) {
-				$ext->add("ivr-".$item['ivr_id'], 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
+				$ext->add("ivr-".$item['id'], 'fax', '', new ext_goto('${CUT(FAX_DEST,^,1)},${CUT(FAX_DEST,^,2)},${CUT(FAX_DEST,^,3)}'));
 			}
 		}
 		if (function_exists('announcement_list')) foreach (announcement_list() as $row) {
