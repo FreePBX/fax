@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-02 11:12-0800\n"
-"PO-Revision-Date: 2016-03-15 07:23+0300\n"
+"PO-Revision-Date: 2016-04-02 21:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/>"
 "\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Fax.class.php:470
 msgid ""
@@ -357,6 +357,7 @@ msgid ""
 msgstr ""
 
 #: Fax.class.php:489
+#, fuzzy
 msgid "NVFax"
 msgstr "NVFax"
 
@@ -562,7 +563,7 @@ msgstr ""
 
 #: Fax.class.php:405
 msgid "Zaptel"
-msgstr "Zaptel"
+msgstr "زپتل"
 
 #: install.php:266
 msgid "all migrations succeeded successfully"
@@ -582,7 +583,7 @@ msgstr "انجام شد"
 
 #: install.php:72
 msgid "duplicate, removing old from core.."
-msgstr "چند گانه، نتایج قدیمی حذف میشوند"
+msgstr "چند گانه، نتایج قدیمی حذف میشوند.."
 
 #: install.php:166 /usr/src/freepbx/fax/install.php:248
 msgid "failed"
@@ -618,7 +619,7 @@ msgstr "خطای تعریف نشده"
 
 #: Fax.class.php:470
 msgid "use "
-msgstr "استفاده"
+msgstr "استفاده "
 
 #~ msgid "Fax Attach Format"
 #~ msgstr "فرمت ضمیمه دورنگار"
