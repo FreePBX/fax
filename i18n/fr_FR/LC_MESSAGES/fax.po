@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 11:12-0800\n"
+"POT-Creation-Date: 2016-04-04 17:33-0700\n"
 "PO-Revision-Date: 2016-02-04 23:22+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/"
@@ -251,7 +251,7 @@ msgstr "Télécopieur activé"
 msgid "Fax Options"
 msgstr "Options de télécopie"
 
-#: functions.inc.php:102
+#: functions.inc.php:103
 msgid "Fax Recipient"
 msgstr "Destinataire de la télécopie"
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Hérite"
 
-#: functions.inc.php:361
+#: functions.inc.php:362
 msgid "Invalid Email for Inbound Fax"
 msgstr "Courriel invalide pour les télécopies entrantes"
 
@@ -556,7 +556,7 @@ msgstr ""
 msgid "Updating simu_fax in miscdest table.."
 msgstr "Mise à jour de simu_fax dans la table miscdest.."
 
-#: functions.inc.php:361
+#: functions.inc.php:362
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "

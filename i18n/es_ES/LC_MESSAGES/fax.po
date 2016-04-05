@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-02 11:12-0800\n"
+"POT-Creation-Date: 2016-04-04 17:33-0700\n"
 "PO-Revision-Date: 2015-02-20 19:30-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -243,7 +243,7 @@ msgstr ""
 msgid "Fax Options"
 msgstr "Opciones de Fax"
 
-#: functions.inc.php:102
+#: functions.inc.php:103
 msgid "Fax Recipient"
 msgstr "Destinatario de fax"
 
@@ -315,7 +315,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: functions.inc.php:361
+#: functions.inc.php:362
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Updating simu_fax in miscdest table.."
 msgstr "Actualizando simu_fax en tabla miscdest.."
 
-#: functions.inc.php:361
+#: functions.inc.php:362
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
