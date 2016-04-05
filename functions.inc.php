@@ -98,7 +98,7 @@ function fax_delete_user($faxext) {
 function fax_destinations(){
 	global $module_page;
 	$recip = fax_get_destinations();
-	usort($recip, function($a,$b){ return $a['uname'] - $b['uname'];});
+	usort($recip, function($a,$b){ return ($a['uname'] < $b['uname']) ? -1 : 1;});
 	foreach ( $recip as $row) {
 		$extens[] = array('destination' => 'ext-fax,' . $row['user'] . ',1', 'description' => $row['name'].' ('.$row['uname'].')', 'category' => _('Fax Recipient'));
 	}
