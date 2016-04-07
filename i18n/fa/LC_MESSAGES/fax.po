@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-04 17:33-0700\n"
-"PO-Revision-Date: 2016-04-06 17:37+0300\n"
+"PO-Revision-Date: 2016-04-06 21:16+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/>"
 "\n"
@@ -399,7 +399,7 @@ msgstr ""
 
 #: Fax.class.php:489
 msgid "NVFax"
-msgstr "NVFax"
+msgstr "فکس NV"
 
 #: bin/fax2mail.php:42
 #, php-format
