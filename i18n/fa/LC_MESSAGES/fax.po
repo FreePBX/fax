@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-04 17:33-0700\n"
-"PO-Revision-Date: 2016-04-02 21:04+0200\n"
+"PO-Revision-Date: 2016-04-06 17:37+0300\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/"
-">\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/fax/fa/>"
+"\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -61,6 +61,15 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
+"آدرسی که فکسهای دریافتی به آن ایمیل میشود.<br />PLEASE NOTE: In this version "
+"of FreePBX, you can now set the fax destination from a list of destinations. "
+"Extensions/Users can be fax enabled in the user/extension screen and set an "
+"email address there. This will create a new destination type that can be "
+"selected. To upgrade this option to the full destination list, select YES to "
+"Detect Faxes and select a destination. After clicking submit, this route "
+"will be upgraded. This Legacy option will no longer be available after the "
+"change, it is provided to handle legacy migrations from previous versions of "
+"FreePBX only."
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
@@ -124,6 +133,9 @@ msgid ""
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
+"خطا: ماژول فکس پیدا نشد!<br>Fax-related dialplan will <b>NOT</b> be "
+"generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
+"spandsp based app_fax (res_fax_spandsp.so) to function."
 
 #: Fax.class.php:79
 msgid ""
@@ -132,6 +144,10 @@ msgid ""
 "without a license.<br>At least one license is required (it is available for "
 "free) and must be installed."
 msgstr ""
+"خطا: مجوز استفاده از امکان فکس پیدا نشد.<br>Fax-related dialplan will "
+"<b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk "
+"is installed without a license.<br>At least one license is required (it is "
+"available for free) and must be installed."
 
 #: views/form.php:143
 msgid "Email address"
@@ -142,6 +158,8 @@ msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
+"آدرس ایمیلی که  دورنگارها به آن ارسال میشوند اگر 'پیشفرض سیستم' به عنوان "
+"شماره داخلی پیشفرض دورنگار انتخاب شده باشد."
 
 #: views/form.php:155
 msgid ""
@@ -150,6 +168,10 @@ msgid ""
 "mode, if there are routes still running in this mode that do not have email "
 "addresses specified."
 msgstr ""
+"آدرس ایمیلی که فکس ها در صورت استفاده از کد ویژه \"Dial System Fax\" به آن "
+"ارسال میشوند.همچنین از این آدرس برای حالت موروثی نیز استفاده خواهد شد، "
+"درصورتی که مسیرهایی در این حالت وجود داشته و آدرس ایمیلی برای ایشان لحاظ "
+"نشده باشد."
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
@@ -181,6 +203,10 @@ msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
 msgstr ""
+"Error Correction Mode (ECM) option is used to specify whether\n"
+"\\t\\t\\t to use ecm mode or not.Error Correction Mode (ECM) option is used "
+"to specify whether\n"
+"\\t\\t\\t to use ecm mode or not."
 
 #: Fax.class.php:88 Fax.class.php:106 Fax.class.php:606
 msgid "Fax"
@@ -255,6 +281,8 @@ msgid ""
 "is printed on top of every page. This usually contains the name of the "
 "person or entity sending the fax."
 msgstr ""
+"اطلاعات سربرگ که در بالای تمامی فکسهای ارسالی چاپ میشود.معمولا شامل اطلاعات "
+"شخص و یا شرکت ارسال کننده فکس میباشد."
 
 #: Fax.class.php:628
 msgid "How long to wait and try to detect fax"
@@ -266,6 +294,9 @@ msgid ""
 "channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
+"مدت زمان انتظار برای تشخیص فکس. لطفا توجه کنید تماس گیرنده در کانال دهدی "
+"صدای زنگ خوردن را در این زمان خواهد شنید (i.e. the system wont \"answer\" "
+"the call, it will just play ringing)."
 
 #: install.php:387
 msgid "Inbound Fax Destination Change"
@@ -274,7 +305,7 @@ msgstr "تغییر مقصد دورنگار ورودی"
 #: functions.inc.php:60
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
-msgstr ""
+msgstr "تشخیص فکس های ورودی: %s (%s)"
 
 #: install.php:387
 msgid ""
@@ -282,6 +313,9 @@ msgid ""
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
+"Inbound faxes now  use User Manager users. Therefore you will need to re-"
+"assign all of your destinations that used 'Fax Recipients' to point to User "
+"Manager users. You may see broken destinations until this is resolved"
 
 #: views/fax.php:32
 msgid "Inherit"
@@ -301,6 +335,9 @@ msgid ""
 "This option is ONLY for supporting migrated legacy fax routes. You should "
 "upgrade this route by choosing YES, and selecting a valid destination!"
 msgstr ""
+"ارثی: انند بله، فقط میتواند یک آدرس ایمیل به عنوان مقصد وارد شود. این گزینه "
+"فقط برای انتقال مسیر فکس های قدیمی استفاده میشود. شما با انتخاب گزینه بله "
+"باید مسیر را به روزکنید، و یک مسیر معتبر انتخاب کنید!"
 
 #: views/form.php:252
 msgid "Letter"
@@ -312,7 +349,7 @@ msgstr "بیشترین امتیاز انتقال"
 
 #: views/form.php:209
 msgid "Maximum transfer rate used during fax rate negotiation."
-msgstr ""
+msgstr "بیشترین سرعت استفاده شده برای تبادل فکس."
 
 #: install.php:355
 #, php-format
@@ -320,6 +357,8 @@ msgid ""
 "Migrated user %s but unable to set email address to %s because an email [%s] "
 "was already set for User Manager User %s"
 msgstr ""
+"Migrated user %s but unable to set email address to %s because an  email [%s]"
+" was already set for User Manager User %s"
 
 #: install.php:323
 msgid "Migrating all fax users to usermanager"
@@ -331,12 +370,12 @@ msgstr "انتقال جدول فکس ورودی..."
 
 #: install.php:292
 msgid "Migrating fax_users table to add faxattachformat..."
-msgstr ""
+msgstr "انتقال جدول fax_users و افزودن فرمت ضمیمه فکس..."
 
 #: install.php:280
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
-msgstr ""
+msgstr "انتقال فیلد فکس میل در جدول fax_users برای ایمیل های طولانی تر..."
 
 #: views/form.php:221
 msgid "Minimum transfer rate"
@@ -344,20 +383,21 @@ msgstr "حداقل سرعت تبادل اطلاعات"
 
 #: views/form.php:235
 msgid "Minimum transfer rate used during fax rate negotiation."
-msgstr ""
+msgstr "کمترین سرعت استفاده شده برای تبادل فکس."
 
 #: install.php:68
 msgid "Moving simu_fax feature code from core.."
-msgstr ""
+msgstr "انتقال کد ویژه simu_fax از هسته.."
 
 #: Fax.class.php:472
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
 msgstr ""
+"NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect  to be installed "
+"and recognized by asterisk"
 
 #: Fax.class.php:489
-#, fuzzy
 msgid "NVFax"
 msgstr "NVFax"
 
@@ -383,6 +423,8 @@ msgstr "مسیر ورودی برای انتقال وجود ندارد"
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
+"روش درستی برای تشخیص فکس انتخاب نشد و یا مجوز قانونی وجود نداشت. عملیات فکس "
+"نمیتواند فعال شود."
 
 #: Fax.class.php:415
 msgid ""
@@ -390,6 +432,9 @@ msgid ""
 "destination set in the 'General' tab. Use this option if this DID is used "
 "exclusively for voice OR fax."
 msgstr ""
+"خیر: تلاشی برای تشخیص خودکار نوع تماس انجام نشد; تمامی تماس ها به مقصد تعیین "
+"شده در تب 'عمومی' فرستاده میشود. این گزینه برای DIDهایی استفاده میشود که "
+"انحصارا به عنوان فکس و یا تماس ساده استفاده میشوند."
 
 #: bin/fax2mail.php:71
 msgid "On"
@@ -410,16 +455,16 @@ msgstr "PDF"
 #: bin/fax2mail.php:70
 #, php-format
 msgid "Received & processed: %s"
-msgstr ""
+msgstr "رسیده و پردازش شده: %s"
 
 #: install.php:234
 #, php-format
 msgid "Removing field %s from incoming table.."
-msgstr ""
+msgstr "حذف فیلد %s از جدول ورودی.."
 
 #: install.php:243
 msgid "Removing old globals.."
-msgstr ""
+msgstr "حذف سراسری های قبلی.."
 
 #: Fax.class.php:371
 msgid "Reset"
@@ -435,6 +480,8 @@ msgid ""
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
 msgstr ""
+"انتخاب اندازه برگه پیشفرض.<br/>این اندازه برای مدارکی که سایز مشخصی ندارند "
+"لحاظ میشود.<br/>اگر مدرکی سایز مشخصی داشت همان سایز استفاده میشود."
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
@@ -445,10 +492,12 @@ msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
+"Sip: use sip fax  detection (t38). Requires asterisk 1.6.2 or greater and "
+"'faxdetect=yes' in the sip config files"
 
 #: page.fax.php:14
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
-msgstr ""
+msgstr "Spandsp  based app_fax (res_fax_spandsp.so)"
 
 #: Fax.class.php:366
 msgid "Submit"
@@ -456,15 +505,15 @@ msgstr "ارسال"
 
 #: install.php:59
 msgid "Successfully migrated fax_incoming table!"
-msgstr ""
+msgstr "جدول fax_incoming با موفقیت منتقل شد!"
 
 #: install.php:298
 msgid "Successfully migrated fax_users table!"
-msgstr ""
+msgstr "جدول fax_users با موفقیت منتقل شد!"
 
 #: install.php:286
 msgid "Successfully migrated faxemail field"
-msgstr ""
+msgstr "فیلد فکس میل با موفقیت منتقل شد"
 
 #: views/fax.php:58
 msgid "TIFF"
@@ -477,10 +526,14 @@ msgid ""
 "disabled and will need to be updated. Click delete icon on the right to "
 "remove this notice."
 msgstr ""
+"The following  Inbound Routes had FAX processing that failed migration "
+"because they were accessing a device with no associated user. They have been "
+"disabled and will need to be updated. Click delete icon on the right to "
+"remove this notice."
 
 #: views/form.php:107
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
-msgstr ""
+msgstr "شناسه ماشین فکس خارجی. به طور معمول شماره فکس شماست."
 
 #: Fax.class.php:624
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
@@ -496,11 +549,11 @@ msgstr "نوع شناسایی فکس مورد استفاده."
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
 "destinations"
-msgstr ""
+msgstr "عدم امکان انتقال %s، به دلیل [%s]. لطفا 'گیرنده فکس' را بررسی کنید"
 
 #: install.php:85
 msgid "Updating simu_fax in miscdest table.."
-msgstr ""
+msgstr "به روزرسانی جدول simu_fax در مقاصدمختلف.."
 
 #: functions.inc.php:362
 #, php-format
@@ -508,6 +561,8 @@ msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
 "address defined so they will not be able to receive faxes."
 msgstr ""
+"کاربر بخش مدیریت کاربری '%s' امکان دریافت فکس را دارد ولی آدرس ایمیلی برای "
+"آن تنظیم نشده است به همین دلیل نمیتواند فکس را به درستی دریافت کند."
 
 #: bin/fax2mail.php:72
 msgid "Via"
@@ -516,14 +571,18 @@ msgstr "با"
 #: install.php:296
 msgid "WARINING: fax_users table may still be using the old schema!"
 msgstr ""
+"هشدار: جدول fax_users ممکن است به وسیله طرح قبلی مورد استفاده قرار گرفته "
+"باشد!"
 
 #: install.php:284
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
-msgstr ""
+msgstr "هشدار: انتقال ناموفق. طول ایمیل نباید بیشتر از 50 کاراکتر باشد."
 
 #: install.php:57
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
+"هشدار: جدول fax_incoming ممکن است به وسیله طرح 2.6 مورد استفاده قرار گرفته "
+"باشد!"
 
 #: views/form.php:44
 msgid ""
@@ -532,6 +591,9 @@ msgid ""
 "hylafax + iaxmodem, or other outside fax setups you can force the dialplan "
 "to be generated here."
 msgstr ""
+"وفتی ماژول فکسی وجود ندارد هیچ نقشه تماسی به صورت خودکار تولید نمیشود.اگر از "
+"دستگاه فکس، hylafax + iaxmodem ،یا دیگر پلتفرم ها استفاده میکنید میتوانید "
+"نقشه تماس را به صورت دستی تولید کرده و در اینجا قرار دهید."
 
 #: Fax.class.php:562 Fax.class.php:632
 msgid "Where to send the faxes"
@@ -548,18 +610,21 @@ msgid ""
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
 msgstr ""
+"بله:تلاش برای تشخیص خودکار نوع تماس; مسیریابی به مقصد فکس برای این دست تماس "
+"ها، درغیراینصورت تماس به مقصد معمول فرستاده میشود. از این گزینه وقتی استفاده "
+"میکنیم که از یک خط برای دریافت تماس و فکس استفاده میشود"
 
 #: views/form.php:59
 msgid ""
 "Your maximum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
-msgstr ""
+msgstr "بالاترین سرعت جابجایی شما روی 2400 تنظیم شده است"
 
 #: views/form.php:56
 msgid ""
 "Your minimum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
-msgstr ""
+msgstr "پایین ترین سرعت جابجایی شما روی 2400 تنظیم شده است"
 
 #: Fax.class.php:405
 msgid "Zaptel"
