@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-04 17:33-0700\n"
-"PO-Revision-Date: 2016-04-24 01:58+0200\n"
+"PO-Revision-Date: 2016-05-03 03:17+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -143,6 +143,8 @@ msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
+"Adres e-mail, który pochodzi z systemu domyślnego został wybrany jako "
+"domyślne rozszerzenie faksu."
 
 #: views/form.php:155
 msgid ""
@@ -154,15 +156,15 @@ msgstr ""
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
-msgstr ""
+msgstr "Włączyć faks"
 
 #: views/fax.php:42
 msgid "Enable this user to receive faxes"
-msgstr ""
+msgstr "Dodać tego użytkownika do listy odbiorców faksu"
 
 #: views/fax.php:23
 msgid "Enabled"
-msgstr ""
+msgstr "Włączone"
 
 #: bin/fax2mail.php:67
 msgid "Enclosed, please find a new fax"
@@ -213,7 +215,7 @@ msgstr ""
 
 #: Fax.class.php:619 Fax.class.php:620
 msgid "Fax Enabled"
-msgstr ""
+msgstr "Faks włączony"
 
 #: page.fax.php:9
 msgid "Fax Options"
@@ -225,7 +227,7 @@ msgstr "Odbiorca faksu"
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
-msgstr ""
+msgstr "Sterowniki faksu wspierane przez ten moduł to:"
 
 #: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
@@ -234,15 +236,15 @@ msgstr ""
 #: functions.inc.php:20
 #, php-format
 msgid "Fax user %s"
-msgstr ""
+msgstr "Użytkownik faksu %s"
 
 #: install.php:385
 msgid "Finished Migrating fax users to usermanager"
-msgstr ""
+msgstr "Zakończono przenoszenie listy użytkowników faksu do administratora"
 
 #: bin/fax2mail.php:82
 msgid "For User"
-msgstr ""
+msgstr "Dla użytkownika"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
@@ -307,7 +309,7 @@ msgstr ""
 
 #: views/form.php:195
 msgid "Maximum transfer rate"
-msgstr ""
+msgstr "Maksymalne wskazania transferu"
 
 #: views/form.php:209
 msgid "Maximum transfer rate used during fax rate negotiation."
@@ -339,7 +341,7 @@ msgstr ""
 
 #: views/form.php:221
 msgid "Minimum transfer rate"
-msgstr ""
+msgstr "Minimalne wskazania transferu"
 
 #: views/form.php:235
 msgid "Minimum transfer rate used during fax rate negotiation."
@@ -362,16 +364,16 @@ msgstr ""
 #: bin/fax2mail.php:42
 #, php-format
 msgid "New fax from: %s"
-msgstr ""
+msgstr "Nowy faks od: %s"
 
 #: bin/fax2mail.php:44
 msgid "New fax received"
-msgstr ""
+msgstr "Otrzymano nowy faks"
 
 #: Fax.class.php:436 views/fax.php:29 views/form.php:36 views/form.php:174
 #: views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "Nie"
 
 #: install.php:270
 msgid "No Inbound Routes to migrate"
@@ -403,7 +405,7 @@ msgstr ""
 
 #: views/fax.php:57
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: bin/fax2mail.php:70
 #, php-format
@@ -436,7 +438,7 @@ msgstr ""
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
-msgstr ""
+msgstr "Opcje"
 
 #: Fax.class.php:471
 msgid ""
@@ -450,7 +452,7 @@ msgstr ""
 
 #: Fax.class.php:366
 msgid "Submit"
-msgstr ""
+msgstr "Zatwierdź"
 
 #: install.php:59
 msgid "Successfully migrated fax_incoming table!"
@@ -538,7 +540,7 @@ msgstr ""
 #: Fax.class.php:435 views/fax.php:28 views/form.php:34 views/form.php:172
 #: views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "Tak"
 
 #: Fax.class.php:416
 msgid ""
@@ -569,15 +571,15 @@ msgstr ""
 
 #: install.php:273
 msgid "already done"
-msgstr ""
+msgstr "już zakończone"
 
 #: install.php:259 /usr/src/freepbx/fax/install.php:260
 msgid "blank"
-msgstr ""
+msgstr "pusty"
 
 #: install.php:83 /usr/src/freepbx/fax/install.php:90
 msgid "done"
-msgstr ""
+msgstr "zakończone"
 
 #: install.php:72
 msgid "duplicate, removing old from core.."
@@ -585,11 +587,11 @@ msgstr ""
 
 #: install.php:166 /usr/src/freepbx/fax/install.php:248
 msgid "failed"
-msgstr ""
+msgstr "zakończony niepowodzeniem"
 
 #: install.php:169
 msgid "migrated"
-msgstr ""
+msgstr "przeniesione"
 
 #: install.php:162
 msgid "migrating defaults.."
@@ -597,7 +599,7 @@ msgstr ""
 
 #: install.php:88
 msgid "not needed"
-msgstr ""
+msgstr "niepotrzebne"
 
 #: install.php:238
 msgid "not present"
@@ -605,16 +607,16 @@ msgstr ""
 
 #: install.php:77 /usr/src/freepbx/fax/install.php:240 install.php:250
 msgid "removed"
-msgstr ""
+msgstr "usunięto"
 
 #: install.php:136
 msgid "starting migration"
-msgstr ""
+msgstr "rozpoczęcie przenoszenia"
 
 #: install.php:75 /usr/src/freepbx/fax/install.php:80
 msgid "unknown error"
-msgstr ""
+msgstr "nieznany błąd"
 
 #: Fax.class.php:470
 msgid "use "
-msgstr ""
+msgstr "użyj "
