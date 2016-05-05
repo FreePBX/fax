@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-04 17:33-0700\n"
-"PO-Revision-Date: 2016-04-14 15:09+0200\n"
+"PO-Revision-Date: 2016-05-05 04:15+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/fax/fa_IR/>\n"
@@ -104,9 +104,8 @@ msgid "Checking if legacy fax needs migrating.."
 msgstr "بررسی جابجایی دورنگار در صورت نیاز.."
 
 #: Fax.class.php:405 Fax.class.php:487
-#, fuzzy
 msgid "Dahdi"
-msgstr "Dahdi"
+msgstr "دهدی (Dahdi)"
 
 #: views/form.php:71
 msgid "Default Fax header"
