@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 17:33-0700\n"
+"POT-Creation-Date: 2016-05-11 11:03-0700\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -333,7 +333,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: functions.inc.php:362
+#: functions.inc.php:359
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
@@ -563,11 +563,11 @@ msgstr ""
 msgid "Updating simu_fax in miscdest table.."
 msgstr "Обновляется simu_fax в таблице miscdest.."
 
-#: functions.inc.php:362
+#: functions.inc.php:359
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
-"address defined so they will not be able to receive faxes."
+"address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
 #: bin/fax2mail.php:72
