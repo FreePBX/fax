@@ -29,8 +29,8 @@ foreach ($var as $k => $v) {
 			}
 			break;
 		case 'to':
-			if(empty($var['to'])) {
-				die_fax('email-fax dying, no destination found ($var[\'to\'] is empty)');
+			if(empty($var['to']) && !$var['keep_file']) {
+				die_fax('email-fax dying, no destination found ($var[\'to\'] is empty) and we arent keeping the file!');
 			}
 			break;
 		case 'subject':
@@ -83,32 +83,33 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	}
 }
 
-
-//build email
-$email = new CI_Email();
-
-$email->from($var['from']);
-$email->to($var['to']);
-$email->subject($var['subject']);
-$email->message($msg);
-
 $tif = $var['file'];
-switch ($var['attachformat']) {
-case 'both':
-	$pdf = fax_file_convert('tif2pdf', $var['file'], '', true);
-	$email->attach($pdf);
-	$email->attach($tif);
-	break;
-case 'tif':
-	$email->attach($tif);
-	break;
-case 'pdf':
-	$pdf = fax_file_convert('tif2pdf', $var['file'], '', true);
-	$email->attach($pdf);
-	break;
-}
+if(!empty($var['to'])) {
+	//build email
+	$email = new CI_Email();
 
-$email->send();
+	$email->from($var['from']);
+	$email->to($var['to']);
+	$email->subject($var['subject']);
+	$email->message($msg);
+
+	switch ($var['attachformat']) {
+	case 'both':
+		$pdf = fax_file_convert('tif2pdf', $var['file'], '', true);
+		$email->attach($pdf);
+		$email->attach($tif);
+		break;
+	case 'tif':
+		$email->attach($tif);
+		break;
+	case 'pdf':
+		$pdf = fax_file_convert('tif2pdf', $var['file'], '', true);
+		$email->attach($pdf);
+		break;
+	}
+
+	$email->send();
+}
 
 if ($var['keep_file'] === false) {
 	unlink($tif);

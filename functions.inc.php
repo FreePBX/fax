@@ -272,20 +272,16 @@ function fax_get_config($engine){
 		// if there is a file there, mail it even if we failed:
 		$ext->add($context, $exten, '', new ext_gotoif('$[${STAT(e,${ASTSPOOLDIR}/fax/${UNIQUEID}.tif)} = 0]','failed'));
 		$ext->add($context, $exten, '', new ext_noop_trace('PROCESSING FAX with status: [${FAXSTATUS}] for: [${FAX_RX_EMAIL}], From: [${CALLERID(all)}]'));
-		$ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
 		//delete is a variable so that other modules can prevent it should then need to prosses the file further
 		$ext->add($context, $exten, 'delete_opt', new ext_set('DELETE_AFTER_SEND', 'true'));
+		$ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
 
-		//strreplace wasn't put into asterisk until 10, so fallback to replace to older asterisk versions
-		if ($ast_ge_10) {
-			$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
-		} else {
-			$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${REPLACE(CALLERID(all),\', )}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
-		}
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
 
 		$ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
 
 		$ext->add($context, $exten, 'noemail', new ext_noop('ERROR: No Email Address to send FAX: status: [${FAXSTATUS}],  From: [${CALLERID(all)}]'));
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --delete "${DELETE_AFTER_SEND}"'));
 		$ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
 		$ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
@@ -350,7 +346,6 @@ function fax_get_destinations(){
 		if(!empty($o)) {
 			if(empty($o['email'])) {
 				$warning[] = $o['username'];
-				continue;
 			}
 			$res['uname'] = $o['username'];
 			$res['name'] = !empty($o['displayname']) ? $o['displayname'] : $o['fname'] . " " . $o['lname'];
@@ -361,7 +356,7 @@ function fax_get_destinations(){
 	}
 	$nt = \notifications::create();
 	if(!empty($warning)) {
-		$nt->add_warning("fax", "invalid_email", _("Invalid Email for Inbound Fax"), sprintf(_("User Manager users '%s' have the ability to receive faxes but have no email address defined so they will not be able to receive faxes."),implode(",",$warning)), "", true, true);
+		$nt->add_warning("fax", "invalid_email", _("Invalid Email for Inbound Fax"), sprintf(_("User Manager users '%s' have the ability to receive faxes but have no email address defined so they will not be able to receive faxes over email,"),implode(",",$warning)), "", true, true);
 	} else {
 		$nt->delete("fax", "invalid_email");
 	}
