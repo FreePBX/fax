@@ -189,25 +189,29 @@ function fax_get_config($engine){
 	global $ext;
 	global $amp_conf;
 	global $core_conf;
+	global $astman;
 
 	$ast_ge_11 = version_compare($version, '11', 'ge');
 	$ast_ge_10 = version_compare($version, '10', 'ge');
 	$ast_lt_18 = version_compare($version, '1.8', 'lt');
 	$ast_ge_16 = version_compare($version, '1.6', 'ge');
 	$fax=fax_detect($version);
+	$astman->database_deltree("FAX");
 	// do not continue unless we have a fax module in asterisk
 	if($fax['module'] && ($ast_lt_18 || $fax['ffa'] || $fax['spandsp'])) {
-
 		$t38_fb = $ast_ge_16 ? ',f' : '';
 		$context='ext-fax';
 		$dests=fax_get_destinations();
+
 		if($dests){
 			foreach ($dests as $row) {
 				$exten=$row['user'];
+				$astman->database_put("FAX/".$exten,"attachformat",$row['faxattachformat']);
+				$astman->database_put("FAX/".$exten,"email",$row['faxemail']);
 				$ext->add($context, $exten, '', new ext_set('FAX_FOR',$row['name'].' ('.$row['user'].')'));
 				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_FOR}, From: ${CALLERID(all)}'));
-				$ext->add($context, $exten, '', new ext_set('FAX_ATTACH_FORMAT', $row['faxattachformat']));
-				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', $row['faxemail']));
+				$ext->add($context, $exten, '', new ext_set('FAX_ATTACH_FORMAT', '${DB(FAX/'.$exten.'/attachformat)}'));
+				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', '${DB(FAX/'.$exten.'/email)}'));
 				$ext->add($context, $exten, 'receivefax', new ext_goto('receivefax','s'));
 			}
 		}

@@ -5,6 +5,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 			throw new Exception("Not given a FreePBX Object");
 		}
 		$this->FreePBX = $freepbx;
+		$this->astman = $freepbx->astman;
 		$this->db = $freepbx->Database;
 		$this->userman = $freepbx->Userman;
 	}
@@ -119,7 +120,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
 			$userData = $this->userman->getUserByID($user);
-			if(!empty($userData) && $display == "userman") {
+			if(!empty($userData)) {
 				$this->saveUser($userData['id'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
 			}
 		}
@@ -147,7 +148,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
 			$userData = $this->userman->getUserByID($user);
-			if(!empty($userData) && $display == "userman") {
+			if(!empty($userData)) {
 				$this->saveUser($userData['id'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
 			}
 		}
@@ -186,7 +187,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		$enabled = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
 		$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'attachformat');
 		$user = $this->FreePBX->Userman->getUserByID($id);
-		if(!empty($user) && $display == "userman" && isset($_POST['faxenabled'])) {
+		if(!empty($user)) {
 			$this->saveUser($id,($enabled ? "true" : "false"),$user['email'],$attachformat);
 		}
 	}
@@ -215,7 +216,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'attachformat');
 
 		$user = $this->FreePBX->Userman->getUserByID($id);
-		if(!empty($user) && $display == "userman" && isset($_POST['faxenabled'])) {
+		if(!empty($user)) {
 			$this->saveUser($id,($enabled ? "true" : "false"),$user['email'],$attachformat);
 		}
 	}
@@ -279,6 +280,8 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		$sth = $this->db->prepare('REPLACE INTO fax_users (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)');
 		try {
 			$sth->execute(array($faxext, $faxenabled, $faxemail, $faxattachformat));
+			$this->astman->database_put("FAX/".$faxext,"attachformat",$faxattachformat);
+			$this->astman->database_put("FAX/".$faxext,"email",$faxemail);
 		} catch(\Exception $e) {
 			return false;
 		}
