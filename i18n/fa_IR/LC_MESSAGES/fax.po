@@ -9,25 +9,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-11 11:03-0700\n"
+"POT-Creation-Date: 2016-05-17 16:32-0700\n"
 "PO-Revision-Date: 2016-05-15 03:57+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) "
-"<http://weblate.freepbx.org/projects/freepbx/fax/fa_IR/>\n"
-"Language: fa_IR\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
+"fax/fa_IR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Fax.class.php:470
+#: Fax.class.php:473
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 " تشخیص دورنگار؛ ملزومات 'faxdetect='باید تنظیم شود 'ورودی' یا 'هر دو' در "
 
-#: Fax.class.php:412
+#: Fax.class.php:415
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -49,7 +49,7 @@ msgstr "%s جابجایی دورنگار ناموفق.برای توضیح بیش
 msgid "A4"
 msgstr "A4"
 
-#: Fax.class.php:534
+#: Fax.class.php:537
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -83,7 +83,7 @@ msgstr "تولید همیشگی کد تشخیص"
 msgid "Attachment Format"
 msgstr "فرمت پیوست"
 
-#: Fax.class.php:413
+#: Fax.class.php:416
 msgid "Attempt to detect faxes on this DID."
 msgstr "تلاش برای تشخیص دورنگار در این داخلی مستقیم."
 
@@ -103,7 +103,7 @@ msgstr "بررسی برای جابجایی ناموفق.."
 msgid "Checking if legacy fax needs migrating.."
 msgstr "بررسی جابجایی دورنگار در صورت نیاز.."
 
-#: Fax.class.php:405 Fax.class.php:487
+#: Fax.class.php:408 Fax.class.php:490
 msgid "Dahdi"
 msgstr "دهدی (Dahdi)"
 
@@ -119,7 +119,7 @@ msgstr "شناسه پیشفرض ایستگاه محلی"
 msgid "Default Paper Size"
 msgstr "اندازه پیشفرض کاغذ"
 
-#: Fax.class.php:449
+#: Fax.class.php:452
 msgid "Detect Faxes"
 msgstr "تشخیص دورنگار"
 
@@ -127,7 +127,7 @@ msgstr "تشخیص دورنگار"
 msgid "Dial System FAX"
 msgstr "سیستم شماره گیری دورنگار"
 
-#: Fax.class.php:77
+#: Fax.class.php:78
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
@@ -137,7 +137,7 @@ msgstr ""
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 
-#: Fax.class.php:79
+#: Fax.class.php:80
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -208,7 +208,7 @@ msgstr ""
 "to specify whether\n"
 "\\t\\t\\t to use ecm mode or not."
 
-#: Fax.class.php:88 Fax.class.php:106 Fax.class.php:606
+#: Fax.class.php:89 Fax.class.php:107 Fax.class.php:609
 msgid "Fax"
 msgstr "دورنگار"
 
@@ -216,27 +216,27 @@ msgstr "دورنگار"
 msgid "Fax Configuration"
 msgstr "تنظیمات دورنگار"
 
-#: Fax.class.php:571 Fax.class.php:631
+#: Fax.class.php:574 Fax.class.php:634
 msgid "Fax Destination"
 msgstr "مقصد دورنگار"
 
-#: Fax.class.php:623
+#: Fax.class.php:626
 msgid "Fax Detection"
 msgstr "تشخیص دورنگار"
 
-#: Fax.class.php:515
+#: Fax.class.php:518
 msgid "Fax Detection Time"
 msgstr "زمان تشخیص دورنگار"
 
-#: Fax.class.php:627
+#: Fax.class.php:630
 msgid "Fax Detection Wait"
 msgstr "انتظار برای تشخیص دورنگار"
 
-#: Fax.class.php:482
+#: Fax.class.php:485
 msgid "Fax Detection type"
 msgstr "تشخیص نوع دورنگار"
 
-#: Fax.class.php:619 Fax.class.php:620
+#: Fax.class.php:622 Fax.class.php:623
 msgid "Fax Enabled"
 msgstr "دورنگار فعال"
 
@@ -284,11 +284,11 @@ msgstr ""
 "اطلاعات سربرگ که در بالای تمامی فکسهای ارسالی چاپ میشود.معمولا شامل اطلاعات "
 "شخص و یا شرکت ارسال کننده فکس میباشد."
 
-#: Fax.class.php:628
+#: Fax.class.php:631
 msgid "How long to wait and try to detect fax"
 msgstr "مدت زمان انتظار برای شناسایی دورنگار"
 
-#: Fax.class.php:506
+#: Fax.class.php:509
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -321,15 +321,15 @@ msgstr ""
 msgid "Inherit"
 msgstr "ارثی"
 
-#: functions.inc.php:359
+#: functions.inc.php:363
 msgid "Invalid Email for Inbound Fax"
 msgstr "ایمیل نادرست برای ارسال دورنگار دریافتی"
 
-#: Fax.class.php:438
+#: Fax.class.php:441
 msgid "Legacy"
 msgstr "میراث"
 
-#: Fax.class.php:418
+#: Fax.class.php:421
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -389,7 +389,7 @@ msgstr "کمترین سرعت استفاده شده برای تبادل فکس."
 msgid "Moving simu_fax feature code from core.."
 msgstr "انتقال کد ویژه simu_fax از هسته.."
 
-#: Fax.class.php:472
+#: Fax.class.php:475
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
@@ -397,7 +397,7 @@ msgstr ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect  to be installed "
 "and recognized by asterisk"
 
-#: Fax.class.php:489
+#: Fax.class.php:492
 msgid "NVFax"
 msgstr "فکس NV"
 
@@ -410,7 +410,7 @@ msgstr "دورنگار جدید از:%s"
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
-#: Fax.class.php:436 views/fax.php:29 views/form.php:36 views/form.php:174
+#: Fax.class.php:439 views/fax.php:29 views/form.php:36 views/form.php:174
 #: views/quickCreate.php:12
 msgid "No"
 msgstr "خیر"
@@ -419,14 +419,14 @@ msgstr "خیر"
 msgid "No Inbound Routes to migrate"
 msgstr "مسیر ورودی برای انتقال وجود ندارد"
 
-#: Fax.class.php:423
+#: Fax.class.php:426
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "روش درستی برای تشخیص فکس انتخاب نشد و یا مجوز قانونی وجود نداشت. عملیات فکس "
 "نمیتواند فعال شود."
 
-#: Fax.class.php:415
+#: Fax.class.php:418
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
@@ -466,11 +466,11 @@ msgstr "حذف فیلد %s از جدول ورودی.."
 msgid "Removing old globals.."
 msgstr "حذف سراسری های قبلی.."
 
-#: Fax.class.php:371
+#: Fax.class.php:374
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: Fax.class.php:491
+#: Fax.class.php:494
 msgid "SIP"
 msgstr "SIP"
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: Fax.class.php:471
+#: Fax.class.php:474
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -499,7 +499,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr "Spandsp  based app_fax (res_fax_spandsp.so)"
 
-#: Fax.class.php:366
+#: Fax.class.php:369
 msgid "Submit"
 msgstr "ارسال"
 
@@ -535,11 +535,11 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "شناسه ماشین فکس خارجی. به طور معمول شماره فکس شماست."
 
-#: Fax.class.php:624
+#: Fax.class.php:627
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI)"
 
-#: Fax.class.php:468
+#: Fax.class.php:471
 msgid "Type of fax detection to use."
 msgstr "نوع شناسایی فکس مورد استفاده."
 
@@ -555,7 +555,7 @@ msgstr "عدم امکان انتقال %s، به دلیل [%s]. لطفا 'گیر
 msgid "Updating simu_fax in miscdest table.."
 msgstr "به روزرسانی جدول simu_fax در مقاصدمختلف.."
 
-#: functions.inc.php:359
+#: functions.inc.php:363
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -595,16 +595,16 @@ msgstr ""
 "دستگاه فکس، hylafax + iaxmodem ،یا دیگر پلتفرم ها استفاده میکنید میتوانید "
 "نقشه تماس را به صورت دستی تولید کرده و در اینجا قرار دهید."
 
-#: Fax.class.php:562 Fax.class.php:632
+#: Fax.class.php:565 Fax.class.php:635
 msgid "Where to send the faxes"
 msgstr "محلی که دورنگارها به آنجا ارسال میشوند"
 
-#: Fax.class.php:435 views/fax.php:28 views/form.php:34 views/form.php:172
+#: Fax.class.php:438 views/fax.php:28 views/form.php:34 views/form.php:172
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr "بله"
 
-#: Fax.class.php:416
+#: Fax.class.php:419
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -626,7 +626,7 @@ msgid ""
 "break faxing"
 msgstr "پایین ترین سرعت جابجایی شما روی 2400 تنظیم شده است"
 
-#: Fax.class.php:405
+#: Fax.class.php:408
 msgid "Zaptel"
 msgstr "زپتل"
 
@@ -682,7 +682,7 @@ msgstr "شروع عملیات انتقال"
 msgid "unknown error"
 msgstr "خطای تعریف نشده"
 
-#: Fax.class.php:470
+#: Fax.class.php:473
 msgid "use "
 msgstr "استفاده "
 
