@@ -477,7 +477,10 @@ function fax_hookGet_config($engine){
 				$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAXOPT(faxdetect)', 'yes'));
 			}
 			$ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
-			$ext->splice($context, $extension, 'dest-ext', new ext_playtones('ring'));
+			if(!empty($route['ring'])) {
+				$ext->splice($context, $extension, 'dest-ext', new ext_playtones('ring'));
+			}
+
 			if ($route['detection'] == 'nvfax') {
 				$ext->splice($context, $extension, 'dest-ext', new ext_nvfaxdetect($route['detectionwait'].",t"));
 			} else {
@@ -490,10 +493,11 @@ function fax_hookGet_config($engine){
 function fax_hookProcess_core()
 */
 
-function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email){
+function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email,$ring=1){
 	global $db;
 	$legacy_email =  $legacy_email === null ? 'NULL' : "'".$db->escapeSimple("$legacy_email")."'";
-	sql("INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($detection)."', '".$db->escapeSimple($detectionwait)."', '".$db->escapeSimple($dest)."',".$legacy_email.")");
+	$ring = ($ring == 'yes') ? 1 : 0;
+	sql("INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email, ring) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($detection)."', '".$db->escapeSimple($detectionwait)."', '".$db->escapeSimple($dest)."',".$legacy_email.",".$ring.")");
 }
 
 function fax_save_settings($settings){

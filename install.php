@@ -21,7 +21,8 @@ $sql[]='CREATE TABLE IF NOT EXISTS `fax_incoming` (
   `detection` varchar(20) default NULL,
   `detectionwait` varchar(5) default NULL,
   `destination` varchar(50) default NULL,
-  `legacy_email` varchar(50) default NULL
+  `legacy_email` varchar(50) default NULL,
+	`ring` int(1) default 0
 )';
 
 $sql[]='CREATE TABLE IF NOT EXISTS `fax_users` (
@@ -38,6 +39,12 @@ foreach ($sql as $statement){
 	if (DB::IsError($check)){
 		die_freepbx( "Can not execute $statement : " . $check->getMessage() .  "\n");
 	}
+}
+
+$inst=$db->getAll('SELECT `ring` FROM `fax_incoming`');
+if($db->IsError($inst)){//assume that this column doesn't exist
+  $sql='ALTER TABLE `fax_incoming` ADD `ring` int(10) default 0';
+	$db->query($sql);
 }
 
 //check for 2.6-style tables
