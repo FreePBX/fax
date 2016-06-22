@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-17 16:32-0700\n"
+"POT-Creation-Date: 2016-06-22 15:13-0700\n"
 "PO-Revision-Date: 2016-05-15 03:57+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,13 +21,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Fax.class.php:473
+#: Fax.class.php:474
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 " تشخیص دورنگار؛ ملزومات 'faxdetect='باید تنظیم شود 'ورودی' یا 'هر دو' در "
 
-#: Fax.class.php:415
+#: Fax.class.php:416
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -35,12 +35,12 @@ msgstr ""
 "\"شما تشخیص دورنگار را برای این مسیر تنطیم کرده اید.لطفا یک مقصد برای تشخیص "
 "دورنگار تعیین کنید.\""
 
-#: install.php:263
+#: install.php:270
 #, php-format
 msgid "%s FAX Migrations Failed"
 msgstr "%s جابجایی دورنگار ناموفق"
 
-#: install.php:264
+#: install.php:271
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr "%s جابجایی دورنگار ناموفق.برای توضیح بیشتر به پنل هشدارها بروید"
@@ -49,7 +49,7 @@ msgstr "%s جابجایی دورنگار ناموفق.برای توضیح بیش
 msgid "A4"
 msgstr "A4"
 
-#: Fax.class.php:537
+#: Fax.class.php:567
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -83,11 +83,11 @@ msgstr "تولید همیشگی کد تشخیص"
 msgid "Attachment Format"
 msgstr "فرمت پیوست"
 
-#: Fax.class.php:416
+#: Fax.class.php:417
 msgid "Attempt to detect faxes on this DID."
 msgstr "تلاش برای تشخیص دورنگار در این داخلی مستقیم."
 
-#: install.php:330
+#: install.php:337
 msgid "Auto generated migrated user for Fax"
 msgstr "جابجایی خودکار کاربر برای دورنگار"
 
@@ -95,15 +95,15 @@ msgstr "جابجایی خودکار کاربر برای دورنگار"
 msgid "Both"
 msgstr "هردو"
 
-#: install.php:254
+#: install.php:261
 msgid "Checking for failed migrations.."
 msgstr "بررسی برای جابجایی ناموفق.."
 
-#: install.php:132
+#: install.php:139
 msgid "Checking if legacy fax needs migrating.."
 msgstr "بررسی جابجایی دورنگار در صورت نیاز.."
 
-#: Fax.class.php:408 Fax.class.php:490
+#: Fax.class.php:409 Fax.class.php:491
 msgid "Dahdi"
 msgstr "دهدی (Dahdi)"
 
@@ -119,7 +119,7 @@ msgstr "شناسه پیشفرض ایستگاه محلی"
 msgid "Default Paper Size"
 msgstr "اندازه پیشفرض کاغذ"
 
-#: Fax.class.php:452
+#: Fax.class.php:453
 msgid "Detect Faxes"
 msgstr "تشخیص دورنگار"
 
@@ -127,7 +127,7 @@ msgstr "تشخیص دورنگار"
 msgid "Dial System FAX"
 msgstr "سیستم شماره گیری دورنگار"
 
-#: Fax.class.php:78
+#: Fax.class.php:79
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
@@ -137,7 +137,7 @@ msgstr ""
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 
-#: Fax.class.php:80
+#: Fax.class.php:81
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -208,7 +208,7 @@ msgstr ""
 "to specify whether\n"
 "\\t\\t\\t to use ecm mode or not."
 
-#: Fax.class.php:89 Fax.class.php:107 Fax.class.php:609
+#: Fax.class.php:90 Fax.class.php:108 Fax.class.php:641
 msgid "Fax"
 msgstr "دورنگار"
 
@@ -216,27 +216,27 @@ msgstr "دورنگار"
 msgid "Fax Configuration"
 msgstr "تنظیمات دورنگار"
 
-#: Fax.class.php:574 Fax.class.php:634
+#: Fax.class.php:604 Fax.class.php:666
 msgid "Fax Destination"
 msgstr "مقصد دورنگار"
 
-#: Fax.class.php:626
+#: Fax.class.php:658
 msgid "Fax Detection"
 msgstr "تشخیص دورنگار"
 
-#: Fax.class.php:518
+#: Fax.class.php:548
 msgid "Fax Detection Time"
 msgstr "زمان تشخیص دورنگار"
 
-#: Fax.class.php:630
+#: Fax.class.php:662
 msgid "Fax Detection Wait"
 msgstr "انتظار برای تشخیص دورنگار"
 
-#: Fax.class.php:485
+#: Fax.class.php:486
 msgid "Fax Detection type"
 msgstr "تشخیص نوع دورنگار"
 
-#: Fax.class.php:622 Fax.class.php:623
+#: Fax.class.php:654 Fax.class.php:655
 msgid "Fax Enabled"
 msgstr "دورنگار فعال"
 
@@ -247,6 +247,10 @@ msgstr "گزینه های دورنگار"
 #: functions.inc.php:103
 msgid "Fax Recipient"
 msgstr "گیرنده دورنگار"
+
+#: Fax.class.php:517
+msgid "Fax Ring"
+msgstr ""
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
@@ -261,7 +265,7 @@ msgstr "دورنگار برای استریسک (res_fax_digium.so) با مجوز
 msgid "Fax user %s"
 msgstr "دورنگار کاربر %s"
 
-#: install.php:385
+#: install.php:392
 msgid "Finished Migrating fax users to usermanager"
 msgstr "اتمام انتقال دورنگار کاربران به مدیریت کاربر"
 
@@ -284,11 +288,11 @@ msgstr ""
 "اطلاعات سربرگ که در بالای تمامی فکسهای ارسالی چاپ میشود.معمولا شامل اطلاعات "
 "شخص و یا شرکت ارسال کننده فکس میباشد."
 
-#: Fax.class.php:631
+#: Fax.class.php:663
 msgid "How long to wait and try to detect fax"
 msgstr "مدت زمان انتظار برای شناسایی دورنگار"
 
-#: Fax.class.php:509
+#: Fax.class.php:539
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -298,7 +302,7 @@ msgstr ""
 "صدای زنگ خوردن را در این زمان خواهد شنید (i.e. the system wont \"answer\" "
 "the call, it will just play ringing)."
 
-#: install.php:387
+#: install.php:394
 msgid "Inbound Fax Destination Change"
 msgstr "تغییر مقصد دورنگار ورودی"
 
@@ -307,7 +311,7 @@ msgstr "تغییر مقصد دورنگار ورودی"
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "تشخیص فکس های ورودی: %s (%s)"
 
-#: install.php:387
+#: install.php:394
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
@@ -325,11 +329,11 @@ msgstr "ارثی"
 msgid "Invalid Email for Inbound Fax"
 msgstr "ایمیل نادرست برای ارسال دورنگار دریافتی"
 
-#: Fax.class.php:441
+#: Fax.class.php:442
 msgid "Legacy"
 msgstr "میراث"
 
-#: Fax.class.php:421
+#: Fax.class.php:422
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -351,7 +355,7 @@ msgstr "بیشترین امتیاز انتقال"
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "بیشترین سرعت استفاده شده برای تبادل فکس."
 
-#: install.php:355
+#: install.php:362
 #, php-format
 msgid ""
 "Migrated user %s but unable to set email address to %s because an email [%s] "
@@ -360,19 +364,19 @@ msgstr ""
 "Migrated user %s but unable to set email address to %s because an  email [%"
 "s] was already set for User Manager User %s"
 
-#: install.php:323
+#: install.php:330
 msgid "Migrating all fax users to usermanager"
 msgstr "انتقال تمام کاربران فکس به مدیریت کاربران"
 
-#: install.php:47
+#: install.php:54
 msgid "Migrating fax_incoming table..."
 msgstr "انتقال جدول فکس ورودی..."
 
-#: install.php:292
+#: install.php:299
 msgid "Migrating fax_users table to add faxattachformat..."
 msgstr "انتقال جدول fax_users و افزودن فرمت ضمیمه فکس..."
 
-#: install.php:280
+#: install.php:287
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr "انتقال فیلد فکس میل در جدول fax_users برای ایمیل های طولانی تر..."
@@ -385,11 +389,11 @@ msgstr "حداقل سرعت تبادل اطلاعات"
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "کمترین سرعت استفاده شده برای تبادل فکس."
 
-#: install.php:68
+#: install.php:75
 msgid "Moving simu_fax feature code from core.."
 msgstr "انتقال کد ویژه simu_fax از هسته.."
 
-#: Fax.class.php:475
+#: Fax.class.php:476
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
@@ -397,7 +401,7 @@ msgstr ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect  to be installed "
 "and recognized by asterisk"
 
-#: Fax.class.php:492
+#: Fax.class.php:493
 msgid "NVFax"
 msgstr "فکس NV"
 
@@ -410,23 +414,23 @@ msgstr "دورنگار جدید از:%s"
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
-#: Fax.class.php:439 views/fax.php:29 views/form.php:36 views/form.php:174
-#: views/quickCreate.php:12
+#: Fax.class.php:440 Fax.class.php:524 views/fax.php:29 views/form.php:36
+#: views/form.php:174 views/quickCreate.php:12
 msgid "No"
 msgstr "خیر"
 
-#: install.php:270
+#: install.php:277
 msgid "No Inbound Routes to migrate"
 msgstr "مسیر ورودی برای انتقال وجود ندارد"
 
-#: Fax.class.php:426
+#: Fax.class.php:427
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "روش درستی برای تشخیص فکس انتخاب نشد و یا مجوز قانونی وجود نداشت. عملیات فکس "
 "نمیتواند فعال شود."
 
-#: Fax.class.php:418
+#: Fax.class.php:419
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
@@ -457,20 +461,20 @@ msgstr "PDF"
 msgid "Received & processed: %s"
 msgstr "رسیده و پردازش شده: %s"
 
-#: install.php:234
+#: install.php:241
 #, php-format
 msgid "Removing field %s from incoming table.."
 msgstr "حذف فیلد %s از جدول ورودی.."
 
-#: install.php:243
+#: install.php:250
 msgid "Removing old globals.."
 msgstr "حذف سراسری های قبلی.."
 
-#: Fax.class.php:374
+#: Fax.class.php:375
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: Fax.class.php:494
+#: Fax.class.php:495
 msgid "SIP"
 msgstr "SIP"
 
@@ -487,7 +491,7 @@ msgstr ""
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: Fax.class.php:474
+#: Fax.class.php:475
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -499,19 +503,19 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr "Spandsp  based app_fax (res_fax_spandsp.so)"
 
-#: Fax.class.php:369
+#: Fax.class.php:370
 msgid "Submit"
 msgstr "ارسال"
 
-#: install.php:59
+#: install.php:66
 msgid "Successfully migrated fax_incoming table!"
 msgstr "جدول fax_incoming با موفقیت منتقل شد!"
 
-#: install.php:298
+#: install.php:305
 msgid "Successfully migrated fax_users table!"
 msgstr "جدول fax_users با موفقیت منتقل شد!"
 
-#: install.php:286
+#: install.php:293
 msgid "Successfully migrated faxemail field"
 msgstr "فیلد فکس میل با موفقیت منتقل شد"
 
@@ -519,7 +523,7 @@ msgstr "فیلد فکس میل با موفقیت منتقل شد"
 msgid "TIFF"
 msgstr "TIFF"
 
-#: install.php:257
+#: install.php:264
 msgid ""
 "The following Inbound Routes had FAX processing that failed migration "
 "because they were accessing a device with no associated user. They have been "
@@ -535,23 +539,23 @@ msgstr ""
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "شناسه ماشین فکس خارجی. به طور معمول شماره فکس شماست."
 
-#: Fax.class.php:627
+#: Fax.class.php:659
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI)"
 
-#: Fax.class.php:471
+#: Fax.class.php:472
 msgid "Type of fax detection to use."
 msgstr "نوع شناسایی فکس مورد استفاده."
 
-#: install.php:336 /usr/src/freepbx/fax/install.php:343 install.php:363
-#: /usr/src/freepbx/fax/install.php:373
+#: install.php:343 /usr/src/freepbx/fax/install.php:350 install.php:370
+#: /usr/src/freepbx/fax/install.php:380
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
 "destinations"
 msgstr "عدم امکان انتقال %s، به دلیل [%s]. لطفا 'گیرنده فکس' را بررسی کنید"
 
-#: install.php:85
+#: install.php:92
 msgid "Updating simu_fax in miscdest table.."
 msgstr "به روزرسانی جدول simu_fax در مقاصدمختلف.."
 
@@ -568,17 +572,17 @@ msgstr ""
 msgid "Via"
 msgstr "با"
 
-#: install.php:296
+#: install.php:303
 msgid "WARINING: fax_users table may still be using the old schema!"
 msgstr ""
 "هشدار: جدول fax_users ممکن است به وسیله طرح قبلی مورد استفاده قرار گرفته "
 "باشد!"
 
-#: install.php:284
+#: install.php:291
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
 msgstr "هشدار: انتقال ناموفق. طول ایمیل نباید بیشتر از 50 کاراکتر باشد."
 
-#: install.php:57
+#: install.php:64
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
 "هشدار: جدول fax_incoming ممکن است به وسیله طرح 2.6 مورد استفاده قرار گرفته "
@@ -595,16 +599,22 @@ msgstr ""
 "دستگاه فکس، hylafax + iaxmodem ،یا دیگر پلتفرم ها استفاده میکنید میتوانید "
 "نقشه تماس را به صورت دستی تولید کرده و در اینجا قرار دهید."
 
-#: Fax.class.php:565 Fax.class.php:635
+#: Fax.class.php:595 Fax.class.php:667
 msgid "Where to send the faxes"
 msgstr "محلی که دورنگارها به آنجا ارسال میشوند"
 
-#: Fax.class.php:438 views/fax.php:28 views/form.php:34 views/form.php:172
-#: views/quickCreate.php:10
+#: Fax.class.php:532
+msgid ""
+"Whether to ring while attempting to detect fax. If set to no silence will be "
+"heard"
+msgstr ""
+
+#: Fax.class.php:439 Fax.class.php:522 views/fax.php:28 views/form.php:34
+#: views/form.php:172 views/quickCreate.php:10
 msgid "Yes"
 msgstr "بله"
 
-#: Fax.class.php:419
+#: Fax.class.php:420
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -626,63 +636,63 @@ msgid ""
 "break faxing"
 msgstr "پایین ترین سرعت جابجایی شما روی 2400 تنظیم شده است"
 
-#: Fax.class.php:408
+#: Fax.class.php:409
 msgid "Zaptel"
 msgstr "زپتل"
 
-#: install.php:266
+#: install.php:273
 msgid "all migrations succeeded successfully"
 msgstr "تمامی انتقالات با موفقیت انجام شد"
 
-#: install.php:273
+#: install.php:280
 msgid "already done"
 msgstr "انجام شد"
 
-#: install.php:259 /usr/src/freepbx/fax/install.php:260
+#: install.php:266 /usr/src/freepbx/fax/install.php:267
 msgid "blank"
 msgstr "خالی"
 
-#: install.php:83 /usr/src/freepbx/fax/install.php:90
+#: install.php:90 /usr/src/freepbx/fax/install.php:97
 msgid "done"
 msgstr "انجام شد"
 
-#: install.php:72
+#: install.php:79
 msgid "duplicate, removing old from core.."
 msgstr "چند گانه، نتایج قدیمی حذف میشوند.."
 
-#: install.php:166 /usr/src/freepbx/fax/install.php:248
+#: install.php:173 /usr/src/freepbx/fax/install.php:255
 msgid "failed"
 msgstr "نا موفق"
 
-#: install.php:169
+#: install.php:176
 msgid "migrated"
 msgstr "انتقال داده شده"
 
-#: install.php:162
+#: install.php:169
 msgid "migrating defaults.."
 msgstr "پیشفرضهای انتقال.."
 
-#: install.php:88
+#: install.php:95
 msgid "not needed"
 msgstr "لازم نیست"
 
-#: install.php:238
+#: install.php:245
 msgid "not present"
 msgstr "موجود نیست"
 
-#: install.php:77 /usr/src/freepbx/fax/install.php:240 install.php:250
+#: install.php:84 /usr/src/freepbx/fax/install.php:247 install.php:257
 msgid "removed"
 msgstr "حذف شده"
 
-#: install.php:136
+#: install.php:143
 msgid "starting migration"
 msgstr "شروع عملیات انتقال"
 
-#: install.php:75 /usr/src/freepbx/fax/install.php:80
+#: install.php:82 /usr/src/freepbx/fax/install.php:87
 msgid "unknown error"
 msgstr "خطای تعریف نشده"
 
-#: Fax.class.php:473
+#: Fax.class.php:474
 msgid "use "
 msgstr "استفاده "
 
