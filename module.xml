@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.30</version>
+	<version>13.0.31</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.31* FREEPBX-5927 Playtones when trying to detect a fax
 		*13.0.30* FREEPBX-11956 store attach format and email in the astdb
 		*13.0.29* FREEPBX-11642 Reorganize dialplan
 		*13.0.28* FREEPBX-11901 Sort by extension
