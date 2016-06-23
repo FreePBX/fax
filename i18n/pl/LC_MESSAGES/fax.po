@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-17 16:32-0700\n"
-"PO-Revision-Date: 2016-06-23 00:24+0200\n"
+"PO-Revision-Date: 2016-06-23 01:18+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -153,6 +153,10 @@ msgid ""
 "mode, if there are routes still running in this mode that do not have email "
 "addresses specified."
 msgstr ""
+"Adres e-mail, na który wysyłane są faksy podczas użycia kodu funkcji \"Płyty "
+"Systemu Faks\". Jest to również domyślny e-mail dla wykrywania faksu w "
+"trybie systemowym, jeśli są włączone inne ścieżki w tym module, nie ma "
+"sprecyzowanego adresu e-mail."
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
@@ -168,12 +172,12 @@ msgstr "Włączone"
 
 #: bin/fax2mail.php:67
 msgid "Enclosed, please find a new fax"
-msgstr ""
+msgstr "Ograniczono, proszę znaleźć nowy faks"
 
 #: bin/fax2mail.php:65
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
-msgstr ""
+msgstr "Ograniczono, proszę znaleźć nowy faks z: %s"
 
 #: views/form.php:167
 msgid "Error Correction Mode"
@@ -195,7 +199,7 @@ msgstr "konfiguracja faksu"
 
 #: Fax.class.php:574 Fax.class.php:634
 msgid "Fax Destination"
-msgstr ""
+msgstr "Miejsce docelowe faksu"
 
 #: Fax.class.php:626
 msgid "Fax Detection"
@@ -211,7 +215,7 @@ msgstr "Oczekiwanie na wykrycie faksu"
 
 #: Fax.class.php:485
 msgid "Fax Detection type"
-msgstr ""
+msgstr "Typ wykrywania faksu"
 
 #: Fax.class.php:622 Fax.class.php:623
 msgid "Fax Enabled"
@@ -231,7 +235,7 @@ msgstr "Sterowniki faksu wspierane przez ten moduł to:"
 
 #: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
-msgstr ""
+msgstr "Faks dla Astriks (res_fax_digium.so) z licencją"
 
 #: functions.inc.php:20
 #, php-format
@@ -248,7 +252,7 @@ msgstr "Dla użytkownika"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
-msgstr ""
+msgstr "Formaty konwersji przychodzących plików faksu na poprzedni e-mail."
 
 #: views/form.php:83
 msgid ""
@@ -270,12 +274,12 @@ msgstr ""
 
 #: install.php:387
 msgid "Inbound Fax Destination Change"
-msgstr ""
+msgstr "Zmiana miejsca docelowego faksów przychodzących"
 
 #: functions.inc.php:60
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
-msgstr ""
+msgstr "Wykrywanie faksów przychodzących: %s (%s)"
 
 #: install.php:387
 msgid ""
