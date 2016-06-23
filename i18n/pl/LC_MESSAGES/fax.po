@@ -10,13 +10,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-17 16:32-0700\n"
-"PO-Revision-Date: 2016-05-03 03:17+0200\n"
+"PO-Revision-Date: 2016-06-23 00:24+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
@@ -37,14 +37,14 @@ msgstr ""
 #: install.php:263
 #, php-format
 msgid "%s FAX Migrations Failed"
-msgstr "Przekierowanie faksu nie powiodło się"
+msgstr "%s Przekierowanie faksu nie powiodło się"
 
 #: install.php:264
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
-"Przekierowanie faksu nie powiodło się, sprawdź panel powiadomień aby poznać "
-"szegóły"
+"%s Przekierowanie faksu nie powiodło się, sprawdź panel powiadomień aby "
+"poznać szegóły"
 
 #: views/form.php:254
 msgid "A4"
@@ -81,7 +81,7 @@ msgstr "Próba wykrycia faksu na tym DID."
 
 #: install.php:330
 msgid "Auto generated migrated user for Fax"
-msgstr ""
+msgstr "Automatyczne generowanie migracji użytkownika dla faksu"
 
 #: views/fax.php:59
 msgid "Both"
@@ -105,7 +105,7 @@ msgstr "Domyślny tytuł faksu"
 
 #: views/form.php:95
 msgid "Default Local Station Identifier"
-msgstr ""
+msgstr "Domyślna identyfikacja stacji lokalnej"
 
 #: views/form.php:247
 msgid "Default Paper Size"
@@ -117,7 +117,7 @@ msgstr "Wykrywanie faksu"
 
 #: install.php:6
 msgid "Dial System FAX"
-msgstr ""
+msgstr "Płyta systemu faks"
 
 #: Fax.class.php:78
 msgid ""
