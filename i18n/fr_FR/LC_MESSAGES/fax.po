@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-22 15:13-0700\n"
+"POT-Creation-Date: 2016-06-22 17:12-0700\n"
 "PO-Revision-Date: 2016-02-04 23:22+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/"
@@ -242,6 +242,10 @@ msgstr ""
 #: Fax.class.php:486
 msgid "Fax Detection type"
 msgstr "Type de détection"
+
+#: Fax.class.php:576
+msgid "Fax Email Destination"
+msgstr "Email de destination du Fax"
 
 #: Fax.class.php:654 Fax.class.php:655
 msgid "Fax Enabled"
@@ -801,9 +805,6 @@ msgstr "utiliser "
 
 #~ msgid "Fax Email"
 #~ msgstr "Email pour le fax"
-
-#~ msgid "Fax Email Destination"
-#~ msgstr "Email de destination du Fax"
 
 #~ msgid "Fax Receive Options"
 #~ msgstr "Options de reception de fax"

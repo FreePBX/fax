@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-22 15:13-0700\n"
+"POT-Creation-Date: 2016-06-22 17:12-0700\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -218,6 +218,10 @@ msgstr ""
 #: Fax.class.php:486
 msgid "Fax Detection type"
 msgstr "传真检测格式"
+
+#: Fax.class.php:576
+msgid "Fax Email Destination"
+msgstr "传真邮件目的地"
 
 #: Fax.class.php:654 Fax.class.php:655
 msgid "Fax Enabled"
@@ -690,9 +694,6 @@ msgstr "：使用"
 
 #~ msgid "Fax Email"
 #~ msgstr "传真邮件"
-
-#~ msgid "Fax Email Destination"
-#~ msgstr "传真邮件目的地"
 
 #~ msgid "Fax Receive Options"
 #~ msgstr "传真接收选项"

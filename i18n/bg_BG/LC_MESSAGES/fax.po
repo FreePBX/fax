@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-22 15:13-0700\n"
+"POT-Creation-Date: 2016-06-22 17:12-0700\n"
 "PO-Revision-Date: 2014-07-22 15:38+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/fax/bg/>\n"
@@ -200,6 +200,10 @@ msgstr ""
 
 #: Fax.class.php:486
 msgid "Fax Detection type"
+msgstr ""
+
+#: Fax.class.php:576
+msgid "Fax Email Destination"
 msgstr ""
 
 #: Fax.class.php:654 Fax.class.php:655

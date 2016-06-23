@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-22 15:13-0700\n"
+"POT-Creation-Date: 2016-06-22 17:12-0700\n"
 "PO-Revision-Date: 2016-06-07 10:41+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -236,6 +236,10 @@ msgstr "Espera Detección de Fax"
 #: Fax.class.php:486
 msgid "Fax Detection type"
 msgstr "Tipo de detección de Fax"
+
+#: Fax.class.php:576
+msgid "Fax Email Destination"
+msgstr "Destino Correo Fax"
 
 #: Fax.class.php:654 Fax.class.php:655
 msgid "Fax Enabled"
@@ -749,9 +753,6 @@ msgstr "Utiliza "
 
 #~ msgid "Fax Email"
 #~ msgstr "Correo Fax"
-
-#~ msgid "Fax Email Destination"
-#~ msgstr "Destino Correo Fax"
 
 #~ msgid "Fax Feature Code Options"
 #~ msgstr "Opciones de Código de Servicio de Fax"
