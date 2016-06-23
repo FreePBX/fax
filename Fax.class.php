@@ -573,7 +573,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 								<div class="row">
 									<div class="form-group">
 										<div class="col-md-3">
-											<label class="control-label" for="legacy_email"><?php echo _("Fax Email Destination") ?></label>
+											<label class="control-label" for="legacy_email">'._("Fax Email Destination").'</label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="legacy_email"></i>
 										</div>
 										<div class="col-md-9">
