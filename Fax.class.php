@@ -281,8 +281,9 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		$sth = $this->db->prepare('REPLACE INTO fax_users (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)');
 		try {
 			$sth->execute(array($faxext, $faxenabled, $faxemail, $faxattachformat));
-			$this->astman->database_put("FAX/".$faxext,"attachformat",$faxattachformat);
-			$this->astman->database_put("FAX/".$faxext,"email",$faxemail);
+			//$this->astman->database_put("FAX/".$faxext,"user",$faxext);
+			//$this->astman->database_put("FAX/".$faxext,"attachformat",$faxattachformat);
+			//$this->astman->database_put("FAX/".$faxext,"email",$faxemail);
 		} catch(\Exception $e) {
 			return false;
 		}

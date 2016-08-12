@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 //include freepbx configuration
-$restrict_mods = array('fax' => true);
+$restrict_mods = array('fax' => true, 'userman' => true);
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
 	include_once('/etc/asterisk/freepbx.conf');
 }
@@ -14,8 +14,16 @@ $var['subject']		= '';
 $var 				= array_merge($var, get_opt());
 $var['callerid']	= empty($var['callerid']) || $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
 $var['keep_file']	= !empty($var['delete']) && $var['delete'] == 'true' ? false : true;
-$var['attachformat']	= !empty($var['attachformat']) ? $var['attachformat'] : 'pdf';
 $var['remotestationid'] = !empty($var['remotestationid']) ? $var['remotestationid'] : '';
+
+$user = FreePBX::Userman()->getUserByID($var['user']);
+if(!empty($user['email']) && !$var['keep_file']) {
+	die_fax('email-fax dying, no destination found (User has no email!) and we arent keeping the file!');
+}
+$var['to'] = $user['email'];
+
+$var['attachformat'] = FreePBX::Userman()->getCombinedModuleSettingByID($var['user'], 'fax', 'attachformat');
+$var['attachformat']	= !empty($var['attachformat']) ? $var['attachformat'] : 'pdf';
 
 //double check some of the options
 foreach ($var as $k => $v) {
@@ -27,12 +35,7 @@ foreach ($var as $k => $v) {
 			if (!file_exists($var['file'])) {
 				die_fax('email-fax dying, file ' . $var['file'] . ' not found!');
 			}
-			break;
-		case 'to':
-			if(empty($var['to']) && !$var['keep_file']) {
-				die_fax('email-fax dying, no destination found ($var[\'to\'] is empty) and we arent keeping the file!');
-			}
-			break;
+		break;
 		case 'subject':
 			if (!$var['subject']) {
 				if (isset($var['direction']) && $var['direction'] == 'outgoing') {
@@ -56,7 +59,7 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg .= 'At: ' . date('r') . "\n";
 	$msg .= 'On: ' . $var['hostname'] . "\n";
 	if ($var['exten']) {
-		$msg .= 'For extension: ' . $var['exten'] . "\n";
+		$msg .= 'For: ' . $var['exten'] . "\n";
 	}
 } else {
 	$callerid = !empty($var['callerid']) && !preg_match('/""\s*<>/',$var['callerid']) ? $var['callerid'] : $var['remotestationid'];
@@ -71,15 +74,9 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg .= _('On').': ' . $var['hostname'] . "\n";
 	$msg .= _('Via').': ' . $var['dest'] . "\n";
 	if ($var['exten']) {
-		$user = \FreePBX::Userman()->getUserByID($var['exten']);
-		if(!empty($user)) {
-			$name = !empty($user['displayname']) ? $user['displayname'] : trim($user['fname'] . " " . $user['lname']);
-			$name  = !empty($name) ? $name  : $user['username'];
-		} else {
-			$name = $var['exten'];
-		}
+		$name = $var['exten'];
 
-		$msg .= _('For User').': ' . $name . "\n";
+		$msg .= _('For').': ' . $name . "\n";
 	}
 }
 

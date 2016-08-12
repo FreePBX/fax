@@ -25,13 +25,38 @@ $sql[]='CREATE TABLE IF NOT EXISTS `fax_incoming` (
 	`ring` int(1) default 0
 )';
 
-$sql[]='CREATE TABLE IF NOT EXISTS `fax_users` (
-  `user` varchar(15) default NULL,
-  `faxenabled` varchar(10) default NULL,
-  `faxemail` varchar(50) default NULL,
-  `faxattachformat` varchar(10) default NULL,
-  UNIQUE KEY `user` (`user`)
-)';
+$table = FreePBX::Database()->migrate("fax_users");
+$cols = array(
+  "user" => array(
+    "type" => "string",
+    "length" => 15,
+    "notnull" => false
+  ),
+  "faxenabled" => array(
+    "type" => "string",
+    "length" => 10,
+    "notnull" => false,
+  ),
+  "faxemail" => array(
+    "type" => "text",
+    "notnull" => false,
+  ),
+  "faxattachformat" => array(
+    "type" => "string",
+    "length" => 10,
+    "notnull" => false,
+  )
+);
+$indexes = array(
+    "user" => array(
+        "type" => "unique",
+        "cols" => array(
+            "user"
+        )
+    )
+);
+$table->modify($cols, $indexes);
+unset($table);
 
 
 foreach ($sql as $statement){

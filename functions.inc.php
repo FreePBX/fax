@@ -206,12 +206,18 @@ function fax_get_config($engine){
 		if($dests){
 			foreach ($dests as $row) {
 				$exten=$row['user'];
-				$astman->database_put("FAX/".$exten,"attachformat",$row['faxattachformat']);
-				$astman->database_put("FAX/".$exten,"email",$row['faxemail']);
-				$ext->add($context, $exten, '', new ext_set('FAX_FOR',$row['name'].' ('.$row['user'].')'));
+				$user = \FreePBX::Userman()->getUserByID($exten);
+				if(!empty($user)) {
+					$name = !empty($user['displayname']) ? $user['displayname'] : trim($user['fname'] . " " . $user['lname']);
+					$name  = !empty($name) ? $name  : $user['username'];
+					$ext->add($context, $exten, '', new ext_set('FAX_FOR',$name.' ('.$exten.')'));
+				} else {
+					$ext->add($context, $exten, '', new ext_set('FAX_FOR',$exten));
+				}
+
 				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_FOR}, From: ${CALLERID(all)}'));
-				$ext->add($context, $exten, '', new ext_set('FAX_ATTACH_FORMAT', '${DB(FAX/'.$exten.'/attachformat)}'));
-				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL', '${DB(FAX/'.$exten.'/email)}'));
+				$ext->add($context, $exten, '', new ext_set('FAX_RX_USER', $exten));
+				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL_LEN', strlen($row['faxemail'])));
 				$ext->add($context, $exten, 'receivefax', new ext_goto('receivefax','s'));
 			}
 		}
@@ -231,7 +237,7 @@ function fax_get_config($engine){
 
 		$exten = 's';
 		$ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-		$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'));
+		$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_FOR} , From: ${CALLERID(all)}'));
 		$ext->add($context, $exten, 'receivefax', new ext_stopplaytones(''));
 		switch ($fax['module']) {
 		case 'app_rxfax':
@@ -275,12 +281,12 @@ function fax_get_config($engine){
 
 		// if there is a file there, mail it even if we failed:
 		$ext->add($context, $exten, '', new ext_gotoif('$[${STAT(e,${ASTSPOOLDIR}/fax/${UNIQUEID}.tif)} = 0]','failed'));
-		$ext->add($context, $exten, '', new ext_noop_trace('PROCESSING FAX with status: [${FAXSTATUS}] for: [${FAX_RX_EMAIL}], From: [${CALLERID(all)}]'));
+		$ext->add($context, $exten, '', new ext_noop_trace('PROCESSING FAX with status: [${FAXSTATUS}] for: [${FAX_FOR}], From: [${CALLERID(all)}]'));
 		//delete is a variable so that other modules can prevent it should then need to prosses the file further
 		$ext->add($context, $exten, 'delete_opt', new ext_set('DELETE_AFTER_SEND', 'true'));
-		$ext->add($context, $exten, 'process', new ext_gotoif('$[${LEN(${FAX_RX_EMAIL})} = 0]','noemail'));
+		$ext->add($context, $exten, 'process', new ext_gotoif('$[${FAX_RX_EMAIL_LEN} = 0]','noemail'));
 
-		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --to "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
+		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --user "${FAX_RX_USER}" --dest "${FROM_DID}" --callerid \'${STRREPLACE(CALLERID(all),\',\\\\\')}\' --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
 
 		$ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
 
@@ -288,7 +294,7 @@ function fax_get_config($engine){
 		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --delete "${DELETE_AFTER_SEND}"'));
 		$ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
-		$ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_RX_EMAIL} , From: ${CALLERID(all)}'),'process',101);
+		$ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_FOR} , From: ${CALLERID(all)}'),'process',101);
 		$ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
 		$modulename = 'fax';
