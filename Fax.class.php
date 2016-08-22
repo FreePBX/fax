@@ -519,9 +519,9 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxring"></i>
 									</div>
 									<div class="col-md-9 radioset">
-										<input type="radio" name="faxring" id="faxringyes" value="yes" '. ($fax['ring'] == "yes"?"CHECKED":"").'>
+										<input type="radio" name="faxring" id="faxringyes" value="yes" '. ($fax['ring'] == "1"?"CHECKED":"").'>
 										<label for="faxringyes">'. _("Yes").'</label>
-										<input type="radio" name="faxring" id="faxringno" value="no" '. (empty($fax['ring']) || ($fax['ring'] == "no")?"CHECKED":"").'>
+										<input type="radio" name="faxring" id="faxringno" value="no" '. (empty($fax['ring']) || ($fax['ring'] == "0")?"CHECKED":"").'>
 										<label for="faxringno">'. _("No").'</label>
 									</div>
 								</div>
