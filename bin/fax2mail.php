@@ -12,6 +12,7 @@ $var['from']		= sql('SELECT value FROM fax_details WHERE `key` = "sender_address
 $var['from']		= $var['from'] ? $var['from'] : 'fax@freepbx.pbx';
 $var['subject']		= '';
 $var 				= array_merge($var, get_opt());
+$var['callerid'] = base64_decode($var['callerid']);
 $var['callerid']	= empty($var['callerid']) || $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
 $var['keep_file']	= !empty($var['delete']) && $var['delete'] == 'true' ? false : true;
 $var['remotestationid'] = !empty($var['remotestationid']) ? $var['remotestationid'] : '';
