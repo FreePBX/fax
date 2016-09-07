@@ -421,8 +421,3 @@ if(!\FreePBX::Fax()->getConfig("usermanMigrate")) {
   \FreePBX::Fax()->setConfig("usermanMigrateArray",$ma);
   \FreePBX::Fax()->setConfig("usermanMigrate",true);
 }
-
-//clear out old bad conflicting data
-$sql = "DELETE FROM fax_incoming WHERE legacy_email is NULL";
-$sth = \FreePBX::Database()->prepare($sql);
-$sth->execute();
