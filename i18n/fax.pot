@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-22 11:35-0700\n"
+"POT-Creation-Date: 2016-09-07 14:10-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,11 +157,11 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: bin/fax2mail.php:70
+#: bin/fax2mail.php:71
 msgid "Enclosed, please find a new fax"
 msgstr ""
 
-#: bin/fax2mail.php:68
+#: bin/fax2mail.php:69
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:79
+#: bin/fax2mail.php:80
 msgid "For"
 msgstr ""
 
@@ -364,12 +364,12 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-#: bin/fax2mail.php:45
+#: bin/fax2mail.php:46
 #, php-format
 msgid "New fax from: %s"
 msgstr ""
 
-#: bin/fax2mail.php:47
+#: bin/fax2mail.php:48
 msgid "New fax received"
 msgstr ""
 
@@ -398,7 +398,7 @@ msgid ""
 "exclusively for voice OR fax."
 msgstr ""
 
-#: bin/fax2mail.php:74
+#: bin/fax2mail.php:75
 msgid "On"
 msgstr ""
 
@@ -406,7 +406,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:42
+#: bin/fax2mail.php:43
 msgid "Outgoing fax results"
 msgstr ""
 
@@ -414,7 +414,7 @@ msgstr ""
 msgid "PDF"
 msgstr ""
 
-#: bin/fax2mail.php:73
+#: bin/fax2mail.php:74
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
@@ -516,7 +516,7 @@ msgid ""
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:75
+#: bin/fax2mail.php:76
 msgid "Via"
 msgstr ""
 
