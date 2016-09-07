@@ -17,7 +17,7 @@ $var['keep_file']	= !empty($var['delete']) && $var['delete'] == 'true' ? false :
 $var['remotestationid'] = !empty($var['remotestationid']) ? $var['remotestationid'] : '';
 
 $user = FreePBX::Userman()->getUserByID($var['user']);
-if(!empty($user['email']) && !$var['keep_file']) {
+if(empty($user['email']) && !$var['keep_file']) {
 	die_fax('email-fax dying, no destination found (User has no email!) and we arent keeping the file!');
 }
 $var['to'] = $user['email'];
