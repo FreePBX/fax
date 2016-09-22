@@ -30,9 +30,8 @@ function fax_check_destinations($dest=true) {
 	global $active_modules;
 	global $version;
 
-	$ast_lt_18 = version_compare($version, '1.8', 'lt');
 	$fax=fax_detect();
-	if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp'])) || !$ast_lt_18){
+	if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp']))){
 		return false;
 	}elseif($fax['ffa'] && $fax['license'] < 1){//missing license
 		return false;
@@ -114,14 +113,12 @@ function fax_detect($astver=null){
 		$engineinfo = engine_getinfo();
 		$astver =  $engineinfo['version'];
 	}
-	$ast_ge_14 = version_compare($astver, '1.4', 'ge');
-	$ast_ge_18 = version_compare($astver, '1.8', 'ge');
 
 	$fax=null;
 	$appfax = $receivefax = false;//return false by default in case asterisk isnt reachable
 	if ($amp_conf['AMPENGINE'] == 'asterisk' && isset($astman) && $astman->connected()) {
 		//check for fax modules
-		$module_show_command = $ast_ge_14 ? 'module show like ' : 'show modules like ';
+		$module_show_command = 'module show like ';
 		$app = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax'));
 		if (preg_match('/[1-9] modules loaded/', $app['data'])){
 			$fax['module']='res_fax';
@@ -141,13 +138,11 @@ function fax_detect($astver=null){
 		$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_digium'));
 		$fax['ffa']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 
-		if ($ast_ge_18) {
-			if ($fax['ffa']) {
-				$fax['spandsp'] = false;
-			} else {
-				$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_spandsp'));
-				$fax['spandsp'] = preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
-			}
+		if ($fax['ffa']) {
+			$fax['spandsp'] = false;
+		} else {
+			$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_spandsp'));
+			$fax['spandsp'] = preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 		}
 
 		switch($fax['module']) {
@@ -158,7 +153,7 @@ function fax_detect($astver=null){
 			$fax['receivefax'] = 'rxfax';
 			break;
 		case 'app_fax':
-			$application_show_command = $ast_ge_14 ? 'core show applications like ' : 'show applications like ';
+			$application_show_command = 'core show applications like ';
 			$response = $astman->send_request('Command', array('Command' => $application_show_command.'receivefax'));
 			if (preg_match('/1 Applications Matching/', $response['data'])) {
 				$fax['receivefax'] = 'receivefax';
@@ -193,13 +188,12 @@ function fax_get_config($engine){
 
 	$ast_ge_11 = version_compare($version, '11', 'ge');
 	$ast_ge_10 = version_compare($version, '10', 'ge');
-	$ast_lt_18 = version_compare($version, '1.8', 'lt');
-	$ast_ge_16 = version_compare($version, '1.6', 'ge');
+
 	$fax=fax_detect($version);
 	$astman->database_deltree("FAX");
 	// do not continue unless we have a fax module in asterisk
-	if($fax['module'] && ($ast_lt_18 || $fax['ffa'] || $fax['spandsp'])) {
-		$t38_fb = $ast_ge_16 ? ',f' : '';
+	if($fax['module'] && ($fax['ffa'] || $fax['spandsp'])) {
+		$t38_fb = ',f';
 		$context='ext-fax';
 		$dests=fax_get_destinations();
 
@@ -258,18 +252,11 @@ function fax_get_config($engine){
 			break;
 		case 'res_fax':
 			$ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //receive fax, then email it on
-			if ($ast_ge_16) {
-				if ($fax['ffa']) {
-					$ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS}"="" | "${FAXSTATUS}" = "FAILED" & "${FAXERROR}" = "INIT_ERROR"]','Set','FAXSTATUS=FAILED LICENSE MAY BE EXCEEDED check log errors'));
-				}
-				$ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS:0:6}"="FAILED" && "${FAXERROR}"!="INIT_ERROR"]','Set','FAXSTATUS="FAILED: error: ${FAXERROR} statusstr: ${FAXOPT(statusstr)}"'));
-			} else {
-				// Some versions or settings appear to have successful completions continue, so check status and goto hangup code
-				if ($fax['ffa']) {
-					$ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"=""]','Set','FAXSTATUS=FAILED LICENSE MAY BE EXCEEDED'));
-				}
-				$ext->add($context, $exten, '', new ext_execif('$["${FAXOPT(error)}"!="" && "${FAXOPT(error)}"!="NO_ERROR"]','Set','FAXSTATUS="FAILED FAXOPT: error: ${FAXOPT(error)} status: ${FAXOPT(status)} statusstr: ${FAXOPT(statusstr)}"'));
+			if ($fax['ffa']) {
+				$ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS}"="" | "${FAXSTATUS}" = "FAILED" & "${FAXERROR}" = "INIT_ERROR"]','Set','FAXSTATUS=FAILED LICENSE MAY BE EXCEEDED check log errors'));
 			}
+			$ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS:0:6}"="FAILED" && "${FAXERROR}"!="INIT_ERROR"]','Set','FAXSTATUS="FAILED: error: ${FAXERROR} statusstr: ${FAXOPT(statusstr)}"'));
+
 			$ext->add($context, $exten, '', new ext_hangup());
 			break;
 		default: // unknown
@@ -317,10 +304,10 @@ function fax_get_config($engine){
 	} else {
 		$fax_settings=fax_get_settings();
 	}
-	if (($fax['module'] && ($ast_lt_18 || $fax['ffa'] || $fax['spandsp'])) || $fax_settings['force_detection'] == 'yes') {
+	if (($fax['module'] && ($fax['ffa'] || $fax['spandsp'])) || $fax_settings['force_detection'] == 'yes') {
 		if ($ast_ge_11 && isset($core_conf) && is_a($core_conf, "core_conf")) {
 			$core_conf->addSipGeneral('faxdetect','no');
-		} else if ($ast_ge_16 && isset($core_conf) && is_a($core_conf, "core_conf")) {
+		} else if (isset($core_conf) && is_a($core_conf, "core_conf")) {
 			$core_conf->addSipGeneral('faxdetect','yes');
 		}
 

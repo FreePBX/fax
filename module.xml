@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.38</version>
+	<version>14.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -90,7 +90,7 @@
 		<module>userman ge 13.0</module>
 	</depends>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<hooks>
 			<core class="Core" namespace="FreePBX\modules">
@@ -114,6 +114,24 @@
 				<method class="Fax" callingMethod="fwcChownFiles">chownFreepbx</method>
 			</framework>
 	</hooks>
+	<database>
+	  <table name="fax_details">
+	    <field name="key" type="string" length="50" notnull="false"/>
+	    <field name="value" type="string" length="510" notnull="false"/>
+	    <key name="key" type="unique">
+	      <column name="key"/>
+	    </key>
+	  </table>
+		<table name="fax_incoming">
+			<field name="cidnum" type="string" length="20" notnull="false"/>
+			<field name="extension" type="string" length="50" notnull="false"/>
+			<field name="detection" type="string" length="20" notnull="false"/>
+			<field name="detectionwait" type="string" length="5" notnull="false"/>
+			<field name="destination" type="string" length="50" notnull="false"/>
+			<field name="legacy_email" type="string" length="50" notnull="false"/>
+			<field name="ring" type="integer" default="0" notnull="false"/>
+		</table>
+	</database>
 	<location>release/2.11/fax-2.11.0.5.tgz</location>
 	<md5sum>70d070401263f9b348729aed98d0fdea</md5sum>
 </module>

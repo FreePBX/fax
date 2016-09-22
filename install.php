@@ -8,22 +8,6 @@ _("Dial System FAX");
 
 global $db;
 
-$sql[]='CREATE TABLE IF NOT EXISTS `fax_details` (
-  `key` varchar(50) default NULL,
-  `value` varchar(510) default NULL,
-  UNIQUE KEY `key` (`key`)
-)';
-
-
-$sql[]='CREATE TABLE IF NOT EXISTS `fax_incoming` (
-  `cidnum` varchar(20) default NULL,
-  `extension` varchar(50) default NULL,
-  `detection` varchar(20) default NULL,
-  `detectionwait` varchar(5) default NULL,
-  `destination` varchar(50) default NULL,
-  `legacy_email` varchar(50) default NULL,
-	`ring` int(1) default 0
-)';
 
 $table = FreePBX::Database()->migrate("fax_users");
 $cols = array(
@@ -59,39 +43,7 @@ $table->modify($cols, $indexes);
 unset($table);
 
 
-foreach ($sql as $statement){
-	$check = $db->query($statement);
-	if (DB::IsError($check)){
-		die_freepbx( "Can not execute $statement : " . $check->getMessage() .  "\n");
-	}
-}
 
-$inst=$db->getAll('SELECT `ring` FROM `fax_incoming`');
-if($db->IsError($inst)){//assume that this column doesn't exist
-  $sql='ALTER TABLE `fax_incoming` ADD `ring` int(10) default 0';
-	$db->query($sql);
-}
-
-//check for 2.6-style tables
-$sql='describe fax_incoming';
-$fields=$db->getAssoc($sql);
-if(array_key_exists('faxdestination',$fields)){
-	out(_('Migrating fax_incoming table...'));
-	$sql='alter table fax_incoming
-				change faxdetection detection varchar(20) default NULL,
-				change faxdetectionwait detectionwait varchar(5) default NULL,
-				change faxdestination destination varchar(50) default NULL,
-				add legacy_email varchar(50) default NULL,
-				drop faxenabled,
-				modify extension varchar(50)';
-	$q=$db->query($sql);
-	if(DB::IsError($q)){
-    out(_('WARNING: fax_incoming table may still be using the 2.6 schema!'));
-  } else {
-    out(_('Successfully migrated fax_incoming table!'));
-  }
-}
-unset($sql);
 
 /* migrate simu_fax from core to fax module, including in miscdests module in case it is being used as a destination.
    this migration is a bit "messy" but assures that any simu_fax settings or destinations being used in the dialplan
@@ -319,17 +271,7 @@ if (array_key_exists('faxemail',$fields) && $fields['faxemail'][0] == 'varchar(5
 	}
 }
 
-//add attachformat field...
-if (!array_key_exists('faxattachformat', $fields)){
-	out(_('Migrating fax_users table to add faxattachformat...'));
-	$sql = 'ALTER TABLE fax_users ADD faxattachformat varchar(10) default NULL';
-	$q = $db->query($sql);
-	if (DB::IsError($q)) {
-		out(_('WARINING: fax_users table may still be using the old schema!'));
-	} else {
-		out(_('Successfully migrated fax_users table!'));
-	}
-}
+
 
 $set['value'] = 'www.freepbx.org';
 $set['defaultval'] =& $set['value'];
