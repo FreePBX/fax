@@ -59,8 +59,8 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg .= 'Status: ' . $var['status'] . "\n";
 	$msg .= 'At: ' . date('r') . "\n";
 	$msg .= 'On: ' . $var['hostname'] . "\n";
-	if ($var['exten']) {
-		$msg .= 'For: ' . $var['exten'] . "\n";
+	if (!empty($user['displayname'])) {
+		$msg .= 'For: ' . $user['displayname'] . "\n";
 	}
 } else {
 	$callerid = !empty($var['callerid']) && !preg_match('/""\s*<>/',$var['callerid']) ? $var['callerid'] : $var['remotestationid'];
@@ -74,10 +74,8 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg .= sprintf(_('Received & processed: %s'),date('r')) . "\n";
 	$msg .= _('On').': ' . $var['hostname'] . "\n";
 	$msg .= _('Via').': ' . $var['dest'] . "\n";
-	if ($var['exten']) {
-		$name = $var['exten'];
-
-		$msg .= _('For').': ' . $name . "\n";
+	if (!empty($user['displayname'])) {
+		$msg .= _('For').': ' . $user['displayname'] . "\n";
 	}
 }
 
