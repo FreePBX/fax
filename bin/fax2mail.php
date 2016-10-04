@@ -2,16 +2,23 @@
 <?php
 //include freepbx configuration
 $restrict_mods = array('fax' => true, 'userman' => true);
-if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-	include_once('/etc/asterisk/freepbx.conf');
-}
+include_once '/etc/freepbx.conf';
 \modgettext::push_textdomain("fax");
 
 $var['hostname'] 	= gethostname();
-$var['from']		= sql('SELECT value FROM fax_details WHERE `key` = "sender_address"','getOne');
-$var['from']		= $var['from'] ? $var['from'] : 'fax@freepbx.pbx';
+$from	 		= sql('SELECT value FROM fax_details WHERE `key` = "sender_address"','getOne');
+$var['fromuser']	= "Fax Service";
+if (!$from) {
+	$var['from_dn'] = "fax@freepbx.pbx";
+} elseif (preg_match( '/(.*)\s+\<(.*)\>/', $from, $match)) {
+	$var['fromuser'] = $match[1];
+	$var['from_dn'] = $match[2];
+} else {
+	$var['from_dn'] = $from;
+}
+
 $var['subject']		= '';
-$var 				= array_merge($var, get_opt());
+$var			= array_merge($var, get_opt());
 $var['callerid'] = base64_decode($var['callerid']);
 $var['callerid']	= empty($var['callerid']) || $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
 $var['keep_file']	= !empty($var['delete']) && $var['delete'] == 'true' ? false : true;
@@ -59,8 +66,8 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg .= 'Status: ' . $var['status'] . "\n";
 	$msg .= 'At: ' . date('r') . "\n";
 	$msg .= 'On: ' . $var['hostname'] . "\n";
-	if ($var['exten']) {
-		$msg .= 'For: ' . $var['exten'] . "\n";
+	if (!empty($user['displayname'])) {
+		$msg .= 'For: ' . $user['displayname'] . "\n";
 	}
 } else {
 	$callerid = !empty($var['callerid']) && !preg_match('/""\s*<>/',$var['callerid']) ? $var['callerid'] : $var['remotestationid'];
@@ -74,10 +81,8 @@ if (isset($var['direction']) && $var['direction'] == 'outgoing') {
 	$msg .= sprintf(_('Received & processed: %s'),date('r')) . "\n";
 	$msg .= _('On').': ' . $var['hostname'] . "\n";
 	$msg .= _('Via').': ' . $var['dest'] . "\n";
-	if ($var['exten']) {
-		$name = $var['exten'];
-
-		$msg .= _('For').': ' . $name . "\n";
+	if (!empty($user['displayname'])) {
+		$msg .= _('For').': ' . $user['displayname'] . "\n";
 	}
 }
 
@@ -86,7 +91,7 @@ if(!empty($var['to'])) {
 	//build email
 	$email = new CI_Email();
 
-	$email->from($var['from']);
+	$email->from($var['fromuser'], $var['from_dn']);
 	$email->to($var['to']);
 	$email->subject($var['subject']);
 	$email->message($msg);
