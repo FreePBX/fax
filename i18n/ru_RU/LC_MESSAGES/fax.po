@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-04 14:25+1000\n"
+"POT-Creation-Date: 2016-10-04 14:41+1000\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -52,12 +52,12 @@ msgstr ""
 "\"Вы выбрали детектирование факсов на этом маршруте. Укажите назначение, "
 "куда будут направляться звонки, определённые как факсы.\""
 
-#: install.php:295
+#: install.php:247
 #, php-format
 msgid "%s FAX Migrations Failed"
 msgstr "Миграция %s факса не удалась"
 
-#: install.php:296
+#: install.php:248
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
@@ -105,7 +105,7 @@ msgstr "Формат вложения"
 msgid "Attempt to detect faxes on this DID."
 msgstr "Попытка детектировать факсы на этом входящем DID."
 
-#: install.php:362
+#: install.php:304
 msgid "Auto generated migrated user for Fax"
 msgstr ""
 
@@ -113,11 +113,11 @@ msgstr ""
 msgid "Both"
 msgstr ""
 
-#: install.php:286
+#: install.php:238
 msgid "Checking for failed migrations.."
 msgstr "Проверка неудавшихся миграций.."
 
-#: install.php:164
+#: install.php:116
 msgid "Checking if legacy fax needs migrating.."
 msgstr "Проверяем необходимость миграции устаревших факс приложений.."
 
@@ -265,7 +265,7 @@ msgstr ""
 msgid "Fax Options"
 msgstr "Опции факса"
 
-#: functions.inc.php:103
+#: functions.inc.php:102
 msgid "Fax Recipient"
 msgstr "Получатель факсов"
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Fax user %s"
 msgstr "Пользватель факса %s"
 
-#: install.php:417
+#: install.php:359
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
@@ -321,16 +321,16 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: install.php:419
+#: install.php:361
 msgid "Inbound Fax Destination Change"
 msgstr ""
 
-#: functions.inc.php:60
+#: functions.inc.php:59
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Распознавать входящий факс: %s (%s)"
 
-#: install.php:419
+#: install.php:361
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
@@ -341,7 +341,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: functions.inc.php:369
+#: functions.inc.php:356
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
@@ -372,26 +372,18 @@ msgstr "Максимальная скорость передачи"
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "Максимальная скорость передачи для распознавания скорости факсов."
 
-#: install.php:387
+#: install.php:329
 #, php-format
 msgid ""
 "Migrated user %s but unable to set email address to %s because an email [%s] "
 "was already set for User Manager User %s"
 msgstr ""
 
-#: install.php:355
+#: install.php:297
 msgid "Migrating all fax users to usermanager"
 msgstr ""
 
-#: install.php:79
-msgid "Migrating fax_incoming table..."
-msgstr "Переносим таблицу fax_incoming...."
-
-#: install.php:324
-msgid "Migrating fax_users table to add faxattachformat..."
-msgstr "Переход в fax_users таблицу, для добавления faxattachformat..."
-
-#: install.php:312
+#: install.php:264
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
@@ -406,7 +398,7 @@ msgstr "Минимальная скорость передачи"
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "Минимальная скорость передачи для распознавания скорости факсов."
 
-#: install.php:100
+#: install.php:52
 msgid "Moving simu_fax feature code from core.."
 msgstr "Убрать опцию simu_fax из кода."
 
@@ -436,7 +428,7 @@ msgstr ""
 msgid "No"
 msgstr "Нет"
 
-#: install.php:302
+#: install.php:254
 msgid "No Inbound Routes to migrate"
 msgstr "Нет входящих маршрутов для миграций"
 
@@ -475,12 +467,12 @@ msgstr ""
 msgid "Received & processed: %s"
 msgstr ""
 
-#: install.php:266
+#: install.php:218
 #, php-format
 msgid "Removing field %s from incoming table.."
 msgstr "Удаляем поле %s из таблицы входящих.."
 
-#: install.php:275
+#: install.php:227
 msgid "Removing old globals.."
 msgstr "Удаление старых значений globals.."
 
@@ -519,15 +511,7 @@ msgstr ""
 msgid "Submit"
 msgstr "Сохранить"
 
-#: install.php:91
-msgid "Successfully migrated fax_incoming table!"
-msgstr "Успешно перенесена таблица fax_incoming!"
-
-#: install.php:330
-msgid "Successfully migrated fax_users table!"
-msgstr "Успешный перенос таблицы fax_users!"
-
-#: install.php:318
+#: install.php:270
 msgid "Successfully migrated faxemail field"
 msgstr "Успешный перенос поля faxemail"
 
@@ -535,7 +519,7 @@ msgstr "Успешный перенос поля faxemail"
 msgid "TIFF"
 msgstr ""
 
-#: install.php:289
+#: install.php:241
 msgid ""
 "The following Inbound Routes had FAX processing that failed migration "
 "because they were accessing a device with no associated user. They have been "
@@ -559,19 +543,19 @@ msgstr ""
 msgid "Type of fax detection to use."
 msgstr "Какой метод детектирования будет использоваться."
 
-#: install.php:368 /usr/src/freepbx/fax/install.php:375 install.php:395
-#: /usr/src/freepbx/fax/install.php:405
+#: install.php:310 /usr/src/freepbx/fax/install.php:317 install.php:337
+#: /usr/src/freepbx/fax/install.php:347
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
 "destinations"
 msgstr ""
 
-#: install.php:117
+#: install.php:69
 msgid "Updating simu_fax in miscdest table.."
 msgstr "Обновляется simu_fax в таблице miscdest.."
 
-#: functions.inc.php:369
+#: functions.inc.php:356
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -582,19 +566,9 @@ msgstr ""
 msgid "Via"
 msgstr ""
 
-#: install.php:328
-msgid "WARINING: fax_users table may still be using the old schema!"
-msgstr ""
-"Предупреждение: таблица fax_users все еще может использовать старую схему!"
-
-#: install.php:316
+#: install.php:268
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
 msgstr "Предупреждение: Ошибка переноса. Длина e-mail ограничена 50 символами."
-
-#: install.php:89
-msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
-msgstr ""
-"Предупреждение: таблица fax_incoming все еще может использовать 2.6 схему!"
 
 #: views/form.php:44
 msgid ""
@@ -650,61 +624,81 @@ msgstr ""
 msgid "Zaptel"
 msgstr "ZAPTEL"
 
-#: install.php:298
+#: install.php:250
 msgid "all migrations succeeded successfully"
 msgstr "все миграции прошли успешно"
 
-#: install.php:305
+#: install.php:257
 msgid "already done"
 msgstr "уже готово"
 
-#: install.php:291 /usr/src/freepbx/fax/install.php:292
+#: install.php:243 /usr/src/freepbx/fax/install.php:244
 msgid "blank"
 msgstr "пусто"
 
-#: install.php:115 /usr/src/freepbx/fax/install.php:122
+#: install.php:67 /usr/src/freepbx/fax/install.php:74
 msgid "done"
 msgstr "готово"
 
-#: install.php:104
+#: install.php:56
 msgid "duplicate, removing old from core.."
 msgstr "дубликация, удаляем старую.."
 
-#: install.php:198 /usr/src/freepbx/fax/install.php:280
+#: install.php:150 /usr/src/freepbx/fax/install.php:232
 msgid "failed"
 msgstr "сорвалось"
 
-#: install.php:201
+#: install.php:153
 msgid "migrated"
 msgstr "перенесено"
 
-#: install.php:194
+#: install.php:146
 msgid "migrating defaults.."
 msgstr "мигрируется по умолчанию.."
 
-#: install.php:120
+#: install.php:72
 msgid "not needed"
 msgstr "не требуется"
 
-#: install.php:270
+#: install.php:222
 msgid "not present"
 msgstr "нет сведений"
 
-#: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
+#: install.php:61 /usr/src/freepbx/fax/install.php:224 install.php:234
 msgid "removed"
 msgstr "удалено"
 
-#: install.php:168
+#: install.php:120
 msgid "starting migration"
 msgstr "начинаем миграцию"
 
-#: install.php:107 /usr/src/freepbx/fax/install.php:112
+#: install.php:59 /usr/src/freepbx/fax/install.php:64
 msgid "unknown error"
 msgstr "неизвестная ошибка"
 
 #: Fax.class.php:475
 msgid "use "
 msgstr "использовать "
+
+#~ msgid "Migrating fax_incoming table..."
+#~ msgstr "Переносим таблицу fax_incoming...."
+
+#~ msgid "Migrating fax_users table to add faxattachformat..."
+#~ msgstr "Переход в fax_users таблицу, для добавления faxattachformat..."
+
+#~ msgid "Successfully migrated fax_incoming table!"
+#~ msgstr "Успешно перенесена таблица fax_incoming!"
+
+#~ msgid "Successfully migrated fax_users table!"
+#~ msgstr "Успешный перенос таблицы fax_users!"
+
+#~ msgid "WARINING: fax_users table may still be using the old schema!"
+#~ msgstr ""
+#~ "Предупреждение: таблица fax_users все еще может использовать старую схему!"
+
+#~ msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
+#~ msgstr ""
+#~ "Предупреждение: таблица fax_incoming все еще может использовать 2.6 схему!"
 
 #~ msgid ""
 #~ "No: No attempts are made to auto-determine the call type; all calls sent "
