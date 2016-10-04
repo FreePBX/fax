@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-07 14:10-0700\n"
+"POT-Creation-Date: 2016-10-04 14:25+1000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -185,11 +185,11 @@ msgstr "دریافت دورنگار را برای کاربر فعال کن"
 msgid "Enabled"
 msgstr "فعال"
 
-#: bin/fax2mail.php:71
+#: bin/fax2mail.php:78
 msgid "Enclosed, please find a new fax"
 msgstr "محصور, یک دورنگار جدید پیدا کنید"
 
-#: bin/fax2mail.php:69
+#: bin/fax2mail.php:76
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "محصور, لطفا یک دورنگار جدید پیدا کنید از：%s"
@@ -273,7 +273,7 @@ msgstr "دورنگار کاربر %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr "اتمام انتقال دورنگار کاربران به مدیریت کاربر"
 
-#: bin/fax2mail.php:80
+#: bin/fax2mail.php:85
 msgid "For"
 msgstr "برای"
 
@@ -409,12 +409,12 @@ msgstr ""
 msgid "NVFax"
 msgstr "فکس NV"
 
-#: bin/fax2mail.php:46
+#: bin/fax2mail.php:53
 #, php-format
 msgid "New fax from: %s"
 msgstr "دورنگار جدید از:%s"
 
-#: bin/fax2mail.php:48
+#: bin/fax2mail.php:55
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
@@ -444,7 +444,7 @@ msgstr ""
 "شده در تب 'عمومی' فرستاده میشود. این گزینه برای DIDهایی استفاده میشود که "
 "انحصارا به عنوان فکس و یا تماس ساده استفاده میشوند."
 
-#: bin/fax2mail.php:75
+#: bin/fax2mail.php:82
 msgid "On"
 msgstr "روشن"
 
@@ -452,7 +452,7 @@ msgstr "روشن"
 msgid "Outgoing Email address"
 msgstr "آدرس ایمیل ارسال فکس"
 
-#: bin/fax2mail.php:43
+#: bin/fax2mail.php:50
 msgid "Outgoing fax results"
 msgstr "نتایج فکس ارسالی"
 
@@ -460,7 +460,7 @@ msgstr "نتایج فکس ارسالی"
 msgid "PDF"
 msgstr "PDF"
 
-#: bin/fax2mail.php:74
+#: bin/fax2mail.php:81
 #, php-format
 msgid "Received & processed: %s"
 msgstr "رسیده و پردازش شده: %s"
@@ -572,7 +572,7 @@ msgstr ""
 "در مدیریت کاربران کاربران '%s' میتوانند فکسها را دریافت کنند اما آدرس ایمیلی "
 "برایشان تعریف نشده بنا بر این آنها نمیتوانند فکس را در ایمیلشان داشته باشند،"
 
-#: bin/fax2mail.php:76
+#: bin/fax2mail.php:83
 msgid "Via"
 msgstr "با"
 

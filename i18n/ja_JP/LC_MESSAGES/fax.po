@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-07 14:10-0700\n"
+"POT-Creation-Date: 2016-10-04 14:25+1000\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -212,11 +212,11 @@ msgstr "このユーザーがfaxを受信できるようにする"
 msgid "Enabled"
 msgstr "有効"
 
-#: bin/fax2mail.php:71
+#: bin/fax2mail.php:78
 msgid "Enclosed, please find a new fax"
 msgstr ""
 
-#: bin/fax2mail.php:69
+#: bin/fax2mail.php:76
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
@@ -298,7 +298,7 @@ msgstr "Fax ユーザー %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:80
+#: bin/fax2mail.php:85
 msgid "For"
 msgstr ""
 
@@ -426,12 +426,12 @@ msgstr ""
 msgid "NVFax"
 msgstr "NVFax"
 
-#: bin/fax2mail.php:46
+#: bin/fax2mail.php:53
 #, php-format
 msgid "New fax from: %s"
 msgstr ""
 
-#: bin/fax2mail.php:48
+#: bin/fax2mail.php:55
 msgid "New fax received"
 msgstr ""
 
@@ -456,7 +456,7 @@ msgid ""
 "exclusively for voice OR fax."
 msgstr ""
 
-#: bin/fax2mail.php:75
+#: bin/fax2mail.php:82
 msgid "On"
 msgstr ""
 
@@ -464,7 +464,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:43
+#: bin/fax2mail.php:50
 msgid "Outgoing fax results"
 msgstr ""
 
@@ -472,7 +472,7 @@ msgstr ""
 msgid "PDF"
 msgstr ""
 
-#: bin/fax2mail.php:74
+#: bin/fax2mail.php:81
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
@@ -580,7 +580,7 @@ msgid ""
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:76
+#: bin/fax2mail.php:83
 msgid "Via"
 msgstr ""
 

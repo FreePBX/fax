@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-07 14:10-0700\n"
+"POT-Creation-Date: 2016-10-04 14:25+1000\n"
 "PO-Revision-Date: 2016-06-23 01:18+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
@@ -170,11 +170,11 @@ msgstr "Dodać tego użytkownika do listy odbiorców faksu"
 msgid "Enabled"
 msgstr "Włączone"
 
-#: bin/fax2mail.php:71
+#: bin/fax2mail.php:78
 msgid "Enclosed, please find a new fax"
 msgstr "Ograniczono, proszę znaleźć nowy faks"
 
-#: bin/fax2mail.php:69
+#: bin/fax2mail.php:76
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Ograniczono, proszę znaleźć nowy faks z: %s"
@@ -254,7 +254,7 @@ msgstr "Użytkownik faksu %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr "Zakończono przenoszenie listy użytkowników faksu do administratora"
 
-#: bin/fax2mail.php:80
+#: bin/fax2mail.php:85
 msgid "For"
 msgstr ""
 
@@ -373,12 +373,12 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-#: bin/fax2mail.php:46
+#: bin/fax2mail.php:53
 #, php-format
 msgid "New fax from: %s"
 msgstr "Nowy faks od: %s"
 
-#: bin/fax2mail.php:48
+#: bin/fax2mail.php:55
 msgid "New fax received"
 msgstr "Otrzymano nowy faks"
 
@@ -403,7 +403,7 @@ msgid ""
 "exclusively for voice OR fax."
 msgstr ""
 
-#: bin/fax2mail.php:75
+#: bin/fax2mail.php:82
 msgid "On"
 msgstr ""
 
@@ -411,7 +411,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:43
+#: bin/fax2mail.php:50
 msgid "Outgoing fax results"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgstr ""
 msgid "PDF"
 msgstr "PDF"
 
-#: bin/fax2mail.php:74
+#: bin/fax2mail.php:81
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
@@ -521,7 +521,7 @@ msgid ""
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:76
+#: bin/fax2mail.php:83
 msgid "Via"
 msgstr ""
 
