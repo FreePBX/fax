@@ -286,12 +286,12 @@ function fax_get_config($engine){
 		$ext->add($context, $exten, 'delete_opt', new ext_set('DELETE_AFTER_SEND', 'true'));
 		$ext->add($context, $exten, 'process', new ext_gotoif('$[${FAX_RX_EMAIL_LEN} = 0]','noemail'));
 
-		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --user "${FAX_RX_USER}" --dest "${FROM_DID}" --callerid "${BASE64_ENCODE(${CALLERID(all)})}" --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
+		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --user "${FAX_RX_USER}" --dest "${FROM_DID}" --callerid "${BASE64_ENCODE(${CALLERID(all)})}" --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --exten "${FAX_FOR}" --delete "${DELETE_AFTER_SEND}" --attachformat "${FAX_ATTACH_FORMAT}"'));
 
 		$ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
 
 		$ext->add($context, $exten, 'noemail', new ext_noop('ERROR: No Email Address to send FAX: status: [${FAXSTATUS}],  From: [${CALLERID(all)}]'));
-		$ext->add($context, $exten, '', new ext_system('${ASTVARLIBDIR}/bin/fax2mail.php --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --delete "${DELETE_AFTER_SEND}"'));
+		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/fax2mail.php --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --delete "${DELETE_AFTER_SEND}"'));
 		$ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
 		$ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_FOR} , From: ${CALLERID(all)}'),'process',101);
