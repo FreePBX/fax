@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-04 14:25+1000\n"
+"POT-Creation-Date: 2016-10-12 12:17+1000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -45,7 +45,7 @@ msgstr "%s جابجایی دورنگار ناموفق"
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr "%s جابجایی دورنگار ناموفق.برای توضیح بیشتر به پنل هشدارها بروید"
 
-#: views/form.php:254
+#: views/form.php:223
 msgid "A4"
 msgstr "A4"
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr "افزودن تنظیمات، گزینه ها و رابط گرافیکی برای دورنگار دریافتی"
 
-#: views/form.php:29
+#: views/form.php:27
 msgid "Always Generate Detection Code"
 msgstr "تولید همیشگی کد تشخیص"
 
@@ -107,15 +107,15 @@ msgstr "بررسی جابجایی دورنگار در صورت نیاز.."
 msgid "Dahdi"
 msgstr "دهدی (Dahdi)"
 
-#: views/form.php:71
+#: views/form.php:65
 msgid "Default Fax header"
 msgstr "سربرگ پیشفرض دورنگار"
 
-#: views/form.php:95
+#: views/form.php:85
 msgid "Default Local Station Identifier"
 msgstr "شناسه پیشفرض ایستگاه محلی"
 
-#: views/form.php:247
+#: views/form.php:216
 msgid "Default Paper Size"
 msgstr "اندازه پیشفرض کاغذ"
 
@@ -149,11 +149,11 @@ msgstr ""
 "is installed without a license.<br>At least one license is required (it is "
 "available for free) and must be installed."
 
-#: views/form.php:143
+#: views/form.php:128
 msgid "Email address"
 msgstr "آدرس ایمیل"
 
-#: views/form.php:131
+#: views/form.php:116
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
@@ -161,7 +161,7 @@ msgstr ""
 "آدرس ایمیلی که  دورنگارها به آن ارسال میشوند اگر 'پیشفرض سیستم' به عنوان "
 "شماره داخلی پیشفرض دورنگار انتخاب شده باشد."
 
-#: views/form.php:155
+#: views/form.php:138
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -194,11 +194,11 @@ msgstr "محصور, یک دورنگار جدید پیدا کنید"
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "محصور, لطفا یک دورنگار جدید پیدا کنید از：%s"
 
-#: views/form.php:167
+#: views/form.php:148
 msgid "Error Correction Mode"
 msgstr "حالت تصحیح خطا"
 
-#: views/form.php:182
+#: views/form.php:161
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -283,7 +283,7 @@ msgstr ""
 "فرمت هایی که دورنگارهای دریافتی باید ب آنها تبدیل شده سپس به ایمیل ارسال "
 "شوند."
 
-#: views/form.php:83
+#: views/form.php:75
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -347,15 +347,15 @@ msgstr ""
 "فقط برای انتقال مسیر فکس های قدیمی استفاده میشود. شما با انتخاب گزینه بله "
 "باید مسیر را به روزکنید، و یک مسیر معتبر انتخاب کنید!"
 
-#: views/form.php:252
+#: views/form.php:221
 msgid "Letter"
 msgstr "نامه"
 
-#: views/form.php:195
+#: views/form.php:172
 msgid "Maximum transfer rate"
 msgstr "بیشترین امتیاز انتقال"
 
-#: views/form.php:209
+#: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "بیشترین سرعت استفاده شده برای تبادل فکس."
 
@@ -385,11 +385,11 @@ msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr "انتقال فیلد فکس میل در جدول fax_users برای ایمیل های طولانی تر..."
 
-#: views/form.php:221
+#: views/form.php:194
 msgid "Minimum transfer rate"
 msgstr "حداقل سرعت تبادل اطلاعات"
 
-#: views/form.php:235
+#: views/form.php:206
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "کمترین سرعت استفاده شده برای تبادل فکس."
 
@@ -418,8 +418,8 @@ msgstr "دورنگار جدید از:%s"
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
-#: Fax.class.php:441 Fax.class.php:525 views/fax.php:29 views/form.php:36
-#: views/form.php:174 views/quickCreate.php:12
+#: Fax.class.php:441 Fax.class.php:525 views/fax.php:29 views/form.php:34
+#: views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "خیر"
 
@@ -448,7 +448,7 @@ msgstr ""
 msgid "On"
 msgstr "روشن"
 
-#: views/form.php:119
+#: views/form.php:105
 msgid "Outgoing Email address"
 msgstr "آدرس ایمیل ارسال فکس"
 
@@ -482,7 +482,7 @@ msgstr "بازنشانی"
 msgid "SIP"
 msgstr "SIP"
 
-#: views/form.php:262
+#: views/form.php:229
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
@@ -539,9 +539,16 @@ msgstr ""
 "disabled and will need to be updated. Click delete icon on the right to "
 "remove this notice."
 
-#: views/form.php:107
+#: views/form.php:95
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "شناسه ماشین فکس خارجی. به طور معمول شماره فکس شماست."
+
+#: views/form.php:117
+msgid ""
+"This may be formatted as just 'user@example.com', or 'Fax User <user@example."
+"com>'. The second option will display 'Fax User' in the 'From' field in most "
+"email clients."
+msgstr ""
 
 #: Fax.class.php:660
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
@@ -592,7 +599,7 @@ msgstr ""
 "هشدار: جدول fax_incoming ممکن است به وسیله طرح 2.6 مورد استفاده قرار گرفته "
 "باشد!"
 
-#: views/form.php:44
+#: views/form.php:40
 msgid ""
 "When no fax modules are detected the module will not generate any detection "
 "dialplan by default. If the system is being used with phyical FAX devices, "
@@ -613,8 +620,8 @@ msgid ""
 "heard"
 msgstr "چگونگی زنگ خوردن در حال شناسایی فکس.اگر بدون صدا تنظیم نشده باشد"
 
-#: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:34
-#: views/form.php:172 views/quickCreate.php:10
+#: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
+#: views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "بله"
 
@@ -628,13 +635,13 @@ msgstr ""
 "ها، درغیراینصورت تماس به مقصد معمول فرستاده میشود. از این گزینه وقتی استفاده "
 "میکنیم که از یک خط برای دریافت تماس و فکس استفاده میشود"
 
-#: views/form.php:59
+#: views/form.php:55
 msgid ""
 "Your maximum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr "بالاترین سرعت جابجایی شما روی 2400 تنظیم شده است"
 
-#: views/form.php:56
+#: views/form.php:52
 msgid ""
 "Your minimum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
