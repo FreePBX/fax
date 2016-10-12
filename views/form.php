@@ -112,7 +112,10 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="sender_address-help" class="help-block fpbx-help-block"><?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.")?></span>
+			<span id="sender_address-help" class="help-block fpbx-help-block">
+<?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.") ?>  
+<?php echo htmlentities(_("This may be formatted as just 'user@example.com', or 'Fax User <user@example.com>'. The second option will display 'Fax User' in the 'From' field in most email clients."));?>
+			</span>
 		</div>
 	</div>
 </div>
