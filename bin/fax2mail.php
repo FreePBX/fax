@@ -91,7 +91,7 @@ if(!empty($var['to'])) {
 	//build email
 	$email = new CI_Email();
 
-	$email->from($var['fromuser'], $var['from_dn']);
+	$email->from($var['from_dn'], $var['fromuser']);
 	$email->to($var['to']);
 	$email->subject($var['subject']);
 	$email->message($msg);
