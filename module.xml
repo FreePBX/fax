@@ -58,37 +58,10 @@
 		*13.0.1alpha3* FREEPBX-8638 Delete PDF and TIFF when requested
 		*13.0.1alpha2* FREEPBX-7177 Check for remote station id, fix incoming settings
 		*13.0.1alpha1* Bump for layout
-		*12.0.5* Redo module_hook calls to use static obj
-		*12.0.4* Tweaks to max res and widths
-		*12.0.3* FREEPBX-7140 Set page max resolution and widths so that all pages are the same sizes
-		*12.0.2* Dont Copy duplicate functions
-		*12.0.1* BMO Module
-		*2.11.0.9* Update license file
-		*2.11.0.8* Fix issues with older Asterisk versions caused by fixing #5816
-		*2.11.0.7* #5816, Adds ru_RU and ja_JP languages
-		*2.11.0.6* Allow specifying email attachment type(s) on inbound fax.
-		*2.11.0.5* Add support for sending email on outbound fax.
-		*2.11.0.4* #6985 Dont display fax options if they wont work
-		*2.11.0.3* #6917
-		*2.11.0.2* #6810
-		*2.11.0.1* #6647, #6556
-		*2.11.0.0* bump version
-		*2.10.0.6* re #5906 - workaround for php &lt; 5.2
-		*2.10.0.5* minor code cleanup
-		*2.10.0.4* assotred bug fixes
-		*2.10.0.3* re #5707 - allow posted values to show on page; minor costmetics towards moving to a proper view
-		*2.10.0.2* #5478
-		*2.10.0.1* incorrect path to system conversion script
-		*2.10.0.0* new version changes
-		*2.9.0.5* #5029
-		*2.9.0.4* #5000
-		*2.9.0.3* #4886 additional
-		*2.9.0.2* #4886, #4907
-		*2.9.0.1* removed duplicate functions
-		*2.9.0.0* #4562, #4326, #4557, #4632, #4651, #4653
 	</changelog>
 	<depends>
 		<version>12.0.1rc16</version>
+		<module>core ge 13.0.113.8</module>
 		<module>userman ge 13.0</module>
 	</depends>
 	<supported>
