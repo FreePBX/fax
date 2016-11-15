@@ -24,14 +24,19 @@ $var['callerid']	= empty($var['callerid']) || $var['callerid'] === true ? '' : $
 $var['keep_file']	= !empty($var['delete']) && $var['delete'] == 'true' ? false : true;
 $var['remotestationid'] = !empty($var['remotestationid']) ? $var['remotestationid'] : '';
 
-$user = FreePBX::Userman()->getUserByID($var['user']);
-if(empty($user['email']) && !$var['keep_file']) {
-	die_fax('email-fax dying, no destination found (User has no email!) and we arent keeping the file!');
+if (empty($var['sendto'])) {
+	$user = FreePBX::Userman()->getUserByID($var['user']);
+	if(empty($user['email']) && !$var['keep_file']) {
+		die_fax('email-fax dying, no destination found (User has no email!) and we arent keeping the file!');
+	}
+	$var['to'] = $user['email'];
+	$var['attachformat'] = FreePBX::Userman()->getCombinedModuleSettingByID($var['user'], 'fax', 'attachformat');
+} else {
+	$var['to'] = $var['sendto'];
+	$user = array("displayname" => "Fax Recipient");
 }
-$var['to'] = $user['email'];
 
-$var['attachformat'] = FreePBX::Userman()->getCombinedModuleSettingByID($var['user'], 'fax', 'attachformat');
-$var['attachformat']	= !empty($var['attachformat']) ? $var['attachformat'] : 'pdf';
+$var['attachformat'] = !empty($var['attachformat']) ? $var['attachformat'] : 'pdf';
 
 //double check some of the options
 foreach ($var as $k => $v) {
