@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 12:17+1000\n"
+"POT-Creation-Date: 2016-11-15 11:34+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,11 +157,11 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: bin/fax2mail.php:78
+#: bin/fax2mail.php:83
 msgid "Enclosed, please find a new fax"
 msgstr ""
 
-#: bin/fax2mail.php:76
+#: bin/fax2mail.php:81
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:85
+#: bin/fax2mail.php:90
 msgid "For"
 msgstr ""
 
@@ -291,7 +291,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: functions.inc.php:369
+#: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
@@ -364,12 +364,12 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-#: bin/fax2mail.php:53
+#: bin/fax2mail.php:58
 #, php-format
 msgid "New fax from: %s"
 msgstr ""
 
-#: bin/fax2mail.php:55
+#: bin/fax2mail.php:60
 msgid "New fax received"
 msgstr ""
 
@@ -398,7 +398,7 @@ msgid ""
 "exclusively for voice OR fax."
 msgstr ""
 
-#: bin/fax2mail.php:82
+#: bin/fax2mail.php:87
 msgid "On"
 msgstr ""
 
@@ -406,7 +406,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:50
+#: bin/fax2mail.php:55
 msgid "Outgoing fax results"
 msgstr ""
 
@@ -414,7 +414,7 @@ msgstr ""
 msgid "PDF"
 msgstr ""
 
-#: bin/fax2mail.php:81
+#: bin/fax2mail.php:86
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
@@ -516,14 +516,14 @@ msgstr ""
 msgid "Updating simu_fax in miscdest table.."
 msgstr ""
 
-#: functions.inc.php:369
+#: functions.inc.php:376
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:88
 msgid "Via"
 msgstr ""
 

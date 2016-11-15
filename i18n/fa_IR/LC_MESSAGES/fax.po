@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 12:17+1000\n"
+"POT-Creation-Date: 2016-11-15 11:34+1000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -185,11 +185,11 @@ msgstr "دریافت دورنگار را برای کاربر فعال کن"
 msgid "Enabled"
 msgstr "فعال"
 
-#: bin/fax2mail.php:78
+#: bin/fax2mail.php:83
 msgid "Enclosed, please find a new fax"
 msgstr "محصور, یک دورنگار جدید پیدا کنید"
 
-#: bin/fax2mail.php:76
+#: bin/fax2mail.php:81
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "محصور, لطفا یک دورنگار جدید پیدا کنید از：%s"
@@ -273,7 +273,7 @@ msgstr "دورنگار کاربر %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr "اتمام انتقال دورنگار کاربران به مدیریت کاربر"
 
-#: bin/fax2mail.php:85
+#: bin/fax2mail.php:90
 msgid "For"
 msgstr "برای"
 
@@ -329,7 +329,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "ارثی"
 
-#: functions.inc.php:369
+#: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
 msgstr "ایمیل نادرست برای ارسال دورنگار دریافتی"
 
@@ -409,12 +409,12 @@ msgstr ""
 msgid "NVFax"
 msgstr "فکس NV"
 
-#: bin/fax2mail.php:53
+#: bin/fax2mail.php:58
 #, php-format
 msgid "New fax from: %s"
 msgstr "دورنگار جدید از:%s"
 
-#: bin/fax2mail.php:55
+#: bin/fax2mail.php:60
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
@@ -444,7 +444,7 @@ msgstr ""
 "شده در تب 'عمومی' فرستاده میشود. این گزینه برای DIDهایی استفاده میشود که "
 "انحصارا به عنوان فکس و یا تماس ساده استفاده میشوند."
 
-#: bin/fax2mail.php:82
+#: bin/fax2mail.php:87
 msgid "On"
 msgstr "روشن"
 
@@ -452,7 +452,7 @@ msgstr "روشن"
 msgid "Outgoing Email address"
 msgstr "آدرس ایمیل ارسال فکس"
 
-#: bin/fax2mail.php:50
+#: bin/fax2mail.php:55
 msgid "Outgoing fax results"
 msgstr "نتایج فکس ارسالی"
 
@@ -460,7 +460,7 @@ msgstr "نتایج فکس ارسالی"
 msgid "PDF"
 msgstr "PDF"
 
-#: bin/fax2mail.php:81
+#: bin/fax2mail.php:86
 #, php-format
 msgid "Received & processed: %s"
 msgstr "رسیده و پردازش شده: %s"
@@ -570,7 +570,7 @@ msgstr "عدم امکان انتقال %s، به دلیل [%s]. لطفا 'گیر
 msgid "Updating simu_fax in miscdest table.."
 msgstr "به روزرسانی جدول simu_fax در مقاصدمختلف.."
 
-#: functions.inc.php:369
+#: functions.inc.php:376
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -579,7 +579,7 @@ msgstr ""
 "در مدیریت کاربران کاربران '%s' میتوانند فکسها را دریافت کنند اما آدرس ایمیلی "
 "برایشان تعریف نشده بنا بر این آنها نمیتوانند فکس را در ایمیلشان داشته باشند،"
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:88
 msgid "Via"
 msgstr "با"
 

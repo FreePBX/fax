@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.39.3</version>
+	<version>13.0.40</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.40* FREEPBX-13589 Repair system fax RX
 		*13.0.39.3* FREEPBX-13318 make the generated dialplan stop calling the script from the wrong location
 		*13.0.39.2* FREEPBX-6655 - Expand email 'From' address support.
 		*13.0.38* Bug fix during install
