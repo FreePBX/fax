@@ -22,20 +22,16 @@ if(!$fax_detect['module']){
 		<!--Always Generate Detection Code-->
 		<div class="element-container">
 			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
-							<div class="col-md-3">
-								<label class="control-label" for="force_detection">'. _("Always Generate Detection Code").'</label>
-								<i class="fa fa-question-circle fpbx-help-icon" data-for="force_detection"></i>
-							</div>
-							<div class="col-md-9 radioset">
-								<input type="radio" class="form-control" id="force_detection_yes" name="force_detection" value="yes"'. (($fax['force_detection'] == 'yes')?'checked':'').'>
-								<label for="force_detection_yes">'._("Yes").'</label>
-								<input type="radio" class="form-control" id="force_detection_no" name="force_detection" value="no" '.(($fax['force_detection'] == 'no')?'checked':'').'>
-								<label for="force_detection_no">'. _("No").'</label>
-							</div>
-						</div>
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="force_detection">'. _("Always Generate Detection Code").'</label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="force_detection"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="radio" class="form-control" id="force_detection_yes" name="force_detection" value="yes"'. (($fax['force_detection'] == 'yes')?'checked':'').'>
+						<label for="force_detection_yes">'._("Yes").'</label>
+						<input type="radio" class="form-control" id="force_detection_no" name="force_detection" value="no" '.(($fax['force_detection'] == 'no')?'checked':'').'>
+						<label for="force_detection_no">'. _("No").'</label>
 					</div>
 				</div>
 			</div>
@@ -64,17 +60,13 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--Default Fax header-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="headerinfo"><?php echo _("Default Fax header") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="headerinfo"></i>
-					</div>
-					<div class="col-md-9">
-						<input type="text" class="form-control" id="headerinfo" name="headerinfo" value="<?php  echo $fax['headerinfo']; ?>">
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="headerinfo"><?php echo _("Default Fax header") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="headerinfo"></i>
+			</div>
+			<div class="col-md-9">
+				<input type="text" class="form-control" id="headerinfo" name="headerinfo" value="<?php  echo $fax['headerinfo']; ?>">
 			</div>
 		</div>
 	</div>
@@ -88,17 +80,13 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--Default Local Station Identifier-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="localstationid"><?php echo _("Default Local Station Identifier") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="localstationid"></i>
-					</div>
-					<div class="col-md-9">
-						<input type="text" class="form-control" id="localstationid" name="localstationid" value="<?php  echo $fax['localstationid']; ?>">
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="localstationid"><?php echo _("Default Local Station Identifier") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="localstationid"></i>
+			</div>
+			<div class="col-md-9">
+				<input type="text" class="form-control" id="localstationid" name="localstationid" value="<?php  echo $fax['localstationid']; ?>">
 			</div>
 		</div>
 	</div>
@@ -112,23 +100,22 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--Outgoing Email address-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="sender_address"><?php echo _("Outgoing Email address") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="sender_address"></i>
-					</div>
-					<div class="col-md-9">
-						<input type="text" class="form-control" id="sender_address" name="sender_address" value="<?php  echo htmlspecialchars($fax['sender_address'])?>">
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="sender_address"><?php echo _("Outgoing Email address") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="sender_address"></i>
+			</div>
+			<div class="col-md-9">
+				<input type="text" class="form-control" id="sender_address" name="sender_address" value="<?php  echo htmlspecialchars($fax['sender_address'])?>">
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="sender_address-help" class="help-block fpbx-help-block"><?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.")?></span>
+			<span id="sender_address-help" class="help-block fpbx-help-block">
+<?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.") ?>  
+<?php echo htmlentities(_("This may be formatted as just 'user@example.com', or 'Fax User <user@example.com>'. The second option will display 'Fax User' in the 'From' field in most email clients."));?>
+			</span>
 		</div>
 	</div>
 </div>
@@ -136,17 +123,13 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--Email address-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="fax_rx_email"><?php echo _("Email address") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="fax_rx_email"></i>
-					</div>
-					<div class="col-md-9">
-						<input type="text" class="form-control" id="fax_rx_email" name="fax_rx_email" value="<?php  echo htmlspecialchars($fax['fax_rx_email'])?>">
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="fax_rx_email"><?php echo _("Email address") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="fax_rx_email"></i>
+			</div>
+			<div class="col-md-9">
+				<input type="text" class="form-control" id="fax_rx_email" name="fax_rx_email" value="<?php  echo htmlspecialchars($fax['fax_rx_email'])?>">
 			</div>
 		</div>
 	</div>
@@ -160,20 +143,16 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--Error Correction Mode-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="ecm"><?php echo _("Error Correction Mode") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="ecm"></i>
-					</div>
-					<div class="col-md-9 radioset">
-						<input type="radio" class="form-control" id="ecmyes" name="ecm" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':'')?>>
-						<label for="ecmyes"><?php echo _("Yes")?></label>
-						<input type="radio" class="form-control" id="ecmno" name="ecm" value="no" <?php echo (($fax['ecm'] == 'no')?'checked':'')?>>
-						<label for="ecmno"><?php echo _("No")?></label>
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="ecm"><?php echo _("Error Correction Mode") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="ecm"></i>
+			</div>
+			<div class="col-md-9 radioset">
+				<input type="radio" class="form-control" id="ecmyes" name="ecm" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':'')?>>
+				<label for="ecmyes"><?php echo _("Yes")?></label>
+				<input type="radio" class="form-control" id="ecmno" name="ecm" value="no" <?php echo (($fax['ecm'] == 'no')?'checked':'')?>>
+				<label for="ecmno"><?php echo _("No")?></label>
 			</div>
 		</div>
 	</div>
@@ -188,19 +167,15 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--Maximum transfer rate-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="maxrate"><?php echo _("Maximum transfer rate") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="maxrate"></i>
-					</div>
-					<div class="col-md-9">
-						<select class="form-control" id="maxrate" name="maxrate">
-							<?php echo $maxrateopts ?>
-						</select>
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="maxrate"><?php echo _("Maximum transfer rate") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="maxrate"></i>
+			</div>
+			<div class="col-md-9">
+				<select class="form-control" id="maxrate" name="maxrate">
+					<?php echo $maxrateopts ?>
+				</select>
 			</div>
 		</div>
 	</div>
@@ -214,19 +189,15 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--Minimum transfer rate-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="minrate"><?php echo _("Minimum transfer rate") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="minrate"></i>
-					</div>
-					<div class="col-md-9">
-						<select class="form-control" id="minrate" name="minrate">
-							<?php echo $minrateopts ?>
-						</select>
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="minrate"><?php echo _("Minimum transfer rate") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="minrate"></i>
+			</div>
+			<div class="col-md-9">
+				<select class="form-control" id="minrate" name="minrate">
+					<?php echo $minrateopts ?>
+				</select>
 			</div>
 		</div>
 	</div>
@@ -240,20 +211,16 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--Default Paper Size-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="papersize"><?php echo _("Default Paper Size") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="papersize"></i>
-					</div>
-					<div class="col-md-9 radioset">
-						<input type="radio" class="form-control" id="papersizeletter" name="papersize" value="letter" <?php echo (($fax['papersize'] == 'letter')?'checked':'')?>>
-						<label for="papersizeletter"><?php echo _("Letter")?></label>
-						<input type="radio" class="form-control" id="papersizea4" name="papersize" value="a4" <?php echo (($fax['papersize'] == 'a4')?'checked':'')?>>
-						<label for="papersizea4"><?php echo _("A4")?></label>
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="papersize"><?php echo _("Default Paper Size") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="papersize"></i>
+			</div>
+			<div class="col-md-9 radioset">
+				<input type="radio" class="form-control" id="papersizeletter" name="papersize" value="letter" <?php echo (($fax['papersize'] == 'letter')?'checked':'')?>>
+				<label for="papersizeletter"><?php echo _("Letter")?></label>
+				<input type="radio" class="form-control" id="papersizea4" name="papersize" value="a4" <?php echo (($fax['papersize'] == 'a4')?'checked':'')?>>
+				<label for="papersizea4"><?php echo _("A4")?></label>
 			</div>
 		</div>
 	</div>
