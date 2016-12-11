@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2016-06-07 10:41+0200\n"
+"PO-Revision-Date: 2016-12-11 04:06+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/fax/"
-"es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/fax/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -255,7 +255,7 @@ msgstr "Destinatario de fax"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
-msgstr ""
+msgstr "Timbre Fax"
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
@@ -276,7 +276,7 @@ msgstr "Finalizado Migración usuarios de fax a usermanager"
 
 #: bin/fax2mail.php:90
 msgid "For"
-msgstr ""
+msgstr "Para"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
@@ -562,6 +562,9 @@ msgid ""
 "com>'. The second option will display 'Fax User' in the 'From' field in most "
 "email clients."
 msgstr ""
+"Esto puede ser formateado como 'user@example.com' o 'Fax User "
+"<user@example.com>'. La segunda opción mostrará 'Fax User' en el campo "
+"'From' en la mayoría de los clientes de correo electrónico."
 
 #: Fax.class.php:660
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
@@ -634,6 +637,7 @@ msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
 msgstr ""
+"Si desea sonar mientras intenta detectar el fax. Si no se escucha silencio"
 
 #: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
 #: views/form.php:153 views/quickCreate.php:10
