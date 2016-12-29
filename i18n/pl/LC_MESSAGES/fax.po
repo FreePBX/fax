@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2016-12-28 18:37+0200\n"
+"PO-Revision-Date: 2016-12-28 21:58+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -188,6 +188,8 @@ msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
 msgstr ""
+"Error Correction Mode (ECM), opcja służy do określania czy\n"
+"\t\t\t używać trybu ECM czy nie."
 
 #: Fax.class.php:90 Fax.class.php:108 Fax.class.php:642
 msgid "Fax"
@@ -256,7 +258,7 @@ msgstr "Zakończono przenoszenie listy użytkowników faksu do administratora"
 
 #: bin/fax2mail.php:90
 msgid "For"
-msgstr ""
+msgstr "dla"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
@@ -296,15 +298,21 @@ msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Wykrywanie faksów przychodzących: %s (%s)"
 
 #: install.php:419
+#, fuzzy
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
+"Faksy przychodzące używają użytkowników \"Menedżera Użytkowników\". W "
+"związku z tym konieczne będzie ponowne przypisanie wszystkich numerów, które "
+"używały \"Odbiorców faksu\", aby używały użytkowników \"Menedżera "
+"Użytkowników\". Niektóre kierunki mogą być niedostąpne dopóki problem nie "
+"zostanie rozwiązany"
 
 #: views/fax.php:32
 msgid "Inherit"
-msgstr ""
+msgstr "Dziedzicz"
 
 #: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
@@ -326,30 +334,34 @@ msgstr ""
 
 #: views/form.php:221
 msgid "Letter"
-msgstr ""
+msgstr "List"
 
 #: views/form.php:172
 msgid "Maximum transfer rate"
-msgstr "Maksymalne wskazania transferu"
+msgstr "Maksymalna szybkość transmisji"
 
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
+"Maksymalna szybkość transmisji używana podczas negocjacji szybkości faksu."
 
 #: install.php:387
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Migrated user %s but unable to set email address to %s because an email [%s] "
 "was already set for User Manager User %s"
 msgstr ""
+"Przeniesiono użytkowników %s, ale nie można ustawić adresu e-mail na %s, "
+"ponieważ e-mail [%s] został już ustawiony dla użytkownika %s Menadżera "
+"Użytkowników"
 
 #: install.php:355
 msgid "Migrating all fax users to usermanager"
-msgstr ""
+msgstr "Migracja wszystkich użytkowników faksu do menadżera"
 
 #: install.php:79
 msgid "Migrating fax_incoming table..."
-msgstr ""
+msgstr "Migracja tabeli faksów przychodzących..."
 
 #: install.php:324
 msgid "Migrating fax_users table to add faxattachformat..."
@@ -359,6 +371,8 @@ msgstr ""
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
+"Migracja pola e-maili faksu w tabeli użytkowników faksu w celu zezwolenia "
+"dłuższych e-maili..."
 
 #: views/form.php:194
 msgid "Minimum transfer rate"
@@ -398,12 +412,14 @@ msgstr "Nie"
 
 #: install.php:302
 msgid "No Inbound Routes to migrate"
-msgstr ""
+msgstr "Brak dróg przychodzących do migracji"
 
 #: Fax.class.php:428
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
+"Nie znaleziono metod wykrywania faksu lub brak ważnej licencji. Faksowanie "
+"jest niemożliwe."
 
 #: Fax.class.php:420
 msgid ""
@@ -414,15 +430,15 @@ msgstr ""
 
 #: bin/fax2mail.php:87
 msgid "On"
-msgstr ""
+msgstr "włączone"
 
 #: views/form.php:105
 msgid "Outgoing Email address"
-msgstr ""
+msgstr "Adres poczty wychodzącej"
 
 #: bin/fax2mail.php:55
 msgid "Outgoing fax results"
-msgstr ""
+msgstr "Rezultaty faksów wychodzących"
 
 #: views/fax.php:57
 msgid "PDF"
@@ -431,12 +447,12 @@ msgstr "PDF"
 #: bin/fax2mail.php:86
 #, php-format
 msgid "Received & processed: %s"
-msgstr ""
+msgstr "Odebrane i przetworzone %s"
 
 #: install.php:266
 #, php-format
 msgid "Removing field %s from incoming table.."
-msgstr ""
+msgstr "Usuwanie pola %s z tabeli przychodzących.."
 
 #: install.php:275
 msgid "Removing old globals.."
@@ -444,7 +460,7 @@ msgstr ""
 
 #: Fax.class.php:376
 msgid "Reset"
-msgstr ""
+msgstr "przestaw"
 
 #: Fax.class.php:496
 msgid "SIP"
