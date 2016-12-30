@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2016-12-28 22:27+0200\n"
+"PO-Revision-Date: 2016-12-30 17:57+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -391,6 +391,8 @@ msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
 msgstr ""
+"Wykryto NV Fax: Użyj wykrywanie Faxu NV; Wymaga zainstalowanej detekcji faxu "
+"NV by być rozpoznanym przez asterisk."
 
 #: Fax.class.php:494
 msgid "NVFax"
@@ -427,10 +429,13 @@ msgid ""
 "destination set in the 'General' tab. Use this option if this DID is used "
 "exclusively for voice OR fax."
 msgstr ""
+"Nie: Nie próbuje się automatycznie określić typu połączenia; wszystkie "
+"połączenia kierowane do połączenia określonego w zakładce \"Ogólne\". Użyj "
+"tej opcji, jeśli ten DID służy wyłącznie do głosu lub faksu."
 
 #: bin/fax2mail.php:87
 msgid "On"
-msgstr "włączone"
+msgstr "Włączone"
 
 #: views/form.php:105
 msgid "Outgoing Email address"
@@ -455,8 +460,9 @@ msgid "Removing field %s from incoming table.."
 msgstr "Usuwanie pola %s z tabeli przychodzących.."
 
 #: install.php:275
+#, fuzzy
 msgid "Removing old globals.."
-msgstr ""
+msgstr "Usuwanie starych domyślnych.."
 
 #: Fax.class.php:376
 msgid "Reset"
@@ -464,7 +470,7 @@ msgstr "przestaw"
 
 #: Fax.class.php:496
 msgid "SIP"
-msgstr ""
+msgstr "SIP"
 
 #: views/form.php:229
 msgid ""
@@ -475,17 +481,20 @@ msgstr ""
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
-msgstr "Opcje"
+msgstr "Ustawienia"
 
 #: Fax.class.php:476
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
+"SIP: Użyj detekcji faksu sip (t.38). Wymaga asteriska w wersji 1.6.2 lub "
+"wyższej oraz ustawienia w plikach konfiguracyjnych sip 'faxdetect=yes'"
 
 #: page.fax.php:14
+#, fuzzy
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
-msgstr ""
+msgstr "Spandsp based app_fax (res_fax_spandsp.so)"
 
 #: Fax.class.php:371
 msgid "Submit"
