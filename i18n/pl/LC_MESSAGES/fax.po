@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2016-12-30 17:57+0200\n"
+"PO-Revision-Date: 2017-02-04 00:28+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -510,7 +510,7 @@ msgstr "Migracja tabeli użytkowników faksu zakończona sukcesem!"
 
 #: install.php:318
 msgid "Successfully migrated faxemail field"
-msgstr ""
+msgstr "Przeniesienie pola maila faksu zakończone sukcesem"
 
 #: views/fax.php:58
 msgid "TIFF"
@@ -526,7 +526,7 @@ msgstr ""
 
 #: views/form.php:95
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
-msgstr ""
+msgstr "Wychodzący identyfikator faksu. To zazwyczaj Twój numer faksu."
 
 #: views/form.php:117
 msgid ""
@@ -534,6 +534,9 @@ msgid ""
 "com>'. The second option will display 'Fax User' in the 'From' field in most "
 "email clients."
 msgstr ""
+"Może być to sformułowane jak 'użytkownik@przykład.com' lub Użytkownik faksu "
+"<użytkownik@przykład.com>'. Druga opcja wyświetli 'Użytkownik faksu' w polu "
+"'od' w większości maili klientów."
 
 #: Fax.class.php:660
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
@@ -541,7 +544,7 @@ msgstr ""
 
 #: Fax.class.php:473
 msgid "Type of fax detection to use."
-msgstr ""
+msgstr "Rodzaj wykrywania faksu do użycia."
 
 #: install.php:368 /usr/src/freepbx/fax/install.php:375 install.php:395
 #: /usr/src/freepbx/fax/install.php:405
@@ -550,6 +553,8 @@ msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
 "destinations"
 msgstr ""
+"Nie możliwe do przeniesienia %s, z powodu [%s]. Proszę sprawdzić miejsce "
+"docelowe odbiorcy faksu"
 
 #: install.php:117
 msgid "Updating simu_fax in miscdest table.."
@@ -564,19 +569,22 @@ msgstr ""
 
 #: bin/fax2mail.php:88
 msgid "Via"
-msgstr ""
+msgstr "przez"
 
 #: install.php:328
 msgid "WARINING: fax_users table may still be using the old schema!"
-msgstr ""
+msgstr "Ostrzeżenie: tabela użytkowników faksu może używać starego schematu!"
 
 #: install.php:316
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
 msgstr ""
+"Ostrzeżenie: przeniesienie zakończone niepowodzeniem. Długość maila "
+"ograniczona jest do 50 znaków."
 
 #: install.php:89
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
 msgstr ""
+"Ostrzeżenie: tabela faksów przychodzących może nadal używać schematu 2.6!"
 
 #: views/form.php:40
 msgid ""
