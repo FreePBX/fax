@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2017-02-04 00:28+0200\n"
+"PO-Revision-Date: 2017-02-04 01:57+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -596,7 +596,7 @@ msgstr ""
 
 #: Fax.class.php:596 Fax.class.php:668
 msgid "Where to send the faxes"
-msgstr ""
+msgstr "Gdzie wysłać faksy"
 
 #: Fax.class.php:533
 msgid ""
