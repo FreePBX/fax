@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2017-02-04 01:57+0200\n"
+"PO-Revision-Date: 2017-02-05 22:47+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -615,18 +615,26 @@ msgid ""
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
 msgstr ""
+"Tak: spróbuj automatycznie określić typ połączenia; drogę do miejsca "
+"docelowego faksu jeśli połączenie jest faksem, w przeciwnym wypadku wyślij "
+"do stałego miejsca docelowego. Użyj tej opcji jeśli otrzymałeś zarówno "
+"połączenie głosowe i faks równocześnie"
 
 #: views/form.php:55
 msgid ""
 "Your maximum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
+"Twój maksymalny wskaźnik transferu ustawiony jest na 2400 w tych "
+"okolicznościach może to przerwać wysyłanie faksu"
 
 #: views/form.php:52
 msgid ""
 "Your minimum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
+"Twój minimalny wskaźnik transferu ustawiony jest na 2400 w tych "
+"okolicznościach może to przerwać wysyłanie faksu"
 
 #: Fax.class.php:410
 msgid "Zaptel"
@@ -634,7 +642,7 @@ msgstr ""
 
 #: install.php:298
 msgid "all migrations succeeded successfully"
-msgstr ""
+msgstr "wszystkie migracje zakończono pomyślnie"
 
 #: install.php:305
 msgid "already done"
@@ -650,7 +658,7 @@ msgstr "zakończone"
 
 #: install.php:104
 msgid "duplicate, removing old from core.."
-msgstr ""
+msgstr "kopiowanie, usuwanie ze starego rdzenia.."
 
 #: install.php:198 /usr/src/freepbx/fax/install.php:280
 msgid "failed"
@@ -662,7 +670,7 @@ msgstr "przeniesione"
 
 #: install.php:194
 msgid "migrating defaults.."
-msgstr ""
+msgstr "ustawienia domyślne migracji.."
 
 #: install.php:120
 msgid "not needed"
@@ -670,7 +678,7 @@ msgstr "niepotrzebne"
 
 #: install.php:270
 msgid "not present"
-msgstr ""
+msgstr "nieobecne"
 
 #: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
 msgid "removed"
