@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2017-02-05 22:47+0200\n"
+"PO-Revision-Date: 2017-02-07 19:11+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -593,16 +593,23 @@ msgid ""
 "hylafax + iaxmodem, or other outside fax setups you can force the dialplan "
 "to be generated here."
 msgstr ""
+"Jeżeli moduł fax nie zostanie wykryty, nie zostanie wygenerowany domyślny "
+"dialplan detekcji fax. Jeżeli system jest używany z fizycznym urządzeniem "
+"FAX, hylafax + modem IAX lub inne urządzenie fax. Możesz wymusić aby "
+"dialplan został wygenerowany w tym miejscu."
 
 #: Fax.class.php:596 Fax.class.php:668
 msgid "Where to send the faxes"
 msgstr "Gdzie wysłać faksy"
 
 #: Fax.class.php:533
+#, fuzzy
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
 msgstr ""
+"Niezależnie od tego, by dzwonił podczas próby wykrywania faksu. Jeśli jest "
+"ustawiony na NIE, będzie brak dzwięku"
 
 #: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
 #: views/form.php:153 views/quickCreate.php:10
@@ -637,8 +644,9 @@ msgstr ""
 "okolicznościach może to przerwać wysyłanie faksu"
 
 #: Fax.class.php:410
+#, fuzzy
 msgid "Zaptel"
-msgstr ""
+msgstr "Zaptel"
 
 #: install.php:298
 msgid "all migrations succeeded successfully"
