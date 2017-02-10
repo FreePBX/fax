@@ -10,13 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2016-11-15 11:34+1000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-02-10 15:23+0200\n"
+"Last-Translator: Sven <spiderrs4@web.de>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/fax/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Fax.class.php:475
 msgid ""
@@ -41,7 +44,7 @@ msgstr ""
 
 #: views/form.php:223
 msgid "A4"
-msgstr ""
+msgstr "A4"
 
 #: Fax.class.php:568
 msgid ""
@@ -66,7 +69,7 @@ msgstr ""
 
 #: views/fax.php:52
 msgid "Attachment Format"
-msgstr ""
+msgstr "Anhängeformat"
 
 #: Fax.class.php:418
 msgid "Attempt to detect faxes on this DID."
@@ -78,7 +81,7 @@ msgstr ""
 
 #: views/fax.php:59
 msgid "Both"
-msgstr ""
+msgstr "beide"
 
 #: install.php:286
 msgid "Checking for failed migrations.."
@@ -102,7 +105,7 @@ msgstr ""
 
 #: views/form.php:216
 msgid "Default Paper Size"
-msgstr ""
+msgstr "Standard Papiergröße"
 
 #: Fax.class.php:454
 msgid "Detect Faxes"
@@ -129,7 +132,7 @@ msgstr ""
 
 #: views/form.php:128
 msgid "Email address"
-msgstr ""
+msgstr "E-Mail-Addresse"
 
 #: views/form.php:116
 msgid ""
@@ -155,7 +158,7 @@ msgstr ""
 
 #: views/fax.php:23
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiviert"
 
 #: bin/fax2mail.php:83
 msgid "Enclosed, please find a new fax"
@@ -178,23 +181,23 @@ msgstr ""
 
 #: Fax.class.php:90 Fax.class.php:108 Fax.class.php:642
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
-msgstr ""
+msgstr "Faxkonfiguration"
 
 #: Fax.class.php:605 Fax.class.php:667
 msgid "Fax Destination"
-msgstr ""
+msgstr "Faxziel"
 
 #: Fax.class.php:659
 msgid "Fax Detection"
-msgstr ""
+msgstr "Faxerkennung"
 
 #: Fax.class.php:549
 msgid "Fax Detection Time"
-msgstr ""
+msgstr "Faxerkennungszeit"
 
 #: Fax.class.php:663
 msgid "Fax Detection Wait"
@@ -214,11 +217,11 @@ msgstr ""
 
 #: page.fax.php:9
 msgid "Fax Options"
-msgstr ""
+msgstr "Faxoptionen"
 
 #: functions.inc.php:103
 msgid "Fax Recipient"
-msgstr ""
+msgstr "Faxempfänger"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -285,7 +288,7 @@ msgstr ""
 
 #: views/fax.php:32
 msgid "Inherit"
-msgstr ""
+msgstr "Erben"
 
 #: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
@@ -304,11 +307,11 @@ msgstr ""
 
 #: views/form.php:221
 msgid "Letter"
-msgstr ""
+msgstr "Letter"
 
 #: views/form.php:172
 msgid "Maximum transfer rate"
-msgstr ""
+msgstr "Maximale Übertragungsrate"
 
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
@@ -340,7 +343,7 @@ msgstr ""
 
 #: views/form.php:194
 msgid "Minimum transfer rate"
-msgstr ""
+msgstr "Minimale Übertragungsrate"
 
 #: views/form.php:206
 msgid "Minimum transfer rate used during fax rate negotiation."
@@ -363,16 +366,16 @@ msgstr ""
 #: bin/fax2mail.php:58
 #, php-format
 msgid "New fax from: %s"
-msgstr ""
+msgstr "Neues Fax von: %s"
 
 #: bin/fax2mail.php:60
 msgid "New fax received"
-msgstr ""
+msgstr "Neues Fax erhalten"
 
 #: Fax.class.php:441 Fax.class.php:525 views/fax.php:29 views/form.php:34
 #: views/form.php:155 views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: install.php:302
 msgid "No Inbound Routes to migrate"
@@ -396,7 +399,7 @@ msgstr ""
 
 #: views/form.php:105
 msgid "Outgoing Email address"
-msgstr ""
+msgstr "Ausgehende E-Mail-Adresse"
 
 #: bin/fax2mail.php:55
 msgid "Outgoing fax results"
@@ -404,7 +407,7 @@ msgstr ""
 
 #: views/fax.php:57
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: bin/fax2mail.php:86
 #, php-format
@@ -422,11 +425,11 @@ msgstr ""
 
 #: Fax.class.php:376
 msgid "Reset"
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: Fax.class.php:496
 msgid "SIP"
-msgstr ""
+msgstr "SIP"
 
 #: views/form.php:229
 msgid ""
@@ -437,7 +440,7 @@ msgstr ""
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: Fax.class.php:476
 msgid ""
@@ -451,7 +454,7 @@ msgstr ""
 
 #: Fax.class.php:371
 msgid "Submit"
-msgstr ""
+msgstr "Bestätigen"
 
 #: install.php:91
 msgid "Successfully migrated fax_incoming table!"
@@ -467,7 +470,7 @@ msgstr ""
 
 #: views/fax.php:58
 msgid "TIFF"
-msgstr ""
+msgstr "TIFF"
 
 #: install.php:289
 msgid ""
@@ -552,7 +555,7 @@ msgstr ""
 #: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
 #: views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: Fax.class.php:421
 msgid ""
@@ -583,15 +586,15 @@ msgstr ""
 
 #: install.php:305
 msgid "already done"
-msgstr ""
+msgstr "bereits erledigt"
 
 #: install.php:291 /usr/src/freepbx/fax/install.php:292
 msgid "blank"
-msgstr ""
+msgstr "leer"
 
 #: install.php:115 /usr/src/freepbx/fax/install.php:122
 msgid "done"
-msgstr ""
+msgstr "erledigt"
 
 #: install.php:104
 msgid "duplicate, removing old from core.."
@@ -599,11 +602,11 @@ msgstr ""
 
 #: install.php:198 /usr/src/freepbx/fax/install.php:280
 msgid "failed"
-msgstr ""
+msgstr "fehlgeschlagen"
 
 #: install.php:201
 msgid "migrated"
-msgstr ""
+msgstr "migriert"
 
 #: install.php:194
 msgid "migrating defaults.."
@@ -611,15 +614,15 @@ msgstr ""
 
 #: install.php:120
 msgid "not needed"
-msgstr ""
+msgstr "nicht benötigt"
 
 #: install.php:270
 msgid "not present"
-msgstr ""
+msgstr "nicht vorhanden"
 
 #: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
 msgid "removed"
-msgstr ""
+msgstr "Entfernt"
 
 #: install.php:168
 msgid "starting migration"
@@ -627,8 +630,8 @@ msgstr ""
 
 #: install.php:107 /usr/src/freepbx/fax/install.php:112
 msgid "unknown error"
-msgstr ""
+msgstr "Unbekannter Fehler"
 
 #: Fax.class.php:475
 msgid "use "
-msgstr ""
+msgstr "Benutzen "
