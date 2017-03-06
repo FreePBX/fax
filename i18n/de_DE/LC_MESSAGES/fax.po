@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2017-03-03 15:59+0200\n"
+"PO-Revision-Date: 2017-03-06 01:51+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/fax/de_DE/>\n"
@@ -93,11 +93,11 @@ msgstr ""
 
 #: Fax.class.php:410 Fax.class.php:492
 msgid "Dahdi"
-msgstr ""
+msgstr "Dahdi ( Digium\\Asterisk Hardware Device Interface)"
 
 #: views/form.php:65
 msgid "Default Fax header"
-msgstr ""
+msgstr "Standard Fax-Kopfzeile"
 
 #: views/form.php:85
 msgid "Default Local Station Identifier"
@@ -109,7 +109,7 @@ msgstr "Standard Papiergröße"
 
 #: Fax.class.php:454
 msgid "Detect Faxes"
-msgstr ""
+msgstr "Fax erkennen"
 
 #: install.php:6
 msgid "Dial System FAX"
