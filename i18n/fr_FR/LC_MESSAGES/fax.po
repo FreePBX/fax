@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2017-03-05 20:34+0200\n"
+"PO-Revision-Date: 2017-03-05 22:21+0200\n"
 "Last-Translator: Francis <fbinet@solist.ca>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/>\n"
@@ -46,6 +46,7 @@ msgid ""
 msgstr ""
 "\"Vous avez sélectionné une détection de Fax sur cette route. Merci de "
 "sélectionner une destination valide pour les appels détectés commes des fax."
+"\""
 
 #: install.php:295
 #, php-format
