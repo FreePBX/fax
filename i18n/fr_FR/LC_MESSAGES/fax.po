@@ -21,16 +21,16 @@ msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-15 11:34+1000\n"
-"PO-Revision-Date: 2016-02-04 23:22+0200\n"
-"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/"
-">\n"
+"PO-Revision-Date: 2017-03-05 20:34+0200\n"
+"Last-Translator: Francis <fbinet@solist.ca>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Fax.class.php:475
 msgid ""
@@ -237,7 +237,7 @@ msgstr "Durée de détection"
 
 #: Fax.class.php:663
 msgid "Fax Detection Wait"
-msgstr ""
+msgstr "Attente détection fax"
 
 #: Fax.class.php:487
 msgid "Fax Detection type"
@@ -261,11 +261,11 @@ msgstr "Destinataire de la télécopie"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
-msgstr ""
+msgstr "Sonnerie télécopieur"
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
-msgstr ""
+msgstr "Les pilotes de télécopie supportés par ce module sont"
 
 #: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
@@ -282,7 +282,7 @@ msgstr ""
 
 #: bin/fax2mail.php:90
 msgid "For"
-msgstr ""
+msgstr "Pour"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
@@ -313,7 +313,7 @@ msgstr ""
 
 #: install.php:419
 msgid "Inbound Fax Destination Change"
-msgstr ""
+msgstr "Changement de destination de la télécopie entrante"
 
 #: functions.inc.php:60
 #, php-format
@@ -337,7 +337,7 @@ msgstr "Courriel invalide pour les télécopies entrantes"
 
 #: Fax.class.php:443
 msgid "Legacy"
-msgstr ""
+msgstr "Classique"
 
 #: Fax.class.php:423
 msgid ""
@@ -352,7 +352,7 @@ msgstr ""
 
 #: views/form.php:221
 msgid "Letter"
-msgstr ""
+msgstr "Lettre"
 
 #: views/form.php:172
 msgid "Maximum transfer rate"
@@ -454,7 +454,7 @@ msgstr "Adresse de courriel sortante"
 
 #: bin/fax2mail.php:55
 msgid "Outgoing fax results"
-msgstr ""
+msgstr "Résultat de la télécopie sortante"
 
 #: views/fax.php:57
 msgid "PDF"
@@ -491,7 +491,7 @@ msgstr ""
 
 #: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: Fax.class.php:476
 msgid ""
@@ -615,6 +615,7 @@ msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
 msgstr ""
+"Sonner durant la détection de télécopieur. Si non, du silence sera entendu"
 
 #: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
 #: views/form.php:153 views/quickCreate.php:10
