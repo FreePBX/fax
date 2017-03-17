@@ -294,7 +294,7 @@ function fax_get_config($engine){
 		$ext->add($context, $exten, '', new ext_gotoif('$[ "${FAX_RX_EMAIL}" = "" ]', 'delfax'));
 
 		// We can send a fax to the system dest!
-		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --sendto "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid "${BASE64_ENCODE(${CALLERID(all)})}" --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif ---delete "${DELETE_AFTER_SEND}"'));
+		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --sendto "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid "${BASE64_ENCODE(${CALLERID(all)})}" --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --delete "${DELETE_AFTER_SEND}"'));
 		$ext->add($context, $exten, '', new ext_macro('hangupcall'));
 
 		// No system dest. Just delete.
