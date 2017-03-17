@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 11:34+1000\n"
+"POT-Creation-Date: 2017-03-17 13:27-0700\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -141,7 +141,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "Детектировать факсы"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Набрать системный факс"
 
@@ -264,10 +264,6 @@ msgstr ""
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "Опции факса"
-
-#: functions.inc.php:103
-msgid "Fax Recipient"
-msgstr "Получатель факсов"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -499,7 +495,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "Настройки"
 
@@ -712,6 +708,9 @@ msgstr "неизвестная ошибка"
 #: Fax.class.php:475
 msgid "use "
 msgstr "использовать "
+
+#~ msgid "Fax Recipient"
+#~ msgstr "Получатель факсов"
 
 #~ msgid ""
 #~ "No: No attempts are made to auto-determine the call type; all calls sent "

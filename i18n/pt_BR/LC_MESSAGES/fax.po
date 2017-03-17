@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 11:34+1000\n"
+"POT-Creation-Date: 2017-03-17 13:27-0700\n"
 "PO-Revision-Date: 2016-12-20 01:53+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/fax/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/fax/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -126,7 +126,7 @@ msgstr "Tamanho Padrão do Papel"
 msgid "Detect Faxes"
 msgstr "Detecção de Faxes"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Sistema de Discagem de FAX"
 
@@ -250,10 +250,6 @@ msgstr "Fax Habilitado"
 msgid "Fax Options"
 msgstr "Opções de Fax"
 
-#: functions.inc.php:103
-msgid "Fax Recipient"
-msgstr "Destinatário do Fax"
-
 #: Fax.class.php:518
 msgid "Fax Ring"
 msgstr "Toque do Fax"
@@ -305,8 +301,8 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 "Quanto tempo para esperar e tentar detectar fax. Observe que os usuários "
-"chamadores de um canal Dahdi ouvirão toques durante este período de tempo ("
-"isto é, o sistema não responderá a chamada, apenas tocará)."
+"chamadores de um canal Dahdi ouvirão toques durante este período de tempo "
+"(isto é, o sistema não responderá a chamada, apenas tocará)."
 
 #: install.php:419
 msgid "Inbound Fax Destination Change"
@@ -324,8 +320,8 @@ msgid ""
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
 "Os faxes de entrada agora usam os usuários do Gerenciador de Usuários. "
-"Portanto, você precisará reatribuir todos os destinos que usaram \""
-"Destinatários de Fax\" para apontar para usuários do Gerenciador de "
+"Portanto, você precisará reatribuir todos os destinos que usaram "
+"\"Destinatários de Fax\" para apontar para usuários do Gerenciador de "
 "Usuários. Você poderá ver os destinos quebrados até que isso seja resolvido"
 
 #: views/fax.php:32
@@ -361,7 +357,8 @@ msgstr "Taxa de transferência máxima"
 
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
-msgstr "Taxa de transferência máxima usada durante a negociação de taxa de fax."
+msgstr ""
+"Taxa de transferência máxima usada durante a negociação de taxa de fax."
 
 #: install.php:387
 #, php-format
@@ -398,7 +395,8 @@ msgstr "Taxa mínima de transferência"
 
 #: views/form.php:206
 msgid "Minimum transfer rate used during fax rate negotiation."
-msgstr "Taxa de transferência mínima usada durante a negociação de taxa de fax."
+msgstr ""
+"Taxa de transferência mínima usada durante a negociação de taxa de fax."
 
 #: install.php:100
 msgid "Moving simu_fax feature code from core.."
@@ -499,7 +497,7 @@ msgstr ""
 "usado se o documento não especificar um tamanho. <br/> Se o documento não "
 "especificar um tamanho que será utilizado."
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "Configurações"
 
@@ -576,8 +574,8 @@ msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
 "destinations"
 msgstr ""
-"Não é possível migrar %s, porque [%s]. Verifique os destinos de \""
-"Destinatários de Fax\""
+"Não é possível migrar %s, porque [%s]. Verifique os destinos de "
+"\"Destinatários de Fax\""
 
 #: install.php:117
 msgid "Updating simu_fax in miscdest table.."
@@ -725,3 +723,6 @@ msgstr "erro desconhecido"
 #: Fax.class.php:475
 msgid "use "
 msgstr "utiliza "
+
+#~ msgid "Fax Recipient"
+#~ msgstr "Destinatário do Fax"

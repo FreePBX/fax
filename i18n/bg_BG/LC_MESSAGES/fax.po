@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 11:34+1000\n"
+"POT-Creation-Date: 2017-03-17 13:27-0700\n"
 "PO-Revision-Date: 2014-07-22 15:38+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/fax/bg/>\n"
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr ""
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr ""
 
@@ -212,10 +212,6 @@ msgstr ""
 
 #: page.fax.php:9
 msgid "Fax Options"
-msgstr ""
-
-#: functions.inc.php:103
-msgid "Fax Recipient"
 msgstr ""
 
 #: Fax.class.php:518
@@ -433,7 +429,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "Настройки"
 

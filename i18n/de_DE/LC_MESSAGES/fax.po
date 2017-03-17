@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 11:34+1000\n"
+"POT-Creation-Date: 2017-03-17 13:27-0700\n"
 "PO-Revision-Date: 2017-03-06 01:51+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: German "
-"<http://weblate.freepbx.org/projects/freepbx/fax/de_DE/>\n"
-"Language: de_DE\n"
+"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/fax/de_DE/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -111,7 +111,7 @@ msgstr "Standard Papiergröße"
 msgid "Detect Faxes"
 msgstr "Fax erkennen"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr ""
 
@@ -218,10 +218,6 @@ msgstr ""
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "Faxoptionen"
-
-#: functions.inc.php:103
-msgid "Fax Recipient"
-msgstr "Faxempfänger"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -438,7 +434,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -635,3 +631,6 @@ msgstr "Unbekannter Fehler"
 #: Fax.class.php:475
 msgid "use "
 msgstr "Benutzen "
+
+#~ msgid "Fax Recipient"
+#~ msgstr "Faxempfänger"

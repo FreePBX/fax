@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 11:34+1000\n"
+"POT-Creation-Date: 2017-03-17 13:27-0700\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "Faxを検知"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "ダイヤルシステムFAX"
 
@@ -272,10 +272,6 @@ msgstr ""
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "Faxオプション"
-
-#: functions.inc.php:103
-msgid "Fax Recipient"
-msgstr "Fax受信者"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -501,7 +497,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "設定"
 
@@ -711,6 +707,9 @@ msgstr "不明なエラー"
 #: Fax.class.php:475
 msgid "use "
 msgstr "使用"
+
+#~ msgid "Fax Recipient"
+#~ msgstr "Fax受信者"
 
 #~ msgid ""
 #~ "No: No attempts are made to auto-determine the call type; all calls sent "

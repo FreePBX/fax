@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 11:34+1000\n"
+"POT-Creation-Date: 2017-03-17 13:27-0700\n"
 "PO-Revision-Date: 2016-12-11 04:06+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/fax/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/fax/"
+"es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -125,7 +125,7 @@ msgstr "Tamaño de papel por defecto"
 msgid "Detect Faxes"
 msgstr "Detección de Faxes"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Marcación Sistema FAX"
 
@@ -248,10 +248,6 @@ msgstr "Fax Habilitado"
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "Opciones de Fax"
-
-#: functions.inc.php:103
-msgid "Fax Recipient"
-msgstr "Destinatario de fax"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -502,7 +498,7 @@ msgstr ""
 "tamaño que debe ser utilizado si el documento no especifica un tamaño. <br/> "
 "Si el documento no especifica un tamaño que se utilizará este tamaño."
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "Configuración"
 
@@ -562,9 +558,9 @@ msgid ""
 "com>'. The second option will display 'Fax User' in the 'From' field in most "
 "email clients."
 msgstr ""
-"Esto puede ser formateado como 'user@example.com' o 'Fax User "
-"<user@example.com>'. La segunda opción mostrará 'Fax User' en el campo "
-"'From' en la mayoría de los clientes de correo electrónico."
+"Esto puede ser formateado como 'user@example.com' o 'Fax User <user@example."
+"com>'. La segunda opción mostrará 'Fax User' en el campo 'From' en la "
+"mayoría de los clientes de correo electrónico."
 
 #: Fax.class.php:660
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
@@ -729,6 +725,9 @@ msgstr "error desconocido"
 #: Fax.class.php:475
 msgid "use "
 msgstr "Utiliza "
+
+#~ msgid "Fax Recipient"
+#~ msgstr "Destinatario de fax"
 
 #~ msgid "For User"
 #~ msgstr "Para Usuario"
