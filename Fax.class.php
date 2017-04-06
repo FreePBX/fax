@@ -712,7 +712,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 							"fax_destination" => $fax['destination']
 						);
 					} else {
-						array(
+						$data[$key] = array(
 							"fax_enable" => "",
 							"fax_detection" => "",
 							"fax_detectionwait" => "",
