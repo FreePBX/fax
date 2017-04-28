@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-17 13:27-0700\n"
-"PO-Revision-Date: 2017-04-12 23:32+0200\n"
+"PO-Revision-Date: 2017-04-28 10:46+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
 "Language: pl\n"
@@ -493,6 +493,9 @@ msgid ""
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
 msgstr ""
+"Wybierz domyślny rozmiar papieru. <br/> Określa rozmiar, który powinien być "
+"używany, jeśli dokument nie określa rozmiaru. <br/> Jeśli dokument określa "
+"rozmiar, będzie on używany."
 
 #: fax.i18n.php:6
 msgid "Settings"
@@ -529,7 +532,7 @@ msgstr "Przeniesienie pola maila faksu zakończone sukcesem"
 
 #: views/fax.php:58
 msgid "TIFF"
-msgstr ""
+msgstr "TIFF"
 
 #: install.php:289
 msgid ""
@@ -538,6 +541,10 @@ msgid ""
 "disabled and will need to be updated. Click delete icon on the right to "
 "remove this notice."
 msgstr ""
+"Następujące trasy przychodzące miały przetwarzanie FAX, które zakończyło się "
+"niepowodzeniem, ponieważ miały dostęp do urządzenia bez użytkownika "
+"skojarzonego. Zostały one wyłączone i będą musiały być aktualizowane. "
+"Kliknij ikonę usuwania po prawej, aby usunąć niniejsze zawiadomienie."
 
 #: views/form.php:95
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
@@ -555,7 +562,7 @@ msgstr ""
 
 #: Fax.class.php:660
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
-msgstr ""
+msgstr "Typ wykrywania faksów do wykorzystania (na przykład SIP lub DAHDI)"
 
 #: Fax.class.php:473
 msgid "Type of fax detection to use."
