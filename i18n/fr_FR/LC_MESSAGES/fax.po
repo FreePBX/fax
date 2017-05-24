@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-16 01:11+0000\n"
+"POT-Creation-Date: 2017-05-23 17:31-0700\n"
 "PO-Revision-Date: 2016-02-04 23:22+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/"
@@ -140,7 +140,7 @@ msgstr "Format de papier par défaut"
 msgid "Detect Faxes"
 msgstr "Détecter les télécopies"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Système d'appel de télécopie"
 
@@ -254,10 +254,6 @@ msgstr "Télécopieur activé"
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "Options de télécopie"
-
-#: functions.inc.php:102
-msgid "Fax Recipient"
-msgstr "Destinataire de la télécopie"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -481,7 +477,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr ""
 
@@ -679,6 +675,9 @@ msgstr "erreur inconnue"
 #: Fax.class.php:475
 msgid "use "
 msgstr "utiliser "
+
+#~ msgid "Fax Recipient"
+#~ msgstr "Destinataire de la télécopie"
 
 #~ msgid ""
 #~ " channel will hear ringing for this amount of time (i.e. the system wont "

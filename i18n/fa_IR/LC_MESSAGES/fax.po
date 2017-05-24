@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-16 01:11+0000\n"
+"POT-Creation-Date: 2017-05-23 17:31-0700\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -123,7 +123,7 @@ msgstr "اندازه پیشفرض کاغذ"
 msgid "Detect Faxes"
 msgstr "تشخیص دورنگار"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "سیستم شماره گیری دورنگار"
 
@@ -247,10 +247,6 @@ msgstr "دورنگار فعال"
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "گزینه های دورنگار"
-
-#: functions.inc.php:102
-msgid "Fax Recipient"
-msgstr "گیرنده دورنگار"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -483,7 +479,7 @@ msgstr ""
 "انتخاب اندازه برگه پیشفرض.<br/>این اندازه برای مدارکی که سایز مشخصی ندارند "
 "لحاظ میشود.<br/>اگر مدرکی سایز مشخصی داشت همان سایز استفاده میشود."
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -678,6 +674,9 @@ msgstr "خطای تعریف نشده"
 #: Fax.class.php:475
 msgid "use "
 msgstr "استفاده "
+
+#~ msgid "Fax Recipient"
+#~ msgstr "گیرنده دورنگار"
 
 #~ msgid "Fax Attach Format"
 #~ msgstr "فرمت ضمیمه دورنگار"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-16 01:11+0000\n"
+"POT-Creation-Date: 2017-05-23 17:31-0700\n"
 "PO-Revision-Date: 2016-06-23 01:18+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
@@ -115,7 +115,7 @@ msgstr "Domyślny format papieru"
 msgid "Detect Faxes"
 msgstr "Wykrywanie faksu"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Płyta systemu faks"
 
@@ -228,10 +228,6 @@ msgstr "Faks włączony"
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "Opcje faksu"
-
-#: functions.inc.php:102
-msgid "Fax Recipient"
-msgstr "Odbiorca faksu"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -440,7 +436,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "Opcje"
 
@@ -621,6 +617,9 @@ msgstr "nieznany błąd"
 #: Fax.class.php:475
 msgid "use "
 msgstr "użyj "
+
+#~ msgid "Fax Recipient"
+#~ msgstr "Odbiorca faksu"
 
 #~ msgid "For User"
 #~ msgstr "Dla użytkownika"

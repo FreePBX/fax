@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-16 01:11+0000\n"
+"POT-Creation-Date: 2017-05-23 17:31-0700\n"
 "PO-Revision-Date: 2016-06-07 10:41+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -125,7 +125,7 @@ msgstr "Tamaño de papel por defecto"
 msgid "Detect Faxes"
 msgstr "Detección de Faxes"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Marcación Sistema FAX"
 
@@ -248,10 +248,6 @@ msgstr "Fax Habilitado"
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "Opciones de Fax"
-
-#: functions.inc.php:102
-msgid "Fax Recipient"
-msgstr "Destinatario de fax"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -494,7 +490,7 @@ msgstr ""
 "tamaño que debe ser utilizado si el documento no especifica un tamaño. <br/> "
 "Si el documento no especifica un tamaño que se utilizará este tamaño."
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr "Configuración"
 
@@ -700,6 +696,9 @@ msgstr "error desconocido"
 #: Fax.class.php:475
 msgid "use "
 msgstr "Utiliza "
+
+#~ msgid "Fax Recipient"
+#~ msgstr "Destinatario de fax"
 
 #~ msgid "Always Allow Legacy Mode"
 #~ msgstr "Habilitar Siempre Modo Legado"

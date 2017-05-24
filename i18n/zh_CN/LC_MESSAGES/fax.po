@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-16 01:11+0000\n"
+"POT-Creation-Date: 2017-05-23 17:31-0700\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -123,7 +123,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "检测传真"
 
-#: install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "拨系统传真"
 
@@ -230,10 +230,6 @@ msgstr ""
 #: page.fax.php:9
 msgid "Fax Options"
 msgstr "传真选项"
-
-#: functions.inc.php:102
-msgid "Fax Recipient"
-msgstr "传真接收者"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -442,7 +438,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6 /usr/src/freepbx/fax/fax.i18n.php:12
+#: fax.i18n.php:6
 msgid "Settings"
 msgstr ""
 
@@ -623,6 +619,9 @@ msgstr "不清楚的错误"
 #: Fax.class.php:475
 msgid "use "
 msgstr "：使用"
+
+#~ msgid "Fax Recipient"
+#~ msgstr "传真接收者"
 
 #~ msgid "Always Allow Legacy Mode"
 #~ msgstr "总是允许旧的模式"
