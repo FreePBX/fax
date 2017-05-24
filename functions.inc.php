@@ -606,7 +606,7 @@ function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = arr
 		case 'tif2pdf':
 			$cmd = $tiff2pdf
 					. ' -z '
-					. '-c "PBXact by Schmooze Communications" '
+					. '-c "PBXact by Schmooze Communications" ' //TODO: Branding you fool
 					. '-a "' . $amp_conf['PDFAUTHOR'] . '" '
 					. (isset($opts['title']) ? '-t "' . $opts['title'] . '" ' : '')
 					. '-o ' . $out . ' ' . $in;
