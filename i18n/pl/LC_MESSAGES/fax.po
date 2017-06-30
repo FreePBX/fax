@@ -10,13 +10,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-17 13:27-0700\n"
-"PO-Revision-Date: 2017-02-07 19:11+0200\n"
+"PO-Revision-Date: 2017-04-12 23:32+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
@@ -25,6 +25,8 @@ msgstr ""
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
+" Wykrywanie faksów; Wymaga 'faxdetect =', aby ustawić na 'przychodzący' lub "
+"'oba' "
 
 #: Fax.class.php:417
 msgid ""
@@ -62,6 +64,15 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
+"Adres e-mailowy faksów na wykrywanie faksu. <br /> UWAGA: W tej wersji "
+"FreePBX można teraz ustawić docelowy numer faksu z listy miejsc docelowych. "
+"Rozszerzenia / Użytkownicy mogą być faksowani na ekranie użytkownika / "
+"rozszerzenia i ustawiać tam adres e-mail. Spowoduje to utworzenie nowego "
+"typu odbiorcy, który można wybrać. Aby uaktualnić tę opcję do pełnej listy "
+"odbiorców, wybierz opcję YES, aby wykryć faksy i wybrać cel. Po kliknięciu "
+"przycisku prześlij tę trasę zostanie zmodernizowana. Ta opcja Legacy nie "
+"będzie już dostępna po zmianie, jest dostępna do obsługi starszych migracji "
+"z poprzednich wersji FreePBX."
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
@@ -93,11 +104,11 @@ msgstr "Sprawdzanie nieudanych przekazów."
 
 #: install.php:164
 msgid "Checking if legacy fax needs migrating.."
-msgstr ""
+msgstr "Sprawdzanie, czy starsze faksy wymagają migracji.."
 
 #: Fax.class.php:410 Fax.class.php:492
 msgid "Dahdi"
-msgstr ""
+msgstr "Dahdi"
 
 #: views/form.php:65
 msgid "Default Fax header"
@@ -125,6 +136,9 @@ msgid ""
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
+"BŁĄD: Nie wykryto modułów FAX! <br> Dialekt faksowy będzie generowany <b> "
+"NIE </ b> <br> Ten moduł wymaga FAX dla Asterisk (res_fax_digium.so) lub "
+"spandsp na podstawie app_fax (res_fax_spandsp.so) do funkcjonowania."
 
 #: Fax.class.php:81
 msgid ""
@@ -133,6 +147,10 @@ msgid ""
 "without a license.<br>At least one license is required (it is available for "
 "free) and must be installed."
 msgstr ""
+"BŁĄD: Nie wykryto licencji faksowej <br> Dialekt faksowy zostanie <b> NIE </ "
+"b> wygenerowany! <br> Ten moduł wykrył, że Faks dla Asterisk jest "
+"zainstalowany bez licencji. <br> Co najmniej jedna licencja jest wymagana ("
+"jest dostępna bezpłatnie) i musi być zainstalowana."
 
 #: views/form.php:128
 msgid "Email address"
@@ -361,7 +379,7 @@ msgstr "Migracja tabeli faksów przychodzących..."
 
 #: install.php:324
 msgid "Migrating fax_users table to add faxattachformat..."
-msgstr ""
+msgstr "Migracja tabeli użytkowania faksu do dodania formatu faksowania ..."
 
 #: install.php:312
 msgid ""
@@ -377,10 +395,11 @@ msgstr "Minimalne wskazania transferu"
 #: views/form.php:206
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
+"Minimalna szybkość transferu używana podczas negocjacji stawek faksowych."
 
 #: install.php:100
 msgid "Moving simu_fax feature code from core.."
-msgstr ""
+msgstr "Przeprowadzenie kodu funkcji simu_fax od rdzenia.."
 
 #: Fax.class.php:477
 msgid ""
@@ -392,7 +411,7 @@ msgstr ""
 
 #: Fax.class.php:494
 msgid "NVFax"
-msgstr ""
+msgstr "NVFax"
 
 #: bin/fax2mail.php:58
 #, php-format
