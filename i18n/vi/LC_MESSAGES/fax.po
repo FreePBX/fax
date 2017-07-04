@@ -10,38 +10,45 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-17 13:27-0700\n"
-"PO-Revision-Date: 2017-03-17 13:27-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-07-04 09:58+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/fax/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Fax.class.php:475
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
+" Phát hiện fax, yêu cầu 'faxdetect=' phải cài đặt là 'incoming' hoặc 'both' "
 
 #: Fax.class.php:417
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
 msgstr ""
+"\"Bạn vừa lựa chọn Phát hiện Fax trong tuyến này. Vui lòng chọn một điểm "
+"đích hợp lệ để định tuyến các cuộc gọi được phát hiện là fax.\""
 
 #: install.php:295
 #, php-format
 msgid "%s FAX Migrations Failed"
-msgstr ""
+msgstr "Di chuyển FAX %s không thành công"
 
 #: install.php:296
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
+"Di chuyển FAX %s không thành công, kiểm tra bảng thông báo để biết chi tiết"
 
 #: views/form.php:223
 msgid "A4"
-msgstr ""
+msgstr "A4"
 
 #: Fax.class.php:568
 msgid ""
@@ -55,38 +62,47 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
+"Địa chỉ để gửi email fax đến phát hiện fax.<br /> XIN LƯU Ý: Trong phiên bản "
+"FreePBX này, bạn có thể cài đặt điểm đích fax từ danh sách các điểm đích. "
+"Các máy nhánh / Người dùng có thể được kích hoạt fax trong màn hình và cài "
+"đặt một địa chỉ email ở đó. Thao tác này sẽ tạo một kiểm điểm đích mới mà "
+"chúng có thể sẽ được chọn. Để nâng cấp tùy chọn này lên danh sách điểm đích "
+"đầy đủ, hãy chọn YES để xóa Fax và chọn một điểm đích. Sau khi nhấn vào Gửi, "
+"tuyến này sẽ được nâng cấp. Sau khi bạn thay đổi, Tùy chọn Legacy này sẽ "
+"không còn khả dụng, mà  nó chỉ được cung cấp để xử lý việc di chuyển legacy "
+"từ các phiên bản trước của FreePBX."
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
+msgstr "Thêm các cấu hình, tùy chọn và GUI cho fax đến"
 
 #: views/form.php:27
 msgid "Always Generate Detection Code"
-msgstr ""
+msgstr "Luôn luôn khởi tạo mã phát hiện (Detection Code)"
 
 #: views/fax.php:52
 msgid "Attachment Format"
-msgstr ""
+msgstr "Định dạng tệp đính kèm"
 
 #: Fax.class.php:418
 msgid "Attempt to detect faxes on this DID."
-msgstr ""
+msgstr "Cố xóa các fax trong DID này."
 
 #: install.php:362
 msgid "Auto generated migrated user for Fax"
-msgstr ""
+msgstr "Khởi tạo tự động người dùng cho Fax"
 
 #: views/fax.php:59
 msgid "Both"
-msgstr ""
+msgstr "Cả hai"
 
 #: install.php:286
 msgid "Checking for failed migrations.."
-msgstr ""
+msgstr "Đang kiểm tra các dịch chuyển thất bai.."
 
 #: install.php:164
 msgid "Checking if legacy fax needs migrating.."
-msgstr ""
+msgstr "Đang kiểm tra các fax có cần dịch chuyển hay không.."
 
 #: Fax.class.php:410 Fax.class.php:492
 msgid "Dahdi"
