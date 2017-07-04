@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-17 13:27-0700\n"
-"PO-Revision-Date: 2017-07-04 09:58+0200\n"
+"PO-Revision-Date: 2017-07-04 15:42+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/fax/vi/>\n"
@@ -106,27 +106,27 @@ msgstr "Đang kiểm tra các fax có cần dịch chuyển hay không.."
 
 #: Fax.class.php:410 Fax.class.php:492
 msgid "Dahdi"
-msgstr ""
+msgstr "Mô đun Dahdi"
 
 #: views/form.php:65
 msgid "Default Fax header"
-msgstr ""
+msgstr "Mặc định tiêu đề Fax"
 
 #: views/form.php:85
 msgid "Default Local Station Identifier"
-msgstr ""
+msgstr "Mặc định bộ nhận dạng trạm tại chỗ"
 
 #: views/form.php:216
 msgid "Default Paper Size"
-msgstr ""
+msgstr "Mặc định kích thước trang giấy"
 
 #: Fax.class.php:454
 msgid "Detect Faxes"
-msgstr ""
+msgstr "Phát hiện Fax"
 
 #: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
-msgstr ""
+msgstr "Hệ thống quay số FAX"
 
 #: Fax.class.php:79
 msgid ""
@@ -134,6 +134,10 @@ msgid ""
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
+"LỖI: Không phát hiện được mô đun FAX nào!<br>kế hoạch quay số liên quan đến "
+"fax sẽ <b>NOT</b> được khởi tạo.<br> Mô đun này yêu cầu Fax hoặc Asterisk "
+"(res_fax_digium.so) hoặc spandsp based app_fax (res_fax_spandsp.so) để hoạt "
+"động."
 
 #: Fax.class.php:81
 msgid ""
@@ -142,16 +146,22 @@ msgid ""
 "without a license.<br>At least one license is required (it is available for "
 "free) and must be installed."
 msgstr ""
+"ERROR: Không phát hiện giấy phép Fax nào. <br> Kế hoạch quay số liên quan "
+"đến Fax sẽ <b> NOT </ b> được khởi tạo! <br> Mô-đun này đã phát hiện rằng "
+"Fax cho Asterisk được cài đặt mà không có giấy phép. <br> Yêu cầu có ít nhất "
+"một giấy phép (miễn phí) và phải được cài đặt."
 
 #: views/form.php:128
 msgid "Email address"
-msgstr ""
+msgstr "Địa chỉ Email"
 
 #: views/form.php:116
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
+"Địa chỉ email mà fax được gửi đi nếu 'mặc định hệ thống' được chọn như máy "
+"nhánh fax mặc định."
 
 #: views/form.php:138
 msgid ""
@@ -160,106 +170,112 @@ msgid ""
 "mode, if there are routes still running in this mode that do not have email "
 "addresses specified."
 msgstr ""
+"Địa chỉ email mà fax được gửi đến khi sử dụng mã tính năng  \"Dial System "
+"Fax\". Điều này cũng sẽ mặc định email cho việc phát hiện fax tại chế độ "
+"legacy khi các tuyến vẫn đang chạy ở chế độ này mà không có địa chỉ email "
+"xác định."
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
-msgstr ""
+msgstr "Bật Fax"
 
 #: views/fax.php:42
 msgid "Enable this user to receive faxes"
-msgstr ""
+msgstr "Bật người dùng này để họ có thể nhận các fax"
 
 #: views/fax.php:23
 msgid "Enabled"
-msgstr ""
+msgstr "Đã bật"
 
 #: bin/fax2mail.php:83
 msgid "Enclosed, please find a new fax"
-msgstr ""
+msgstr "Đã đính kèm, vui lòng tìm một fax mới"
 
 #: bin/fax2mail.php:81
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
-msgstr ""
+msgstr "Đã đính kèm, vui lòng tìm một fax mới từ: %s"
 
 #: views/form.php:148
 msgid "Error Correction Mode"
-msgstr ""
+msgstr "Chế độ sửa lỗi"
 
 #: views/form.php:161
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
 msgstr ""
+"Tùy chọn Chế độ sửa lỗi (ECM)  được dùng để xác định có nên sửa dụng chế độ "
+"này hay không."
 
 #: Fax.class.php:90 Fax.class.php:108 Fax.class.php:642
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
-msgstr ""
+msgstr "Cấu hình Fax"
 
 #: Fax.class.php:605 Fax.class.php:667
 msgid "Fax Destination"
-msgstr ""
+msgstr "Điểm đích của Fax"
 
 #: Fax.class.php:659
 msgid "Fax Detection"
-msgstr ""
+msgstr "Phát hiện Fax"
 
 #: Fax.class.php:549
 msgid "Fax Detection Time"
-msgstr ""
+msgstr "Thời gian phát hiện Fax"
 
 #: Fax.class.php:663
 msgid "Fax Detection Wait"
-msgstr ""
+msgstr "Đợi phát hiện hiện Fax"
 
 #: Fax.class.php:487
 msgid "Fax Detection type"
-msgstr ""
+msgstr "Kiểu phát hiện fax"
 
 #: Fax.class.php:577
 msgid "Fax Email Destination"
-msgstr ""
+msgstr "Điểm đích của Email Fax"
 
 #: Fax.class.php:655 Fax.class.php:656
 msgid "Fax Enabled"
-msgstr ""
+msgstr "Fax đã được bật"
 
 #: page.fax.php:9
 msgid "Fax Options"
-msgstr ""
+msgstr "Các tùy chọn Fax"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
-msgstr ""
+msgstr "Chuông Fax"
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
-msgstr ""
+msgstr "Các driver của fax được hỗ trợ bởi mô đun này là:"
 
 #: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
-msgstr ""
+msgstr "Fax cho Asterisk (res_fax_digium.so) với giấy phép"
 
 #: functions.inc.php:20
 #, php-format
 msgid "Fax user %s"
-msgstr ""
+msgstr "Người dùng Fax %s"
 
 #: install.php:417
 msgid "Finished Migrating fax users to usermanager"
-msgstr ""
+msgstr "Đã hoàn thành việc di chuyển người dùng fax đến bộ quản lý người dùng"
 
 #: bin/fax2mail.php:90
 msgid "For"
-msgstr ""
+msgstr "Cho"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
-msgstr ""
+msgstr "Các định dạng để chuyển đổi các tệp fax đến trước khi gửi email."
 
 #: views/form.php:75
 msgid ""
@@ -267,10 +283,12 @@ msgid ""
 "is printed on top of every page. This usually contains the name of the "
 "person or entity sending the fax."
 msgstr ""
+"Thông tin tiêu đề được chuyển đến phía của truyền tải fax từ xa và được in "
+"tại đầu mỗi trang. Tiêu đề sẽ chứa tên của một người hoặc đối tượng gửi fax."
 
 #: Fax.class.php:664
 msgid "How long to wait and try to detect fax"
-msgstr ""
+msgstr "Đợi và cố gắng phát hiện fax trong bao lâu"
 
 #: Fax.class.php:540
 msgid ""
@@ -278,15 +296,18 @@ msgid ""
 "channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
+"Đợi và cố gắng phát hiện fax trong bao lâu. Vui lòng lưu ý rằng những người "
+"gọi đến kênh Dahdi sẽ nghe một hồi chuông trong khoảng thời gian đó ( cụ thể "
+"là hệ thống sẽ không 'trả lời' cuộc gọi' mà nó sẽ chỉ bật nhạc chuông)."
 
 #: install.php:419
 msgid "Inbound Fax Destination Change"
-msgstr ""
+msgstr "Thay đổi điểm đích Fax gửi đến"
 
 #: functions.inc.php:60
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
-msgstr ""
+msgstr "Phát hiện Fax gửi đến: %s (%s)"
 
 #: install.php:419
 msgid ""
@@ -294,18 +315,22 @@ msgid ""
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
+"Các fax gửi đến đang sử dụng những người dùng User Manager. Do đó bạn sẽ cần "
+"phải gán lại tất cả các điểm đích sử dụng 'Fax Recipients' để chỉ tới những "
+"người dùng User Manager. Bạn có thể em những điểm đích bị lỗi cho đến khi "
+"chúng được xử lý xong"
 
 #: views/fax.php:32
 msgid "Inherit"
-msgstr ""
+msgstr "Kế thừa"
 
 #: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
-msgstr ""
+msgstr "Email không hợp lệ đối với các Fax gửi đến"
 
 #: Fax.class.php:443
 msgid "Legacy"
-msgstr ""
+msgstr "Legacy"
 
 #: Fax.class.php:423
 msgid ""
@@ -313,18 +338,22 @@ msgid ""
 "This option is ONLY for supporting migrated legacy fax routes. You should "
 "upgrade this route by choosing YES, and selecting a valid destination!"
 msgstr ""
+"Legacy: Tương tự như YES, chỉ mình  bạn mới có thể nhập một địa chỉ email "
+"làm điểm đến. Tùy chọn này CHỈ nhằm hỗ trợ các tuyến fax legacy đã dịch "
+"chuyển. Bạn nên nâng cấp tuyến này bằng cách chọn YES, và chọn một điểm đích "
+"đến hợp lệ!"
 
 #: views/form.php:221
 msgid "Letter"
-msgstr ""
+msgstr "Ký tự"
 
 #: views/form.php:172
 msgid "Maximum transfer rate"
-msgstr ""
+msgstr "Tốc độ truyền tối đa"
 
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
-msgstr ""
+msgstr "Tốc độ truyền tối đa sử dụng trong quá trình thương lượng tốc độ fax."
 
 #: install.php:387
 #, php-format
@@ -332,68 +361,79 @@ msgid ""
 "Migrated user %s but unable to set email address to %s because an email [%s] "
 "was already set for User Manager User %s"
 msgstr ""
+"Đã dịch chuyển người dùng %s nhưng không thể cài đặt địa chỉ email về %s do "
+"một email [%s]  đã được cài đặt sẵn cho người dùng User Manager %s"
 
 #: install.php:355
 msgid "Migrating all fax users to usermanager"
-msgstr ""
+msgstr "Đang dịch chuyển tất cả người dùng fax đến bộ quản lý người dùng"
 
 #: install.php:79
 msgid "Migrating fax_incoming table..."
-msgstr ""
+msgstr "Đang dịch chuyển bảng fax đang đến (fax-incomming)..."
 
 #: install.php:324
 msgid "Migrating fax_users table to add faxattachformat..."
 msgstr ""
+"Đang dịch chuyển bảng người dùng fax ( Fax_users) để định dạng đính kèm "
+"fax..."
 
 #: install.php:312
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
+"Đang dịch chuyển trường faxemail trong bảng fax_users nhằm cho phép những "
+"email dài hơn..."
 
 #: views/form.php:194
 msgid "Minimum transfer rate"
-msgstr ""
+msgstr "Tốc độ truyền tối thiểu"
 
 #: views/form.php:206
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
+"Tốc độ truyền tối thiểu sử dụng trong quá trình thương lượng tốc độ fax."
 
 #: install.php:100
 msgid "Moving simu_fax feature code from core.."
-msgstr ""
+msgstr "Di chuyển mã tính năng simu_fax khỏi lõi.."
 
 #: Fax.class.php:477
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
 msgstr ""
+"Phát hiện NV Fax: Sử dụng phát hiện NV Fax; yêu cầu phải cài đặt phát hiện "
+"NV Fax và phải được asterisk công nhận"
 
 #: Fax.class.php:494
 msgid "NVFax"
-msgstr ""
+msgstr "NVFax"
 
 #: bin/fax2mail.php:58
 #, php-format
 msgid "New fax from: %s"
-msgstr ""
+msgstr "Fax mới từ: %s"
 
 #: bin/fax2mail.php:60
 msgid "New fax received"
-msgstr ""
+msgstr "Nhận được fax mới"
 
 #: Fax.class.php:441 Fax.class.php:525 views/fax.php:29 views/form.php:34
 #: views/form.php:155 views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "Không"
 
 #: install.php:302
 msgid "No Inbound Routes to migrate"
-msgstr ""
+msgstr "Không có tuyến vào nào để dịch chuyển"
 
 #: Fax.class.php:428
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
+"Không có phương pháp phát hiện fax nào được tìm thấy hoặc giấy phép không "
+"hợp lệ. Việc chuyển fax không thể kích hoạt được."
 
 #: Fax.class.php:420
 msgid ""
@@ -404,11 +444,11 @@ msgstr ""
 
 #: bin/fax2mail.php:87
 msgid "On"
-msgstr ""
+msgstr "Trên"
 
 #: views/form.php:105
 msgid "Outgoing Email address"
-msgstr ""
+msgstr "Địa chỉ email gửi đi"
 
 #: bin/fax2mail.php:55
 msgid "Outgoing fax results"
