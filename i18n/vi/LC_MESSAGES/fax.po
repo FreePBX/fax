@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-17 13:27-0700\n"
-"PO-Revision-Date: 2017-07-07 08:58+0200\n"
+"PO-Revision-Date: 2017-07-10 20:18+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/fax/vi/>\n"
@@ -267,7 +267,8 @@ msgstr "Người dùng Fax %s"
 
 #: install.php:417
 msgid "Finished Migrating fax users to usermanager"
-msgstr "Đã hoàn thành việc di chuyển người dùng fax đến bộ quản lý người dùng"
+msgstr ""
+"Đã hoàn thành việc di chuyển người dùng fax đến trình quản lý người dùng"
 
 #: bin/fax2mail.php:90
 msgid "For"
@@ -315,10 +316,10 @@ msgid ""
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
-"Các fax gửi đến đang sử dụng những người dùng User Manager. Do đó bạn sẽ cần "
-"phải gán lại tất cả các điểm đích sử dụng 'Fax Recipients' để chỉ tới những "
-"người dùng User Manager. Bạn có thể em những điểm đích bị lỗi cho đến khi "
-"chúng được xử lý xong"
+"Các fax gửi đến đang sử dụng những người dùng Trình quản lý người dùng. Do "
+"đó bạn sẽ cần phải gán lại tất cả các điểm đích sử dụng 'Fax Recipients' để "
+"chỉ tới những người dùng Trình quản lý người dùng. Bạn có thể em những điểm "
+"đích bị lỗi cho đến khi chúng được xử lý xong"
 
 #: views/fax.php:32
 msgid "Inherit"
@@ -330,7 +331,7 @@ msgstr "Email không hợp lệ đối với các Fax gửi đến"
 
 #: Fax.class.php:443
 msgid "Legacy"
-msgstr "Legacy"
+msgstr "Phần mềm Legacy"
 
 #: Fax.class.php:423
 msgid ""
@@ -362,11 +363,12 @@ msgid ""
 "was already set for User Manager User %s"
 msgstr ""
 "Đã dịch chuyển người dùng %s nhưng không thể cài đặt địa chỉ email về %s do "
-"một email [%s]  đã được cài đặt sẵn cho người dùng User Manager %s"
+"một email [%s]  đã được cài đặt sẵn cho người dùng Trình quản lý người dùng "
+"%s"
 
 #: install.php:355
 msgid "Migrating all fax users to usermanager"
-msgstr "Đang dịch chuyển tất cả người dùng fax đến bộ quản lý người dùng"
+msgstr "Đang dịch chuyển tất cả người dùng fax đến trình quản lý người dùng"
 
 #: install.php:79
 msgid "Migrating fax_incoming table..."
@@ -408,7 +410,7 @@ msgstr ""
 
 #: Fax.class.php:494
 msgid "NVFax"
-msgstr "NVFax"
+msgstr "Chức năng phụ NVFax"
 
 #: bin/fax2mail.php:58
 #, php-format
@@ -585,8 +587,9 @@ msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
-"Người dùng User Manager '%s' có khả năng nhận các fax nhưng không có địa chỉ "
-"email nào được xác nhận vì vậy chúng sẽ không thể nhận các fax qua eamail,"
+"Người dùng Trình quản lý người dùng '%s' có khả năng nhận các fax nhưng "
+"không có địa chỉ email nào được xác nhận vì vậy chúng sẽ không thể nhận các "
+"fax qua eamail,"
 
 #: bin/fax2mail.php:88
 msgid "Via"
@@ -663,7 +666,7 @@ msgstr ""
 
 #: Fax.class.php:410
 msgid "Zaptel"
-msgstr "Zaptel"
+msgstr "Phần mềm Zaptel"
 
 #: install.php:298
 msgid "all migrations succeeded successfully"
