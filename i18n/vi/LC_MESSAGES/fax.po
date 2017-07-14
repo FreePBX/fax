@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-17 13:27-0700\n"
-"PO-Revision-Date: 2017-07-10 20:18+0200\n"
+"PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/fax/vi/>\n"
@@ -74,7 +74,7 @@ msgstr ""
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "Thêm các cấu hình, tùy chọn và GUI cho fax đến"
+msgstr "Thêm các cấu hình, tùy chọn và GUI cho việc chuyển fax vào"
 
 #: views/form.php:27
 msgid "Always Generate Detection Code"
@@ -303,12 +303,12 @@ msgstr ""
 
 #: install.php:419
 msgid "Inbound Fax Destination Change"
-msgstr "Thay đổi điểm đích Fax gửi đến"
+msgstr "Thay đổi điểm đích Fax gửi vào"
 
 #: functions.inc.php:60
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
-msgstr "Phát hiện Fax gửi đến: %s (%s)"
+msgstr "Phát hiện Fax gửi vào: %s (%s)"
 
 #: install.php:419
 msgid ""
@@ -316,7 +316,7 @@ msgid ""
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
-"Các fax gửi đến đang sử dụng những người dùng Trình quản lý người dùng. Do "
+"Các fax gửi vào đang sử dụng những người dùng Trình quản lý người dùng. Do "
 "đó bạn sẽ cần phải gán lại tất cả các điểm đích sử dụng 'Fax Recipients' để "
 "chỉ tới những người dùng Trình quản lý người dùng. Bạn có thể em những điểm "
 "đích bị lỗi cho đến khi chúng được xử lý xong"
@@ -327,7 +327,7 @@ msgstr "Kế thừa"
 
 #: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
-msgstr "Email không hợp lệ đối với các Fax gửi đến"
+msgstr "Email không hợp lệ đối với các Fax gửi vào"
 
 #: Fax.class.php:443
 msgid "Legacy"
@@ -428,7 +428,7 @@ msgstr "Không"
 
 #: install.php:302
 msgid "No Inbound Routes to migrate"
-msgstr "Không có tuyến vào nào để dịch chuyển"
+msgstr "Không có tuyến gửi vào nào để dịch chuyển"
 
 #: Fax.class.php:428
 msgid ""
@@ -538,9 +538,9 @@ msgid ""
 "disabled and will need to be updated. Click delete icon on the right to "
 "remove this notice."
 msgstr ""
-"Các tuyến đến sau đã xử lý những fax bị lỗi dịch chuyển bởi chúng đã truy "
-"nhập vào một thiết bị mà không có người dùng kèm theo. Chúng đã được vô hiệu "
-"và cần phải cập nhật. Kích chọn biểu tượng xóa tại phía bên phải để tắt "
+"Các tuyến gửi vào sau đã xử lý những fax bị lỗi dịch chuyển bởi chúng đã "
+"truy nhập vào một thiết bị mà không có người dùng kèm theo. Chúng đã được vô "
+"hiệu và cần phải cập nhật. Kích chọn biểu tượng xóa tại phía bên phải để tắt "
 "thông báo này."
 
 #: views/form.php:95
