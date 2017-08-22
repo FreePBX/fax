@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-17 13:27-0700\n"
+"POT-Creation-Date: 2017-08-22 19:37-0400\n"
 "PO-Revision-Date: 2017-03-05 22:21+0200\n"
 "Last-Translator: Francis <fbinet@solist.ca>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/"
@@ -354,6 +354,10 @@ msgstr "Lettre"
 #: views/form.php:172
 msgid "Maximum transfer rate"
 msgstr "taux de transfert maximum"
+
+#: assets/js/fax.js:19
+msgid "Maximum transfer rate can not be less than Minimum transfer rate"
+msgstr ""
 
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-17 13:27-0700\n"
+"POT-Creation-Date: 2017-08-22 19:37-0400\n"
 "PO-Revision-Date: 2017-04-28 10:46+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
@@ -17,16 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: Fax.class.php:475
-msgid " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
-msgstr " Wykrywanie faksów; Wymaga 'faxdetect =', aby ustawić na 'przychodzący' lub 'oba' "
+msgid ""
+" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
+msgstr ""
+" Wykrywanie faksów; Wymaga 'faxdetect =', aby ustawić na 'przychodzący' lub "
+"'oba' "
 
 #: Fax.class.php:417
-msgid "\"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to.\""
-msgstr "Wybrałeś wykrywanie faksu. Proszę wybrać odpowiednie miejsce docelowe do przekierowania połączeń zidentyfikowanych jako faks"
+msgid ""
+"\"You have selected Fax Detection on this route. Please select a valid "
+"destination to route calls detected as faxes to.\""
+msgstr ""
+"Wybrałeś wykrywanie faksu. Proszę wybrać odpowiednie miejsce docelowe do "
+"przekierowania połączeń zidentyfikowanych jako faks"
 
 #: install.php:295
 #, php-format
@@ -36,15 +44,35 @@ msgstr "%s Przekierowanie faksu nie powiodło się"
 #: install.php:296
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
-msgstr "%s Przekierowanie faksu nie powiodło się, sprawdź panel powiadomień aby poznać szegóły"
+msgstr ""
+"%s Przekierowanie faksu nie powiodło się, sprawdź panel powiadomień aby "
+"poznać szegóły"
 
 #: views/form.php:223
 msgid "A4"
 msgstr "A4"
 
 #: Fax.class.php:568
-msgid "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of FreePBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of FreePBX only."
-msgstr "Adres e-mailowy faksów na wykrywanie faksu. <br /> UWAGA: W tej wersji FreePBX można teraz ustawić docelowy numer faksu z listy miejsc docelowych. Rozszerzenia / Użytkownicy mogą być faksowani na ekranie użytkownika / rozszerzenia i ustawiać tam adres e-mail. Spowoduje to utworzenie nowego typu odbiorcy, który można wybrać. Aby uaktualnić tę opcję do pełnej listy odbiorców, wybierz opcję YES, aby wykryć faksy i wybrać cel. Po kliknięciu przycisku prześlij tę trasę zostanie zmodernizowana. Ta opcja Legacy nie będzie już dostępna po zmianie, jest dostępna do obsługi starszych migracji z poprzednich wersji FreePBX."
+msgid ""
+"Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
+"version of FreePBX, you can now set the fax destination from a list of "
+"destinations. Extensions/Users can be fax enabled in the user/extension "
+"screen and set an email address there. This will create a new destination "
+"type that can be selected. To upgrade this option to the full destination "
+"list, select YES to Detect Faxes and select a destination. After clicking "
+"submit, this route will be upgraded. This Legacy option will no longer be "
+"available after the change, it is provided to handle legacy migrations from "
+"previous versions of FreePBX only."
+msgstr ""
+"Adres e-mailowy faksów na wykrywanie faksu. <br /> UWAGA: W tej wersji "
+"FreePBX można teraz ustawić docelowy numer faksu z listy miejsc docelowych. "
+"Rozszerzenia / Użytkownicy mogą być faksowani na ekranie użytkownika / "
+"rozszerzenia i ustawiać tam adres e-mail. Spowoduje to utworzenie nowego "
+"typu odbiorcy, który można wybrać. Aby uaktualnić tę opcję do pełnej listy "
+"odbiorców, wybierz opcję YES, aby wykryć faksy i wybrać cel. Po kliknięciu "
+"przycisku prześlij tę trasę zostanie zmodernizowana. Ta opcja Legacy nie "
+"będzie już dostępna po zmianie, jest dostępna do obsługi starszych migracji "
+"z poprzednich wersji FreePBX."
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
@@ -103,24 +131,50 @@ msgid "Dial System FAX"
 msgstr "Płyta systemu faks"
 
 #: Fax.class.php:79
-msgid "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function."
-msgstr "BŁĄD: Nie wykryto modułów FAX! <br> Dialekt faksowy będzie generowany <b> NIE </ b> <br> Ten moduł wymaga FAX dla Asterisk (res_fax_digium.so) lub spandsp na podstawie app_fax (res_fax_spandsp.so) do funkcjonowania."
+msgid ""
+"ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
+"generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
+"spandsp based app_fax (res_fax_spandsp.so) to function."
+msgstr ""
+"BŁĄD: Nie wykryto modułów FAX! <br> Dialekt faksowy będzie generowany <b> "
+"NIE </ b> <br> Ten moduł wymaga FAX dla Asterisk (res_fax_digium.so) lub "
+"spandsp na podstawie app_fax (res_fax_spandsp.so) do funkcjonowania."
 
 #: Fax.class.php:81
-msgid "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed."
-msgstr "BŁĄD: Nie wykryto licencji faksowej <br> Dialekt faksowy zostanie <b> NIE </ b> wygenerowany! <br> Ten moduł wykrył, że Faks dla Asterisk jest zainstalowany bez licencji. <br> Co najmniej jedna licencja jest wymagana (jest dostępna bezpłatnie) i musi być zainstalowana."
+msgid ""
+"ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
+"generated!<br>This module has detected that Fax for Asterisk is installed "
+"without a license.<br>At least one license is required (it is available for "
+"free) and must be installed."
+msgstr ""
+"BŁĄD: Nie wykryto licencji faksowej <br> Dialekt faksowy zostanie <b> NIE </ "
+"b> wygenerowany! <br> Ten moduł wykrył, że Faks dla Asterisk jest "
+"zainstalowany bez licencji. <br> Co najmniej jedna licencja jest wymagana "
+"(jest dostępna bezpłatnie) i musi być zainstalowana."
 
 #: views/form.php:128
 msgid "Email address"
 msgstr "Adres e-mail"
 
 #: views/form.php:116
-msgid "Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension."
-msgstr "Adres e-mail, który pochodzi z systemu domyślnego został wybrany jako domyślne rozszerzenie faksu."
+msgid ""
+"Email address that faxes appear to come from if 'system default' has been "
+"chosen as the default fax extension."
+msgstr ""
+"Adres e-mail, który pochodzi z systemu domyślnego został wybrany jako "
+"domyślne rozszerzenie faksu."
 
 #: views/form.php:138
-msgid "Email address that faxes are sent to when using the \"Dial System Fax\" feature code. This is also the default email for fax detection in legacy mode, if there are routes still running in this mode that do not have email addresses specified."
-msgstr "Adres e-mail, na który wysyłane są faksy podczas użycia kodu funkcji \"Płyty Systemu Faks\". Jest to również domyślny e-mail dla wykrywania faksu w trybie systemowym, jeśli są włączone inne ścieżki w tym module, nie ma sprecyzowanego adresu e-mail."
+msgid ""
+"Email address that faxes are sent to when using the \"Dial System Fax\" "
+"feature code. This is also the default email for fax detection in legacy "
+"mode, if there are routes still running in this mode that do not have email "
+"addresses specified."
+msgstr ""
+"Adres e-mail, na który wysyłane są faksy podczas użycia kodu funkcji \"Płyty "
+"Systemu Faks\". Jest to również domyślny e-mail dla wykrywania faksu w "
+"trybie systemowym, jeśli są włączone inne ścieżki w tym module, nie ma "
+"sprecyzowanego adresu e-mail."
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
@@ -225,16 +279,28 @@ msgid "Formats to convert incoming fax files to before emailing."
 msgstr "Formaty konwersji przychodzących plików faksu na poprzedni e-mail."
 
 #: views/form.php:75
-msgid "Header information that is passed to remote side of the fax transmission and is printed on top of every page. This usually contains the name of the person or entity sending the fax."
-msgstr "Nagłówek informacyjny jest przekazywany do zdalnej strony transmisji faksu i drukowany jest na górze każdej strony. Zazwyczaj zawiera on imię osoby lub podmiotu wysyłającego faks."
+msgid ""
+"Header information that is passed to remote side of the fax transmission and "
+"is printed on top of every page. This usually contains the name of the "
+"person or entity sending the fax."
+msgstr ""
+"Nagłówek informacyjny jest przekazywany do zdalnej strony transmisji faksu i "
+"drukowany jest na górze każdej strony. Zazwyczaj zawiera on imię osoby lub "
+"podmiotu wysyłającego faks."
 
 #: Fax.class.php:664
 msgid "How long to wait and try to detect fax"
 msgstr "Jak długo czekać i próbować wykryć faks"
 
 #: Fax.class.php:540
-msgid "How long to wait and try to detect fax. Please note that callers to a Dahdi channel will hear ringing for this amount of time (i.e. the system wont \"answer\" the call, it will just play ringing)."
-msgstr "Jak długo czekać i próbować wykryć faks. Proszę zapamiętać, że dzwoniący na kanał Dahdi usłyszą dzwonienie w tym czasie (system nie \"odbierze\" połączenia, będzie jedynie dzwonić)."
+msgid ""
+"How long to wait and try to detect fax. Please note that callers to a Dahdi "
+"channel will hear ringing for this amount of time (i.e. the system wont "
+"\"answer\" the call, it will just play ringing)."
+msgstr ""
+"Jak długo czekać i próbować wykryć faks. Proszę zapamiętać, że dzwoniący na "
+"kanał Dahdi usłyszą dzwonienie w tym czasie (system nie \"odbierze\" "
+"połączenia, będzie jedynie dzwonić)."
 
 #: install.php:419
 msgid "Inbound Fax Destination Change"
@@ -247,8 +313,16 @@ msgstr "Wykrywanie faksów przychodzących: %s (%s)"
 
 #: install.php:419
 #, fuzzy
-msgid "Inbound faxes now use User Manager users. Therefore you will need to re-assign all of your destinations that used 'Fax Recipients' to point to User Manager users. You may see broken destinations until this is resolved"
-msgstr "Faksy przychodzące używają użytkowników \"Menedżera Użytkowników\". W związku z tym konieczne będzie ponowne przypisanie wszystkich numerów, które używały \"Odbiorców faksu\", aby używały użytkowników \"Menedżera Użytkowników\". Niektóre kierunki mogą być niedostąpne dopóki problem nie zostanie rozwiązany"
+msgid ""
+"Inbound faxes now use User Manager users. Therefore you will need to re-"
+"assign all of your destinations that used 'Fax Recipients' to point to User "
+"Manager users. You may see broken destinations until this is resolved"
+msgstr ""
+"Faksy przychodzące używają użytkowników \"Menedżera Użytkowników\". W "
+"związku z tym konieczne będzie ponowne przypisanie wszystkich numerów, które "
+"używały \"Odbiorców faksu\", aby używały użytkowników \"Menedżera "
+"Użytkowników\". Niektóre kierunki mogą być niedostąpne dopóki problem nie "
+"zostanie rozwiązany"
 
 #: views/fax.php:32
 msgid "Inherit"
@@ -263,8 +337,14 @@ msgid "Legacy"
 msgstr "Zapis"
 
 #: Fax.class.php:423
-msgid "Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!"
-msgstr "Zapis: tak samo jak TAK, tylko można wprowadzić adres e-mail jako miejsce docelowe. Ta opcja jest jedynie do wspierania migracji dróg zapisu faksu. Należy uaktualnić tę drogę, wybierając TAK i wybierając ważny cel!"
+msgid ""
+"Legacy: Same as YES, only you can enter an email address as the destination. "
+"This option is ONLY for supporting migrated legacy fax routes. You should "
+"upgrade this route by choosing YES, and selecting a valid destination!"
+msgstr ""
+"Zapis: tak samo jak TAK, tylko można wprowadzić adres e-mail jako miejsce "
+"docelowe. Ta opcja jest jedynie do wspierania migracji dróg zapisu faksu. "
+"Należy uaktualnić tę drogę, wybierając TAK i wybierając ważny cel!"
 
 #: views/form.php:221
 msgid "Letter"
@@ -274,14 +354,24 @@ msgstr "List"
 msgid "Maximum transfer rate"
 msgstr "Maksymalna szybkość transmisji"
 
+#: assets/js/fax.js:19
+msgid "Maximum transfer rate can not be less than Minimum transfer rate"
+msgstr ""
+
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
-msgstr "Maksymalna szybkość transmisji używana podczas negocjacji szybkości faksu."
+msgstr ""
+"Maksymalna szybkość transmisji używana podczas negocjacji szybkości faksu."
 
 #: install.php:387
 #, fuzzy, php-format
-msgid "Migrated user %s but unable to set email address to %s because an email [%s] was already set for User Manager User %s"
-msgstr "Przeniesiono użytkowników %s, ale nie można ustawić adresu e-mail na %s, ponieważ e-mail [%s] został już ustawiony dla użytkownika %s Menadżera Użytkowników"
+msgid ""
+"Migrated user %s but unable to set email address to %s because an email [%s] "
+"was already set for User Manager User %s"
+msgstr ""
+"Przeniesiono użytkowników %s, ale nie można ustawić adresu e-mail na %s, "
+"ponieważ e-mail [%s] został już ustawiony dla użytkownika %s Menadżera "
+"Użytkowników"
 
 #: install.php:355
 msgid "Migrating all fax users to usermanager"
@@ -296,8 +386,11 @@ msgid "Migrating fax_users table to add faxattachformat..."
 msgstr "Migracja tabeli użytkowania faksu do dodania formatu faksowania ..."
 
 #: install.php:312
-msgid "Migrating faxemail field in the fax_users table to allow longer emails..."
-msgstr "Migracja pola e-maili faksu w tabeli użytkowników faksu w celu zezwolenia dłuższych e-maili..."
+msgid ""
+"Migrating faxemail field in the fax_users table to allow longer emails..."
+msgstr ""
+"Migracja pola e-maili faksu w tabeli użytkowników faksu w celu zezwolenia "
+"dłuższych e-maili..."
 
 #: views/form.php:194
 msgid "Minimum transfer rate"
@@ -305,15 +398,20 @@ msgstr "Minimalne wskazania transferu"
 
 #: views/form.php:206
 msgid "Minimum transfer rate used during fax rate negotiation."
-msgstr "Minimalna szybkość transferu używana podczas negocjacji stawek faksowych."
+msgstr ""
+"Minimalna szybkość transferu używana podczas negocjacji stawek faksowych."
 
 #: install.php:100
 msgid "Moving simu_fax feature code from core.."
 msgstr "Przeprowadzenie kodu funkcji simu_fax od rdzenia.."
 
 #: Fax.class.php:477
-msgid "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk"
-msgstr "Wykryto NV Fax: Użyj wykrywanie Faxu NV; Wymaga zainstalowanej detekcji faxu NV by być rozpoznanym przez asterisk."
+msgid ""
+"NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
+"and recognized by asterisk"
+msgstr ""
+"Wykryto NV Fax: Użyj wykrywanie Faxu NV; Wymaga zainstalowanej detekcji faxu "
+"NV by być rozpoznanym przez asterisk."
 
 #: Fax.class.php:494
 msgid "NVFax"
@@ -338,12 +436,21 @@ msgid "No Inbound Routes to migrate"
 msgstr "Brak dróg przychodzących do migracji"
 
 #: Fax.class.php:428
-msgid "No fax detection methods found or no valid license. Faxing cannot be enabled."
-msgstr "Nie znaleziono metod wykrywania faksu lub brak ważnej licencji. Faksowanie jest niemożliwe."
+msgid ""
+"No fax detection methods found or no valid license. Faxing cannot be enabled."
+msgstr ""
+"Nie znaleziono metod wykrywania faksu lub brak ważnej licencji. Faksowanie "
+"jest niemożliwe."
 
 #: Fax.class.php:420
-msgid "No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax."
-msgstr "Nie: Nie próbuje się automatycznie określić typu połączenia; wszystkie połączenia kierowane do połączenia określonego w zakładce \"Ogólne\". Użyj tej opcji, jeśli ten DID służy wyłącznie do głosu lub faksu."
+msgid ""
+"No: No attempts are made to auto-determine the call type; all calls sent to "
+"destination set in the 'General' tab. Use this option if this DID is used "
+"exclusively for voice OR fax."
+msgstr ""
+"Nie: Nie próbuje się automatycznie określić typu połączenia; wszystkie "
+"połączenia kierowane do połączenia określonego w zakładce \"Ogólne\". Użyj "
+"tej opcji, jeśli ten DID służy wyłącznie do głosu lub faksu."
 
 #: bin/fax2mail.php:87
 msgid "On"
@@ -385,16 +492,26 @@ msgid "SIP"
 msgstr "SIP"
 
 #: views/form.php:229
-msgid "Select the default paper size.<br/>This specifies the size that should be used if the document does not specify a size.<br/> If the document does specify a size that size will be used."
-msgstr "Wybierz domyślny rozmiar papieru. <br/> Określa rozmiar, który powinien być używany, jeśli dokument nie określa rozmiaru. <br/> Jeśli dokument określa rozmiar, będzie on używany."
+msgid ""
+"Select the default paper size.<br/>This specifies the size that should be "
+"used if the document does not specify a size.<br/> If the document does "
+"specify a size that size will be used."
+msgstr ""
+"Wybierz domyślny rozmiar papieru. <br/> Określa rozmiar, który powinien być "
+"używany, jeśli dokument nie określa rozmiaru. <br/> Jeśli dokument określa "
+"rozmiar, będzie on używany."
 
 #: fax.i18n.php:6
 msgid "Settings"
 msgstr "Ustawienia"
 
 #: Fax.class.php:476
-msgid "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files"
-msgstr "SIP: Użyj detekcji faksu sip (t.38). Wymaga asteriska w wersji 1.6.2 lub wyższej oraz ustawienia w plikach konfiguracyjnych sip 'faxdetect=yes'"
+msgid ""
+"Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
+"'faxdetect=yes' in the sip config files"
+msgstr ""
+"SIP: Użyj detekcji faksu sip (t.38). Wymaga asteriska w wersji 1.6.2 lub "
+"wyższej oraz ustawienia w plikach konfiguracyjnych sip 'faxdetect=yes'"
 
 #: page.fax.php:14
 #, fuzzy
@@ -422,16 +539,30 @@ msgid "TIFF"
 msgstr "TIFF"
 
 #: install.php:289
-msgid "The following Inbound Routes had FAX processing that failed migration because they were accessing a device with no associated user. They have been disabled and will need to be updated. Click delete icon on the right to remove this notice."
-msgstr "Następujące trasy przychodzące miały przetwarzanie FAX, które zakończyło się niepowodzeniem, ponieważ miały dostęp do urządzenia bez użytkownika skojarzonego. Zostały one wyłączone i będą musiały być aktualizowane. Kliknij ikonę usuwania po prawej, aby usunąć niniejsze zawiadomienie."
+msgid ""
+"The following Inbound Routes had FAX processing that failed migration "
+"because they were accessing a device with no associated user. They have been "
+"disabled and will need to be updated. Click delete icon on the right to "
+"remove this notice."
+msgstr ""
+"Następujące trasy przychodzące miały przetwarzanie FAX, które zakończyło się "
+"niepowodzeniem, ponieważ miały dostęp do urządzenia bez użytkownika "
+"skojarzonego. Zostały one wyłączone i będą musiały być aktualizowane. "
+"Kliknij ikonę usuwania po prawej, aby usunąć niniejsze zawiadomienie."
 
 #: views/form.php:95
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "Wychodzący identyfikator faksu. To zazwyczaj Twój numer faksu."
 
 #: views/form.php:117
-msgid "This may be formatted as just 'user@example.com', or 'Fax User <user@example.com>'. The second option will display 'Fax User' in the 'From' field in most email clients."
-msgstr "Może być to sformułowane jak 'użytkownik@przykład.com' lub Użytkownik faksu <użytkownik@przykład.com>'. Druga opcja wyświetli 'Użytkownik faksu' w polu 'od' w większości maili klientów."
+msgid ""
+"This may be formatted as just 'user@example.com', or 'Fax User <user@example."
+"com>'. The second option will display 'Fax User' in the 'From' field in most "
+"email clients."
+msgstr ""
+"Może być to sformułowane jak 'użytkownik@przykład.com' lub Użytkownik faksu "
+"<użytkownik@przykład.com>'. Druga opcja wyświetli 'Użytkownik faksu' w polu "
+"'od' w większości maili klientów."
 
 #: Fax.class.php:660
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
@@ -444,8 +575,12 @@ msgstr "Rodzaj wykrywania faksu do użycia."
 #: install.php:368 /usr/src/freepbx/fax/install.php:375 install.php:395
 #: /usr/src/freepbx/fax/install.php:405
 #, php-format
-msgid "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' destinations"
-msgstr "Nie możliwe do przeniesienia %s, z powodu [%s]. Proszę sprawdzić miejsce docelowe odbiorcy faksu"
+msgid ""
+"Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
+"destinations"
+msgstr ""
+"Nie możliwe do przeniesienia %s, z powodu [%s]. Proszę sprawdzić miejsce "
+"docelowe odbiorcy faksu"
 
 #: install.php:117
 msgid "Updating simu_fax in miscdest table.."
@@ -453,7 +588,9 @@ msgstr ""
 
 #: functions.inc.php:376
 #, php-format
-msgid "User Manager users '%s' have the ability to receive faxes but have no email address defined so they will not be able to receive faxes over email,"
+msgid ""
+"User Manager users '%s' have the ability to receive faxes but have no email "
+"address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
 #: bin/fax2mail.php:88
@@ -466,15 +603,26 @@ msgstr "Ostrzeżenie: tabela użytkowników faksu może używać starego schemat
 
 #: install.php:316
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
-msgstr "Ostrzeżenie: przeniesienie zakończone niepowodzeniem. Długość maila ograniczona jest do 50 znaków."
+msgstr ""
+"Ostrzeżenie: przeniesienie zakończone niepowodzeniem. Długość maila "
+"ograniczona jest do 50 znaków."
 
 #: install.php:89
 msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
-msgstr "Ostrzeżenie: tabela faksów przychodzących może nadal używać schematu 2.6!"
+msgstr ""
+"Ostrzeżenie: tabela faksów przychodzących może nadal używać schematu 2.6!"
 
 #: views/form.php:40
-msgid "When no fax modules are detected the module will not generate any detection dialplan by default. If the system is being used with phyical FAX devices, hylafax + iaxmodem, or other outside fax setups you can force the dialplan to be generated here."
-msgstr "Jeżeli moduł fax nie zostanie wykryty, nie zostanie wygenerowany domyślny dialplan detekcji fax. Jeżeli system jest używany z fizycznym urządzeniem FAX, hylafax + modem IAX lub inne urządzenie fax. Możesz wymusić aby dialplan został wygenerowany w tym miejscu."
+msgid ""
+"When no fax modules are detected the module will not generate any detection "
+"dialplan by default. If the system is being used with phyical FAX devices, "
+"hylafax + iaxmodem, or other outside fax setups you can force the dialplan "
+"to be generated here."
+msgstr ""
+"Jeżeli moduł fax nie zostanie wykryty, nie zostanie wygenerowany domyślny "
+"dialplan detekcji fax. Jeżeli system jest używany z fizycznym urządzeniem "
+"FAX, hylafax + modem IAX lub inne urządzenie fax. Możesz wymusić aby "
+"dialplan został wygenerowany w tym miejscu."
 
 #: Fax.class.php:596 Fax.class.php:668
 msgid "Where to send the faxes"
@@ -482,8 +630,12 @@ msgstr "Gdzie wysłać faksy"
 
 #: Fax.class.php:533
 #, fuzzy
-msgid "Whether to ring while attempting to detect fax. If set to no silence will be heard"
-msgstr "Niezależnie od tego, by dzwonił podczas próby wykrywania faksu. Jeśli jest ustawiony na NIE, będzie brak dzwięku"
+msgid ""
+"Whether to ring while attempting to detect fax. If set to no silence will be "
+"heard"
+msgstr ""
+"Niezależnie od tego, by dzwonił podczas próby wykrywania faksu. Jeśli jest "
+"ustawiony na NIE, będzie brak dzwięku"
 
 #: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
 #: views/form.php:153 views/quickCreate.php:10
@@ -491,16 +643,31 @@ msgid "Yes"
 msgstr "Tak"
 
 #: Fax.class.php:421
-msgid "Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"
-msgstr "Tak: spróbuj automatycznie określić typ połączenia; drogę do miejsca docelowego faksu jeśli połączenie jest faksem, w przeciwnym wypadku wyślij do stałego miejsca docelowego. Użyj tej opcji jeśli otrzymałeś zarówno połączenie głosowe i faks równocześnie"
+msgid ""
+"Yes: try to auto determine the type of call; route to the fax destination if "
+"call is a fax, otherwise send to regular destination. Use this option if you "
+"receive both voice and fax calls on this line"
+msgstr ""
+"Tak: spróbuj automatycznie określić typ połączenia; drogę do miejsca "
+"docelowego faksu jeśli połączenie jest faksem, w przeciwnym wypadku wyślij "
+"do stałego miejsca docelowego. Użyj tej opcji jeśli otrzymałeś zarówno "
+"połączenie głosowe i faks równocześnie"
 
 #: views/form.php:55
-msgid "Your maximum transfer rate is set to 2400 in certain circumstances this can break faxing"
-msgstr "Twój maksymalny wskaźnik transferu ustawiony jest na 2400 w tych okolicznościach może to przerwać wysyłanie faksu"
+msgid ""
+"Your maximum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
+msgstr ""
+"Twój maksymalny wskaźnik transferu ustawiony jest na 2400 w tych "
+"okolicznościach może to przerwać wysyłanie faksu"
 
 #: views/form.php:52
-msgid "Your minimum transfer rate is set to 2400 in certain circumstances this can break faxing"
-msgstr "Twój minimalny wskaźnik transferu ustawiony jest na 2400 w tych okolicznościach może to przerwać wysyłanie faksu"
+msgid ""
+"Your minimum transfer rate is set to 2400 in certain circumstances this can "
+"break faxing"
+msgstr ""
+"Twój minimalny wskaźnik transferu ustawiony jest na 2400 w tych "
+"okolicznościach może to przerwać wysyłanie faksu"
 
 #: Fax.class.php:410
 #, fuzzy
