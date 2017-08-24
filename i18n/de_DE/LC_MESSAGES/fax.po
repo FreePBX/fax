@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-22 19:37-0400\n"
-"PO-Revision-Date: 2017-03-06 01:51+0200\n"
+"PO-Revision-Date: 2017-08-24 03:26+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/fax/de_DE/"
-">\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/fax/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -25,6 +25,8 @@ msgstr ""
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
+" Faxerkennung; erfordert 'Faxerkennung=' gesetzt auf 'eingehend' oder "
+"'beides' in "
 
 #: Fax.class.php:417
 msgid ""
@@ -61,7 +63,7 @@ msgstr ""
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr ""
+msgstr "Fügt Konfigurationen, Optionen und GUI für eingehendes Faxen hinzu"
 
 #: views/form.php:27
 msgid "Always Generate Detection Code"
@@ -544,7 +546,7 @@ msgstr ""
 
 #: Fax.class.php:596 Fax.class.php:668
 msgid "Where to send the faxes"
-msgstr ""
+msgstr "Wohin das Fax gesendet werden soll"
 
 #: Fax.class.php:533
 msgid ""
@@ -569,12 +571,16 @@ msgid ""
 "Your maximum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
+"Ihre maximale Transferrate ist auf 2400 gesetzt - in bestimmten Fällen kann "
+"dies das Fax unterbrechen"
 
 #: views/form.php:52
 msgid ""
 "Your minimum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
+"Ihre minimale Transferrate ist auf 2400 gesetzt - in bestimmten Fällen kann "
+"dies das Fax unterbrechen"
 
 #: Fax.class.php:410
 msgid "Zaptel"
@@ -622,11 +628,11 @@ msgstr "nicht vorhanden"
 
 #: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
 msgid "removed"
-msgstr "Entfernt"
+msgstr "entfernt"
 
 #: install.php:168
 msgid "starting migration"
-msgstr ""
+msgstr "starte Migration"
 
 #: install.php:107 /usr/src/freepbx/fax/install.php:112
 msgid "unknown error"
