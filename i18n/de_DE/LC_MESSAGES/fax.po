@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-22 19:37-0400\n"
-"PO-Revision-Date: 2017-08-24 03:26+0200\n"
-"Last-Translator: hammer125 <auswertung@aon.at>\n"
+"PO-Revision-Date: 2017-12-18 17:35+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/fax/de_DE/>\n"
 "Language: de_DE\n"
@@ -286,7 +286,7 @@ msgstr ""
 
 #: views/fax.php:32
 msgid "Inherit"
-msgstr "Erben"
+msgstr "Übernehmen"
 
 #: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
