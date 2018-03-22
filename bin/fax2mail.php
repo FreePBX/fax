@@ -36,8 +36,7 @@ if (empty($var['sendto'])) {
 	$user = array("displayname" => "Fax Recipient");
 }
 
-$var['attachformat'] = !empty($var['attachformat']) ? $var['attachformat'] : 'pdf';
-
+$var['attachformat'] = !empty($var['attachformat']) ? $var['attachformat'] : 'none';
 //double check some of the options
 foreach ($var as $k => $v) {
 	if (!is_string($k)) {
@@ -113,6 +112,8 @@ if(!empty($var['to'])) {
 	case 'pdf':
 		$pdf = fax_file_convert('tif2pdf', $var['file'], '', true);
 		$email->attach($pdf);
+		break;
+	case 'none':
 		break;
 	}
 
