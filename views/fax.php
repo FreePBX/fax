@@ -54,6 +54,7 @@ $(function() {
 					</div>
 					<div class="col-md-8">
 						<select name="faxattachformat" class="form-control fpbx-fax" id="faxattachformat" <?php echo !$enabled ? 'disabled' : ''?>>
+							<option value="" <?php echo ($attachformat == "") ? 'selected' : ''?>><?php echo _('None')?></option>
 							<option value="pdf" <?php echo ($attachformat == "pdf") ? 'selected' : ''?>><?php echo _('PDF')?></option>
 							<option value="tif" <?php echo ($attachformat == "tif") ? 'selected' : ''?>><?php echo _('TIFF')?></option>
 							<option value="both" <?php echo ($attachformat == "both") ? 'selected' : ''?>><?php echo _('Both')?></option>
