@@ -10,3 +10,12 @@ $(document).ready(function() {
 		}
 	});
 });
+
+$("#edit").submit(function() {
+	var maxrate = $("#maxrate").val();
+	var minrate = $("#minrate").val();
+
+	if(parseInt(maxrate) < parseInt(minrate)) {
+		return warnInvalid($("#maxrate"),_("Maximum transfer rate can not be less than Minimum transfer rate"));
+	}
+});
