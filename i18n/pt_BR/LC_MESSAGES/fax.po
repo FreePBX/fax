@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 19:37-0400\n"
+"POT-Creation-Date: 2018-03-22 16:51-0400\n"
 "PO-Revision-Date: 2016-12-20 01:53+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
 "freepbx/fax/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -94,7 +94,7 @@ msgstr "Tentar detectar faxes neste DID."
 msgid "Auto generated migrated user for Fax"
 msgstr "Usuário migrado gerado automaticamente para Fax"
 
-#: views/fax.php:59
+#: views/fax.php:60
 msgid "Both"
 msgstr "Ambos"
 
@@ -189,11 +189,11 @@ msgstr "Permitir que este usuário receba faxes"
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:82
 msgid "Enclosed, please find a new fax"
 msgstr "Incluso, por favor, encontre um novo fax"
 
-#: bin/fax2mail.php:81
+#: bin/fax2mail.php:80
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Fechado, chegou um novo fax de: %s"
@@ -210,7 +210,7 @@ msgstr ""
 "A opção ECM (Modo de Correcção de Erros) é utilizada para para \n"
 "\t\t\tusar ou não o modo ecm."
 
-#: Fax.class.php:90 Fax.class.php:108 Fax.class.php:642
+#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:642
 msgid "Fax"
 msgstr "Fax"
 
@@ -271,11 +271,11 @@ msgstr "Usuário de Fax %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr "Finalizada a migração de usuários de fax para usermanager"
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:89
 msgid "For"
 msgstr "Para"
 
-#: views/fax.php:68
+#: views/fax.php:69
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 "Formatos para converter arquivos de fax recebidos antes de enviar e-mails."
@@ -418,17 +418,17 @@ msgstr ""
 msgid "NVFax"
 msgstr "FaxNV"
 
-#: bin/fax2mail.php:58
+#: bin/fax2mail.php:57
 #, php-format
 msgid "New fax from: %s"
 msgstr "Novo fax de: %s"
 
-#: bin/fax2mail.php:60
+#: bin/fax2mail.php:59
 msgid "New fax received"
 msgstr "Novo fax recebido"
 
-#: Fax.class.php:441 Fax.class.php:525 views/fax.php:29 views/form.php:34
-#: views/form.php:155 views/quickCreate.php:12
+#: Fax.class.php:441 Fax.class.php:525 /usr/src/freepbx/fax/views/fax.php:29
+#: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Não"
 
@@ -453,7 +453,11 @@ msgstr ""
 "as chamadas enviadas para destino definidas na guia 'Geral'. Use esta opção "
 "se este o DID for usado exclusivamente para voz OU fax."
 
-#: bin/fax2mail.php:87
+#: views/fax.php:57
+msgid "None"
+msgstr ""
+
+#: bin/fax2mail.php:86
 msgid "On"
 msgstr "Ligado"
 
@@ -461,15 +465,15 @@ msgstr "Ligado"
 msgid "Outgoing Email address"
 msgstr "Endereço de E-mail de Saída"
 
-#: bin/fax2mail.php:55
+#: bin/fax2mail.php:54
 msgid "Outgoing fax results"
 msgstr "Resultados de fax de saída"
 
-#: views/fax.php:57
+#: views/fax.php:58
 msgid "PDF"
 msgstr "PDF"
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:85
 #, php-format
 msgid "Received & processed: %s"
 msgstr "Recebido e processado: %s"
@@ -533,7 +537,7 @@ msgstr "Tabela de fax_users migrada com êxito!"
 msgid "Successfully migrated faxemail field"
 msgstr "Campo faxemail migrado com êxito"
 
-#: views/fax.php:58
+#: views/fax.php:59
 msgid "TIFF"
 msgstr "TIFF"
 
@@ -595,7 +599,7 @@ msgstr ""
 "mas não têm nenhum endereço de e-mail definido, portanto eles não "
 "conseguirão receber fax por e-mail,"
 
-#: bin/fax2mail.php:88
+#: bin/fax2mail.php:87
 msgid "Via"
 msgstr "Via"
 
@@ -637,8 +641,8 @@ msgstr ""
 "Se deseja que toque durante a tentativa de detectar fax. Se definido para "
 "não, ficará em silêncio"
 
-#: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
-#: views/form.php:153 views/quickCreate.php:10
+#: Fax.class.php:440 Fax.class.php:523 /usr/src/freepbx/fax/views/fax.php:28
+#: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Sim"
 

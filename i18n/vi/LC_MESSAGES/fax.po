@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 19:37-0400\n"
+"POT-Creation-Date: 2018-03-22 16:51-0400\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
 "vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -92,7 +92,7 @@ msgstr "Cố xóa các fax trong DID này."
 msgid "Auto generated migrated user for Fax"
 msgstr "Khởi tạo tự động người dùng cho Fax"
 
-#: views/fax.php:59
+#: views/fax.php:60
 msgid "Both"
 msgstr "Cả hai"
 
@@ -186,11 +186,11 @@ msgstr "Bật người dùng này để họ có thể nhận các fax"
 msgid "Enabled"
 msgstr "Đã bật"
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:82
 msgid "Enclosed, please find a new fax"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới"
 
-#: bin/fax2mail.php:81
+#: bin/fax2mail.php:80
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới từ: %s"
@@ -207,7 +207,7 @@ msgstr ""
 "Tùy chọn Chế độ sửa lỗi (ECM)  được dùng để xác định có nên sửa dụng chế độ "
 "này hay không."
 
-#: Fax.class.php:90 Fax.class.php:108 Fax.class.php:642
+#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:642
 msgid "Fax"
 msgstr "Fax"
 
@@ -269,11 +269,11 @@ msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 "Đã hoàn thành việc di chuyển người dùng fax đến trình quản lý người dùng"
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:89
 msgid "For"
 msgstr "Cho"
 
-#: views/fax.php:68
+#: views/fax.php:69
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr "Các định dạng để chuyển đổi các tệp fax đến trước khi gửi email."
 
@@ -366,8 +366,8 @@ msgid ""
 "was already set for User Manager User %s"
 msgstr ""
 "Đã dịch chuyển người dùng %s nhưng không thể cài đặt địa chỉ email về %s do "
-"một email [%s]  đã được cài đặt sẵn cho người dùng Trình quản lý người dùng %"
-"s"
+"một email [%s]  đã được cài đặt sẵn cho người dùng Trình quản lý người dùng "
+"%s"
 
 #: install.php:355
 msgid "Migrating all fax users to usermanager"
@@ -415,17 +415,17 @@ msgstr ""
 msgid "NVFax"
 msgstr "Chức năng phụ NVFax"
 
-#: bin/fax2mail.php:58
+#: bin/fax2mail.php:57
 #, php-format
 msgid "New fax from: %s"
 msgstr "Fax mới từ: %s"
 
-#: bin/fax2mail.php:60
+#: bin/fax2mail.php:59
 msgid "New fax received"
 msgstr "Nhận được fax mới"
 
-#: Fax.class.php:441 Fax.class.php:525 views/fax.php:29 views/form.php:34
-#: views/form.php:155 views/quickCreate.php:12
+#: Fax.class.php:441 Fax.class.php:525 /usr/src/freepbx/fax/views/fax.php:29
+#: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Không"
 
@@ -450,7 +450,11 @@ msgstr ""
 "tới điểm đích được cài đặt trong tab 'General'. Sử dụng tùy chọn này nếu DID "
 "này dành riêng cho thư thoại hoặc fax."
 
-#: bin/fax2mail.php:87
+#: views/fax.php:57
+msgid "None"
+msgstr ""
+
+#: bin/fax2mail.php:86
 msgid "On"
 msgstr "Trên"
 
@@ -458,15 +462,15 @@ msgstr "Trên"
 msgid "Outgoing Email address"
 msgstr "Địa chỉ email gửi đi"
 
-#: bin/fax2mail.php:55
+#: bin/fax2mail.php:54
 msgid "Outgoing fax results"
 msgstr "Các kết quả fax gửi đi"
 
-#: views/fax.php:57
+#: views/fax.php:58
 msgid "PDF"
 msgstr "Định dạng PDF"
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:85
 #, php-format
 msgid "Received & processed: %s"
 msgstr "Đã nhận & đã xử lý: %s"
@@ -530,7 +534,7 @@ msgstr "Bảng người dùng fax được dời đi thành công!"
 msgid "Successfully migrated faxemail field"
 msgstr "trường faxemail được dời đi thành công"
 
-#: views/fax.php:58
+#: views/fax.php:59
 msgid "TIFF"
 msgstr "TIFF"
 
@@ -594,7 +598,7 @@ msgstr ""
 "không có địa chỉ email nào được xác nhận vì vậy chúng sẽ không thể nhận các "
 "fax qua eamail,"
 
-#: bin/fax2mail.php:88
+#: bin/fax2mail.php:87
 msgid "Via"
 msgstr "Thông qua"
 
@@ -635,8 +639,8 @@ msgstr ""
 "Có nên đặt chuông khi đang cố phát hiện fax. Nếu cài đặt là no, chuông sẽ im "
 "lặng"
 
-#: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
-#: views/form.php:153 views/quickCreate.php:10
+#: Fax.class.php:440 Fax.class.php:523 /usr/src/freepbx/fax/views/fax.php:28
+#: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Có"
 

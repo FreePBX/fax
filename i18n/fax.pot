@@ -3,16 +3,17 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for fax
-# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2018 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 19:37-0400\n"
+"POT-Creation-Date: 2018-03-22 16:51-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,7 +76,7 @@ msgstr ""
 msgid "Auto generated migrated user for Fax"
 msgstr ""
 
-#: views/fax.php:59
+#: views/fax.php:60
 msgid "Both"
 msgstr ""
 
@@ -157,11 +158,11 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:82
 msgid "Enclosed, please find a new fax"
 msgstr ""
 
-#: bin/fax2mail.php:81
+#: bin/fax2mail.php:80
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
@@ -176,8 +177,7 @@ msgid ""
 "\t\t\t to use ecm mode or not."
 msgstr ""
 
-#: Fax.class.php:90
-#: Fax.class.php:108
+#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108
 #: Fax.class.php:642
 msgid "Fax"
 msgstr ""
@@ -241,11 +241,11 @@ msgstr ""
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:89
 msgid "For"
 msgstr ""
 
-#: views/fax.php:68
+#: views/fax.php:69
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
@@ -364,18 +364,17 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-#: bin/fax2mail.php:58
+#: bin/fax2mail.php:57
 #, php-format
 msgid "New fax from: %s"
 msgstr ""
 
-#: bin/fax2mail.php:60
+#: bin/fax2mail.php:59
 msgid "New fax received"
 msgstr ""
 
 #: Fax.class.php:441
-#: Fax.class.php:525
-#: views/fax.php:29
+#: Fax.class.php:525 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34
 #: views/form.php:155
 #: views/quickCreate.php:12
@@ -398,7 +397,11 @@ msgid ""
 "exclusively for voice OR fax."
 msgstr ""
 
-#: bin/fax2mail.php:87
+#: views/fax.php:57
+msgid "None"
+msgstr ""
+
+#: bin/fax2mail.php:86
 msgid "On"
 msgstr ""
 
@@ -406,15 +409,15 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:55
+#: bin/fax2mail.php:54
 msgid "Outgoing fax results"
 msgstr ""
 
-#: views/fax.php:57
+#: views/fax.php:58
 msgid "PDF"
 msgstr ""
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:85
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
@@ -473,7 +476,7 @@ msgstr ""
 msgid "Successfully migrated faxemail field"
 msgstr ""
 
-#: views/fax.php:58
+#: views/fax.php:59
 msgid "TIFF"
 msgstr ""
 
@@ -523,7 +526,7 @@ msgid ""
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:88
+#: bin/fax2mail.php:87
 msgid "Via"
 msgstr ""
 
@@ -559,8 +562,7 @@ msgid ""
 msgstr ""
 
 #: Fax.class.php:440
-#: Fax.class.php:523
-#: views/fax.php:28
+#: Fax.class.php:523 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32
 #: views/form.php:153
 #: views/quickCreate.php:10
