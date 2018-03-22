@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-23 17:31-0700\n"
+"POT-Creation-Date: 2018-03-22 16:52-0400\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -109,7 +109,7 @@ msgstr "Попытка детектировать факсы на этом вх�
 msgid "Auto generated migrated user for Fax"
 msgstr ""
 
-#: views/fax.php:59
+#: views/fax.php:60
 msgid "Both"
 msgstr ""
 
@@ -204,11 +204,11 @@ msgstr "Разрешить этому пользователю принимат�
 msgid "Enabled"
 msgstr "Включено"
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:82
 msgid "Enclosed, please find a new fax"
 msgstr ""
 
-#: bin/fax2mail.php:81
+#: bin/fax2mail.php:80
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
@@ -225,7 +225,7 @@ msgstr ""
 "Указывается - использовать режим коррекции ошибок (ЕСМ)\n"
 "\t\t\t\t или нет."
 
-#: Fax.class.php:90 Fax.class.php:108 Fax.class.php:642
+#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:642
 msgid "Fax"
 msgstr "Факс"
 
@@ -286,11 +286,11 @@ msgstr "Пользватель факса %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:89
 msgid "For"
 msgstr ""
 
-#: views/fax.php:68
+#: views/fax.php:69
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 "Форматы для преобразования входящих факсимильных файлов для отправки по "
@@ -364,6 +364,10 @@ msgstr ""
 msgid "Maximum transfer rate"
 msgstr "Максимальная скорость передачи"
 
+#: assets/js/fax.js:19
+msgid "Maximum transfer rate can not be less than Minimum transfer rate"
+msgstr ""
+
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "Максимальная скорость передачи для распознавания скорости факсов."
@@ -410,17 +414,17 @@ msgstr ""
 msgid "NVFax"
 msgstr "NVFAX"
 
-#: bin/fax2mail.php:58
+#: bin/fax2mail.php:57
 #, php-format
 msgid "New fax from: %s"
 msgstr ""
 
-#: bin/fax2mail.php:60
+#: bin/fax2mail.php:59
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:441 Fax.class.php:525 views/fax.php:29 views/form.php:34
-#: views/form.php:155 views/quickCreate.php:12
+#: Fax.class.php:441 Fax.class.php:525 /usr/src/freepbx/fax/views/fax.php:29
+#: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Нет"
 
@@ -442,7 +446,11 @@ msgid ""
 "exclusively for voice OR fax."
 msgstr ""
 
-#: bin/fax2mail.php:87
+#: views/fax.php:57
+msgid "None"
+msgstr ""
+
+#: bin/fax2mail.php:86
 msgid "On"
 msgstr ""
 
@@ -450,15 +458,15 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:55
+#: bin/fax2mail.php:54
 msgid "Outgoing fax results"
 msgstr ""
 
-#: views/fax.php:57
+#: views/fax.php:58
 msgid "PDF"
 msgstr ""
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:85
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
@@ -511,7 +519,7 @@ msgstr "Сохранить"
 msgid "Successfully migrated faxemail field"
 msgstr "Успешный перенос поля faxemail"
 
-#: views/fax.php:58
+#: views/fax.php:59
 msgid "TIFF"
 msgstr ""
 
@@ -565,7 +573,7 @@ msgid ""
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:88
+#: bin/fax2mail.php:87
 msgid "Via"
 msgstr ""
 
@@ -595,8 +603,8 @@ msgid ""
 "heard"
 msgstr ""
 
-#: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
-#: views/form.php:153 views/quickCreate.php:10
+#: Fax.class.php:440 Fax.class.php:523 /usr/src/freepbx/fax/views/fax.php:28
+#: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Да"
 

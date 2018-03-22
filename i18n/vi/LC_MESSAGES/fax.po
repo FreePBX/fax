@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 16:51-0400\n"
+"POT-Creation-Date: 2018-03-22 16:52-0400\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -35,12 +35,12 @@ msgstr ""
 "\"Bạn vừa lựa chọn Phát hiện Fax trong tuyến này. Vui lòng chọn một điểm "
 "đích hợp lệ để định tuyến các cuộc gọi được phát hiện là fax.\""
 
-#: install.php:295
+#: install.php:247
 #, php-format
 msgid "%s FAX Migrations Failed"
 msgstr "Di chuyển FAX %s không thành công"
 
-#: install.php:296
+#: install.php:248
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
@@ -88,7 +88,7 @@ msgstr "Định dạng tệp đính kèm"
 msgid "Attempt to detect faxes on this DID."
 msgstr "Cố xóa các fax trong DID này."
 
-#: install.php:362
+#: install.php:304
 msgid "Auto generated migrated user for Fax"
 msgstr "Khởi tạo tự động người dùng cho Fax"
 
@@ -96,11 +96,11 @@ msgstr "Khởi tạo tự động người dùng cho Fax"
 msgid "Both"
 msgstr "Cả hai"
 
-#: install.php:286
+#: install.php:238
 msgid "Checking for failed migrations.."
 msgstr "Đang kiểm tra các dịch chuyển thất bai.."
 
-#: install.php:164
+#: install.php:116
 msgid "Checking if legacy fax needs migrating.."
 msgstr "Đang kiểm tra các fax có cần dịch chuyển hay không.."
 
@@ -264,7 +264,7 @@ msgstr "Fax cho Asterisk (res_fax_digium.so) với giấy phép"
 msgid "Fax user %s"
 msgstr "Người dùng Fax %s"
 
-#: install.php:417
+#: install.php:359
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 "Đã hoàn thành việc di chuyển người dùng fax đến trình quản lý người dùng"
@@ -300,16 +300,16 @@ msgstr ""
 "gọi đến kênh Dahdi sẽ nghe một hồi chuông trong khoảng thời gian đó ( cụ thể "
 "là hệ thống sẽ không 'trả lời' cuộc gọi' mà nó sẽ chỉ bật nhạc chuông)."
 
-#: install.php:419
+#: install.php:361
 msgid "Inbound Fax Destination Change"
 msgstr "Thay đổi điểm đích Fax gửi vào"
 
-#: functions.inc.php:60
+#: functions.inc.php:59
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Phát hiện Fax gửi vào: %s (%s)"
 
-#: install.php:419
+#: install.php:361
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
@@ -324,7 +324,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Kế thừa"
 
-#: functions.inc.php:376
+#: functions.inc.php:363
 msgid "Invalid Email for Inbound Fax"
 msgstr "Email không hợp lệ đối với các Fax gửi vào"
 
@@ -359,7 +359,7 @@ msgstr ""
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "Tốc độ truyền tối đa sử dụng trong quá trình thương lượng tốc độ fax."
 
-#: install.php:387
+#: install.php:329
 #, php-format
 msgid ""
 "Migrated user %s but unable to set email address to %s because an email [%s] "
@@ -369,21 +369,11 @@ msgstr ""
 "một email [%s]  đã được cài đặt sẵn cho người dùng Trình quản lý người dùng "
 "%s"
 
-#: install.php:355
+#: install.php:297
 msgid "Migrating all fax users to usermanager"
 msgstr "Đang dịch chuyển tất cả người dùng fax đến trình quản lý người dùng"
 
-#: install.php:79
-msgid "Migrating fax_incoming table..."
-msgstr "Đang dịch chuyển bảng fax đang đến (fax-incomming)..."
-
-#: install.php:324
-msgid "Migrating fax_users table to add faxattachformat..."
-msgstr ""
-"Đang dịch chuyển bảng người dùng fax ( Fax_users) để định dạng đính kèm "
-"fax..."
-
-#: install.php:312
+#: install.php:264
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
@@ -399,7 +389,7 @@ msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 "Tốc độ truyền tối thiểu sử dụng trong quá trình thương lượng tốc độ fax."
 
-#: install.php:100
+#: install.php:52
 msgid "Moving simu_fax feature code from core.."
 msgstr "Di chuyển mã tính năng simu_fax khỏi lõi.."
 
@@ -429,7 +419,7 @@ msgstr "Nhận được fax mới"
 msgid "No"
 msgstr "Không"
 
-#: install.php:302
+#: install.php:254
 msgid "No Inbound Routes to migrate"
 msgstr "Không có tuyến gửi vào nào để dịch chuyển"
 
@@ -475,12 +465,12 @@ msgstr "Định dạng PDF"
 msgid "Received & processed: %s"
 msgstr "Đã nhận & đã xử lý: %s"
 
-#: install.php:266
+#: install.php:218
 #, php-format
 msgid "Removing field %s from incoming table.."
 msgstr "Đang xóa trường %s khỏi bảng đến.."
 
-#: install.php:275
+#: install.php:227
 msgid "Removing old globals.."
 msgstr "Đang xóa các ngữ cảnh globals đã cũ.."
 
@@ -522,15 +512,7 @@ msgstr "app_fax (res_fax_spandsp.so) được dựa trên Spandsp"
 msgid "Submit"
 msgstr "Gửi đi"
 
-#: install.php:91
-msgid "Successfully migrated fax_incoming table!"
-msgstr "Bảng fax đang đến được dời đi thành công!"
-
-#: install.php:330
-msgid "Successfully migrated fax_users table!"
-msgstr "Bảng người dùng fax được dời đi thành công!"
-
-#: install.php:318
+#: install.php:270
 msgid "Successfully migrated faxemail field"
 msgstr "trường faxemail được dời đi thành công"
 
@@ -538,7 +520,7 @@ msgstr "trường faxemail được dời đi thành công"
 msgid "TIFF"
 msgstr "TIFF"
 
-#: install.php:289
+#: install.php:241
 msgid ""
 "The following Inbound Routes had FAX processing that failed migration "
 "because they were accessing a device with no associated user. They have been "
@@ -574,8 +556,8 @@ msgstr "Kiểu phát hiện fax được sử dụng ( cụ thể SIP hoặc DAH
 msgid "Type of fax detection to use."
 msgstr "Kiểu phát hiện fax được sử dụng."
 
-#: install.php:368 /usr/src/freepbx/fax/install.php:375 install.php:395
-#: /usr/src/freepbx/fax/install.php:405
+#: install.php:310 /usr/src/freepbx/fax/install.php:317 install.php:337
+#: /usr/src/freepbx/fax/install.php:347
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -584,11 +566,11 @@ msgstr ""
 "Không thể dịch chuyển %s vì [%s]. Vui lòng kiểm tra các điểm đích 'Fax "
 "Recipients'  của bạn"
 
-#: install.php:117
+#: install.php:69
 msgid "Updating simu_fax in miscdest table.."
 msgstr "Đang cập nhật simu_fax trong bảng miscdest.."
 
-#: functions.inc.php:376
+#: functions.inc.php:363
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -602,18 +584,10 @@ msgstr ""
 msgid "Via"
 msgstr "Thông qua"
 
-#: install.php:328
-msgid "WARINING: fax_users table may still be using the old schema!"
-msgstr "Cảnh báo: Bảng fax_users có thể vẫn đang sử dụng schema đã cũ!"
-
-#: install.php:316
+#: install.php:268
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
 msgstr ""
 "Cảnh báo: Di chuyển không thành công. Chiều dài email giới hạn chỏ 50 ký tự."
-
-#: install.php:89
-msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
-msgstr "CẢNH BÁO: Bảng fax_incoming soc thể đang sử dụng schema 2.6!"
 
 #: views/form.php:40
 msgid ""
@@ -675,58 +649,78 @@ msgstr ""
 msgid "Zaptel"
 msgstr "Phần mềm Zaptel"
 
-#: install.php:298
+#: install.php:250
 msgid "all migrations succeeded successfully"
 msgstr "Tất cả các dịch chuyển đã thành công"
 
-#: install.php:305
+#: install.php:257
 msgid "already done"
 msgstr "Đã hoàn thành"
 
-#: install.php:291 /usr/src/freepbx/fax/install.php:292
+#: install.php:243 /usr/src/freepbx/fax/install.php:244
 msgid "blank"
 msgstr "Trống"
 
-#: install.php:115 /usr/src/freepbx/fax/install.php:122
+#: install.php:67 /usr/src/freepbx/fax/install.php:74
 msgid "done"
 msgstr "Đã hoành thành"
 
-#: install.php:104
+#: install.php:56
 msgid "duplicate, removing old from core.."
 msgstr "Sao chép, loại bỏ cái cũ từ lõi .."
 
-#: install.php:198 /usr/src/freepbx/fax/install.php:280
+#: install.php:150 /usr/src/freepbx/fax/install.php:232
 msgid "failed"
 msgstr "Không thành công"
 
-#: install.php:201
+#: install.php:153
 msgid "migrated"
 msgstr "Đã dịch chuyển"
 
-#: install.php:194
+#: install.php:146
 msgid "migrating defaults.."
 msgstr "Đang dịch chuyển các mặc định.."
 
-#: install.php:120
+#: install.php:72
 msgid "not needed"
 msgstr "Không cần thiết"
 
-#: install.php:270
+#: install.php:222
 msgid "not present"
 msgstr "Không xuất hiện"
 
-#: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
+#: install.php:61 /usr/src/freepbx/fax/install.php:224 install.php:234
 msgid "removed"
 msgstr "Đã xóa"
 
-#: install.php:168
+#: install.php:120
 msgid "starting migration"
 msgstr "Khởi động dịch chuyển"
 
-#: install.php:107 /usr/src/freepbx/fax/install.php:112
+#: install.php:59 /usr/src/freepbx/fax/install.php:64
 msgid "unknown error"
 msgstr "Lỗi không xác định được"
 
 #: Fax.class.php:475
 msgid "use "
 msgstr "sử dụng "
+
+#~ msgid "Migrating fax_incoming table..."
+#~ msgstr "Đang dịch chuyển bảng fax đang đến (fax-incomming)..."
+
+#~ msgid "Migrating fax_users table to add faxattachformat..."
+#~ msgstr ""
+#~ "Đang dịch chuyển bảng người dùng fax ( Fax_users) để định dạng đính kèm "
+#~ "fax..."
+
+#~ msgid "Successfully migrated fax_incoming table!"
+#~ msgstr "Bảng fax đang đến được dời đi thành công!"
+
+#~ msgid "Successfully migrated fax_users table!"
+#~ msgstr "Bảng người dùng fax được dời đi thành công!"
+
+#~ msgid "WARINING: fax_users table may still be using the old schema!"
+#~ msgstr "Cảnh báo: Bảng fax_users có thể vẫn đang sử dụng schema đã cũ!"
+
+#~ msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
+#~ msgstr "CẢNH BÁO: Bảng fax_incoming soc thể đang sử dụng schema 2.6!"
