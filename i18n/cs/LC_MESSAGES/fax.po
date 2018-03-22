@@ -3,30 +3,27 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for fax
-# Copyright (C) 2008-2016 Sangoma, Inc.
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-22 19:37-0400\n"
-"PO-Revision-Date: 2017-12-18 17:35+0200\n"
-"Last-Translator: Nils <Nils@heckenkamp.info>\n"
-"Language-Team: German "
-"<http://weblate.freepbx.org/projects/freepbx/fax/de_DE/>\n"
-"Language: de_DE\n"
+"PO-Revision-Date: 2018-01-03 15:36+0200\n"
+"Last-Translator: Petr <petrv@atlantis.cz>\n"
+"Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/fax/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: Fax.class.php:475
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
-" Faxerkennung; erfordert 'Faxerkennung=' gesetzt auf 'eingehend' oder "
-"'beides' in "
 
 #: Fax.class.php:417
 msgid ""
@@ -63,7 +60,7 @@ msgstr ""
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "Fügt Konfigurationen, Optionen und GUI für eingehendes Faxen hinzu"
+msgstr ""
 
 #: views/form.php:27
 msgid "Always Generate Detection Code"
@@ -71,7 +68,7 @@ msgstr ""
 
 #: views/fax.php:52
 msgid "Attachment Format"
-msgstr "Anhängeformat"
+msgstr ""
 
 #: Fax.class.php:418
 msgid "Attempt to detect faxes on this DID."
@@ -83,7 +80,7 @@ msgstr ""
 
 #: views/fax.php:59
 msgid "Both"
-msgstr "beide"
+msgstr "oba"
 
 #: install.php:286
 msgid "Checking for failed migrations.."
@@ -95,11 +92,11 @@ msgstr ""
 
 #: Fax.class.php:410 Fax.class.php:492
 msgid "Dahdi"
-msgstr "Dahdi ( Digium\\Asterisk Hardware Device Interface)"
+msgstr "DAHDI"
 
 #: views/form.php:65
 msgid "Default Fax header"
-msgstr "Standard Fax-Kopfzeile"
+msgstr "Výchozí hlavička Faxu"
 
 #: views/form.php:85
 msgid "Default Local Station Identifier"
@@ -107,11 +104,11 @@ msgstr ""
 
 #: views/form.php:216
 msgid "Default Paper Size"
-msgstr "Standard Papiergröße"
+msgstr "Výchozí velikost papíru"
 
 #: Fax.class.php:454
 msgid "Detect Faxes"
-msgstr "Fax erkennen"
+msgstr "Detekování faxu"
 
 #: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
@@ -134,7 +131,7 @@ msgstr ""
 
 #: views/form.php:128
 msgid "Email address"
-msgstr "E-Mail-Addresse"
+msgstr ""
 
 #: views/form.php:116
 msgid ""
@@ -152,7 +149,7 @@ msgstr ""
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
-msgstr ""
+msgstr "Povolit fax"
 
 #: views/fax.php:42
 msgid "Enable this user to receive faxes"
@@ -160,7 +157,7 @@ msgstr ""
 
 #: views/fax.php:23
 msgid "Enabled"
-msgstr "Aktiviert"
+msgstr "Povoleno"
 
 #: bin/fax2mail.php:83
 msgid "Enclosed, please find a new fax"
@@ -187,19 +184,19 @@ msgstr "Fax"
 
 #: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
-msgstr "Faxkonfiguration"
+msgstr "Konfigurace faxu"
 
 #: Fax.class.php:605 Fax.class.php:667
 msgid "Fax Destination"
-msgstr "Faxziel"
+msgstr ""
 
 #: Fax.class.php:659
 msgid "Fax Detection"
-msgstr "Faxerkennung"
+msgstr ""
 
 #: Fax.class.php:549
 msgid "Fax Detection Time"
-msgstr "Faxerkennungszeit"
+msgstr ""
 
 #: Fax.class.php:663
 msgid "Fax Detection Wait"
@@ -215,11 +212,11 @@ msgstr ""
 
 #: Fax.class.php:655 Fax.class.php:656
 msgid "Fax Enabled"
-msgstr ""
+msgstr "Fax povolen"
 
 #: page.fax.php:9
 msgid "Fax Options"
-msgstr "Faxoptionen"
+msgstr "Možnosti faxu"
 
 #: Fax.class.php:518
 msgid "Fax Ring"
@@ -244,7 +241,7 @@ msgstr ""
 
 #: bin/fax2mail.php:90
 msgid "For"
-msgstr ""
+msgstr "Pro"
 
 #: views/fax.php:68
 msgid "Formats to convert incoming fax files to before emailing."
@@ -259,7 +256,7 @@ msgstr ""
 
 #: Fax.class.php:664
 msgid "How long to wait and try to detect fax"
-msgstr ""
+msgstr "Jak dlouho čekat a detekovat fax"
 
 #: Fax.class.php:540
 msgid ""
@@ -286,7 +283,7 @@ msgstr ""
 
 #: views/fax.php:32
 msgid "Inherit"
-msgstr "Übernehmen"
+msgstr "Zdědit"
 
 #: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
@@ -305,11 +302,11 @@ msgstr ""
 
 #: views/form.php:221
 msgid "Letter"
-msgstr "Brief"
+msgstr ""
 
 #: views/form.php:172
 msgid "Maximum transfer rate"
-msgstr "Maximale Übertragungsrate"
+msgstr ""
 
 #: assets/js/fax.js:19
 msgid "Maximum transfer rate can not be less than Minimum transfer rate"
@@ -345,7 +342,7 @@ msgstr ""
 
 #: views/form.php:194
 msgid "Minimum transfer rate"
-msgstr "Minimale Übertragungsrate"
+msgstr ""
 
 #: views/form.php:206
 msgid "Minimum transfer rate used during fax rate negotiation."
@@ -363,21 +360,21 @@ msgstr ""
 
 #: Fax.class.php:494
 msgid "NVFax"
-msgstr ""
+msgstr "NVFax"
 
 #: bin/fax2mail.php:58
 #, php-format
 msgid "New fax from: %s"
-msgstr "Neues Fax von: %s"
+msgstr ""
 
 #: bin/fax2mail.php:60
 msgid "New fax received"
-msgstr "Neues Fax erhalten"
+msgstr ""
 
 #: Fax.class.php:441 Fax.class.php:525 views/fax.php:29 views/form.php:34
 #: views/form.php:155 views/quickCreate.php:12
 msgid "No"
-msgstr "Nein"
+msgstr "Ne"
 
 #: install.php:302
 msgid "No Inbound Routes to migrate"
@@ -401,7 +398,7 @@ msgstr ""
 
 #: views/form.php:105
 msgid "Outgoing Email address"
-msgstr "Ausgehende E-Mail-Adresse"
+msgstr ""
 
 #: bin/fax2mail.php:55
 msgid "Outgoing fax results"
@@ -427,7 +424,7 @@ msgstr ""
 
 #: Fax.class.php:376
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr ""
 
 #: Fax.class.php:496
 msgid "SIP"
@@ -442,7 +439,7 @@ msgstr ""
 
 #: fax.i18n.php:6
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Nastavení"
 
 #: Fax.class.php:476
 msgid ""
@@ -456,7 +453,7 @@ msgstr ""
 
 #: Fax.class.php:371
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "Potvrdit"
 
 #: install.php:91
 msgid "Successfully migrated fax_incoming table!"
@@ -522,7 +519,7 @@ msgstr ""
 
 #: bin/fax2mail.php:88
 msgid "Via"
-msgstr ""
+msgstr "Přes"
 
 #: install.php:328
 msgid "WARINING: fax_users table may still be using the old schema!"
@@ -546,7 +543,7 @@ msgstr ""
 
 #: Fax.class.php:596 Fax.class.php:668
 msgid "Where to send the faxes"
-msgstr "Wohin das Fax gesendet werden soll"
+msgstr ""
 
 #: Fax.class.php:533
 msgid ""
@@ -557,7 +554,7 @@ msgstr ""
 #: Fax.class.php:440 Fax.class.php:523 views/fax.php:28 views/form.php:32
 #: views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
-msgstr "Ja"
+msgstr "Ano"
 
 #: Fax.class.php:421
 msgid ""
@@ -571,16 +568,12 @@ msgid ""
 "Your maximum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
-"Ihre maximale Transferrate ist auf 2400 gesetzt - in bestimmten Fällen kann "
-"dies das Fax unterbrechen"
 
 #: views/form.php:52
 msgid ""
 "Your minimum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
-"Ihre minimale Transferrate ist auf 2400 gesetzt - in bestimmten Fällen kann "
-"dies das Fax unterbrechen"
 
 #: Fax.class.php:410
 msgid "Zaptel"
@@ -592,15 +585,15 @@ msgstr ""
 
 #: install.php:305
 msgid "already done"
-msgstr "bereits erledigt"
+msgstr "již dokončeno"
 
 #: install.php:291 /usr/src/freepbx/fax/install.php:292
 msgid "blank"
-msgstr "leer"
+msgstr ""
 
 #: install.php:115 /usr/src/freepbx/fax/install.php:122
 msgid "done"
-msgstr "erledigt"
+msgstr ""
 
 #: install.php:104
 msgid "duplicate, removing old from core.."
@@ -608,11 +601,11 @@ msgstr ""
 
 #: install.php:198 /usr/src/freepbx/fax/install.php:280
 msgid "failed"
-msgstr "fehlgeschlagen"
+msgstr ""
 
 #: install.php:201
 msgid "migrated"
-msgstr "migriert"
+msgstr ""
 
 #: install.php:194
 msgid "migrating defaults.."
@@ -620,27 +613,24 @@ msgstr ""
 
 #: install.php:120
 msgid "not needed"
-msgstr "nicht benötigt"
+msgstr ""
 
 #: install.php:270
 msgid "not present"
-msgstr "nicht vorhanden"
+msgstr ""
 
 #: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
 msgid "removed"
-msgstr "entfernt"
+msgstr ""
 
 #: install.php:168
 msgid "starting migration"
-msgstr "starte Migration"
+msgstr ""
 
 #: install.php:107 /usr/src/freepbx/fax/install.php:112
 msgid "unknown error"
-msgstr "Unbekannter Fehler"
+msgstr ""
 
 #: Fax.class.php:475
 msgid "use "
-msgstr "Benutzen "
-
-#~ msgid "Fax Recipient"
-#~ msgstr "Faxempfänger"
+msgstr ""
