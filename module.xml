@@ -19,7 +19,7 @@
 		<module>userman ge 13.0</module>
 	</depends>
 	<supported>
-		<version>14.0</version>
+		<version>15.0</version>
 	</supported>
 	<hooks>
 		<core class="Core" namespace="FreePBX\modules">
