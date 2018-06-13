@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 16:52-0400\n"
+"POT-Creation-Date: 2018-06-13 18:26-0400\n"
 "PO-Revision-Date: 2016-12-20 01:53+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -21,14 +21,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Fax.class.php:475
+#: Fax.class.php:486
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 " detecção de fax; requer que 'faxdetect=' seja definido como 'entrada' ou "
 "'ambos' em "
 
-#: Fax.class.php:417
+#: Fax.class.php:428
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -52,7 +52,7 @@ msgstr ""
 msgid "A4"
 msgstr "A4"
 
-#: Fax.class.php:568
+#: Fax.class.php:579
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -86,7 +86,7 @@ msgstr "Sempre Gerar Código de Detecção"
 msgid "Attachment Format"
 msgstr "Formato do Anexo"
 
-#: Fax.class.php:418
+#: Fax.class.php:429
 msgid "Attempt to detect faxes on this DID."
 msgstr "Tentar detectar faxes neste DID."
 
@@ -94,7 +94,7 @@ msgstr "Tentar detectar faxes neste DID."
 msgid "Auto generated migrated user for Fax"
 msgstr "Usuário migrado gerado automaticamente para Fax"
 
-#: views/fax.php:60
+#: views/fax.php:63
 msgid "Both"
 msgstr "Ambos"
 
@@ -106,7 +106,7 @@ msgstr "Verificando migrações falhadas..."
 msgid "Checking if legacy fax needs migrating.."
 msgstr "Verificar se o fax antigo precisa ser migrado..."
 
-#: Fax.class.php:410 Fax.class.php:492
+#: Fax.class.php:421 Fax.class.php:503
 msgid "Dahdi"
 msgstr "Dahdi"
 
@@ -122,11 +122,11 @@ msgstr "Identificador de Estação Local Padrão"
 msgid "Default Paper Size"
 msgstr "Tamanho Padrão do Papel"
 
-#: Fax.class.php:454
+#: Fax.class.php:465
 msgid "Detect Faxes"
 msgstr "Detecção de Faxes"
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Sistema de Discagem de FAX"
 
@@ -210,39 +210,39 @@ msgstr ""
 "A opção ECM (Modo de Correcção de Erros) é utilizada para para \n"
 "\t\t\tusar ou não o modo ecm."
 
-#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:642
+#: Fax.class.php:90 /dev/shm/freepbx/fax/Fax.class.php:108 Fax.class.php:653
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Configuração de Fax"
 
-#: Fax.class.php:605 Fax.class.php:667
+#: Fax.class.php:616 Fax.class.php:678
 msgid "Fax Destination"
 msgstr "Destino de Fax"
 
-#: Fax.class.php:659
+#: Fax.class.php:670
 msgid "Fax Detection"
 msgstr "Detecção de Fax"
 
-#: Fax.class.php:549
+#: Fax.class.php:560
 msgid "Fax Detection Time"
 msgstr "Tempo de Detecção de Fax"
 
-#: Fax.class.php:663
+#: Fax.class.php:674
 msgid "Fax Detection Wait"
 msgstr "Espera de Detecção de Fax"
 
-#: Fax.class.php:487
+#: Fax.class.php:498
 msgid "Fax Detection type"
 msgstr "Tipo de Detecção de Fax"
 
-#: Fax.class.php:577
+#: Fax.class.php:588
 msgid "Fax Email Destination"
 msgstr "Destino de E-mail de Fax"
 
-#: Fax.class.php:655 Fax.class.php:656
+#: Fax.class.php:666 Fax.class.php:667
 msgid "Fax Enabled"
 msgstr "Fax Habilitado"
 
@@ -250,7 +250,7 @@ msgstr "Fax Habilitado"
 msgid "Fax Options"
 msgstr "Opções de Fax"
 
-#: Fax.class.php:518
+#: Fax.class.php:529
 msgid "Fax Ring"
 msgstr "Toque do Fax"
 
@@ -275,7 +275,7 @@ msgstr "Finalizada a migração de usuários de fax para usermanager"
 msgid "For"
 msgstr "Para"
 
-#: views/fax.php:69
+#: views/fax.php:72
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 "Formatos para converter arquivos de fax recebidos antes de enviar e-mails."
@@ -290,11 +290,11 @@ msgstr ""
 "de fax e são impressas em cima de cada página. Geralmente contém o nome da "
 "pessoa ou entidade que envia o fax."
 
-#: Fax.class.php:664
+#: Fax.class.php:675
 msgid "How long to wait and try to detect fax"
 msgstr "Quanto tempo para esperar e tentar detectar fax"
 
-#: Fax.class.php:540
+#: Fax.class.php:551
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -324,7 +324,7 @@ msgstr ""
 "\"Destinatários de Fax\" para apontar para usuários do Gerenciador de "
 "Usuários. Você poderá ver os destinos quebrados até que isso seja resolvido"
 
-#: views/fax.php:32
+#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "Herdar"
 
@@ -332,11 +332,11 @@ msgstr "Herdar"
 msgid "Invalid Email for Inbound Fax"
 msgstr "E-mail inválido para o Fax de Entrada"
 
-#: Fax.class.php:443
+#: Fax.class.php:454
 msgid "Legacy"
 msgstr "Legado"
 
-#: Fax.class.php:423
+#: Fax.class.php:434
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -398,7 +398,7 @@ msgstr ""
 msgid "Moving simu_fax feature code from core.."
 msgstr "Movendo simu_fax código de recurso do núcleo .."
 
-#: Fax.class.php:477
+#: Fax.class.php:488
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
@@ -406,7 +406,7 @@ msgstr ""
 "Detecção de Fax NV: Utilizar Detecção de Fax NV; Requer que a Detecção de "
 "Fax NV seja instalada e reconhecida pelo asterisk"
 
-#: Fax.class.php:494
+#: Fax.class.php:505
 msgid "NVFax"
 msgstr "FaxNV"
 
@@ -419,7 +419,7 @@ msgstr "Novo fax de: %s"
 msgid "New fax received"
 msgstr "Novo fax recebido"
 
-#: Fax.class.php:441 Fax.class.php:525 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:452 Fax.class.php:536 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Não"
@@ -428,14 +428,14 @@ msgstr "Não"
 msgid "No Inbound Routes to migrate"
 msgstr "Não há Rotas de Entrada para migrar"
 
-#: Fax.class.php:428
+#: Fax.class.php:439
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "Nenhum método de detecção de fax encontrado ou nenhuma licença válida. O "
 "envio de fax não pode ser habilitado."
 
-#: Fax.class.php:420
+#: Fax.class.php:431
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
@@ -445,7 +445,7 @@ msgstr ""
 "as chamadas enviadas para destino definidas na guia 'Geral'. Use esta opção "
 "se este o DID for usado exclusivamente para voz OU fax."
 
-#: views/fax.php:57
+#: views/fax.php:60
 msgid "None"
 msgstr ""
 
@@ -461,7 +461,7 @@ msgstr "Endereço de E-mail de Saída"
 msgid "Outgoing fax results"
 msgstr "Resultados de fax de saída"
 
-#: views/fax.php:58
+#: views/fax.php:61
 msgid "PDF"
 msgstr "PDF"
 
@@ -479,11 +479,11 @@ msgstr "Removendo o campo %s da tabela de entrada .."
 msgid "Removing old globals.."
 msgstr "Removendo globais antigos..."
 
-#: Fax.class.php:376
+#: Fax.class.php:387
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: Fax.class.php:496
+#: Fax.class.php:507
 msgid "SIP"
 msgstr "SIP"
 
@@ -501,7 +501,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Configurações"
 
-#: Fax.class.php:476
+#: Fax.class.php:487
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -513,7 +513,7 @@ msgstr ""
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
 msgstr "Baseado em Spandsp  app_fax (res_fax_spandsp.so)"
 
-#: Fax.class.php:371
+#: Fax.class.php:382
 msgid "Submit"
 msgstr "Enviar"
 
@@ -521,7 +521,7 @@ msgstr "Enviar"
 msgid "Successfully migrated faxemail field"
 msgstr "Campo faxemail migrado com êxito"
 
-#: views/fax.php:59
+#: views/fax.php:62
 msgid "TIFF"
 msgstr "TIFF"
 
@@ -551,16 +551,16 @@ msgstr ""
 "<usuario@exemplo.com>'. A segunda opção exibirá 'Usuário do Fax' no campo "
 "'De' na maioria dos clientes de e-mail."
 
-#: Fax.class.php:660
+#: Fax.class.php:671
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "Tipo de detecção de fax a ser utilizado (por exemplo, SIP ou DAHDI)"
 
-#: Fax.class.php:473
+#: Fax.class.php:484
 msgid "Type of fax detection to use."
 msgstr "Tipo de detecção de fax a ser utilizado."
 
-#: install.php:310 /usr/src/freepbx/fax/install.php:317 install.php:337
-#: /usr/src/freepbx/fax/install.php:347
+#: install.php:310 /dev/shm/freepbx/fax/install.php:317 install.php:337
+#: /dev/shm/freepbx/fax/install.php:347
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -605,11 +605,11 @@ msgstr ""
 "configurações externas de fax, você pode forçar o plano de discagem a ser "
 "gerado aqui."
 
-#: Fax.class.php:596 Fax.class.php:668
+#: Fax.class.php:607 Fax.class.php:679
 msgid "Where to send the faxes"
 msgstr "Para onde enviar os faxes"
 
-#: Fax.class.php:533
+#: Fax.class.php:544
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -617,12 +617,12 @@ msgstr ""
 "Se deseja que toque durante a tentativa de detectar fax. Se definido para "
 "não, ficará em silêncio"
 
-#: Fax.class.php:440 Fax.class.php:523 /usr/src/freepbx/fax/views/fax.php:28
+#: Fax.class.php:451 Fax.class.php:534 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Sim"
 
-#: Fax.class.php:421
+#: Fax.class.php:432
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -648,7 +648,7 @@ msgstr ""
 "A sua taxa de transferência mínima está definida para 2400, em determinadas "
 "circunstâncias, isto pode romper o serviço de fax"
 
-#: Fax.class.php:410
+#: Fax.class.php:421
 msgid "Zaptel"
 msgstr "Zaptel"
 
@@ -660,11 +660,11 @@ msgstr "todas as migrações foram bem-sucedidas"
 msgid "already done"
 msgstr "já concluído"
 
-#: install.php:243 /usr/src/freepbx/fax/install.php:244
+#: install.php:243 /dev/shm/freepbx/fax/install.php:244
 msgid "blank"
 msgstr "em branco"
 
-#: install.php:67 /usr/src/freepbx/fax/install.php:74
+#: install.php:67 /dev/shm/freepbx/fax/install.php:74
 msgid "done"
 msgstr "concluído"
 
@@ -672,7 +672,7 @@ msgstr "concluído"
 msgid "duplicate, removing old from core.."
 msgstr "duplicado, removendo antigo do núcleo .."
 
-#: install.php:150 /usr/src/freepbx/fax/install.php:232
+#: install.php:150 /dev/shm/freepbx/fax/install.php:232
 msgid "failed"
 msgstr "falhou"
 
@@ -692,7 +692,7 @@ msgstr "não é necessário"
 msgid "not present"
 msgstr "não está presente"
 
-#: install.php:61 /usr/src/freepbx/fax/install.php:224 install.php:234
+#: install.php:61 /dev/shm/freepbx/fax/install.php:224 install.php:234
 msgid "removed"
 msgstr "removido"
 
@@ -700,11 +700,11 @@ msgstr "removido"
 msgid "starting migration"
 msgstr "iniciando migração"
 
-#: install.php:59 /usr/src/freepbx/fax/install.php:64
+#: install.php:59 /dev/shm/freepbx/fax/install.php:64
 msgid "unknown error"
 msgstr "erro desconhecido"
 
-#: Fax.class.php:475
+#: Fax.class.php:486
 msgid "use "
 msgstr "utiliza "
 
