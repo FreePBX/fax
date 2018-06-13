@@ -176,7 +176,12 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 			if(isset($_POST['faxenabled'])) {
 				if($_POST['faxenabled'] == "true") {
 					$this->userman->setModuleSettingByID($id,'fax','enabled',true);
-					$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
+					if(!empty($_POST['faxattachformat'])){
+						$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
+					}
+					else{
+						$this->userman->setModuleSettingByID($id,'fax','attachformat',null);
+					}
 				} elseif($_POST['faxenabled'] == "false") {
 					$this->userman->setModuleSettingByID($id,'fax','enabled',false);
 				} else {
@@ -204,11 +209,17 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 			if(isset($_POST['faxenabled'])) {
 				if($_POST['faxenabled'] == "true") {
 					$this->userman->setModuleSettingByID($id,'fax','enabled',true);
-					$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
+					if(!empty($_POST['faxattachformat'])){
+						$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
+					}
+					else{
+						$this->userman->setModuleSettingByID($id,'fax','attachformat',null);
+					}
 				} elseif($_POST['faxenabled'] == "false") {
 					$this->userman->setModuleSettingByID($id,'fax','enabled',false);
 				} else {
 					$this->userman->setModuleSettingByID($id,'fax','enabled',null);
+					$this->userman->setModuleSettingByID($id,'fax','attachformat',null);
 				}
 			}
 		}
