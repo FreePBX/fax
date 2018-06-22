@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-22 16:51-0400\n"
-"PO-Revision-Date: 2017-12-18 17:35+0200\n"
-"Last-Translator: Nils <Nils@heckenkamp.info>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/fax/de_DE/"
-">\n"
+"PO-Revision-Date: 2018-07-18 19:14+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 2.19.1\n"
 
 #: Fax.class.php:475
 msgid ""
@@ -75,7 +74,7 @@ msgstr "Anhängeformat"
 
 #: Fax.class.php:418
 msgid "Attempt to detect faxes on this DID."
-msgstr ""
+msgstr "Versuchen, auf dieser Durchwahl Faxe zu erkennen."
 
 #: install.php:362
 msgid "Auto generated migrated user for Fax"
@@ -131,6 +130,10 @@ msgid ""
 "without a license.<br>At least one license is required (it is available for "
 "free) and must be installed."
 msgstr ""
+"FEHLER: Keine Faxlizenz gefunden.<br />Es wird <b>KEIN</b> faxbezogener "
+"Wählplan erzeugt!<br />Dieses Modul hat festgestellt, dass „Fax for Asterisk“"
+" ohne Lizenz installiert ist.<br /> Es ist erforderlich, dass mindestens "
+"eine Lizenz (kostenlos erhältlich) installiert ist."
 
 #: views/form.php:128
 msgid "Email address"
@@ -152,11 +155,11 @@ msgstr ""
 
 #: views/quickCreate.php:5
 msgid "Enable Fax"
-msgstr ""
+msgstr "Fax aktivieren"
 
 #: views/fax.php:42
 msgid "Enable this user to receive faxes"
-msgstr ""
+msgstr "Faxempfang für diesen Benutzer aktivieren"
 
 #: views/fax.php:23
 msgid "Enabled"
@@ -164,22 +167,24 @@ msgstr "Aktiviert"
 
 #: bin/fax2mail.php:82
 msgid "Enclosed, please find a new fax"
-msgstr ""
+msgstr "Anbei erhalten Sie ein neues Fax"
 
 #: bin/fax2mail.php:80
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
-msgstr ""
+msgstr "Anbei erhalten Sie ein neues Fax von: %s"
 
 #: views/form.php:148
 msgid "Error Correction Mode"
-msgstr ""
+msgstr "Fehlerkorrekturmodus"
 
 #: views/form.php:161
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
 msgstr ""
+"Die Fehlerkorrekturmodus-Option (ECM) legt fest, ob der ECM-Modus genutzt "
+"wird oder nicht."
 
 #: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:642
 msgid "Fax"
@@ -207,7 +212,7 @@ msgstr ""
 
 #: Fax.class.php:487
 msgid "Fax Detection type"
-msgstr ""
+msgstr "Art der Fax-Erkennung"
 
 #: Fax.class.php:577
 msgid "Fax Email Destination"
@@ -227,20 +232,20 @@ msgstr ""
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
-msgstr ""
+msgstr "Folgende Fax-Treiber werden von diesem Modul unterstützt:"
 
 #: page.fax.php:13
 msgid "Fax for Asterisk (res_fax_digium.so) with licence"
-msgstr ""
+msgstr "„Fax for Asterisk“ (res_fax_digium.so) mit Lizenz"
 
 #: functions.inc.php:20
 #, php-format
 msgid "Fax user %s"
-msgstr ""
+msgstr "Fax-Benutzer %s"
 
 #: install.php:417
 msgid "Finished Migrating fax users to usermanager"
-msgstr ""
+msgstr "Migration von Faxbenutzern in die Benutzerverwaltung abgeschlossen"
 
 #: bin/fax2mail.php:89
 msgid "For"
@@ -249,6 +254,8 @@ msgstr ""
 #: views/fax.php:69
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
+"Formate, in die eingehende Faxe vor dem E-Mail-Versand konvertiert werden "
+"sollen."
 
 #: views/form.php:75
 msgid ""
@@ -259,7 +266,7 @@ msgstr ""
 
 #: Fax.class.php:664
 msgid "How long to wait and try to detect fax"
-msgstr ""
+msgstr "Wie lange gewartet werden soll, um ein Fax zu erkennen"
 
 #: Fax.class.php:540
 msgid ""
@@ -267,15 +274,19 @@ msgid ""
 "channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
+"Wie lange gewartet werden soll, um ein Fax zu erkennen. Bitte beachten Sie, "
+"dass Anrufer auf einem DAHDi-Kanal für diese Zeit ein Klingeln hören werden ("
+"d.h. das System nimmt den Anruf nicht an, sondern spielt nur den Klingelton "
+"ab)."
 
 #: install.php:419
 msgid "Inbound Fax Destination Change"
-msgstr ""
+msgstr "Änderung des Ziels für eingehende Faxe"
 
 #: functions.inc.php:60
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
-msgstr ""
+msgstr "Erkennung für eingehendes Fax: %s (%s)"
 
 #: install.php:419
 msgid ""
@@ -283,6 +294,10 @@ msgid ""
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
+"Eingehende Faxe verwenden nun Benutzer aus der Benutzerverwaltung. Daher "
+"müssen Sie alle Ziele, die „Fax-Empfänger“ verwendet haben, auf Benutzer aus "
+"der Benutzerverwaltung umstellen. Bis dies behoben ist, bekommen Sie "
+"möglicherweise defekte Ziele angezeigt"
 
 #: views/fax.php:32
 msgid "Inherit"
@@ -290,7 +305,7 @@ msgstr "Übernehmen"
 
 #: functions.inc.php:376
 msgid "Invalid Email for Inbound Fax"
-msgstr ""
+msgstr "Ungültige E-Mail-Adresse für eingehendes Fax"
 
 #: Fax.class.php:443
 msgid "Legacy"
@@ -314,10 +329,14 @@ msgstr "Maximale Übertragungsrate"
 #: assets/js/fax.js:19
 msgid "Maximum transfer rate can not be less than Minimum transfer rate"
 msgstr ""
+"Die maximale Übertragungsrate kann nicht kleiner sein als die minimale "
+"Übertragungsrate"
 
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
+"Maximale Übertragungsrate, die während der Aushandlung der "
+"Faxübertragungsrate verwendet wird."
 
 #: install.php:387
 #, php-format
@@ -325,10 +344,13 @@ msgid ""
 "Migrated user %s but unable to set email address to %s because an email [%s] "
 "was already set for User Manager User %s"
 msgstr ""
+"Benutzer %s wurde migriert, aber die E-Mail-Adresse %s konnte nicht gesetzt "
+"werden, weil die Adresse [%s] bereits für den Benutzer %s in der "
+"Benutzerverwaltung hinterlegt war"
 
 #: install.php:355
 msgid "Migrating all fax users to usermanager"
-msgstr ""
+msgstr "Migriere alle Faxbenutzer in die Benutzerverwaltung"
 
 #: install.php:79
 msgid "Migrating fax_incoming table..."
@@ -350,6 +372,8 @@ msgstr "Minimale Übertragungsrate"
 #: views/form.php:206
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
+"Minimale Übertragungsrate, die während der Aushandlung der "
+"Faxübertragungsrate verwendet wird."
 
 #: install.php:100
 msgid "Moving simu_fax feature code from core.."
