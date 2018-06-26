@@ -77,21 +77,13 @@ function fax_dahdi_faxdetect(){
 }
 
 function fax_delete_incoming($extdisplay){
-	global $db;
-	$opts		= explode('/', $extdisplay);
-	$extension	= $opts['0'];
-	$cidnum		= $opts['1']; //set vars
-	sql("DELETE FROM fax_incoming WHERE cidnum = '"
-		. $db->escapeSimple($cidnum)
-		. "' and extension = '"
-		. $db->escapeSimple($extension)
-		. "'");
+    FreePBX::Modules()->deprecatedFunction();
+    return FreePBX::Fax()->deleteIncoming($extdisplay);
 }
 
 function fax_delete_user($faxext) {
-	global $db;
-	$faxext = $db->escapeSimple($faxext);
-	sql('DELETE FROM fax_users where user = "' . $faxext . '"');
+    FreePBX::Modules()->deprecatedFunction();
+    return FreePBX::Fax()->deleteUser($faxext);
 }
 
 function fax_destinations(){
@@ -106,77 +98,8 @@ function fax_destinations(){
 
 //check to see if any fax modules and licenses are loaded in to asterisk
 function fax_detect($astver=null){
-	global $amp_conf;
-	global $astman;
-
-	if ($astver === null) {
-		$engineinfo = engine_getinfo();
-		$astver =  $engineinfo['version'];
-	}
-
-	$fax=null;
-	$appfax = $receivefax = false;//return false by default in case asterisk isnt reachable
-	if ($amp_conf['AMPENGINE'] == 'asterisk' && isset($astman) && $astman->connected()) {
-		//check for fax modules
-		$module_show_command = 'module show like ';
-		$app = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax'));
-		if (preg_match('/[1-9] modules loaded/', $app['data'])){
-			$fax['module']='res_fax';
-		} else {
-			$receive = $astman->send_request('Command', array('Command' => $module_show_command.'app_fax'));
-			if (preg_match('/[1-9] modules loaded/', $receive['data'])) {
-				$fax['module']='app_fax';
-			}
-		}
-		if (!isset($fax['module'])) {
-			$app = $astman->send_request('Command', array('Command' => $module_show_command.'app_rxfax'));
-			$fax['module'] = preg_match('/[1-9] modules loaded/', $app['data']) ? 'app_rxfax': null;
-		}
-		$response = $astman->send_request('Command', array('Command' => $module_show_command.'app_nv_faxdetect'));
-		$fax['nvfax']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
-
-		$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_digium'));
-		$fax['ffa']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
-
-		if ($fax['ffa']) {
-			$fax['spandsp'] = false;
-		} else {
-			$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_spandsp'));
-			$fax['spandsp'] = preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
-		}
-
-		switch($fax['module']) {
-		case 'res_fax':
-			$fax['receivefax'] = 'receivefax';
-			break;
-		case 'app_rxfax':
-			$fax['receivefax'] = 'rxfax';
-			break;
-		case 'app_fax':
-			$application_show_command = 'core show applications like ';
-			$response = $astman->send_request('Command', array('Command' => $application_show_command.'receivefax'));
-			if (preg_match('/1 Applications Matching/', $response['data'])) {
-				$fax['receivefax'] = 'receivefax';
-			} else {
-				$response = $astman->send_request('Command', array('Command' => $application_show_command.'rxfax'));
-				if (preg_match('/1 Applications Matching/', $response['data'])) {
-					$fax['receivefax'] = 'rxfax';
-				} else {
-					$fax['receivefax'] = 'none';
-				}
-			}
-			break;
-		}
-
-		// get license count
-		$lic = $astman->send_request('Command', array('Command' => 'fax show stats'));
-		foreach(explode("\n",$lic['data']) as $licdata){
-			$d=explode(':',$licdata);
-			$data[trim($d['0'])]=isset($d['1'])?trim($d['1']):null;
-		}
-		$fax['license']=isset($data['Licensed Channels']) ? $data['Licensed Channels'] : '';
-	}
-	return $fax;
+    FreePBX::Modules()->deprecatedFunction();
+    return FreePBX::Fax()->faxDetect($astver);
 }
 
 function fax_get_config($engine){
@@ -185,9 +108,6 @@ function fax_get_config($engine){
 	global $amp_conf;
 	global $core_conf;
 	global $astman;
-
-	$ast_ge_11 = version_compare($version, '11', 'ge');
-	$ast_ge_10 = version_compare($version, '10', 'ge');
 
 	$fax=fax_detect($version);
 	$astman->database_deltree("FAX");
@@ -312,7 +232,7 @@ function fax_get_config($engine){
 		$fax_settings=fax_get_settings();
 	}
 	if (($fax['module'] && ($fax['ffa'] || $fax['spandsp'])) || $fax_settings['force_detection'] == 'yes') {
-		if ($ast_ge_11 && isset($core_conf) && is_a($core_conf, "core_conf")) {
+		if (isset($core_conf) && is_a($core_conf, "core_conf")) {
 			$core_conf->addSipGeneral('faxdetect','no');
 		} else if (isset($core_conf) && is_a($core_conf, "core_conf")) {
 			$core_conf->addSipGeneral('faxdetect','yes');
@@ -368,68 +288,24 @@ function fax_get_destinations(){
 }
 
 function fax_get_incoming($extension=null,$cidnum=null){
-	global $db;
-	if($extension !== null || $cidnum !== null){
-		$sql="SELECT * FROM fax_incoming WHERE extension = ? AND cidnum = ?";
-		$settings = $db->getRow($sql, array($extension, $cidnum), DB_FETCHMODE_ASSOC);
-		if(isset($settings['legacy_email'])&&$settings['legacy_email']=='NULL'){$settings['legacy_email']=null;}//convert string to real value
-	}else{
-		$sql="SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
-		$settings=$db->getAll($sql, DB_FETCHMODE_ASSOC);
-
-	}
-	return $settings;
+    FreePBX::Modules()->deprecatedFunction();
+    return FreePBX::Fax()->getIncoming($extension, $cidnum);
+	
 }
 
 function fax_get_user($faxext = ''){
-	global $db;
-	if ($faxext) {
-		$sql		= "SELECT * FROM fax_users WHERE user = ?";
-		$settings	= $db->getRow($sql, array($faxext), DB_FETCHMODE_ASSOC);
-		db_e($settings);
-		if(is_array($settings)) {
-			$o = \FreePBX::Userman()->getUserByID($settings['user']);
-			if(empty($o)) {
-				return array();
-			}
-		} else {
-			return array();
-		}
-	} else {
-		$sql		= "SELECT * FROM fax_users";
-		$settings	= $db->getAll($sql, DB_FETCHMODE_ASSOC);
-		db_e($settings);
-		$final = array();
-		if(is_array($settings)) {
-			foreach($settings as $setting) {
-				if(!empty($setting)) {
-					$o = \FreePBX::Userman()->getUserByID($setting['user']);
-					if(!empty($o)) {
-						$final[] = $setting;
-					}
-				}
-			}
-			$settings = $final;
-		} else {
-			return array();
-		}
-	}
-	return $settings;
+    FreePBX::Modules()->deprecatedFunction();
+    return FreePBX::Fax()->getUser($faxext);
+
 }
 
 function fax_get_settings(){
-	return Freepbx::Fax()->getSettings();
+    FreePBX::Modules()->deprecatedFunction();
+	return FreePBX::Fax()->getSettings();
 }
-
-/** Moved to BMO hook
-function fax_hook_core($viewing_itemid, $target_menuid){}
-*/
-
 
 function fax_hookGet_config($engine){
 	global $version;
-
-	$ast_ge_11 = version_compare($version, '11', 'ge');
 
 	$fax=fax_detect($version);
 	if ($fax['module']) {
@@ -473,9 +349,7 @@ function fax_hookGet_config($engine){
 				$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_RX_EMAIL',$fax_rx_email));
 			}
 			//If we have fax incoming, we need to set fax detection to yes if we are on Asterisk 11 or newer
-			if ($ast_ge_11) {
-				$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAXOPT(faxdetect)', 'yes'));
-			}
+			$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAXOPT(faxdetect)', 'yes'));
 			$ext->splice($context, $extension, 'dest-ext', new ext_answer(''));
 			if(!empty($route['ring'])) {
 				$ext->splice($context, $extension, 'dest-ext', new ext_playtones('ring'));
@@ -489,15 +363,11 @@ function fax_hookGet_config($engine){
 		}
 	}
 }
-/** Moved in to BMO Class
-function fax_hookProcess_core()
-*/
+
 
 function fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email,$ring=1){
-	global $db;
-	$legacy_email =  $legacy_email === null ? 'NULL' : "'".$db->escapeSimple("$legacy_email")."'";
-	$ring = ($ring == 'yes') ? 1 : 0;
-	sql("INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email, ring) VALUES ('".$db->escapeSimple($cidnum)."', '".$db->escapeSimple($extension)."', '".$db->escapeSimple($detection)."', '".$db->escapeSimple($detectionwait)."', '".$db->escapeSimple($dest)."',".$legacy_email.",".$ring.")");
+    FreePBX::Modules()->deprecatedFunction();
+    return FreePBX::Fax()->saveIncoming($cidnum, $extension, $enabled, $detection, $detectionwait, $dest, $legacy_email, $ring);
 }
 
 function fax_save_settings($settings){
@@ -671,4 +541,3 @@ function fax_tiffinfo($file, $opt = '') {
 
 	return $info;
 }
-?>

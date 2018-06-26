@@ -2,16 +2,17 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>15.0.2</version>
+	<version>15.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
-	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
+	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Settings</category>
 	<menuitems>
 		<fax>Fax Configuration</fax>
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*15.0.3* Backup 15.0 
 		*15.0.2* FREEPBX-16943 Option to not attach PDF or TIFF on eFax Notification Emails 
 		*15.0.1* Branched from 14.0.2.2
 	</changelog>
@@ -62,6 +63,4 @@
 			<field name="ring" type="integer" default="0" notnull="false"/>
 		</table>
 	</database>
-	<location>release/2.11/fax-2.11.0.5.tgz</location>
-	<md5sum>70d070401263f9b348729aed98d0fdea</md5sum>
 </module>

@@ -1,5 +1,6 @@
 <?php
-class Fax extends \FreePBX_Helpers implements \BMO {
+/** TODO: Namespace */
+class Fax extends FreePBX_Helpers implements BMO {
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new Exception("Not given a FreePBX Object");
@@ -64,9 +65,13 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 					break;
 					case "delIncoming":
 						fax_delete_incoming($extdisplay);
-					break;
+                    break;
+                    default:
+                    break;
 				}
-			break;
+            break;
+            default:
+            break;
 		}
 	}
 
@@ -92,7 +97,6 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 							"content" => load_view(__DIR__.'/views/fax.php',array("mode" => "group", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
 						)
 					);
-				break;
 				case 'adduser':
 				case 'showuser':
 					if(isset($_REQUEST['user'])) {
@@ -109,10 +113,10 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 							"rawname" => "fax",
 							"content" => load_view(__DIR__.'/views/fax.php',array("mode" => "user", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
 						)
-					);
-				break;
+                    );
+                    default:
+                    return [];
 			}
-			return array();
 		}
 	}
 
@@ -239,12 +243,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 	public function uninstall() {
 
 	}
-	public function backup(){
 
-	}
-	public function restore($backup){
-
-	}
 	public function genConfig() {
 		global $version;
 		$conf = array();
@@ -292,10 +291,8 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		$sth = $this->db->prepare('REPLACE INTO fax_users (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)');
 		try {
 			$sth->execute(array($faxext, $faxenabled, $faxemail, $faxattachformat));
-			//$this->astman->database_put("FAX/".$faxext,"user",$faxext);
-			//$this->astman->database_put("FAX/".$faxext,"attachformat",$faxattachformat);
-			//$this->astman->database_put("FAX/".$faxext,"email",$faxemail);
-		} catch(\Exception $e) {
+
+		} catch(Exception $e) {
 			return false;
 		}
 		return true;
@@ -306,7 +303,12 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 		$sth->execute(array($user));
 		$out = $sth->fetchAll(PDO::FETCH_ASSOC);
 		return (!empty($out[0]) && $out[0]['faxenabled']) ? $out[0] : false;
-	}
+    }
+    
+    public function listUsers(){
+        return $this->FreePBX->Database->query('SELECT * FROM fax_users', PDO::FETCH_ASSOC);
+
+    }
 
 	public function faxDetect() {
 		$fax=null;
@@ -371,25 +373,68 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 			$fax['license'] = isset($data['Licensed Channels']) ? $data['Licensed Channels'] : '';
 		}
 		return $fax;
-	}
+    }
+    
+    public function getIncoming($extension=null, $cidnum=null){
+        if (null !== $extension || null !== $cidnum) {
+            $sql = 'SELECT * FROM fax_incoming WHERE extension = :extension AND cidnum = :cidnum LIMIT 1';
+            $stmt = $this->FreePBX->Database->prepare($sql);
+            $stmt->execute([':extension' => $extension, ':cidnum' => $cidnum]);
+            $settings = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (isset($settings['legacy_email']) && 'NULL' == $settings['legacy_email']) {
+                $settings['legacy_email'] = null;
+            }
+            return $settings;
+        }
+        
+        $sql = "SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
+        return $this->Database->query($sql, PDO::FETCH_ASSOC);
+    }
+
+    public function saveIncoming($cidnum, $extension, $enabled, $detection, $detectionwait, $destination, $legacy_email, $ring = 1){
+        $legacy_email = $legacy_email === null ? 'NULL' : $legacy_email;
+        $ring = ($ring == 'yes') ? 1 : 0;
+        $sql = "INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email, ring) VALUES (:cidnum, :extension, :detection, :detectonwait, :destination,:legacy_email, :ring)";
+        $stmt = $this->FreePBX->Database->prepare($sql);
+        $stmt->execute([
+            ':cidnum' => $cidnum,
+            ':extension' => $extension, 
+            ':detection' => $detection, 
+            ':detectonwait' => $detectionwait, 
+            ':destination' => $destination,
+            ':legacy_email' => $legacy_email, 
+            ':ring' => $ring,
+        ]);
+        return $this;
+    }
+
+    public function deleteIncoming($extdisplay){
+        global $db;
+        $opts = explode('/', $extdisplay);
+        $extension = $opts['0'];
+        $cidnum = $opts['1']; //set vars
+        $sql = 'DELETE FROM fax_incoming WHERE cidnum = :cidnum AND extension = :extension';
+        $stmt = $this->FreePBX->Database->prepare($sql);
+        $stmt->execute([':cidnum' => $cidnum, ':extension' => $extension]);
+        return $this;
+    }
+
+
 	public function getActionBar($request) {
-		switch ($request['display']) {
-			case 'fax':
-				$buttons = array(
-						'submit' => array(
-							'name' => 'submit',
-							'id' => 'submit',
-							'value' => _("Submit")
-						),
-						'reset' => array(
-							'name' => 'reset',
-							'id' => 'reset',
-							'value' => _("Reset")
-						),
-					);
-				return $buttons;
-			break;
-		}
+        if($request['display' === 'fax']){
+            return array(
+                    'submit' => array(
+                        'name' => 'submit',
+                        'id' => 'submit',
+                        'value' => _("Submit")
+                    ),
+                    'reset' => array(
+                        'name' => 'reset',
+                        'id' => 'reset',
+                        'value' => _("Reset"),
+                    ),
+                );
+            }
 	}
 	public function coreDIDHook($page){
 		if($page == 'did'){
@@ -659,28 +704,25 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function bulkhandlerGetHeaders($type) {
-		switch ($type) {
-			case 'dids':
-				$headers = array(
-					'fax_enable' => array(
-						'identifier' => _('Fax Enabled'),
-						'description' => _('Fax Enabled'),
-					),
-					'fax_detection' => array(
-						'identifier' => _('Fax Detection'),
-						'description' => _('Type of fax detection to use (e.g. SIP or DAHDI)'),
-					),
-					'fax_detectionwait' => array(
-						'identifier' => _('Fax Detection Wait'),
-						'description' => _('How long to wait and try to detect fax'),
-					),
-					'fax_destination' => array(
-						'identifier' => _('Fax Destination'),
-						'description' => _('Where to send the faxes'),
-					),
-				);
-				return $headers;
-			break;
+        if($type === 'dids'){
+			return array(
+                'fax_enable' => array(
+                    'identifier' => _('Fax Enabled'),
+                    'description' => _('Fax Enabled'),
+                ),
+                'fax_detection' => array(
+                    'identifier' => _('Fax Detection'),
+                    'description' => _('Type of fax detection to use (e.g. SIP or DAHDI)'),
+                ),
+                'fax_detectionwait' => array(
+                    'identifier' => _('Fax Detection Wait'),
+                    'description' => _('How long to wait and try to detect fax'),
+                ),
+                'fax_destination' => array(
+                    'identifier' => _('Fax Destination'),
+                    'description' => _('Where to send the faxes'),
+                ),
+            );
 		}
 	}
 
@@ -792,7 +834,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 	 * Chown hook for freepbx fwconsole
 	 */
 	public function chownFreepbx() {
-		$webroot = \FreePBX::Config()->get('AMPWEBROOT');
+		$webroot = $this->FreePBX->Config->get('AMPWEBROOT');
 		$modulebindir = $webroot . '/admin/modules/fax/bin/';
 		$files = array();
 		$files[] = array('type' => 'file',
