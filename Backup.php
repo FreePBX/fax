@@ -5,7 +5,7 @@ class Backup Extends Base\BackupBase{
   public function runBackup($id,$transaction){
     $configs = [
         'incoming' => $this->FreePBX->Fax->getIncoming(),
-        'users' => $this->FreePBX->Fax->getUsers(),
+        'users' => $this->FreePBX->Fax->listUsers(),
     ];
     $this->addDependency('userman');
     $this->addConfigs($configs);
