@@ -306,7 +306,7 @@ class Fax extends FreePBX_Helpers implements BMO {
     }
     
     public function listUsers(){
-        return $this->FreePBX->Database->query('SELECT * FROM fax_users', PDO::FETCH_ASSOC);
+        return $this->FreePBX->Database->query('SELECT * FROM fax_users')->fetchAll(PDO::FETCH_ASSOC);
 
     }
 
@@ -380,7 +380,7 @@ class Fax extends FreePBX_Helpers implements BMO {
             $sql = 'SELECT * FROM fax_incoming WHERE extension = :extension AND cidnum = :cidnum LIMIT 1';
             $stmt = $this->FreePBX->Database->prepare($sql);
             $stmt->execute([':extension' => $extension, ':cidnum' => $cidnum]);
-            $settings = $stmt->fetch(PDO::FETCH_ASSOC);
+            $settings = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (isset($settings['legacy_email']) && 'NULL' == $settings['legacy_email']) {
                 $settings['legacy_email'] = null;
             }
@@ -388,7 +388,7 @@ class Fax extends FreePBX_Helpers implements BMO {
         }
         
         $sql = "SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
-        return $this->Database->query($sql, PDO::FETCH_ASSOC);
+        return $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function saveIncoming($cidnum, $extension, $enabled, $detection, $detectionwait, $destination, $legacy_email, $ring = 1){

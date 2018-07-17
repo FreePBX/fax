@@ -3,7 +3,7 @@ namespace FreePBX\modules\Fax;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
   public function runRestore($jobid){
-    $this->getConfigs();
+    $configs = reset($this->getConfigs());
     foreach ($configs['users'] as $user) {
         $this->FreePBX->Fax->saveUser($user['faxext'], $user['faxenabled'], $user['faxemail'], $user['faxattachformat']);
     }
