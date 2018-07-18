@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.40.5</version>
+	<version>13.0.40.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*13.0.40.6* FREEPBX-16943 Option to not attach PDF or TIFF on eFax Notification Emails 
 		*13.0.40.5* FREEPBX-16943 Option to not attach PDF or TIFF on eFax Notification Emails 
 		*13.0.40.4* FREEPBX-15414
 		*13.0.40.3* Require newer vesion of userman
