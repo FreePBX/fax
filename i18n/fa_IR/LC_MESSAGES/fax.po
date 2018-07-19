@@ -35,12 +35,12 @@ msgstr ""
 "\"شما تشخیص دورنگار را برای این مسیر تنطیم کرده اید.لطفا یک مقصد برای تشخیص "
 "دورنگار تعیین کنید.\""
 
-#: install.php:295
+#: install.php:247
 #, php-format
 msgid "%s FAX Migrations Failed"
 msgstr "%s جابجایی دورنگار ناموفق"
 
-#: install.php:296
+#: install.php:248
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr "%s جابجایی دورنگار ناموفق.برای توضیح بیشتر به پنل هشدارها بروید"
@@ -87,7 +87,7 @@ msgstr "فرمت پیوست"
 msgid "Attempt to detect faxes on this DID."
 msgstr "تلاش برای تشخیص دورنگار در این داخلی مستقیم."
 
-#: install.php:362
+#: install.php:304
 msgid "Auto generated migrated user for Fax"
 msgstr "جابجایی خودکار کاربر برای دورنگار"
 
@@ -95,11 +95,11 @@ msgstr "جابجایی خودکار کاربر برای دورنگار"
 msgid "Both"
 msgstr "هردو"
 
-#: install.php:286
+#: install.php:238
 msgid "Checking for failed migrations.."
 msgstr "بررسی برای جابجایی ناموفق.."
 
-#: install.php:164
+#: install.php:116
 msgid "Checking if legacy fax needs migrating.."
 msgstr "بررسی جابجایی دورنگار در صورت نیاز.."
 
@@ -265,7 +265,7 @@ msgstr "دورنگار برای استریسک (res_fax_digium.so) با مجوز
 msgid "Fax user %s"
 msgstr "دورنگار کاربر %s"
 
-#: install.php:417
+#: install.php:359
 msgid "Finished Migrating fax users to usermanager"
 msgstr "اتمام انتقال دورنگار کاربران به مدیریت کاربر"
 
@@ -302,16 +302,16 @@ msgstr ""
 "صدای زنگ خوردن را در این زمان خواهد شنید (i.e. the system wont \"answer\" "
 "the call, it will just play ringing)."
 
-#: install.php:419
+#: install.php:361
 msgid "Inbound Fax Destination Change"
 msgstr "تغییر مقصد دورنگار ورودی"
 
-#: functions.inc.php:60
+#: functions.inc.php:59
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "تشخیص فکس های ورودی: %s (%s)"
 
-#: install.php:419
+#: install.php:361
 msgid ""
 "Inbound faxes now use User Manager users. Therefore you will need to re-"
 "assign all of your destinations that used 'Fax Recipients' to point to User "
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "ارثی"
 
-#: functions.inc.php:376
+#: functions.inc.php:363
 msgid "Invalid Email for Inbound Fax"
 msgstr "ایمیل نادرست برای ارسال دورنگار دریافتی"
 
@@ -359,7 +359,7 @@ msgstr ""
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "بیشترین سرعت استفاده شده برای تبادل فکس."
 
-#: install.php:387
+#: install.php:329
 #, php-format
 msgid ""
 "Migrated user %s but unable to set email address to %s because an email [%s] "
@@ -368,19 +368,11 @@ msgstr ""
 "Migrated user %s but unable to set email address to %s because an  email "
 "[%s] was already set for User Manager User %s"
 
-#: install.php:355
+#: install.php:297
 msgid "Migrating all fax users to usermanager"
 msgstr "انتقال تمام کاربران فکس به مدیریت کاربران"
 
-#: install.php:79
-msgid "Migrating fax_incoming table..."
-msgstr "انتقال جدول فکس ورودی..."
-
-#: install.php:324
-msgid "Migrating fax_users table to add faxattachformat..."
-msgstr "انتقال جدول fax_users و افزودن فرمت ضمیمه فکس..."
-
-#: install.php:312
+#: install.php:264
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr "انتقال فیلد فکس میل در جدول fax_users برای ایمیل های طولانی تر..."
@@ -393,7 +385,7 @@ msgstr "حداقل سرعت تبادل اطلاعات"
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "کمترین سرعت استفاده شده برای تبادل فکس."
 
-#: install.php:100
+#: install.php:52
 msgid "Moving simu_fax feature code from core.."
 msgstr "انتقال کد ویژه simu_fax از هسته.."
 
@@ -423,7 +415,7 @@ msgstr "دورنگار جدید دریافت شد"
 msgid "No"
 msgstr "خیر"
 
-#: install.php:302
+#: install.php:254
 msgid "No Inbound Routes to migrate"
 msgstr "مسیر ورودی برای انتقال وجود ندارد"
 
@@ -469,12 +461,12 @@ msgstr "PDF"
 msgid "Received & processed: %s"
 msgstr "رسیده و پردازش شده: %s"
 
-#: install.php:266
+#: install.php:218
 #, php-format
 msgid "Removing field %s from incoming table.."
 msgstr "حذف فیلد %s از جدول ورودی.."
 
-#: install.php:275
+#: install.php:227
 msgid "Removing old globals.."
 msgstr "حذف سراسری های قبلی.."
 
@@ -515,15 +507,7 @@ msgstr "Spandsp  based app_fax (res_fax_spandsp.so)"
 msgid "Submit"
 msgstr "ارسال"
 
-#: install.php:91
-msgid "Successfully migrated fax_incoming table!"
-msgstr "جدول fax_incoming با موفقیت منتقل شد!"
-
-#: install.php:330
-msgid "Successfully migrated fax_users table!"
-msgstr "جدول fax_users با موفقیت منتقل شد!"
-
-#: install.php:318
+#: install.php:270
 msgid "Successfully migrated faxemail field"
 msgstr "فیلد فکس میل با موفقیت منتقل شد"
 
@@ -531,7 +515,7 @@ msgstr "فیلد فکس میل با موفقیت منتقل شد"
 msgid "TIFF"
 msgstr "TIFF"
 
-#: install.php:289
+#: install.php:241
 msgid ""
 "The following Inbound Routes had FAX processing that failed migration "
 "because they were accessing a device with no associated user. They have been "
@@ -562,19 +546,19 @@ msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI
 msgid "Type of fax detection to use."
 msgstr "نوع شناسایی فکس مورد استفاده."
 
-#: install.php:368 /dev/shm/freepbx/fax/install.php:375 install.php:395
-#: /dev/shm/freepbx/fax/install.php:405
+#: install.php:310 /dev/shm/freepbx/fax/install.php:317 install.php:337
+#: /dev/shm/freepbx/fax/install.php:347
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
 "destinations"
 msgstr "عدم امکان انتقال %s، به دلیل [%s]. لطفا 'گیرنده فکس' را بررسی کنید"
 
-#: install.php:117
+#: install.php:69
 msgid "Updating simu_fax in miscdest table.."
 msgstr "به روزرسانی جدول simu_fax در مقاصدمختلف.."
 
-#: functions.inc.php:376
+#: functions.inc.php:363
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -587,21 +571,9 @@ msgstr ""
 msgid "Via"
 msgstr "با"
 
-#: install.php:328
-msgid "WARINING: fax_users table may still be using the old schema!"
-msgstr ""
-"هشدار: جدول fax_users ممکن است به وسیله طرح قبلی مورد استفاده قرار گرفته "
-"باشد!"
-
-#: install.php:316
+#: install.php:268
 msgid "WARNING: Failed migration. Email length is limited to 50 characters."
 msgstr "هشدار: انتقال ناموفق. طول ایمیل نباید بیشتر از 50 کاراکتر باشد."
-
-#: install.php:89
-msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
-msgstr ""
-"هشدار: جدول fax_incoming ممکن است به وسیله طرح 2.6 مورد استفاده قرار گرفته "
-"باشد!"
 
 #: views/form.php:40
 msgid ""
@@ -655,55 +627,55 @@ msgstr "پایین ترین سرعت جابجایی شما روی 2400 تنظی�
 msgid "Zaptel"
 msgstr "زپتل"
 
-#: install.php:298
+#: install.php:250
 msgid "all migrations succeeded successfully"
 msgstr "تمامی انتقالات با موفقیت انجام شد"
 
-#: install.php:305
+#: install.php:257
 msgid "already done"
 msgstr "انجام شد"
 
-#: install.php:291 /dev/shm/freepbx/fax/install.php:292
+#: install.php:243 /dev/shm/freepbx/fax/install.php:244
 msgid "blank"
 msgstr "خالی"
 
-#: install.php:115 /dev/shm/freepbx/fax/install.php:122
+#: install.php:67 /dev/shm/freepbx/fax/install.php:74
 msgid "done"
 msgstr "انجام شد"
 
-#: install.php:104
+#: install.php:56
 msgid "duplicate, removing old from core.."
 msgstr "چند گانه، نتایج قدیمی حذف میشوند.."
 
-#: install.php:198 /dev/shm/freepbx/fax/install.php:280
+#: install.php:150 /dev/shm/freepbx/fax/install.php:232
 msgid "failed"
 msgstr "نا موفق"
 
-#: install.php:201
+#: install.php:153
 msgid "migrated"
 msgstr "انتقال داده شده"
 
-#: install.php:194
+#: install.php:146
 msgid "migrating defaults.."
 msgstr "پیشفرضهای انتقال.."
 
-#: install.php:120
+#: install.php:72
 msgid "not needed"
 msgstr "لازم نیست"
 
-#: install.php:270
+#: install.php:222
 msgid "not present"
 msgstr "موجود نیست"
 
-#: install.php:109 /dev/shm/freepbx/fax/install.php:272 install.php:282
+#: install.php:61 /dev/shm/freepbx/fax/install.php:224 install.php:234
 msgid "removed"
 msgstr "حذف شده"
 
-#: install.php:168
+#: install.php:120
 msgid "starting migration"
 msgstr "شروع عملیات انتقال"
 
-#: install.php:107 /dev/shm/freepbx/fax/install.php:112
+#: install.php:59 /dev/shm/freepbx/fax/install.php:64
 msgid "unknown error"
 msgstr "خطای تعریف نشده"
 
@@ -714,8 +686,29 @@ msgstr "استفاده "
 #~ msgid "Fax Recipient"
 #~ msgstr "گیرنده دورنگار"
 
+#~ msgid "Fax Attach Format"
+#~ msgstr "فرمت ضمیمه دورنگار"
+
+#~ msgid "Fax Attach Format (e.g. pdf, tif, both)"
+#~ msgstr "فرمت ضمیمه دورنگار (pdf,tif)"
+
 #~ msgid "For User"
 #~ msgstr "برای کاربر"
+
+#~ msgid "For extension"
+#~ msgstr "داخلی دورنگار"
+
+#~ msgid "Migrating fax_incoming table..."
+#~ msgstr "انتقال جدول فکس ورودی..."
+
+#~ msgid "Migrating fax_users table to add faxattachformat..."
+#~ msgstr "انتقال جدول fax_users و افزودن فرمت ضمیمه فکس..."
+
+#~ msgid "Successfully migrated fax_incoming table!"
+#~ msgstr "جدول fax_incoming با موفقیت منتقل شد!"
+
+#~ msgid "Successfully migrated fax_users table!"
+#~ msgstr "جدول fax_users با موفقیت منتقل شد!"
 
 #~ msgid ""
 #~ "User Manager users '%s' have the ability to receive faxes but have no "
@@ -724,11 +717,12 @@ msgstr "استفاده "
 #~ "کاربر بخش مدیریت کاربری '%s' امکان دریافت فکس را دارد ولی آدرس ایمیلی "
 #~ "برای آن تنظیم نشده است به همین دلیل نمیتواند فکس را به درستی دریافت کند."
 
-#~ msgid "Fax Attach Format"
-#~ msgstr "فرمت ضمیمه دورنگار"
+#~ msgid "WARINING: fax_users table may still be using the old schema!"
+#~ msgstr ""
+#~ "هشدار: جدول fax_users ممکن است به وسیله طرح قبلی مورد استفاده قرار گرفته "
+#~ "باشد!"
 
-#~ msgid "Fax Attach Format (e.g. pdf, tif, both)"
-#~ msgstr "فرمت ضمیمه دورنگار (pdf,tif)"
-
-#~ msgid "For extension"
-#~ msgstr "داخلی دورنگار"
+#~ msgid "WARNING: fax_incoming table may still be using the 2.6 schema!"
+#~ msgstr ""
+#~ "هشدار: جدول fax_incoming ممکن است به وسیله طرح 2.6 مورد استفاده قرار "
+#~ "گرفته باشد!"

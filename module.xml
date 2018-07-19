@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>13.0.40.6</version>
+	<version>14.0.2.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,67 +12,18 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
-		*13.0.40.6* FREEPBX-16943 Option to not attach PDF or TIFF on eFax Notification Emails 
-		*13.0.40.5* FREEPBX-16943 Option to not attach PDF or TIFF on eFax Notification Emails 
-		*13.0.40.4* FREEPBX-15414
-		*13.0.40.3* Require newer vesion of userman
-		*13.0.40.2* FREEPBX-13179 Bulk Handler DIDs inconsistent fields
-		*13.0.40.1* FREEPBX-14262 destination dropdowns fixes
-		*13.0.40* FREEPBX-13589 Repair system fax RX
-		*13.0.39.3* FREEPBX-13318 make the generated dialplan stop calling the script from the wrong location
-		*13.0.39.2* FREEPBX-6655 - Expand email 'From' address support.
-		*13.0.38* Bug fix during install
-		*13.0.37* Cleanup and tweaks
-		*13.0.36* Base64 decoding strings
-		*13.0.35* Fax legacy fixes
-		*13.0.34* FREEPBX-13086 Fix inbound faxing
-		*13.0.33* FREEPBX-12874 Fix toggles
-		*13.0.32* FREEPBX-12599 Legacy Email box cant see title
-		*13.0.31* FREEPBX-5927 Playtones when trying to detect a fax
-		*13.0.30* FREEPBX-11956 store attach format and email in the astdb
-		*13.0.29* FREEPBX-11642 Reorganize dialplan
-		*13.0.28* FREEPBX-11901 Sort by extension
-		*13.0.27* Current code uses ivr_list. Should use ivr_get_details instead
-		*13.0.26* Better migration techiques
-		*13.0.25* Use '/usr/bin/env php' to find PHP
-		*13.0.24* FREEPBX-10962 fax support in bulk handler
-		*13.0.23* FREEPBX-10932
-		*13.0.22* FREEPBX-10482 Cycle out of sql errors if there are any
-		*13.0.21* FREEPBX-10427, FREEPBX-10414, multiple fax issues resolved
-		*13.0.20* Fix fax permissions
-		*13.0.19* FREEPBX-10410 fax tab missing when creating user
-		*13.0.18* FREEPBX-10412 error on extension create and delete
-		*13.0.17* Standardize all fax formats and sizes
-		*13.0.16* Get correct values when updating or adding users
-		*13.0.15* Tif not tiff in selection
-		*13.0.14* Add critical notice if an upgrade happened
-		*13.0.13* Move to full support of User Manager
-		*13.0.12* Cleanup erroneous data
-		*13.0.11* FREEPBX-10381 update inbound fax to actually work
-		*13.0.10* Fix permission management in User Manager
-		*13.0.9* Remove quick create options for fax
-		*13.0.8* Specify a more exact version of User Manager
-		*13.0.7* FREEPBX-9953 Add Userman requirement
-		*13.0.6* Add warning for invalid baud rates
-		*13.0.5* Add support for userman bulkhandler hooks
-		*13.0.4* FREEPBX-9577 Drop res_fax_digium support for Asterisk 13
-		*13.0.3* FREEPBX-9541 Inbound Route Not Retaining Fax Settings
-		*13.0.2* Version bump Beta
-		*13.0.1alpha7* Move did hook to BMO
-		*13.0.1alpha6* Quick create styling fixes
-		*13.0.1alpha5* Group support in Userman
-		*13.0.1alpha4* Follow database scheme
-		*13.0.1alpha3* FREEPBX-8638 Delete PDF and TIFF when requested
-		*13.0.1alpha2* FREEPBX-7177 Check for remote station id, fix incoming settings
-		*13.0.1alpha1* Bump for layout
+		*14.0.2.4* FREEPBX-16943 Option to not attach PDF or TIFF on eFax Notification Emails 
+		*14.0.2.3* Merge from 13
+		*14.0.2.2* Merge from 13
+		*14.0.2.1* Merge from 13
+		*14.0.2* FREEPBX-6655 - Expand email 'From' address support.
 	</changelog>
 	<depends>
 		<version>12.0.1rc16</version>
-		<module>core ge 13.0.113.8</module>
-		<module>userman ge 13.0.76.24</module>
+		<module>userman ge 13.0</module>
 	</depends>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<hooks>
 			<core class="Core" namespace="FreePBX\modules">
@@ -96,6 +47,24 @@
 				<method class="Fax" callingMethod="fwcChownFiles">chownFreepbx</method>
 			</framework>
 	</hooks>
+	<database>
+	  <table name="fax_details">
+	    <field name="key" type="string" length="50" notnull="false"/>
+	    <field name="value" type="string" length="510" notnull="false"/>
+	    <key name="key" type="unique">
+	      <column name="key"/>
+	    </key>
+	  </table>
+		<table name="fax_incoming">
+			<field name="cidnum" type="string" length="20" notnull="false"/>
+			<field name="extension" type="string" length="50" notnull="false"/>
+			<field name="detection" type="string" length="20" notnull="false"/>
+			<field name="detectionwait" type="string" length="5" notnull="false"/>
+			<field name="destination" type="string" length="50" notnull="false"/>
+			<field name="legacy_email" type="string" length="50" notnull="false"/>
+			<field name="ring" type="integer" default="0" notnull="false"/>
+		</table>
+	</database>
 	<location>release/2.11/fax-2.11.0.5.tgz</location>
 	<md5sum>70d070401263f9b348729aed98d0fdea</md5sum>
 </module>
