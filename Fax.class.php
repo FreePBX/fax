@@ -10,6 +10,16 @@ class Fax extends FreePBX_Helpers implements BMO {
 		$this->db = $freepbx->Database;
 		$this->userman = $freepbx->Userman;
 	}
+	public function setDatabase($pdo){
+		$this->db = $pdo;
+		return $this;
+	}
+	
+	public function resetDatabase(){
+		$this->db = $this->FreePBX->Database;
+		return $this;
+	}
+
 	public static function myConfigPageInits() { return array("did"); }
 	public function doConfigPageInit($page) {
 		switch ($page) {
