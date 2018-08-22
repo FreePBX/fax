@@ -9,7 +9,7 @@ class Restore Extends Base\RestoreBase{
   public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir)
   {
     $tables = array_flip($tables + $unknownTables);
-    if (!isset($tables['callback'])) {
+    if (!isset($tables['fax_details'])) {
       return $this;
     }
     $cb = $this->FreePBX->Fax;
