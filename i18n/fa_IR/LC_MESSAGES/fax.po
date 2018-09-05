@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 12:47-0400\n"
+"POT-Creation-Date: 2018-09-04 23:23-0400\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -105,7 +105,7 @@ msgstr "اندازه پیشفرض کاغذ"
 msgid "Detect Faxes"
 msgstr "تشخیص دورنگار"
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "سیستم شماره گیری دورنگار"
 
@@ -167,11 +167,11 @@ msgstr "دریافت دورنگار را برای کاربر فعال کن"
 msgid "Enabled"
 msgstr "فعال"
 
-#: bin/fax2mail.php:82
+#: bin/fax2mail.php:89
 msgid "Enclosed, please find a new fax"
 msgstr "محصور, یک دورنگار جدید پیدا کنید"
 
-#: bin/fax2mail.php:80
+#: bin/fax2mail.php:87
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "محصور, لطفا یک دورنگار جدید پیدا کنید از：%s"
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Fax"
 msgstr "دورنگار"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "تنظیمات دورنگار"
 
@@ -251,7 +251,7 @@ msgstr "دورنگار کاربر %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr "اتمام انتقال دورنگار کاربران به مدیریت کاربر"
 
-#: bin/fax2mail.php:89
+#: bin/fax2mail.php:96
 msgid "For"
 msgstr "برای"
 
@@ -303,7 +303,7 @@ msgstr ""
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 
-#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "ارثی"
 
@@ -374,16 +374,16 @@ msgstr ""
 msgid "NVFax"
 msgstr "فکس NV"
 
-#: bin/fax2mail.php:57
+#: bin/fax2mail.php:64
 #, php-format
 msgid "New fax from: %s"
 msgstr "دورنگار جدید از:%s"
 
-#: bin/fax2mail.php:59
+#: bin/fax2mail.php:66
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
-#: Fax.class.php:507 Fax.class.php:591 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:507 Fax.class.php:591 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "خیر"
@@ -409,7 +409,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:93
 msgid "On"
 msgstr "روشن"
 
@@ -417,7 +417,7 @@ msgstr "روشن"
 msgid "Outgoing Email address"
 msgstr "آدرس ایمیل ارسال فکس"
 
-#: bin/fax2mail.php:54
+#: bin/fax2mail.php:61
 msgid "Outgoing fax results"
 msgstr "نتایج فکس ارسالی"
 
@@ -425,7 +425,15 @@ msgstr "نتایج فکس ارسالی"
 msgid "PDF"
 msgstr "PDF"
 
-#: bin/fax2mail.php:85
+#: Api/Rest/Fax.php:9
+msgid "Read fax settings"
+msgstr ""
+
+#: Api/Rest/FaxUsers.php:9
+msgid "Read fax user settings"
+msgstr ""
+
+#: bin/fax2mail.php:92
 #, php-format
 msgid "Received & processed: %s"
 msgstr "رسیده و پردازش شده: %s"
@@ -490,8 +498,8 @@ msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI
 msgid "Type of fax detection to use."
 msgstr "نوع شناسایی فکس مورد استفاده."
 
-#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
-#: /usr/src/freepbx/fax/install.php:126
+#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
+#: /dev/shm/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -507,7 +515,7 @@ msgstr ""
 "در مدیریت کاربران کاربران '%s' میتوانند فکسها را دریافت کنند اما آدرس ایمیلی "
 "برایشان تعریف نشده بنا بر این آنها نمیتوانند فکس را در ایمیلشان داشته باشند،"
 
-#: bin/fax2mail.php:87
+#: bin/fax2mail.php:94
 msgid "Via"
 msgstr "با"
 
@@ -532,7 +540,15 @@ msgid ""
 "heard"
 msgstr "چگونگی زنگ خوردن در حال شناسایی فکس.اگر بدون صدا تنظیم نشده باشد"
 
-#: Fax.class.php:506 Fax.class.php:589 /usr/src/freepbx/fax/views/fax.php:28
+#: Api/Rest/Fax.php:12
+msgid "Write fax settings"
+msgstr ""
+
+#: Api/Rest/FaxUsers.php:12
+msgid "Write fax user settings"
+msgstr ""
+
+#: Fax.class.php:506 Fax.class.php:589 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "بله"

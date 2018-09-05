@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 12:47-0400\n"
+"POT-Creation-Date: 2018-09-04 23:23-0400\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -105,7 +105,7 @@ msgstr "Mặc định kích thước trang giấy"
 msgid "Detect Faxes"
 msgstr "Phát hiện Fax"
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Hệ thống quay số FAX"
 
@@ -167,11 +167,11 @@ msgstr "Bật người dùng này để họ có thể nhận các fax"
 msgid "Enabled"
 msgstr "Đã bật"
 
-#: bin/fax2mail.php:82
+#: bin/fax2mail.php:89
 msgid "Enclosed, please find a new fax"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới"
 
-#: bin/fax2mail.php:80
+#: bin/fax2mail.php:87
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới từ: %s"
@@ -192,7 +192,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Cấu hình Fax"
 
@@ -250,7 +250,7 @@ msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 "Đã hoàn thành việc di chuyển người dùng fax đến trình quản lý người dùng"
 
-#: bin/fax2mail.php:89
+#: bin/fax2mail.php:96
 msgid "For"
 msgstr "Cho"
 
@@ -301,7 +301,7 @@ msgstr ""
 "chỉ tới những người dùng Trình quản lý người dùng. Bạn có thể em những điểm "
 "đích bị lỗi cho đến khi chúng được xử lý xong"
 
-#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "Kế thừa"
 
@@ -375,16 +375,16 @@ msgstr ""
 msgid "NVFax"
 msgstr "Chức năng phụ NVFax"
 
-#: bin/fax2mail.php:57
+#: bin/fax2mail.php:64
 #, php-format
 msgid "New fax from: %s"
 msgstr "Fax mới từ: %s"
 
-#: bin/fax2mail.php:59
+#: bin/fax2mail.php:66
 msgid "New fax received"
 msgstr "Nhận được fax mới"
 
-#: Fax.class.php:507 Fax.class.php:591 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:507 Fax.class.php:591 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Không"
@@ -410,7 +410,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:93
 msgid "On"
 msgstr "Trên"
 
@@ -418,7 +418,7 @@ msgstr "Trên"
 msgid "Outgoing Email address"
 msgstr "Địa chỉ email gửi đi"
 
-#: bin/fax2mail.php:54
+#: bin/fax2mail.php:61
 msgid "Outgoing fax results"
 msgstr "Các kết quả fax gửi đi"
 
@@ -426,7 +426,15 @@ msgstr "Các kết quả fax gửi đi"
 msgid "PDF"
 msgstr "Định dạng PDF"
 
-#: bin/fax2mail.php:85
+#: Api/Rest/Fax.php:9
+msgid "Read fax settings"
+msgstr ""
+
+#: Api/Rest/FaxUsers.php:9
+msgid "Read fax user settings"
+msgstr ""
+
+#: bin/fax2mail.php:92
 #, php-format
 msgid "Received & processed: %s"
 msgstr "Đã nhận & đã xử lý: %s"
@@ -497,8 +505,8 @@ msgstr "Kiểu phát hiện fax được sử dụng ( cụ thể SIP hoặc DAH
 msgid "Type of fax detection to use."
 msgstr "Kiểu phát hiện fax được sử dụng."
 
-#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
-#: /usr/src/freepbx/fax/install.php:126
+#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
+#: /dev/shm/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -517,7 +525,7 @@ msgstr ""
 "không có địa chỉ email nào được xác nhận vì vậy chúng sẽ không thể nhận các "
 "fax qua eamail,"
 
-#: bin/fax2mail.php:87
+#: bin/fax2mail.php:94
 msgid "Via"
 msgstr "Thông qua"
 
@@ -545,7 +553,15 @@ msgstr ""
 "Có nên đặt chuông khi đang cố phát hiện fax. Nếu cài đặt là no, chuông sẽ im "
 "lặng"
 
-#: Fax.class.php:506 Fax.class.php:589 /usr/src/freepbx/fax/views/fax.php:28
+#: Api/Rest/Fax.php:12
+msgid "Write fax settings"
+msgstr ""
+
+#: Api/Rest/FaxUsers.php:12
+msgid "Write fax user settings"
+msgstr ""
+
+#: Fax.class.php:506 Fax.class.php:589 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Có"

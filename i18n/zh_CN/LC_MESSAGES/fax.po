@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 12:47-0400\n"
+"POT-Creation-Date: 2018-09-04 23:23-0400\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "检测传真"
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "拨系统传真"
 
@@ -154,11 +154,11 @@ msgstr "允许这个用户接收传真"
 msgid "Enabled"
 msgstr "启用"
 
-#: bin/fax2mail.php:82
+#: bin/fax2mail.php:89
 msgid "Enclosed, please find a new fax"
 msgstr ""
 
-#: bin/fax2mail.php:80
+#: bin/fax2mail.php:87
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
@@ -177,7 +177,7 @@ msgstr ""
 msgid "Fax"
 msgstr "传真"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "传真设置"
 
@@ -234,7 +234,7 @@ msgstr "传真用户 %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 
-#: bin/fax2mail.php:89
+#: bin/fax2mail.php:96
 msgid "For"
 msgstr ""
 
@@ -276,7 +276,7 @@ msgid ""
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
 
-#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr ""
 
@@ -340,16 +340,16 @@ msgstr ""
 msgid "NVFax"
 msgstr ""
 
-#: bin/fax2mail.php:57
+#: bin/fax2mail.php:64
 #, php-format
 msgid "New fax from: %s"
 msgstr ""
 
-#: bin/fax2mail.php:59
+#: bin/fax2mail.php:66
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:507 Fax.class.php:591 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:507 Fax.class.php:591 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "否"
@@ -370,7 +370,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:93
 msgid "On"
 msgstr ""
 
@@ -378,7 +378,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:54
+#: bin/fax2mail.php:61
 msgid "Outgoing fax results"
 msgstr ""
 
@@ -386,7 +386,15 @@ msgstr ""
 msgid "PDF"
 msgstr ""
 
-#: bin/fax2mail.php:85
+#: Api/Rest/Fax.php:9
+msgid "Read fax settings"
+msgstr ""
+
+#: Api/Rest/FaxUsers.php:9
+msgid "Read fax user settings"
+msgstr ""
+
+#: bin/fax2mail.php:92
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
@@ -447,8 +455,8 @@ msgstr ""
 msgid "Type of fax detection to use."
 msgstr "被使用的传真检测格式"
 
-#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
-#: /usr/src/freepbx/fax/install.php:126
+#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
+#: /dev/shm/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -462,7 +470,7 @@ msgid ""
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:87
+#: bin/fax2mail.php:94
 msgid "Via"
 msgstr ""
 
@@ -484,7 +492,15 @@ msgid ""
 "heard"
 msgstr ""
 
-#: Fax.class.php:506 Fax.class.php:589 /usr/src/freepbx/fax/views/fax.php:28
+#: Api/Rest/Fax.php:12
+msgid "Write fax settings"
+msgstr ""
+
+#: Api/Rest/FaxUsers.php:12
+msgid "Write fax user settings"
+msgstr ""
+
+#: Fax.class.php:506 Fax.class.php:589 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "是"
