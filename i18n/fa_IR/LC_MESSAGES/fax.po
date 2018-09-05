@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 18:26-0400\n"
+"POT-Creation-Date: 2018-09-04 23:22-0400\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -185,11 +185,11 @@ msgstr "دریافت دورنگار را برای کاربر فعال کن"
 msgid "Enabled"
 msgstr "فعال"
 
-#: bin/fax2mail.php:82
+#: bin/fax2mail.php:89
 msgid "Enclosed, please find a new fax"
 msgstr "محصور, یک دورنگار جدید پیدا کنید"
 
-#: bin/fax2mail.php:80
+#: bin/fax2mail.php:87
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "محصور, لطفا یک دورنگار جدید پیدا کنید از：%s"
@@ -269,7 +269,7 @@ msgstr "دورنگار کاربر %s"
 msgid "Finished Migrating fax users to usermanager"
 msgstr "اتمام انتقال دورنگار کاربران به مدیریت کاربر"
 
-#: bin/fax2mail.php:89
+#: bin/fax2mail.php:96
 msgid "For"
 msgstr "برای"
 
@@ -409,12 +409,12 @@ msgstr ""
 msgid "NVFax"
 msgstr "فکس NV"
 
-#: bin/fax2mail.php:57
+#: bin/fax2mail.php:64
 #, php-format
 msgid "New fax from: %s"
 msgstr "دورنگار جدید از:%s"
 
-#: bin/fax2mail.php:59
+#: bin/fax2mail.php:66
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
@@ -448,7 +448,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:93
 msgid "On"
 msgstr "روشن"
 
@@ -456,7 +456,7 @@ msgstr "روشن"
 msgid "Outgoing Email address"
 msgstr "آدرس ایمیل ارسال فکس"
 
-#: bin/fax2mail.php:54
+#: bin/fax2mail.php:61
 msgid "Outgoing fax results"
 msgstr "نتایج فکس ارسالی"
 
@@ -464,7 +464,7 @@ msgstr "نتایج فکس ارسالی"
 msgid "PDF"
 msgstr "PDF"
 
-#: bin/fax2mail.php:85
+#: bin/fax2mail.php:92
 #, php-format
 msgid "Received & processed: %s"
 msgstr "رسیده و پردازش شده: %s"
@@ -583,7 +583,7 @@ msgstr ""
 "در مدیریت کاربران کاربران '%s' میتوانند فکسها را دریافت کنند اما آدرس ایمیلی "
 "برایشان تعریف نشده بنا بر این آنها نمیتوانند فکس را در ایمیلشان داشته باشند،"
 
-#: bin/fax2mail.php:87
+#: bin/fax2mail.php:94
 msgid "Via"
 msgstr "با"
 

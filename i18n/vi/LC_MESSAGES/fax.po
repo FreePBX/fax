@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 18:26-0400\n"
+"POT-Creation-Date: 2018-09-04 23:22-0400\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -186,11 +186,11 @@ msgstr "Bật người dùng này để họ có thể nhận các fax"
 msgid "Enabled"
 msgstr "Đã bật"
 
-#: bin/fax2mail.php:82
+#: bin/fax2mail.php:89
 msgid "Enclosed, please find a new fax"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới"
 
-#: bin/fax2mail.php:80
+#: bin/fax2mail.php:87
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới từ: %s"
@@ -269,7 +269,7 @@ msgid "Finished Migrating fax users to usermanager"
 msgstr ""
 "Đã hoàn thành việc di chuyển người dùng fax đến trình quản lý người dùng"
 
-#: bin/fax2mail.php:89
+#: bin/fax2mail.php:96
 msgid "For"
 msgstr "Cho"
 
@@ -415,12 +415,12 @@ msgstr ""
 msgid "NVFax"
 msgstr "Chức năng phụ NVFax"
 
-#: bin/fax2mail.php:57
+#: bin/fax2mail.php:64
 #, php-format
 msgid "New fax from: %s"
 msgstr "Fax mới từ: %s"
 
-#: bin/fax2mail.php:59
+#: bin/fax2mail.php:66
 msgid "New fax received"
 msgstr "Nhận được fax mới"
 
@@ -454,7 +454,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:86
+#: bin/fax2mail.php:93
 msgid "On"
 msgstr "Trên"
 
@@ -462,7 +462,7 @@ msgstr "Trên"
 msgid "Outgoing Email address"
 msgstr "Địa chỉ email gửi đi"
 
-#: bin/fax2mail.php:54
+#: bin/fax2mail.php:61
 msgid "Outgoing fax results"
 msgstr "Các kết quả fax gửi đi"
 
@@ -470,7 +470,7 @@ msgstr "Các kết quả fax gửi đi"
 msgid "PDF"
 msgstr "Định dạng PDF"
 
-#: bin/fax2mail.php:85
+#: bin/fax2mail.php:92
 #, php-format
 msgid "Received & processed: %s"
 msgstr "Đã nhận & đã xử lý: %s"
@@ -598,7 +598,7 @@ msgstr ""
 "không có địa chỉ email nào được xác nhận vì vậy chúng sẽ không thể nhận các "
 "fax qua eamail,"
 
-#: bin/fax2mail.php:87
+#: bin/fax2mail.php:94
 msgid "Via"
 msgstr "Thông qua"
 
