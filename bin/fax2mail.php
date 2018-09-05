@@ -37,6 +37,13 @@ if (empty($var['sendto'])) {
 }
 
 $var['attachformat'] = !empty($var['attachformat']) ? $var['attachformat'] : 'none';
+
+//Condition for "Dial System Fax" feature code
+if(empty($var['user']))
+{
+	$var['attachformat'] = 'pdf';
+}
+
 //double check some of the options
 foreach ($var as $k => $v) {
 	if (!is_string($k)) {
