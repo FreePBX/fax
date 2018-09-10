@@ -51,7 +51,7 @@
 	<database>
 	  <table name="fax_details">
 	    <field name="key" type="string" length="50" notnull="false"/>
-	    <field name="value" type="string" length="510" notnull="false"/>
+	    <field name="value" type="string" length="710" notnull="false"/>
 	    <key name="key" type="unique">
 	      <column name="key"/>
 	    </key>
