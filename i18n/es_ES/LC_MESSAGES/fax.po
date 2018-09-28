@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 23:22-0400\n"
+"POT-Creation-Date: 2018-09-28 15:46-0400\n"
 "PO-Revision-Date: 2018-07-18 19:14+0000\n"
 "Last-Translator: Elvita Crespo <ecrespo@sangoma.com>\n"
 "Language-Team: Spanish <http://*/projects/freepbx/fax/es/>\n"
@@ -124,7 +124,7 @@ msgstr "Tamaño de papel por defecto"
 msgid "Detect Faxes"
 msgstr "Detección de Faxes"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Marcación Sistema FAX"
 
@@ -208,11 +208,11 @@ msgstr ""
 "Modo de Corrección de Errores (ECM) se utiliza para especificar si ↵\n"
 " →→→ usar el modo ECM o no."
 
-#: Fax.class.php:90 /dev/shm/freepbx/fax/Fax.class.php:108 Fax.class.php:653
+#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:653
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Configuracion de Fax"
 
@@ -324,7 +324,7 @@ msgstr ""
 "'destinatarios de fax' para que apunten a los usuarios del Administrador de "
 "usuarios. Usted puede ver los destinos rotos hasta que esto se resuelva"
 
-#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "heredado"
 
@@ -419,7 +419,7 @@ msgstr "Nuevo fax de: %s"
 msgid "New fax received"
 msgstr "Nuevo fax recibido"
 
-#: Fax.class.php:452 Fax.class.php:536 /dev/shm/freepbx/fax/views/fax.php:29
+#: Fax.class.php:452 Fax.class.php:536 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "No"
@@ -561,8 +561,8 @@ msgstr "Tipo de detección de fax a usar (ej. SIP o DAHDI)"
 msgid "Type of fax detection to use."
 msgstr "Tipo de detección de fax a utilizar."
 
-#: install.php:310 /dev/shm/freepbx/fax/install.php:317 install.php:337
-#: /dev/shm/freepbx/fax/install.php:347
+#: install.php:310 /usr/src/freepbx/fax/install.php:317 install.php:337
+#: /usr/src/freepbx/fax/install.php:347
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -617,7 +617,7 @@ msgid ""
 msgstr ""
 "Si desea sonar mientras intenta detectar el fax. Si no se escucha silencio"
 
-#: Fax.class.php:451 Fax.class.php:534 /dev/shm/freepbx/fax/views/fax.php:28
+#: Fax.class.php:451 Fax.class.php:534 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Si"
@@ -660,11 +660,11 @@ msgstr "todas las migraciones han sido realizadas"
 msgid "already done"
 msgstr "todo realizado"
 
-#: install.php:243 /dev/shm/freepbx/fax/install.php:244
+#: install.php:243 /usr/src/freepbx/fax/install.php:244
 msgid "blank"
 msgstr "en blanco"
 
-#: install.php:67 /dev/shm/freepbx/fax/install.php:74
+#: install.php:67 /usr/src/freepbx/fax/install.php:74
 msgid "done"
 msgstr "hecho"
 
@@ -672,7 +672,7 @@ msgstr "hecho"
 msgid "duplicate, removing old from core.."
 msgstr "duplicado, eliminando obsoleto desde nucleo.."
 
-#: install.php:150 /dev/shm/freepbx/fax/install.php:232
+#: install.php:150 /usr/src/freepbx/fax/install.php:232
 msgid "failed"
 msgstr "fallido"
 
@@ -692,7 +692,7 @@ msgstr "no es necesario"
 msgid "not present"
 msgstr "no presente"
 
-#: install.php:61 /dev/shm/freepbx/fax/install.php:224 install.php:234
+#: install.php:61 /usr/src/freepbx/fax/install.php:224 install.php:234
 msgid "removed"
 msgstr "eliminado"
 
@@ -700,7 +700,7 @@ msgstr "eliminado"
 msgid "starting migration"
 msgstr "iniciando migracion"
 
-#: install.php:59 /dev/shm/freepbx/fax/install.php:64
+#: install.php:59 /usr/src/freepbx/fax/install.php:64
 msgid "unknown error"
 msgstr "error desconocido"
 
