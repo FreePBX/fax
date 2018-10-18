@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-28 15:46-0400\n"
-"PO-Revision-Date: 2018-10-17 15:00+0000\n"
+"PO-Revision-Date: 2018-10-19 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
 "Language: de_DE\n"
@@ -38,12 +38,14 @@ msgstr ""
 #: install.php:247
 #, php-format
 msgid "%s FAX Migrations Failed"
-msgstr ""
+msgstr "%s Fax-Migrationen sind fehlgeschlagen"
 
 #: install.php:248
 #, php-format
 msgid "%s FAX Migrations Failed, check notification panel for details"
 msgstr ""
+"%s Fax-Migrationen sind fehlgeschlagen, auf dem Benachrichtigungstableau "
+"finden Sie Details"
 
 #: views/form.php:223
 msgid "A4"
@@ -88,11 +90,11 @@ msgstr "Beide"
 
 #: install.php:238
 msgid "Checking for failed migrations.."
-msgstr ""
+msgstr "Prüfe auf fehlgeschlagene Migrationen.."
 
 #: install.php:116
 msgid "Checking if legacy fax needs migrating.."
-msgstr ""
+msgstr "Pürfen, ob ein altes Fax migriert werden muss.."
 
 #: Fax.class.php:421 Fax.class.php:503
 msgid "Dahdi"
@@ -222,7 +224,7 @@ msgstr "Fax E-Mail-Ziel"
 
 #: Fax.class.php:666 Fax.class.php:667
 msgid "Fax Enabled"
-msgstr ""
+msgstr "Fax aktiviert"
 
 #: page.fax.php:9
 msgid "Fax Options"
@@ -230,7 +232,7 @@ msgstr "Faxoptionen"
 
 #: Fax.class.php:529
 msgid "Fax Ring"
-msgstr ""
+msgstr "Faxklingeln"
 
 #: page.fax.php:11
 msgid "Fax drivers supported by this module are:"
@@ -251,7 +253,7 @@ msgstr "Migration von Faxbenutzern in die Benutzerverwaltung abgeschlossen"
 
 #: bin/fax2mail.php:96
 msgid "For"
-msgstr ""
+msgstr "Für"
 
 #: views/fax.php:72
 msgid "Formats to convert incoming fax files to before emailing."
@@ -303,7 +305,7 @@ msgstr ""
 
 #: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
 msgid "Inherit"
-msgstr "Übernehmen"
+msgstr "Erben"
 
 #: functions.inc.php:363
 msgid "Invalid Email for Inbound Fax"
@@ -311,7 +313,7 @@ msgstr "Ungültige E-Mail-Adresse für eingehendes Fax"
 
 #: Fax.class.php:454
 msgid "Legacy"
-msgstr ""
+msgstr "Alt"
 
 #: Fax.class.php:434
 msgid ""
@@ -322,7 +324,7 @@ msgstr ""
 
 #: views/form.php:221
 msgid "Letter"
-msgstr "Brief"
+msgstr "Letter"
 
 #: views/form.php:172
 msgid "Maximum transfer rate"
@@ -399,12 +401,14 @@ msgstr "Nein"
 
 #: install.php:254
 msgid "No Inbound Routes to migrate"
-msgstr ""
+msgstr "Es sind keine eingehenden Routen zu migrieren"
 
 #: Fax.class.php:439
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
+"Es wurde keine Faxerkennungsmethode erkannt oder es liegt keine gültige "
+"Lizenz vor. Das Faxen kann nicht aktiviert werden."
 
 #: Fax.class.php:431
 msgid ""
@@ -412,14 +416,18 @@ msgid ""
 "destination set in the 'General' tab. Use this option if this DID is used "
 "exclusively for voice OR fax."
 msgstr ""
+"Nein: Es wird nicht versucht, den Anruftyp automatisch zu bestimmen; alle "
+"Anrufe werden zu dem Ziel geleitet, das uner „Allgemein“ eingestellt ist. "
+"Verwenden Sie diese Option, wenn diese Durchwahl ausschließlich für Sprache "
+"ODER Fax verwendet wird."
 
 #: views/fax.php:60
 msgid "None"
-msgstr ""
+msgstr "Kein*e"
 
 #: bin/fax2mail.php:93
 msgid "On"
-msgstr ""
+msgstr "An"
 
 #: views/form.php:105
 msgid "Outgoing Email address"
@@ -427,7 +435,7 @@ msgstr "Ausgehende E-Mail-Adresse"
 
 #: bin/fax2mail.php:61
 msgid "Outgoing fax results"
-msgstr ""
+msgstr "Ausgehende Faxergebnisse"
 
 #: views/fax.php:61
 msgid "PDF"
@@ -436,7 +444,7 @@ msgstr "PDF"
 #: bin/fax2mail.php:92
 #, php-format
 msgid "Received & processed: %s"
-msgstr ""
+msgstr "Erhalten und verarbeitet: %s"
 
 #: install.php:218
 #, php-format
@@ -461,6 +469,9 @@ msgid ""
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
 msgstr ""
+"Wählen Sie die Standarpapiergröße.<br />Dies gibt die Größe an, die "
+"verwendet werden soll, wenn das Dokument keine Papiergröße vorgibt.<br />"
+"Wenn das Dokument eine Größe vorgibt, so wird diese verwendet."
 
 #: fax.i18n.php:6
 msgid "Settings"
