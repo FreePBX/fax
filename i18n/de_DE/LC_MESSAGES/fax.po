@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-28 15:46-0400\n"
-"PO-Revision-Date: 2018-10-19 15:00+0000\n"
+"PO-Revision-Date: 2018-11-10 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
 "Language: de_DE\n"
@@ -63,6 +63,17 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
+"E-Mail-Adresse, an die Faxe bei Faxerkennung gesendet werden.<br />BITTE "
+"BEACHTEN SIE: In dieser Version von FreePBX können Sie das Fax-Ziel aus "
+"einer Zielliste auswählen. Sie können Faxempfang für Nebenstellen/Benutzer*"
+"innen aktiviertwerden auf der jeweiligen Konfigrationsseite aktivieren und "
+"eine E-Mail-Adresse angeben. Dadurch wird ein neues Ziel erzeugt, das dann "
+"ausgwählt werden kann. Um diese Option auf die vollständige Zielliste "
+"umzustellen, wählen Sie „Ja“ um Faxe zu erkennen und wählen Sie dann ein "
+"Ziel. Nachdem Sie auf „Absenden“ klicken, wird diese Route aktualisiert. "
+"Diese Alt-Option wird nach der Änderung nicht mehr zur Verfügung stehen, sie "
+"wird lediglich vorgehalten, um Migrationen von älteren FreePBX-Versionen zu "
+"ermöglichen."
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
@@ -70,7 +81,7 @@ msgstr "Fügt Konfigurationen, Optionen und GUI für eingehendes Faxen hinzu"
 
 #: views/form.php:27
 msgid "Always Generate Detection Code"
-msgstr ""
+msgstr "Erkennungs-Code immer erzeugen"
 
 #: views/fax.php:52
 msgid "Attachment Format"
@@ -82,7 +93,7 @@ msgstr "Versuchen, auf dieser Durchwahl Faxe zu erkennen."
 
 #: install.php:304
 msgid "Auto generated migrated user for Fax"
-msgstr ""
+msgstr "Automatisch erzeugter, migrierter Benutzer für Fax"
 
 #: views/fax.php:63
 msgid "Both"
@@ -126,6 +137,10 @@ msgid ""
 "generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
 "spandsp based app_fax (res_fax_spandsp.so) to function."
 msgstr ""
+"FEHLER: Keine FAX-Module gefunden!<br />Es wird <b>KEIN</b> Fax-spezifischer "
+"Wählplan erzeugt.<br />Damit dieses Modul funktioniert, ist „Fax for "
+"Asterisk“ (res_fax_digium.so) oder die <i>spandsp</i>-basierte <i>app_fax</i>"
+" (res_fax_spandsp.so) erforderlich."
 
 #: Fax.class.php:81
 msgid ""
@@ -148,6 +163,8 @@ msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
+"E-Mail-Adresse, von der Faxe zu kommen scheinen, falls „System-Standard“ als "
+"Standard-Faxnebenstelle gewählt wurde."
 
 #: views/form.php:138
 msgid ""
@@ -212,7 +229,7 @@ msgstr "Faxerkennungszeit"
 
 #: Fax.class.php:674
 msgid "Fax Detection Wait"
-msgstr ""
+msgstr "Wartedauer für Faxerkennung"
 
 #: Fax.class.php:498
 msgid "Fax Detection type"
@@ -360,6 +377,8 @@ msgstr "Migriere alle Faxbenutzer in die Benutzerverwaltung"
 msgid ""
 "Migrating faxemail field in the fax_users table to allow longer emails..."
 msgstr ""
+"Migriere das Feld <i>faxemail</i> in der Tabelle <i>fax_users</i>, um "
+"längere E-Mail-Adressen zu ermöglichen..."
 
 #: views/form.php:194
 msgid "Minimum transfer rate"
@@ -482,6 +501,8 @@ msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
+"SIP: SIP-Faxerkennung (t38) verwenden. Erfordert Asterisk 1.6.2 oder neuer "
+"und „faxdetect=yes“ in der SIP-Konfiguration"
 
 #: page.fax.php:14
 msgid "Spandsp based app_fax (res_fax_spandsp.so)"
