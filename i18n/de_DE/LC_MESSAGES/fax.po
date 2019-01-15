@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-28 15:46-0400\n"
+"POT-Creation-Date: 2019-01-15 15:14-0500\n"
 "PO-Revision-Date: 2018-11-10 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
@@ -65,15 +65,15 @@ msgid ""
 msgstr ""
 "E-Mail-Adresse, an die Faxe bei Faxerkennung gesendet werden.<br />BITTE "
 "BEACHTEN SIE: In dieser Version von FreePBX können Sie das Fax-Ziel aus "
-"einer Zielliste auswählen. Sie können Faxempfang für Nebenstellen/Benutzer*"
-"innen aktiviertwerden auf der jeweiligen Konfigrationsseite aktivieren und "
-"eine E-Mail-Adresse angeben. Dadurch wird ein neues Ziel erzeugt, das dann "
-"ausgwählt werden kann. Um diese Option auf die vollständige Zielliste "
-"umzustellen, wählen Sie „Ja“ um Faxe zu erkennen und wählen Sie dann ein "
-"Ziel. Nachdem Sie auf „Absenden“ klicken, wird diese Route aktualisiert. "
-"Diese Alt-Option wird nach der Änderung nicht mehr zur Verfügung stehen, sie "
-"wird lediglich vorgehalten, um Migrationen von älteren FreePBX-Versionen zu "
-"ermöglichen."
+"einer Zielliste auswählen. Sie können Faxempfang für Nebenstellen/"
+"Benutzer*innen aktiviertwerden auf der jeweiligen Konfigrationsseite "
+"aktivieren und eine E-Mail-Adresse angeben. Dadurch wird ein neues Ziel "
+"erzeugt, das dann ausgwählt werden kann. Um diese Option auf die "
+"vollständige Zielliste umzustellen, wählen Sie „Ja“ um Faxe zu erkennen und "
+"wählen Sie dann ein Ziel. Nachdem Sie auf „Absenden“ klicken, wird diese "
+"Route aktualisiert. Diese Alt-Option wird nach der Änderung nicht mehr zur "
+"Verfügung stehen, sie wird lediglich vorgehalten, um Migrationen von älteren "
+"FreePBX-Versionen zu ermöglichen."
 
 #: fax.i18n.php:8
 msgid "Adds configurations, options and GUI for inbound faxing"
@@ -127,7 +127,7 @@ msgstr "Standard Papiergröße"
 msgid "Detect Faxes"
 msgstr "Fax erkennen"
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr ""
 
@@ -139,8 +139,8 @@ msgid ""
 msgstr ""
 "FEHLER: Keine FAX-Module gefunden!<br />Es wird <b>KEIN</b> Fax-spezifischer "
 "Wählplan erzeugt.<br />Damit dieses Modul funktioniert, ist „Fax for "
-"Asterisk“ (res_fax_digium.so) oder die <i>spandsp</i>-basierte <i>app_fax</i>"
-" (res_fax_spandsp.so) erforderlich."
+"Asterisk“ (res_fax_digium.so) oder die <i>spandsp</i>-basierte <i>app_fax</"
+"i> (res_fax_spandsp.so) erforderlich."
 
 #: Fax.class.php:81
 msgid ""
@@ -207,11 +207,11 @@ msgstr ""
 "Die Fehlerkorrekturmodus-Option (ECM) legt fest, ob der ECM-Modus genutzt "
 "wird oder nicht."
 
-#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:653
+#: Fax.class.php:90 /dev/shm/freepbx/fax/Fax.class.php:108 Fax.class.php:653
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Faxkonfiguration"
 
@@ -320,11 +320,11 @@ msgstr ""
 "der Benutzerverwaltung umstellen. Bis dies behoben ist, bekommen Sie "
 "möglicherweise defekte Ziele angezeigt"
 
-#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "Erben"
 
-#: functions.inc.php:363
+#: functions.inc.php:367
 msgid "Invalid Email for Inbound Fax"
 msgstr "Ungültige E-Mail-Adresse für eingehendes Fax"
 
@@ -413,7 +413,7 @@ msgstr "Neues Fax von: %s"
 msgid "New fax received"
 msgstr "Neues Fax erhalten"
 
-#: Fax.class.php:452 Fax.class.php:536 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:452 Fax.class.php:536 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Nein"
@@ -489,8 +489,8 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 "Wählen Sie die Standarpapiergröße.<br />Dies gibt die Größe an, die "
-"verwendet werden soll, wenn das Dokument keine Papiergröße vorgibt.<br />"
-"Wenn das Dokument eine Größe vorgibt, so wird diese verwendet."
+"verwendet werden soll, wenn das Dokument keine Papiergröße vorgibt.<br /"
+">Wenn das Dokument eine Größe vorgibt, so wird diese verwendet."
 
 #: fax.i18n.php:6
 msgid "Settings"
@@ -547,8 +547,8 @@ msgstr ""
 msgid "Type of fax detection to use."
 msgstr ""
 
-#: install.php:310 /usr/src/freepbx/fax/install.php:317 install.php:337
-#: /usr/src/freepbx/fax/install.php:347
+#: install.php:310 /dev/shm/freepbx/fax/install.php:317 install.php:337
+#: /dev/shm/freepbx/fax/install.php:347
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -559,7 +559,7 @@ msgstr ""
 msgid "Updating simu_fax in miscdest table.."
 msgstr ""
 
-#: functions.inc.php:363
+#: functions.inc.php:367
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -592,7 +592,7 @@ msgid ""
 "heard"
 msgstr ""
 
-#: Fax.class.php:451 Fax.class.php:534 /usr/src/freepbx/fax/views/fax.php:28
+#: Fax.class.php:451 Fax.class.php:534 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Ja"
@@ -632,11 +632,11 @@ msgstr ""
 msgid "already done"
 msgstr "bereits erledigt"
 
-#: install.php:243 /usr/src/freepbx/fax/install.php:244
+#: install.php:243 /dev/shm/freepbx/fax/install.php:244
 msgid "blank"
 msgstr "leer"
 
-#: install.php:67 /usr/src/freepbx/fax/install.php:74
+#: install.php:67 /dev/shm/freepbx/fax/install.php:74
 msgid "done"
 msgstr "erledigt"
 
@@ -644,7 +644,7 @@ msgstr "erledigt"
 msgid "duplicate, removing old from core.."
 msgstr ""
 
-#: install.php:150 /usr/src/freepbx/fax/install.php:232
+#: install.php:150 /dev/shm/freepbx/fax/install.php:232
 msgid "failed"
 msgstr "fehlgeschlagen"
 
@@ -664,7 +664,7 @@ msgstr "nicht benötigt"
 msgid "not present"
 msgstr "nicht vorhanden"
 
-#: install.php:61 /usr/src/freepbx/fax/install.php:224 install.php:234
+#: install.php:61 /dev/shm/freepbx/fax/install.php:224 install.php:234
 msgid "removed"
 msgstr "entfernt"
 
@@ -672,7 +672,7 @@ msgstr "entfernt"
 msgid "starting migration"
 msgstr "starte Migration"
 
-#: install.php:59 /usr/src/freepbx/fax/install.php:64
+#: install.php:59 /dev/shm/freepbx/fax/install.php:64
 msgid "unknown error"
 msgstr "Unbekannter Fehler"
 
