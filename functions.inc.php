@@ -251,6 +251,10 @@ function fax_get_config($engine){
 			}
 			break;
 		case 'res_fax':
+			$localstationid = sql('SELECT value FROM fax_details WHERE `key` = \'localstationid\'','getRow');
+			if(!empty($localstationid[0])) {
+				$ext->add($context, $exten, '', new ext_set('FAXOPT(localstationid)', $localstationid[0]));
+			}
 			$ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //receive fax, then email it on
 			if ($fax['ffa']) {
 				$ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS}"="" | "${FAXSTATUS}" = "FAILED" & "${FAXERROR}" = "INIT_ERROR"]','Set','FAXSTATUS=FAILED LICENSE MAY BE EXCEEDED check log errors'));
