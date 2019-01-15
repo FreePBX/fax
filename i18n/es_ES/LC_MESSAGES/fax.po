@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 22:44-0400\n"
+"POT-Creation-Date: 2019-01-15 15:14-0500\n"
 "PO-Revision-Date: 2018-07-18 19:14+0000\n"
 "Last-Translator: Elvita Crespo <ecrespo@sangoma.com>\n"
 "Language-Team: Spanish <http://*/projects/freepbx/fax/es/>\n"
@@ -106,7 +106,7 @@ msgstr "Tamaño de papel por defecto"
 msgid "Detect Faxes"
 msgstr "Detección de Faxes"
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Marcación Sistema FAX"
 
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Configuracion de Fax"
 
@@ -306,11 +306,11 @@ msgstr ""
 "'destinatarios de fax' para que apunten a los usuarios del Administrador de "
 "usuarios. Usted puede ver los destinos rotos hasta que esto se resuelva"
 
-#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "heredado"
 
-#: functions.inc.php:283
+#: functions.inc.php:287
 msgid "Invalid Email for Inbound Fax"
 msgstr "Correo Invalido para Fax entrante"
 
@@ -390,7 +390,7 @@ msgstr "Nuevo fax de: %s"
 msgid "New fax received"
 msgstr "Nuevo fax recibido"
 
-#: Fax.class.php:507 Fax.class.php:591 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:507 Fax.class.php:591 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "No"
@@ -511,8 +511,8 @@ msgstr "Tipo de detección de fax a usar (ej. SIP o DAHDI)"
 msgid "Type of fax detection to use."
 msgstr "Tipo de detección de fax a utilizar."
 
-#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
-#: /usr/src/freepbx/fax/install.php:126
+#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
+#: /dev/shm/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -521,7 +521,7 @@ msgstr ""
 "No se puede migrar %s, debido a [%s]. Por favor chequee los destinos de "
 "'Receptores de Fax'"
 
-#: functions.inc.php:283
+#: functions.inc.php:287
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -566,7 +566,7 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:506 Fax.class.php:589 /usr/src/freepbx/fax/views/fax.php:28
+#: Fax.class.php:506 Fax.class.php:589 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Si"
