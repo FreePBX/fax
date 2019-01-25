@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-15 15:14-0500\n"
-"PO-Revision-Date: 2016-08-26 03:04+0200\n"
-"Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"fax/fa_IR/>\n"
+"PO-Revision-Date: 2019-01-25 11:49+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/fax/fa/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: Fax.class.php:486
 msgid ""
@@ -353,7 +352,7 @@ msgstr "بیشترین امتیاز انتقال"
 
 #: assets/js/fax.js:19
 msgid "Maximum transfer rate can not be less than Minimum transfer rate"
-msgstr ""
+msgstr "حداکثر نرخ انتقال نمی تواند کمتر از حداقل نرخ انتقال باشد"
 
 #: views/form.php:184
 msgid "Maximum transfer rate used during fax rate negotiation."
@@ -438,7 +437,7 @@ msgstr ""
 
 #: views/fax.php:60
 msgid "None"
-msgstr ""
+msgstr "هیچکدام"
 
 #: bin/fax2mail.php:93
 msgid "On"
@@ -537,6 +536,9 @@ msgid ""
 "com>'. The second option will display 'Fax User' in the 'From' field in most "
 "email clients."
 msgstr ""
+"This may be formatted as just 'user@example.com', or 'Fax User "
+"<user@example.com>'. The second option will display 'Fax User' in the 'From' "
+"field in most email clients."
 
 #: Fax.class.php:671
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
