@@ -6,21 +6,6 @@ class Restore Extends Base\RestoreBase{
 		$configs = $this->getConfigs();
 		$this->processConfigs($configs);
 	}
-	public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir)
-	{
-		$tables = array_flip($tables + $unknownTables);
-		if (!isset($tables['fax_details'])) {
-			return $this;
-		}
-		$cb = $this->FreePBX->Fax;
-		$cb->setDatabase($pdo);
-		$configs = [
-			'incoming' => $cb->getIncoming(),
-			'users' => $cb->listUsers(),
-		];
-		$this->processConfigs($configs);
-		return $this;
-	}
 
 	public function processConfigs($configs){
 		foreach ($configs['users'] as $user) {
@@ -29,5 +14,11 @@ class Restore Extends Base\RestoreBase{
 		foreach ($configs['incoming'] as $incoming) {
 			$this->FreePBX->Fax->saveIncoming($incoming['cidnum'], $incoming['extension'], $incoming['enabled'], $incoming['detection'], $incoming['detectionwait'], $incoming['destination'], $incoming['legacy_email'], $incoming['ring']);
 		}
+
+		$this->importKVStore($configs['settings']);
+	}
+
+	public function processLegacy($pdo, $data, $tables, $unknownTables){
+		$this->restoreLegacyDatabaseKvstore($pdo);
 	}
 }
