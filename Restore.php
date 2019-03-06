@@ -16,9 +16,11 @@ class Restore Extends Base\RestoreBase{
 		}
 
 		$this->importKVStore($configs['settings']);
+		$this0>importFeatureCodes($configs['features']);
 	}
 
 	public function processLegacy($pdo, $data, $tables, $unknownTables){
 		$this->restoreLegacyDatabaseKvstore($pdo);
+		$this->restoreLegacyFeatureCodes($pdo);
 	}
 }

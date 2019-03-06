@@ -6,7 +6,8 @@ class Backup Extends Base\BackupBase{
 		$configs = [
 				'incoming' => $this->FreePBX->Fax->getIncoming(),
 				'users' => $this->FreePBX->Fax->listUsers(),
-				'settings' => $this->dumpKVStore()
+				'settings' => $this->dumpKVStore(),
+				'features' => $this->dumpFeatureCodes()
 		];
 		$this->addDependency('userman');
 		$this->addConfigs($configs);
