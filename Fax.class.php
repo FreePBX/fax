@@ -431,7 +431,7 @@ class Fax extends FreePBX_Helpers implements BMO {
 
 
 	public function getActionBar($request) {
-        if($request['display' === 'fax']){
+        if ($request['display'] === 'fax') {
             return array(
                     'submit' => array(
                         'name' => 'submit',
