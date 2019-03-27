@@ -76,7 +76,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 			$error = "";
 			$faxStatus = $this->faxDetect();
 			if(!$faxStatus['module'] || ($faxStatus['module'] && (!$faxStatus['ffa'] && !$faxStatus['spandsp']))){//missing modules
-				$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or spandsp based app_fax (res_fax_spandsp.so) to function.');
+				$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) to function.');
 			}elseif($faxStatus['ffa'] && $faxStatus['license'] < 1){//missing license
 				$error = _('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.');
 			}
@@ -317,9 +317,6 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 				case $this->FreePBX->astman->mod_loaded('res_fax.so'):
 					$fax['module']='res_fax';
 				break;
-				case $this->FreePBX->astman->mod_loaded('app_fax.so'):
-					$fax['module']='app_fax';
-				break;
 				case $this->FreePBX->astman->mod_loaded('app_rxfax.so'):
 					$fax['module']='app_rxfax';
 				break;
@@ -328,7 +325,6 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 				break;
 			}
 
-			$fax['nvfax'] = $this->FreePBX->astman->mod_loaded('app_nv_faxdetect.so');
 			$fax['ffa'] = $this->FreePBX->astman->mod_loaded('res_fax_digium.so');
 
 			if ($fax['ffa']) {
@@ -343,19 +339,6 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 				break;
 				case 'app_rxfax':
 					$fax['receivefax'] = 'rxfax';
-				break;
-				case 'app_fax':
-					switch(true) {
-						case $this->FreePBX->astman->app_exists('receivefax'):
-							$fax['receivefax'] = 'receivefax';
-						break;
-						case $this->FreePBX->astman->app_exists('rxfax'):
-							$fax['receivefax'] = 'rxfax';
-						break;
-						default:
-							$fax['receivefax'] = 'none';
-						break;
-					}
 				break;
 				default:
 					$fax['receivefax'] = 'none';
@@ -435,7 +418,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 				}
 				$fdhelp .= '</ul>';
 						//dont allow detection to be set if we have no valid detection types
-				if(!$fax_dahdi_faxdetect && !$fax_sip_faxdetect && !$fax_detect['nvfax']){
+				if(!$fax_dahdi_faxdetect && !$fax_sip_faxdetect){
 					$js="if ($(this).val() == 'true'){alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
 					$fdinput.='<input type="radio" name="faxenabled" id="faxenabled_yes" value="true"  onclick="'.$js.'"/><label for="faxenabled_yes">Yes</label></span>';
 					$fdinput.='<input type="radio" id="faxenabled_no" name="faxenabled" value="false" CHECKED /><label for="faxenabled_no">No</label>';
@@ -501,8 +484,6 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 									<div class="col-md-9 radioset">
 										<input type="radio" name="faxdetection" id="faxdetectiondahdi" value="dahdi" '. ($fax['detection'] == "dahdi"?"CHECKED":"").' '.($fax_dahdi_faxdetect?'':'disabled').'>
 										<label for="faxdetectiondahdi">'. _("Dahdi").'</label>
-										<input type="radio" name="faxdetection" id="faxdetectionnvfax" value="nvfax" '. ($fax['detection'] == "nvfax"?"CHECKED":"").' '.($fax_detect['nvfax']?'':'disabled').'>
-										<label for="faxdetectionnvfax">'. _("NVFax").'</label>
 										<input type="radio" name="faxdetection" id="faxdetectionsip" value="sip" '. ($fax['detection'] == "sip"?"CHECKED":"").' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>
 										<label for="faxdetectionsip">'. _("SIP").'</label>
 									</div>
