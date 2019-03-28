@@ -123,13 +123,7 @@ function fax_detect($astver=null){
 		if (preg_match('/[1-9] modules loaded/', $app['data'])){
 			$fax['module']='res_fax';
 		}
-		if (!isset($fax['module'])) {
-			$app = $astman->send_request('Command', array('Command' => $module_show_command.'app_rxfax'));
-			$fax['module'] = preg_match('/[1-9] modules loaded/', $app['data']) ? 'app_rxfax': null;
-		}
-		$response = $astman->send_request('Command', array('Command' => $module_show_command.'app_nv_faxdetect'));
 
-		$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_digium'));
 		$fax['ffa']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 
 		if ($fax['ffa']) {
@@ -142,9 +136,6 @@ function fax_detect($astver=null){
 		switch($fax['module']) {
 		case 'res_fax':
 			$fax['receivefax'] = 'receivefax';
-			break;
-		case 'app_rxfax':
-			$fax['receivefax'] = 'rxfax';
 			break;
 		}
 
