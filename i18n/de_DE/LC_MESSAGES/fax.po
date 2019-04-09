@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-15 15:14-0500\n"
-"PO-Revision-Date: 2019-04-05 10:00+0000\n"
+"PO-Revision-Date: 2019-04-10 16:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
 "Language: de_DE\n"
@@ -33,7 +33,7 @@ msgid ""
 "destination to route calls detected as faxes to.\""
 msgstr ""
 "„Sie haben für diese Route die Fax-Erkennung ausgewählt. Bitte wählen Sie "
-"ein gültiges Ziel aus, zu dem erkannte Faxe umgeleitet werden sollen.“"
+"ein gültiges Ziel aus, auf das eingehende Faxe abgeworfen werden können“"
 
 #: install.php:247
 #, php-format
@@ -589,8 +589,8 @@ msgid ""
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 "Der Benutzer %s im Benutzerverwaltungsmodul kann Faxe empfangen, es ist aber "
-"keine Email Adresse hinterlegt, also ist das Senden von Faxen an eine "
-"Mailadresse unmöglich."
+"keine Email Adresse hinterlegt, folglich ist der Faxempfang via Email nicht "
+"möglich,"
 
 #: bin/fax2mail.php:94
 msgid "Via"
