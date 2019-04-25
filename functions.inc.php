@@ -294,7 +294,7 @@ function fax_get_destinations(){
 function fax_get_incoming($extension=null,$cidnum=null){
     FreePBX::Modules()->deprecatedFunction();
     return FreePBX::Fax()->getIncoming($extension, $cidnum);
-	
+
 }
 
 function fax_get_user($faxext = ''){
@@ -321,7 +321,7 @@ function fax_hookGet_config($engine){
 		global $ext;
 		global $engine;
 		$routes=fax_get_incoming();
-		foreach($routes as $current => $route){
+		foreach($routes as $route){
 			if ($route['detection'] == 'nvfax' && !$fax['nvfax']) {
 				//TODO: add notificatoin to notification panel that this was skipped because NVFaxdetec not present
 				continue; // skip this one if there is no NVFaxdetect installed on this system

@@ -14,7 +14,7 @@ class Fax extends FreePBX_Helpers implements BMO {
 		$this->db = $pdo;
 		return $this;
 	}
-	
+
 	public function resetDatabase(){
 		$this->db = $this->FreePBX->Database;
 		return $this;
@@ -314,7 +314,7 @@ class Fax extends FreePBX_Helpers implements BMO {
 		$out = $sth->fetchAll(PDO::FETCH_ASSOC);
 		return (!empty($out[0]) && $out[0]['faxenabled']) ? $out[0] : false;
     }
-    
+
     public function listUsers(){
         return $this->FreePBX->Database->query('SELECT * FROM fax_users')->fetchAll(PDO::FETCH_ASSOC);
 
@@ -384,20 +384,20 @@ class Fax extends FreePBX_Helpers implements BMO {
 		}
 		return $fax;
     }
-    
+
     public function getIncoming($extension=null, $cidnum=null){
         if (null !== $extension || null !== $cidnum) {
             $sql = 'SELECT * FROM fax_incoming WHERE extension = :extension AND cidnum = :cidnum LIMIT 1';
             $stmt = $this->FreePBX->Database->prepare($sql);
             $stmt->execute([':extension' => $extension, ':cidnum' => $cidnum]);
-            $settings = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $settings = $stmt->fetch(PDO::FETCH_ASSOC);
             if (isset($settings['legacy_email']) && 'NULL' == $settings['legacy_email']) {
                 $settings['legacy_email'] = null;
-            }
+			}
             return $settings;
         }
-        
-        $sql = "SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
+
+		$sql = "SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
         return $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -408,11 +408,11 @@ class Fax extends FreePBX_Helpers implements BMO {
         $stmt = $this->FreePBX->Database->prepare($sql);
         $stmt->execute([
             ':cidnum' => $cidnum,
-            ':extension' => $extension, 
-            ':detection' => $detection, 
-            ':detectonwait' => $detectionwait, 
+            ':extension' => $extension,
+            ':detection' => $detection,
+            ':detectonwait' => $detectionwait,
             ':destination' => $destination,
-            ':legacy_email' => $legacy_email, 
+            ':legacy_email' => $legacy_email,
             ':ring' => $ring,
         ]);
         return $this;
@@ -467,7 +467,7 @@ class Fax extends FreePBX_Helpers implements BMO {
 				}
 
 			}
-			$fax=fax_get_incoming($extension,$cidnum);
+			$fax = fax_get_incoming($extension,$cidnum);
 
 			$html=$fdinput='';
 			if($target_menuid == 'did'){
