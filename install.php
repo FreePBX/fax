@@ -153,7 +153,7 @@ if(!DB::IsError($legacy_settings)) {
     out(_("migrated"));
   }
 
-	$detection_type = array(0 => 'dahdi', 1 => 'dahdi', 2 => 'nvfax');
+	$detection_type = array(0 => 'dahdi', 1 => 'dahdi');
 	$non_converts = array();
 
   if (count($legacy_settings)) {

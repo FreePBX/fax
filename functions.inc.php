@@ -122,20 +122,8 @@ function fax_detect($astver=null){
 		$app = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax'));
 		if (preg_match('/[1-9] modules loaded/', $app['data'])){
 			$fax['module']='res_fax';
-		} else {
-			$receive = $astman->send_request('Command', array('Command' => $module_show_command.'app_fax'));
-			if (preg_match('/[1-9] modules loaded/', $receive['data'])) {
-				$fax['module']='app_fax';
-			}
 		}
-		if (!isset($fax['module'])) {
-			$app = $astman->send_request('Command', array('Command' => $module_show_command.'app_rxfax'));
-			$fax['module'] = preg_match('/[1-9] modules loaded/', $app['data']) ? 'app_rxfax': null;
-		}
-		$response = $astman->send_request('Command', array('Command' => $module_show_command.'app_nv_faxdetect'));
-		$fax['nvfax']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 
-		$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_digium'));
 		$fax['ffa']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 
 		if ($fax['ffa']) {
@@ -148,23 +136,6 @@ function fax_detect($astver=null){
 		switch($fax['module']) {
 		case 'res_fax':
 			$fax['receivefax'] = 'receivefax';
-			break;
-		case 'app_rxfax':
-			$fax['receivefax'] = 'rxfax';
-			break;
-		case 'app_fax':
-			$application_show_command = 'core show applications like ';
-			$response = $astman->send_request('Command', array('Command' => $application_show_command.'receivefax'));
-			if (preg_match('/1 Applications Matching/', $response['data'])) {
-				$fax['receivefax'] = 'receivefax';
-			} else {
-				$response = $astman->send_request('Command', array('Command' => $application_show_command.'rxfax'));
-				if (preg_match('/1 Applications Matching/', $response['data'])) {
-					$fax['receivefax'] = 'rxfax';
-				} else {
-					$fax['receivefax'] = 'none';
-				}
-			}
 			break;
 		}
 
@@ -446,10 +417,6 @@ function fax_hookGet_config($engine){
 		global $engine;
 		$routes=fax_get_incoming();
 		foreach($routes as $current => $route){
-			if ($route['detection'] == 'nvfax' && !$fax['nvfax']) {
-				//TODO: add notificatoin to notification panel that this was skipped because NVFaxdetec not present
-				continue; // skip this one if there is no NVFaxdetect installed on this system
-			}
 			if($route['extension']=='' && $route['cidnum']){//callerID only
 				$extension='s/'.$route['cidnum'];
 				$context=($route['pricid']=='CHECKED')?'ext-did-0001':'ext-did-0002';
@@ -485,11 +452,7 @@ function fax_hookGet_config($engine){
 				$ext->splice($context, $extension, 'dest-ext', new ext_playtones('ring'));
 			}
 
-			if ($route['detection'] == 'nvfax') {
-				$ext->splice($context, $extension, 'dest-ext', new ext_nvfaxdetect($route['detectionwait'].",t"));
-			} else {
-				$ext->splice($context, $extension, 'dest-ext', new ext_wait($route['detectionwait']));
-			}
+			$ext->splice($context, $extension, 'dest-ext', new ext_wait($route['detectionwait']));
 		}
 	}
 }
