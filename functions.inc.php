@@ -321,11 +321,7 @@ function fax_hookGet_config($engine){
 		global $ext;
 		global $engine;
 		$routes=fax_get_incoming();
-		foreach($routes as $route){
-			if ($route['detection'] == 'nvfax' && !$fax['nvfax']) {
-				//TODO: add notificatoin to notification panel that this was skipped because NVFaxdetec not present
-				continue; // skip this one if there is no NVFaxdetect installed on this system
-			}
+		foreach($routes as $current => $route){
 			if($route['extension']=='' && $route['cidnum']){//callerID only
 				$extension='s/'.$route['cidnum'];
 				$context=($route['pricid']=='CHECKED')?'ext-did-0001':'ext-did-0002';
@@ -359,11 +355,7 @@ function fax_hookGet_config($engine){
 				$ext->splice($context, $extension, 'dest-ext', new ext_playtones('ring'));
 			}
 
-			if ($route['detection'] == 'nvfax') {
-				$ext->splice($context, $extension, 'dest-ext', new ext_nvfaxdetect($route['detectionwait'].",t"));
-			} else {
-				$ext->splice($context, $extension, 'dest-ext', new ext_wait($route['detectionwait']));
-			}
+			$ext->splice($context, $extension, 'dest-ext', new ext_wait($route['detectionwait']));
 		}
 	}
 }
