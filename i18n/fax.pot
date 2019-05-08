@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-25 13:05-0400\n"
+"POT-Creation-Date: 2019-05-09 03:46+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Fax.class.php:541
+#: Fax.class.php:512
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 
-#: Fax.class.php:483
+#: Fax.class.php:454
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -33,7 +33,7 @@ msgstr ""
 msgid "A4"
 msgstr ""
 
-#: Fax.class.php:634
+#: Fax.class.php:603
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Attachment Format"
 msgstr ""
 
-#: Fax.class.php:484
+#: Fax.class.php:455
 msgid "Attempt to detect faxes on this DID."
 msgstr ""
 
@@ -70,8 +70,8 @@ msgstr ""
 msgid "Both"
 msgstr ""
 
-#: Fax.class.php:476
-#: Fax.class.php:558
+#: Fax.class.php:447
+#: Fax.class.php:529
 msgid "Dahdi"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Default Paper Size"
 msgstr ""
 
-#: Fax.class.php:520
+#: Fax.class.php:491
 msgid "Detect Faxes"
 msgstr ""
 
@@ -98,8 +98,8 @@ msgstr ""
 #: Fax.class.php:94
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
-"generated.<br>This module requires Fax for Asterisk (res_fax_digium.so) or "
-"spandsp based app_fax (res_fax_spandsp.so) to function."
+"generated.<br>This module requires spandsp based app_fax (res_fax_spandsp."
+"so) to function."
 msgstr ""
 
 #: Fax.class.php:96
@@ -161,7 +161,7 @@ msgstr ""
 
 #: Fax.class.php:105
 #: Fax.class.php:122
-#: Fax.class.php:708
+#: Fax.class.php:677
 msgid "Fax"
 msgstr ""
 
@@ -169,33 +169,33 @@ msgstr ""
 msgid "Fax Configuration"
 msgstr ""
 
-#: Fax.class.php:671
-#: Fax.class.php:732
+#: Fax.class.php:640
+#: Fax.class.php:701
 msgid "Fax Destination"
 msgstr ""
 
-#: Fax.class.php:724
+#: Fax.class.php:693
 msgid "Fax Detection"
 msgstr ""
 
-#: Fax.class.php:615
+#: Fax.class.php:584
 msgid "Fax Detection Time"
 msgstr ""
 
-#: Fax.class.php:728
+#: Fax.class.php:697
 msgid "Fax Detection Wait"
 msgstr ""
 
-#: Fax.class.php:553
+#: Fax.class.php:524
 msgid "Fax Detection type"
 msgstr ""
 
-#: Fax.class.php:643
+#: Fax.class.php:612
 msgid "Fax Email Destination"
 msgstr ""
 
-#: Fax.class.php:720
-#: Fax.class.php:721
+#: Fax.class.php:689
+#: Fax.class.php:690
 msgid "Fax Enabled"
 msgstr ""
 
@@ -203,16 +203,8 @@ msgstr ""
 msgid "Fax Options"
 msgstr ""
 
-#: Fax.class.php:584
+#: Fax.class.php:553
 msgid "Fax Ring"
-msgstr ""
-
-#: page.fax.php:11
-msgid "Fax drivers supported by this module are:"
-msgstr ""
-
-#: page.fax.php:13
-msgid "Fax for Asterisk (res_fax_digium.so) with licence"
 msgstr ""
 
 #: functions.inc.php:20
@@ -239,11 +231,11 @@ msgid ""
 "person or entity sending the fax."
 msgstr ""
 
-#: Fax.class.php:729
+#: Fax.class.php:698
 msgid "How long to wait and try to detect fax"
 msgstr ""
 
-#: Fax.class.php:606
+#: Fax.class.php:575
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -274,11 +266,11 @@ msgstr ""
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
-#: Fax.class.php:509
+#: Fax.class.php:480
 msgid "Legacy"
 msgstr ""
 
-#: Fax.class.php:489
+#: Fax.class.php:460
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -320,14 +312,10 @@ msgstr ""
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 
-#: Fax.class.php:543
+#: Fax.class.php:514
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
-msgstr ""
-
-#: Fax.class.php:560
-msgid "NVFax"
 msgstr ""
 
 #: bin/fax2mail.php:64
@@ -339,20 +327,20 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:507
-#: Fax.class.php:591 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:478
+#: Fax.class.php:560 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34
 #: views/form.php:155
 #: views/quickCreate.php:12
 msgid "No"
 msgstr ""
 
-#: Fax.class.php:494
+#: Fax.class.php:465
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 
-#: Fax.class.php:486
+#: Fax.class.php:457
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
@@ -392,11 +380,11 @@ msgstr ""
 msgid "Received & processed: %s"
 msgstr ""
 
-#: Fax.class.php:444
+#: Fax.class.php:415
 msgid "Reset"
 msgstr ""
 
-#: Fax.class.php:562
+#: Fax.class.php:531
 msgid "SIP"
 msgstr ""
 
@@ -411,17 +399,13 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: Fax.class.php:542
+#: Fax.class.php:513
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
-#: page.fax.php:14
-msgid "Spandsp based app_fax (res_fax_spandsp.so)"
-msgstr ""
-
-#: Fax.class.php:439
+#: Fax.class.php:410
 msgid "Submit"
 msgstr ""
 
@@ -440,11 +424,11 @@ msgid ""
 "email clients."
 msgstr ""
 
-#: Fax.class.php:725
+#: Fax.class.php:694
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr ""
 
-#: Fax.class.php:539
+#: Fax.class.php:510
 msgid "Type of fax detection to use."
 msgstr ""
 
@@ -475,12 +459,12 @@ msgid ""
 "to be generated here."
 msgstr ""
 
-#: Fax.class.php:662
-#: Fax.class.php:733
+#: Fax.class.php:631
+#: Fax.class.php:702
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:599
+#: Fax.class.php:568
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -494,15 +478,15 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:506
-#: Fax.class.php:589 /usr/src/freepbx/fax/views/fax.php:28
+#: Fax.class.php:477
+#: Fax.class.php:558 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32
 #: views/form.php:153
 #: views/quickCreate.php:10
 msgid "Yes"
 msgstr ""
 
-#: Fax.class.php:487
+#: Fax.class.php:458
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -521,10 +505,10 @@ msgid ""
 "break faxing"
 msgstr ""
 
-#: Fax.class.php:476
+#: Fax.class.php:447
 msgid "Zaptel"
 msgstr ""
 
-#: Fax.class.php:541
+#: Fax.class.php:512
 msgid "use "
 msgstr ""
