@@ -322,6 +322,7 @@ function fax_hookGet_config($engine){
 		global $engine;
 		$routes=fax_get_incoming();
 		foreach($routes as $current => $route){
+			if(isset($route['legacy_email']) && $route['legacy_email'] === 'NULL') { $route['legacy_email'] = null; }
 			if($route['extension']=='' && $route['cidnum']){//callerID only
 				$extension='s/'.$route['cidnum'];
 				$context=($route['pricid']=='CHECKED')?'ext-did-0001':'ext-did-0002';
