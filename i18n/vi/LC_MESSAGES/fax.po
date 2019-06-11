@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-30 13:53+0530\n"
+"POT-Creation-Date: 2019-06-11 17:09+0530\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -21,13 +21,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Fax.class.php:512
+#: Fax.class.php:516
 msgid ""
 " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
 msgstr ""
 " Phát hiện fax, yêu cầu 'faxdetect=' phải cài đặt là 'incoming' hoặc 'both' "
 
-#: Fax.class.php:454
+#: Fax.class.php:458
 msgid ""
 "\"You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to.\""
@@ -39,7 +39,7 @@ msgstr ""
 msgid "A4"
 msgstr "A4"
 
-#: Fax.class.php:603
+#: Fax.class.php:607
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -73,7 +73,7 @@ msgstr "Luôn luôn khởi tạo mã phát hiện (Detection Code)"
 msgid "Attachment Format"
 msgstr "Định dạng tệp đính kèm"
 
-#: Fax.class.php:455
+#: Fax.class.php:459
 msgid "Attempt to detect faxes on this DID."
 msgstr "Cố xóa các fax trong DID này."
 
@@ -85,7 +85,7 @@ msgstr "Khởi tạo tự động người dùng cho Fax"
 msgid "Both"
 msgstr "Cả hai"
 
-#: Fax.class.php:447 Fax.class.php:529
+#: Fax.class.php:451 Fax.class.php:533
 msgid "Dahdi"
 msgstr "Mô đun Dahdi"
 
@@ -101,7 +101,7 @@ msgstr "Mặc định bộ nhận dạng trạm tại chỗ"
 msgid "Default Paper Size"
 msgstr "Mặc định kích thước trang giấy"
 
-#: Fax.class.php:491
+#: Fax.class.php:495
 msgid "Detect Faxes"
 msgstr "Phát hiện Fax"
 
@@ -184,7 +184,7 @@ msgstr ""
 "Tùy chọn Chế độ sửa lỗi (ECM)  được dùng để xác định có nên sửa dụng chế độ "
 "này hay không."
 
-#: Fax.class.php:105 Fax.class.php:122 Fax.class.php:677
+#: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "Fax"
 
@@ -192,31 +192,31 @@ msgstr "Fax"
 msgid "Fax Configuration"
 msgstr "Cấu hình Fax"
 
-#: Fax.class.php:640 Fax.class.php:701
+#: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
 msgstr "Điểm đích của Fax"
 
-#: Fax.class.php:693
+#: Fax.class.php:697
 msgid "Fax Detection"
 msgstr "Phát hiện Fax"
 
-#: Fax.class.php:584
+#: Fax.class.php:588
 msgid "Fax Detection Time"
 msgstr "Thời gian phát hiện Fax"
 
-#: Fax.class.php:697
+#: Fax.class.php:701
 msgid "Fax Detection Wait"
 msgstr "Đợi phát hiện hiện Fax"
 
-#: Fax.class.php:524
+#: Fax.class.php:528
 msgid "Fax Detection type"
 msgstr "Kiểu phát hiện fax"
 
-#: Fax.class.php:612
+#: Fax.class.php:616
 msgid "Fax Email Destination"
 msgstr "Điểm đích của Email Fax"
 
-#: Fax.class.php:689 Fax.class.php:690
+#: Fax.class.php:693 Fax.class.php:694
 msgid "Fax Enabled"
 msgstr "Fax đã được bật"
 
@@ -224,7 +224,7 @@ msgstr "Fax đã được bật"
 msgid "Fax Options"
 msgstr "Các tùy chọn Fax"
 
-#: Fax.class.php:553
+#: Fax.class.php:557
 msgid "Fax Ring"
 msgstr "Chuông Fax"
 
@@ -255,11 +255,11 @@ msgstr ""
 "Thông tin tiêu đề được chuyển đến phía của truyền tải fax từ xa và được in "
 "tại đầu mỗi trang. Tiêu đề sẽ chứa tên của một người hoặc đối tượng gửi fax."
 
-#: Fax.class.php:698
+#: Fax.class.php:702
 msgid "How long to wait and try to detect fax"
 msgstr "Đợi và cố gắng phát hiện fax trong bao lâu"
 
-#: Fax.class.php:575
+#: Fax.class.php:579
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -297,11 +297,11 @@ msgstr "Kế thừa"
 msgid "Invalid Email for Inbound Fax"
 msgstr "Email không hợp lệ đối với các Fax gửi vào"
 
-#: Fax.class.php:480
+#: Fax.class.php:484
 msgid "Legacy"
 msgstr "Phần mềm Legacy"
 
-#: Fax.class.php:460
+#: Fax.class.php:464
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -351,7 +351,7 @@ msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 "Tốc độ truyền tối thiểu sử dụng trong quá trình thương lượng tốc độ fax."
 
-#: Fax.class.php:514
+#: Fax.class.php:518
 msgid ""
 "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
 "and recognized by asterisk"
@@ -368,19 +368,19 @@ msgstr "Fax mới từ: %s"
 msgid "New fax received"
 msgstr "Nhận được fax mới"
 
-#: Fax.class.php:478 Fax.class.php:560 /dev/shm/freepbx/fax/views/fax.php:29
+#: Fax.class.php:482 Fax.class.php:564 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Không"
 
-#: Fax.class.php:465
+#: Fax.class.php:469
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "Không có phương pháp phát hiện fax nào được tìm thấy hoặc giấy phép không "
 "hợp lệ. Việc chuyển fax không thể kích hoạt được."
 
-#: Fax.class.php:457
+#: Fax.class.php:461
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
@@ -423,11 +423,11 @@ msgstr ""
 msgid "Received & processed: %s"
 msgstr "Đã nhận & đã xử lý: %s"
 
-#: Fax.class.php:415
+#: Fax.class.php:419
 msgid "Reset"
 msgstr "Cài đặt lại"
 
-#: Fax.class.php:531
+#: Fax.class.php:535
 msgid "SIP"
 msgstr "SIP"
 
@@ -445,7 +445,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: Fax.class.php:513
+#: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -453,7 +453,7 @@ msgstr ""
 "Sip: sử dụng phát hiện fax sip (t38). Yêu cầu Asterusk 1.6.2 hoặc cao hơn và "
 "trong các tệp cấu hình sip phải đặt \"faxdetect=yes'"
 
-#: Fax.class.php:410
+#: Fax.class.php:414
 msgid "Submit"
 msgstr "Gửi đi"
 
@@ -477,11 +477,11 @@ msgstr ""
 "<user@example.com>'. Tùy chọn thứ hai sẽ hiển thị 'Fax User' tại trường "
 "'From' trong hầu hết các trình duyệt email."
 
-#: Fax.class.php:694
+#: Fax.class.php:698
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "Kiểu phát hiện fax được sử dụng ( cụ thể SIP hoặc DAHDI)"
 
-#: Fax.class.php:510
+#: Fax.class.php:514
 msgid "Type of fax detection to use."
 msgstr "Kiểu phát hiện fax được sử dụng."
 
@@ -521,11 +521,11 @@ msgstr ""
 "bị FAX vật lý nào, hylafax + iaxmodem, hay các thiết lập fax bên ngoài khác, "
 "sẽ buộc bạn phải khởi tạo kế hoạch quay số ở đây."
 
-#: Fax.class.php:631 Fax.class.php:702
+#: Fax.class.php:635 Fax.class.php:706
 msgid "Where to send the faxes"
 msgstr "Gửi các fax đến đâu"
 
-#: Fax.class.php:568
+#: Fax.class.php:572
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -541,12 +541,12 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:477 Fax.class.php:558 /dev/shm/freepbx/fax/views/fax.php:28
+#: Fax.class.php:481 Fax.class.php:562 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Có"
 
-#: Fax.class.php:458
+#: Fax.class.php:462
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -573,11 +573,11 @@ msgstr ""
 "Tốc độ truyền tối thiểu của bạn được cài đặt là 2400 trong một số trường hợp "
 "nhất định, điều này có thể làm hỏng việc gửi fax"
 
-#: Fax.class.php:447
+#: Fax.class.php:451
 msgid "Zaptel"
 msgstr "Phần mềm Zaptel"
 
-#: Fax.class.php:512
+#: Fax.class.php:516
 msgid "use "
 msgstr "sử dụng "
 
