@@ -16,6 +16,7 @@ class Restore Extends Base\RestoreBase{
 		}
 
 		$this->importKVStore($configs['settings']);
+		$this->FreePBX->Fax->restore_fax_settings($configs['fax_details']);
 		$this->importFeatureCodes($configs['features']);
 	}
 

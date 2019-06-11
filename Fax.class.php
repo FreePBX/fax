@@ -283,6 +283,10 @@ class Fax extends FreePBX_Helpers implements BMO {
 		$this->FreePBX->WriteConfig($conf);
 	}
 
+	public function restore_fax_settings($fax_details){
+		fax_save_settings($fax_details);
+	}
+
 	public function getSettings() {
 		$settings = sql('SELECT * FROM fax_details', 'getAssoc', 'DB_FETCHMODE_ASSOC');
 		foreach($settings as $setting => $value){
