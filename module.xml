@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>15.0.16</version>
+	<version>15.0.17</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
 	<changelog>
+		*15.0.17* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.16* FREEPBX-20103 Fax Pro module configurations flushed on backup restore. 
 		*15.0.15* FREEPBX-20037 Faxes not sending to final destination 
 		*15.0.14* FREEPBX-15426 Remove NVFax detection from fax detect options
