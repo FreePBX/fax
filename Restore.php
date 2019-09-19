@@ -9,7 +9,7 @@ class Restore Extends Base\RestoreBase{
 
 	public function processConfigs($configs){
 		foreach ($configs['users'] as $user) {
-			$this->FreePBX->Fax->saveUser($user['faxext'], $user['faxenabled'], $user['faxemail'], $user['faxattachformat']);
+			$this->FreePBX->Fax->saveUser($user['user'], $user['faxenabled'], $user['faxemail'], $user['faxattachformat']);
 		}
 		foreach ($configs['incoming'] as $incoming) {
 			$this->FreePBX->Fax->saveIncoming($incoming['cidnum'], $incoming['extension'], $incoming['enabled'], $incoming['detection'], $incoming['detectionwait'], $incoming['destination'], $incoming['legacy_email'], $incoming['ring']);
