@@ -76,7 +76,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 			$error = "";
 			$faxStatus = $this->faxDetect();
 			if(!$faxStatus['module'] || ($faxStatus['module'] && (!$faxStatus['ffa'] && !$faxStatus['spandsp']))){//missing modules
-				$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires spandsp based app_fax (res_fax_spandsp.so) to function.');
+				$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires SpanDSP based app_fax (res_fax_spandsp.so) or Fax for Asterisk (res_fax_digium.so) to function.');
 			}elseif($faxStatus['ffa'] && $faxStatus['license'] < 1){//missing license
 				$error = _('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.');
 			}
@@ -322,6 +322,7 @@ class Fax extends \FreePBX_Helpers implements \BMO {
 				break;
 			}
 
+			$fax['ffa'] = $this->FreePBX->astman->mod_loaded('res_fax_digium.so');
 			$fax['spandsp'] = $this->FreePBX->astman->mod_loaded('res_fax_spandsp.so');
 
 			switch($fax['module']) {
