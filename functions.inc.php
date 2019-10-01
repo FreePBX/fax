@@ -124,6 +124,7 @@ function fax_detect($astver=null){
 			$fax['module']='res_fax';
 		}
 
+		$response = $astman->send_request('Command', array('Command' => $module_show_command.'res_fax_digium'));
 		$fax['ffa']= preg_match('/[1-9] modules loaded/', $response['data']) ? true : false;
 
 		if ($fax['ffa']) {
