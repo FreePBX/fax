@@ -31,9 +31,7 @@ function fax_check_destinations($dest=true) {
 	global $version;
 
 	$fax=fax_detect();
-	if(!$fax['module'] || ($fax['module'] && (!$fax['ffa'] && !$fax['spandsp']))){
-		return false;
-	}elseif($fax['ffa'] && $fax['license'] < 1){//missing license
+	if(!$fax['module'] || ($fax['module'] && !$fax['spandsp'])){
 		return false;
 	}
 
@@ -112,7 +110,7 @@ function fax_get_config($engine){
 	$fax=fax_detect($version);
 	$astman->database_deltree("FAX");
 	// do not continue unless we have a fax module in asterisk
-	if($fax['module'] && ($fax['ffa'] || $fax['spandsp'])) {
+	if($fax['module'] && $fax['spandsp']) {
 		$t38_fb = ',f';
 		$context='ext-fax';
 		$dests=fax_get_destinations();
@@ -176,9 +174,7 @@ function fax_get_config($engine){
 				$ext->add($context, $exten, '', new ext_set('FAXOPT(localstationid)', $localstationid[0]));
 			}
 			$ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //receive fax, then email it on
-			if ($fax['ffa']) {
-				$ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS}"="" | "${FAXSTATUS}" = "FAILED" & "${FAXERROR}" = "INIT_ERROR"]','Set','FAXSTATUS=FAILED LICENSE MAY BE EXCEEDED check log errors'));
-			}
+
 			$ext->add($context, $exten, '', new ext_execif('$["${FAXSTATUS:0:6}"="FAILED" && "${FAXERROR}"!="INIT_ERROR"]','Set','FAXSTATUS="FAILED: error: ${FAXERROR} statusstr: ${FAXOPT(statusstr)}"'));
 
 			$ext->add($context, $exten, '', new ext_hangup());
@@ -235,7 +231,7 @@ function fax_get_config($engine){
 	} else {
 		$fax_settings=fax_get_settings();
 	}
-	if (($fax['module'] && ($fax['ffa'] || $fax['spandsp'])) || $fax_settings['force_detection'] == 'yes') {
+	if (($fax['module'] && $fax['spandsp']) || $fax_settings['force_detection'] == 'yes') {
 		if (isset($core_conf) && is_a($core_conf, "core_conf")) {
 			$core_conf->addSipGeneral('faxdetect','no');
 		} else if (isset($core_conf) && is_a($core_conf, "core_conf")) {
