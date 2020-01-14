@@ -156,7 +156,8 @@ function get_opt($noopt = array()) {
 	$result = array();
 	$params = $GLOBALS['argv'];
 
-	while (list($tmp, $p) = each($params)) {
+	for ($i = 0; $i < $GLOBALS['argc']; $i++) {
+		$p = $params[$i];
 		if ($p{0} == '-') {
 			$pname = substr($p, 1);
 			$value = true;
@@ -169,9 +170,9 @@ function get_opt($noopt = array()) {
 				}
 			}
 			// check if next parameter is a descriptor or a value
-			$nextparm = current($params);
+			$nextparm = $params[$i + 1];
 			if (!in_array($pname, $noopt) && $value === true && $nextparm !== false && $nextparm{0} != '-') {
-				list($tmp, $value) = each($params);
+				$value = $params[++$i];
 			}
 			$result[$pname] = $value;
 		} else {
@@ -182,4 +183,3 @@ function get_opt($noopt = array()) {
 	return $result;
 }
 
-?>
