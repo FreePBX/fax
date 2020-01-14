@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-11 17:09+0530\n"
+"POT-Creation-Date: 2020-01-14 16:07+0530\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -61,10 +61,6 @@ msgstr ""
 "không còn khả dụng, mà  nó chỉ được cung cấp để xử lý việc di chuyển legacy "
 "từ các phiên bản trước của FreePBX."
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "Thêm các cấu hình, tùy chọn và GUI cho việc chuyển fax vào"
-
 #: views/form.php:27
 msgid "Always Generate Detection Code"
 msgstr "Luôn luôn khởi tạo mã phát hiện (Detection Code)"
@@ -105,7 +101,7 @@ msgstr "Mặc định kích thước trang giấy"
 msgid "Detect Faxes"
 msgstr "Phát hiện Fax"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Hệ thống quay số FAX"
 
@@ -187,10 +183,6 @@ msgstr ""
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "Fax"
-
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr "Cấu hình Fax"
 
 #: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
@@ -441,10 +433,6 @@ msgstr ""
 "dụng nếu tài liệu không chỉ định kích thước rõ ràng.<br/> Nếu tài liệu không "
 "có kích thước cụ thể thì kích thước này sẽ được sử dụng."
 
-#: fax.i18n.php:6
-msgid "Settings"
-msgstr "Cài đặt"
-
 #: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -580,6 +568,15 @@ msgstr "Phần mềm Zaptel"
 #: Fax.class.php:516
 msgid "use "
 msgstr "sử dụng "
+
+#~ msgid "Adds configurations, options and GUI for inbound faxing"
+#~ msgstr "Thêm các cấu hình, tùy chọn và GUI cho việc chuyển fax vào"
+
+#~ msgid "Fax Configuration"
+#~ msgstr "Cấu hình Fax"
+
+#~ msgid "Settings"
+#~ msgstr "Cài đặt"
 
 #~ msgid ""
 #~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-11 17:09+0530\n"
+"POT-Creation-Date: 2020-01-14 16:07+0530\n"
 "PO-Revision-Date: 2018-07-18 19:14+0000\n"
 "Last-Translator: Elvita Crespo <ecrespo@sangoma.com>\n"
 "Language-Team: Spanish <http://*/projects/freepbx/fax/es/>\n"
@@ -62,10 +62,6 @@ msgstr ""
 "después del cambio, esto se hace para manejar las migraciones de fax de las "
 "versiones anteriores del Sistema."
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "Configuraciones Adicionales, Opciones y GUI para fax entrante"
-
 #: views/form.php:27
 msgid "Always Generate Detection Code"
 msgstr "Generar siempre Código de Detección"
@@ -106,7 +102,7 @@ msgstr "Tamaño de papel por defecto"
 msgid "Detect Faxes"
 msgstr "Detección de Faxes"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Marcación Sistema FAX"
 
@@ -189,10 +185,6 @@ msgstr ""
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "Fax"
-
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr "Configuracion de Fax"
 
 #: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
@@ -447,10 +439,6 @@ msgstr ""
 "tamaño que debe ser utilizado si el documento no especifica un tamaño. <br/> "
 "Si el documento no especifica un tamaño que se utilizará este tamaño."
 
-#: fax.i18n.php:6
-msgid "Settings"
-msgstr "Configuración"
-
 #: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -584,6 +572,15 @@ msgstr "zaptel"
 #: Fax.class.php:516
 msgid "use "
 msgstr "Utiliza "
+
+#~ msgid "Adds configurations, options and GUI for inbound faxing"
+#~ msgstr "Configuraciones Adicionales, Opciones y GUI para fax entrante"
+
+#~ msgid "Fax Configuration"
+#~ msgstr "Configuracion de Fax"
+
+#~ msgid "Settings"
+#~ msgstr "Configuración"
 
 #~ msgid ""
 #~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "

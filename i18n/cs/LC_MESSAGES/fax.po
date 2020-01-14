@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-11 17:09+0530\n"
+"POT-Creation-Date: 2020-01-14 16:07+0530\n"
 "PO-Revision-Date: 2018-01-03 15:36+0200\n"
 "Last-Translator: Petr <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/fax/cs/>\n"
@@ -46,10 +46,6 @@ msgid ""
 "submit, this route will be upgraded. This Legacy option will no longer be "
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
-msgstr ""
-
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr ""
 
 #: views/form.php:27
@@ -92,7 +88,7 @@ msgstr "Výchozí velikost papíru"
 msgid "Detect Faxes"
 msgstr "Detekování faxu"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr ""
 
@@ -163,10 +159,6 @@ msgstr ""
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "Fax"
-
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr "Konfigurace faxu"
 
 #: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
@@ -389,10 +381,6 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6
-msgid "Settings"
-msgstr "Nastavení"
-
 #: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -502,6 +490,12 @@ msgstr ""
 #: Fax.class.php:516
 msgid "use "
 msgstr ""
+
+#~ msgid "Fax Configuration"
+#~ msgstr "Konfigurace faxu"
+
+#~ msgid "Settings"
+#~ msgstr "Nastavení"
 
 #~ msgid "NVFax"
 #~ msgstr "NVFax"

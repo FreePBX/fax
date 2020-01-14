@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-11 17:09+0530\n"
+"POT-Creation-Date: 2020-01-14 16:07+0530\n"
 "PO-Revision-Date: 2016-06-23 01:18+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
@@ -51,10 +51,6 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "Konfiguracje dodawania, opcje i GUI dla faksów przychodzących"
-
 #: views/form.php:27
 msgid "Always Generate Detection Code"
 msgstr "Zawsze generuj kod wykrywania"
@@ -95,7 +91,7 @@ msgstr "Domyślny format papieru"
 msgid "Detect Faxes"
 msgstr "Wykrywanie faksu"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Płyta systemu faks"
 
@@ -172,10 +168,6 @@ msgstr ""
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "faks"
-
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr "konfiguracja faksu"
 
 #: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
@@ -398,10 +390,6 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6
-msgid "Settings"
-msgstr "Opcje"
-
 #: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -511,6 +499,15 @@ msgstr ""
 #: Fax.class.php:516
 msgid "use "
 msgstr "użyj "
+
+#~ msgid "Adds configurations, options and GUI for inbound faxing"
+#~ msgstr "Konfiguracje dodawania, opcje i GUI dla faksów przychodzących"
+
+#~ msgid "Fax Configuration"
+#~ msgstr "konfiguracja faksu"
+
+#~ msgid "Settings"
+#~ msgstr "Opcje"
 
 #~ msgid "Fax drivers supported by this module are:"
 #~ msgstr "Sterowniki faksu wspierane przez ten moduł to:"

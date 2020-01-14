@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-11 17:09+0530\n"
+"POT-Creation-Date: 2020-01-14 16:07+0530\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -89,10 +89,6 @@ msgstr ""
 "バージョンのFreePBXからのレガシー移行をサポートするためにだけ提供されていま"
 "す。"
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
-
 #: views/form.php:27
 msgid "Always Generate Detection Code"
 msgstr "常に検知コードを生成"
@@ -133,7 +129,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "Faxを検知"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "ダイヤルシステムFAX"
 
@@ -216,10 +212,6 @@ msgstr ""
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "Fax"
-
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr "Fax設定"
 
 #: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
@@ -450,10 +442,6 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: fax.i18n.php:6
-msgid "Settings"
-msgstr "設定"
-
 #: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -572,6 +560,15 @@ msgstr "Zaptel"
 #: Fax.class.php:516
 msgid "use "
 msgstr "使用"
+
+#~ msgid "Adds configurations, options and GUI for inbound faxing"
+#~ msgstr "インバウンドFaxのためのオプションとGUIの設定の追加"
+
+#~ msgid "Fax Configuration"
+#~ msgstr "Fax設定"
+
+#~ msgid "Settings"
+#~ msgstr "設定"
 
 #~ msgid "NVFax"
 #~ msgstr "NVFax"

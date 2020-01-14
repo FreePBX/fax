@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-11 17:09+0530\n"
+"POT-Creation-Date: 2020-01-14 16:07+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,10 +55,6 @@ msgid ""
 "submit, this route will be upgraded. This Legacy option will no longer be "
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
-msgstr ""
-
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr ""
 
 #: views/form.php:27
@@ -101,7 +97,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr ""
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr ""
 
@@ -171,10 +167,6 @@ msgstr ""
 
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
-msgstr ""
-
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
 msgstr ""
 
 #: Fax.class.php:644 Fax.class.php:705
@@ -396,10 +388,6 @@ msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
-msgstr ""
-
-#: fax.i18n.php:6
-msgid "Settings"
 msgstr ""
 
 #: Fax.class.php:517
