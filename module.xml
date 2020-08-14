@@ -11,6 +11,7 @@
 		<fax>Fax Configuration</fax>
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Fax+Configuration</more-info>
 	<changelog>
 		*13.0.40.7* FREEPBX-16943 Option to not attach PDF or TIFF on eFax Notification Emails 
 		*13.0.40.6* FREEPBX-16943 Option to not attach PDF or TIFF on eFax Notification Emails 
