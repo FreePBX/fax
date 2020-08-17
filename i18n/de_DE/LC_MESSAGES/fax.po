@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:07+0530\n"
+"POT-Creation-Date: 2020-08-17 02:34+0000\n"
 "PO-Revision-Date: 2019-04-10 16:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
@@ -63,6 +63,10 @@ msgstr ""
 "Verfügung stehen, sie wird lediglich vorgehalten, um Migrationen von älteren "
 "FreePBX-Versionen zu ermöglichen."
 
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "Fügt Konfigurationen, Optionen und GUI für eingehendes Faxen hinzu"
+
 #: views/form.php:27
 msgid "Always Generate Detection Code"
 msgstr "Erkennungs-Code immer erzeugen"
@@ -103,7 +107,7 @@ msgstr "Standard Papiergröße"
 msgid "Detect Faxes"
 msgstr "Fax erkennen"
 
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Wähle Nebenstelle des Standardfaxgeräts"
 
@@ -186,6 +190,10 @@ msgstr ""
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "Fax"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Faxkonfiguration"
 
 #: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
@@ -287,7 +295,7 @@ msgstr ""
 "der Benutzerverwaltung umstellen. Bis dies behoben ist, bekommen Sie "
 "möglicherweise defekte Ziele angezeigt"
 
-#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "Erben"
 
@@ -371,7 +379,7 @@ msgstr "Neues Fax von: %s"
 msgid "New fax received"
 msgstr "Neues Fax erhalten"
 
-#: Fax.class.php:482 Fax.class.php:564 /dev/shm/freepbx/fax/views/fax.php:29
+#: Fax.class.php:482 Fax.class.php:564 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Nein"
@@ -445,6 +453,10 @@ msgstr ""
 "verwendet werden soll, wenn das Dokument keine Papiergröße vorgibt.<br /"
 ">Wenn das Dokument eine Größe vorgibt, so wird diese verwendet."
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr "Einstellungen"
+
 #: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -483,8 +495,8 @@ msgstr "Art der Faxerkennung (SIP oder DAHDI)"
 msgid "Type of fax detection to use."
 msgstr "Art der Faxerkennung."
 
-#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
-#: /dev/shm/freepbx/fax/install.php:126
+#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
+#: /usr/src/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -539,7 +551,7 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:481 Fax.class.php:562 /dev/shm/freepbx/fax/views/fax.php:28
+#: Fax.class.php:481 Fax.class.php:562 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Ja"
@@ -578,15 +590,6 @@ msgstr "Zaptel"
 #: Fax.class.php:516
 msgid "use "
 msgstr "Benutzen "
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "Fügt Konfigurationen, Optionen und GUI für eingehendes Faxen hinzu"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Faxkonfiguration"
-
-#~ msgid "Settings"
-#~ msgstr "Einstellungen"
 
 #~ msgid ""
 #~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "
