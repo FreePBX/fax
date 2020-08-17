@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:07+0530\n"
+"POT-Creation-Date: 2020-08-17 02:36+0000\n"
 "PO-Revision-Date: 2015-05-01 23:11+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -78,6 +78,10 @@ msgstr ""
 "маршрут будет обновлён. Эта устаревшая опция не будет больше доступна после "
 "изменений. Она служит только для миграции с предыдущих версий FreePBX."
 
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "Добавить конфигурацию, опции и интерфейс для входящих факсов"
+
 #: views/form.php:27
 msgid "Always Generate Detection Code"
 msgstr "Всегда генерировать код распознавания"
@@ -118,7 +122,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "Детектировать факсы"
 
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Набрать системный факс"
 
@@ -201,6 +205,10 @@ msgstr ""
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "Факс"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Конфигурация факса"
 
 #: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
@@ -294,7 +302,7 @@ msgid ""
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
 
-#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr ""
 
@@ -369,7 +377,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:482 Fax.class.php:564 /dev/shm/freepbx/fax/views/fax.php:29
+#: Fax.class.php:482 Fax.class.php:564 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Нет"
@@ -436,6 +444,10 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr "Настройки"
+
 #: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -471,8 +483,8 @@ msgstr ""
 msgid "Type of fax detection to use."
 msgstr "Какой метод детектирования будет использоваться."
 
-#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
-#: /dev/shm/freepbx/fax/install.php:126
+#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
+#: /usr/src/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -520,7 +532,7 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:481 Fax.class.php:562 /dev/shm/freepbx/fax/views/fax.php:28
+#: Fax.class.php:481 Fax.class.php:562 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Да"
@@ -555,15 +567,6 @@ msgstr "ZAPTEL"
 #: Fax.class.php:516
 msgid "use "
 msgstr "использовать "
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "Добавить конфигурацию, опции и интерфейс для входящих факсов"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Конфигурация факса"
-
-#~ msgid "Settings"
-#~ msgstr "Настройки"
 
 #~ msgid ""
 #~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "

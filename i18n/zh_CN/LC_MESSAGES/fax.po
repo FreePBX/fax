@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:07+0530\n"
+"POT-Creation-Date: 2020-08-17 02:36+0000\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -61,6 +61,10 @@ msgid ""
 "previous versions of FreePBX only."
 msgstr ""
 
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "为呼入传真增加设置，选项，界面"
+
 #: views/form.php:27
 msgid "Always Generate Detection Code"
 msgstr ""
@@ -101,7 +105,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "检测传真"
 
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "拨系统传真"
 
@@ -172,6 +176,10 @@ msgstr ""
 #: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
 msgid "Fax"
 msgstr "传真"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "传真设置"
 
 #: Fax.class.php:644 Fax.class.php:705
 msgid "Fax Destination"
@@ -260,7 +268,7 @@ msgid ""
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
 
-#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr ""
 
@@ -329,7 +337,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:482 Fax.class.php:564 /dev/shm/freepbx/fax/views/fax.php:29
+#: Fax.class.php:482 Fax.class.php:564 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "否"
@@ -394,6 +402,10 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr ""
+
 #: Fax.class.php:517
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -427,8 +439,8 @@ msgstr ""
 msgid "Type of fax detection to use."
 msgstr "被使用的传真检测格式"
 
-#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
-#: /dev/shm/freepbx/fax/install.php:126
+#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
+#: /usr/src/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -472,7 +484,7 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:481 Fax.class.php:562 /dev/shm/freepbx/fax/views/fax.php:28
+#: Fax.class.php:481 Fax.class.php:562 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "是"
@@ -503,12 +515,6 @@ msgstr "zaptel通道"
 #: Fax.class.php:516
 msgid "use "
 msgstr "：使用"
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "为呼入传真增加设置，选项，界面"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "传真设置"
 
 #~ msgid "%s FAX Migrations Failed"
 #~ msgstr "传真合成失败"
