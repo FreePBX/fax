@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 23:22-0400\n"
+"POT-Creation-Date: 2020-08-17 02:33+0000\n"
 "PO-Revision-Date: 2014-02-25 03:44+0200\n"
 "Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/fax/ja/>\n"
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "Faxを検知"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "ダイヤルシステムFAX"
 
@@ -233,11 +233,11 @@ msgstr ""
 "エラー転送モード(ECM)オプションは次を指定する為に使用\n"
 "\t\t\tecmモードの使用有無。"
 
-#: Fax.class.php:90 /dev/shm/freepbx/fax/Fax.class.php:108 Fax.class.php:653
+#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:653
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Fax設定"
 
@@ -338,7 +338,7 @@ msgid ""
 "Manager users. You may see broken destinations until this is resolved"
 msgstr ""
 
-#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr ""
 
@@ -435,7 +435,7 @@ msgstr ""
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:452 Fax.class.php:536 /dev/shm/freepbx/fax/views/fax.php:29
+#: Fax.class.php:452 Fax.class.php:536 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "いいえ"
@@ -572,8 +572,8 @@ msgstr ""
 msgid "Type of fax detection to use."
 msgstr "使用されるfax検知タイプ"
 
-#: install.php:368 /dev/shm/freepbx/fax/install.php:375 install.php:395
-#: /dev/shm/freepbx/fax/install.php:405
+#: install.php:368 /usr/src/freepbx/fax/install.php:375 install.php:395
+#: /usr/src/freepbx/fax/install.php:405
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -629,7 +629,7 @@ msgid ""
 "heard"
 msgstr ""
 
-#: Fax.class.php:451 Fax.class.php:534 /dev/shm/freepbx/fax/views/fax.php:28
+#: Fax.class.php:451 Fax.class.php:534 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "はい"
@@ -668,11 +668,11 @@ msgstr "全ての移行に成功しました。"
 msgid "already done"
 msgstr "既に実行済み"
 
-#: install.php:291 /dev/shm/freepbx/fax/install.php:292
+#: install.php:291 /usr/src/freepbx/fax/install.php:292
 msgid "blank"
 msgstr "空白"
 
-#: install.php:115 /dev/shm/freepbx/fax/install.php:122
+#: install.php:115 /usr/src/freepbx/fax/install.php:122
 msgid "done"
 msgstr "完了"
 
@@ -680,7 +680,7 @@ msgstr "完了"
 msgid "duplicate, removing old from core.."
 msgstr "重複しています、古いのをコアから削除.."
 
-#: install.php:198 /dev/shm/freepbx/fax/install.php:280
+#: install.php:198 /usr/src/freepbx/fax/install.php:280
 msgid "failed"
 msgstr "失敗"
 
@@ -700,7 +700,7 @@ msgstr "必要なし"
 msgid "not present"
 msgstr "存在しません。"
 
-#: install.php:109 /dev/shm/freepbx/fax/install.php:272 install.php:282
+#: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
 msgid "removed"
 msgstr "削除済み"
 
@@ -708,7 +708,7 @@ msgstr "削除済み"
 msgid "starting migration"
 msgstr "移行を開始"
 
-#: install.php:107 /dev/shm/freepbx/fax/install.php:112
+#: install.php:107 /usr/src/freepbx/fax/install.php:112
 msgid "unknown error"
 msgstr "不明なエラー"
 

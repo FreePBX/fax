@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 23:22-0400\n"
+"POT-Creation-Date: 2020-08-17 02:33+0000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -123,7 +123,7 @@ msgstr "اندازه پیشفرض کاغذ"
 msgid "Detect Faxes"
 msgstr "تشخیص دورنگار"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "سیستم شماره گیری دورنگار"
 
@@ -208,11 +208,11 @@ msgstr ""
 "to specify whether\n"
 "\\t\\t\\t to use ecm mode or not."
 
-#: Fax.class.php:90 /dev/shm/freepbx/fax/Fax.class.php:108 Fax.class.php:653
+#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:653
 msgid "Fax"
 msgstr "دورنگار"
 
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "تنظیمات دورنگار"
 
@@ -321,7 +321,7 @@ msgstr ""
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 
-#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "ارثی"
 
@@ -418,7 +418,7 @@ msgstr "دورنگار جدید از:%s"
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
-#: Fax.class.php:452 Fax.class.php:536 /dev/shm/freepbx/fax/views/fax.php:29
+#: Fax.class.php:452 Fax.class.php:536 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "خیر"
@@ -562,8 +562,8 @@ msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI
 msgid "Type of fax detection to use."
 msgstr "نوع شناسایی فکس مورد استفاده."
 
-#: install.php:368 /dev/shm/freepbx/fax/install.php:375 install.php:395
-#: /dev/shm/freepbx/fax/install.php:405
+#: install.php:368 /usr/src/freepbx/fax/install.php:375 install.php:395
+#: /usr/src/freepbx/fax/install.php:405
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -624,7 +624,7 @@ msgid ""
 "heard"
 msgstr "چگونگی زنگ خوردن در حال شناسایی فکس.اگر بدون صدا تنظیم نشده باشد"
 
-#: Fax.class.php:451 Fax.class.php:534 /dev/shm/freepbx/fax/views/fax.php:28
+#: Fax.class.php:451 Fax.class.php:534 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "بله"
@@ -663,11 +663,11 @@ msgstr "تمامی انتقالات با موفقیت انجام شد"
 msgid "already done"
 msgstr "انجام شد"
 
-#: install.php:291 /dev/shm/freepbx/fax/install.php:292
+#: install.php:291 /usr/src/freepbx/fax/install.php:292
 msgid "blank"
 msgstr "خالی"
 
-#: install.php:115 /dev/shm/freepbx/fax/install.php:122
+#: install.php:115 /usr/src/freepbx/fax/install.php:122
 msgid "done"
 msgstr "انجام شد"
 
@@ -675,7 +675,7 @@ msgstr "انجام شد"
 msgid "duplicate, removing old from core.."
 msgstr "چند گانه، نتایج قدیمی حذف میشوند.."
 
-#: install.php:198 /dev/shm/freepbx/fax/install.php:280
+#: install.php:198 /usr/src/freepbx/fax/install.php:280
 msgid "failed"
 msgstr "نا موفق"
 
@@ -695,7 +695,7 @@ msgstr "لازم نیست"
 msgid "not present"
 msgstr "موجود نیست"
 
-#: install.php:109 /dev/shm/freepbx/fax/install.php:272 install.php:282
+#: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
 msgid "removed"
 msgstr "حذف شده"
 
@@ -703,7 +703,7 @@ msgstr "حذف شده"
 msgid "starting migration"
 msgstr "شروع عملیات انتقال"
 
-#: install.php:107 /dev/shm/freepbx/fax/install.php:112
+#: install.php:107 /usr/src/freepbx/fax/install.php:112
 msgid "unknown error"
 msgstr "خطای تعریف نشده"
 

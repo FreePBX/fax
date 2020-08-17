@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 23:22-0400\n"
+"POT-Creation-Date: 2020-08-17 02:33+0000\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -124,7 +124,7 @@ msgstr "Mặc định kích thước trang giấy"
 msgid "Detect Faxes"
 msgstr "Phát hiện Fax"
 
-#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Hệ thống quay số FAX"
 
@@ -207,11 +207,11 @@ msgstr ""
 "Tùy chọn Chế độ sửa lỗi (ECM)  được dùng để xác định có nên sửa dụng chế độ "
 "này hay không."
 
-#: Fax.class.php:90 /dev/shm/freepbx/fax/Fax.class.php:108 Fax.class.php:653
+#: Fax.class.php:90 /usr/src/freepbx/fax/Fax.class.php:108 Fax.class.php:653
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Cấu hình Fax"
 
@@ -320,7 +320,7 @@ msgstr ""
 "chỉ tới những người dùng Trình quản lý người dùng. Bạn có thể em những điểm "
 "đích bị lỗi cho đến khi chúng được xử lý xong"
 
-#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "Kế thừa"
 
@@ -424,7 +424,7 @@ msgstr "Fax mới từ: %s"
 msgid "New fax received"
 msgstr "Nhận được fax mới"
 
-#: Fax.class.php:452 Fax.class.php:536 /dev/shm/freepbx/fax/views/fax.php:29
+#: Fax.class.php:452 Fax.class.php:536 /usr/src/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Không"
@@ -574,8 +574,8 @@ msgstr "Kiểu phát hiện fax được sử dụng ( cụ thể SIP hoặc DAH
 msgid "Type of fax detection to use."
 msgstr "Kiểu phát hiện fax được sử dụng."
 
-#: install.php:368 /dev/shm/freepbx/fax/install.php:375 install.php:395
-#: /dev/shm/freepbx/fax/install.php:405
+#: install.php:368 /usr/src/freepbx/fax/install.php:375 install.php:395
+#: /usr/src/freepbx/fax/install.php:405
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -639,7 +639,7 @@ msgstr ""
 "Có nên đặt chuông khi đang cố phát hiện fax. Nếu cài đặt là no, chuông sẽ im "
 "lặng"
 
-#: Fax.class.php:451 Fax.class.php:534 /dev/shm/freepbx/fax/views/fax.php:28
+#: Fax.class.php:451 Fax.class.php:534 /usr/src/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Có"
@@ -683,11 +683,11 @@ msgstr "Tất cả các dịch chuyển đã thành công"
 msgid "already done"
 msgstr "Đã hoàn thành"
 
-#: install.php:291 /dev/shm/freepbx/fax/install.php:292
+#: install.php:291 /usr/src/freepbx/fax/install.php:292
 msgid "blank"
 msgstr "Trống"
 
-#: install.php:115 /dev/shm/freepbx/fax/install.php:122
+#: install.php:115 /usr/src/freepbx/fax/install.php:122
 msgid "done"
 msgstr "Đã hoành thành"
 
@@ -695,7 +695,7 @@ msgstr "Đã hoành thành"
 msgid "duplicate, removing old from core.."
 msgstr "Sao chép, loại bỏ cái cũ từ lõi .."
 
-#: install.php:198 /dev/shm/freepbx/fax/install.php:280
+#: install.php:198 /usr/src/freepbx/fax/install.php:280
 msgid "failed"
 msgstr "Không thành công"
 
@@ -715,7 +715,7 @@ msgstr "Không cần thiết"
 msgid "not present"
 msgstr "Không xuất hiện"
 
-#: install.php:109 /dev/shm/freepbx/fax/install.php:272 install.php:282
+#: install.php:109 /usr/src/freepbx/fax/install.php:272 install.php:282
 msgid "removed"
 msgstr "Đã xóa"
 
@@ -723,7 +723,7 @@ msgstr "Đã xóa"
 msgid "starting migration"
 msgstr "Khởi động dịch chuyển"
 
-#: install.php:107 /dev/shm/freepbx/fax/install.php:112
+#: install.php:107 /usr/src/freepbx/fax/install.php:112
 msgid "unknown error"
 msgstr "Lỗi không xác định được"
 
