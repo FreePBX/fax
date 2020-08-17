@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>14.0.2.8</version>
+	<version>14.0.2.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -11,7 +11,9 @@
 		<fax>Fax Configuration</fax>
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Fax+Configuration</more-info>
 	<changelog>
+		*14.0.2.9* Packaging of ver 14.0.2.9
 		*14.0.2.8* FREEPBX-15426 Remove NVFax detection from fax detect options 
 		*14.0.2.7* Add localstationid as channel variabel 
 		*14.0.2.6* FREEPBX-17993 Increase footer text size on cover sheet 
