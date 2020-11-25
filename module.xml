@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>15.0.20</version>
+	<version>15.0.21</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -11,8 +11,9 @@
 		<fax>Fax Configuration</fax>
 	</menuitems>
 	<description>Adds configurations, options and GUI for inbound faxing</description>
-  	<more-info>https://wiki.freepbx.org/display/F2/Fax+Configuration</more-info>
+  	<more-info>https://wiki.freepbx.org/display/FPG/Fax+Configuration</more-info>
 	<changelog>
+		*15.0.21* Packaging of ver 15.0.21
 		*15.0.20* Packaging of ver 15.0.20
 		*15.0.19* FREEPBX-21004: remove deprecated each() 
 		*15.0.18* FREEI-763 Restoring FreePBX 15 Backup is giving bad destination error if you set the destination as Fax Recepient. 
