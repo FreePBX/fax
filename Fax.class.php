@@ -515,7 +515,6 @@ class Fax extends FreePBX_Helpers implements BMO {
 				$fdthelp .= '<ul>';
 				$fdthelp .= '<li>'.$dahdi.': '._("use ").$dahdi._(" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ").$dahdi.'.conf</li>';
 				$fdthelp .= '<li>'._("Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files").'</li>';
-				$fdthelp .= '<li>'._("NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed and recognized by asterisk").'</li>';
 				$fdthelp .= '</ul>';
 				$html .='
 				<!--Fax Detection type-->
