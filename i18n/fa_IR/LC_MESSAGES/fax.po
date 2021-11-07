@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-17 02:36+0000\n"
+"POT-Creation-Date: 2021-11-07 02:38+0000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "A4"
 msgstr "A4"
 
-#: Fax.class.php:607
+#: Fax.class.php:606
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -85,7 +85,7 @@ msgstr "جابجایی خودکار کاربر برای دورنگار"
 msgid "Both"
 msgstr "هردو"
 
-#: Fax.class.php:451 Fax.class.php:533
+#: Fax.class.php:451 Fax.class.php:532
 msgid "Dahdi"
 msgstr "دهدی (Dahdi)"
 
@@ -105,7 +105,7 @@ msgstr "اندازه پیشفرض کاغذ"
 msgid "Detect Faxes"
 msgstr "تشخیص دورنگار"
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "سیستم شماره گیری دورنگار"
 
@@ -187,39 +187,39 @@ msgstr ""
 "to specify whether\n"
 "\\t\\t\\t to use ecm mode or not."
 
-#: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
+#: Fax.class.php:105 Fax.class.php:122 Fax.class.php:680
 msgid "Fax"
 msgstr "دورنگار"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "تنظیمات دورنگار"
 
-#: Fax.class.php:644 Fax.class.php:705
+#: Fax.class.php:643 Fax.class.php:704
 msgid "Fax Destination"
 msgstr "مقصد دورنگار"
 
-#: Fax.class.php:697
+#: Fax.class.php:696
 msgid "Fax Detection"
 msgstr "تشخیص دورنگار"
 
-#: Fax.class.php:588
+#: Fax.class.php:587
 msgid "Fax Detection Time"
 msgstr "زمان تشخیص دورنگار"
 
-#: Fax.class.php:701
+#: Fax.class.php:700
 msgid "Fax Detection Wait"
 msgstr "انتظار برای تشخیص دورنگار"
 
-#: Fax.class.php:528
+#: Fax.class.php:527
 msgid "Fax Detection type"
 msgstr "تشخیص نوع دورنگار"
 
-#: Fax.class.php:616
+#: Fax.class.php:615
 msgid "Fax Email Destination"
 msgstr "ایمیل مقصد فکس"
 
-#: Fax.class.php:693 Fax.class.php:694
+#: Fax.class.php:692 Fax.class.php:693
 msgid "Fax Enabled"
 msgstr "دورنگار فعال"
 
@@ -227,7 +227,7 @@ msgstr "دورنگار فعال"
 msgid "Fax Options"
 msgstr "گزینه های دورنگار"
 
-#: Fax.class.php:557
+#: Fax.class.php:556
 msgid "Fax Ring"
 msgstr "زنگ فکس"
 
@@ -259,11 +259,11 @@ msgstr ""
 "اطلاعات سربرگ که در بالای تمامی فکسهای ارسالی چاپ میشود.معمولا شامل اطلاعات "
 "شخص و یا شرکت ارسال کننده فکس میباشد."
 
-#: Fax.class.php:702
+#: Fax.class.php:701
 msgid "How long to wait and try to detect fax"
 msgstr "مدت زمان انتظار برای شناسایی دورنگار"
 
-#: Fax.class.php:579
+#: Fax.class.php:578
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -292,7 +292,7 @@ msgstr ""
 "assign all of your destinations that used 'Fax Recipients' to point to User "
 "Manager users. You may see broken destinations until this is resolved"
 
-#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "ارثی"
 
@@ -351,14 +351,6 @@ msgstr "حداقل سرعت تبادل اطلاعات"
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "کمترین سرعت استفاده شده برای تبادل فکس."
 
-#: Fax.class.php:518
-msgid ""
-"NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
-"and recognized by asterisk"
-msgstr ""
-"NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect  to be installed "
-"and recognized by asterisk"
-
 #: bin/fax2mail.php:64
 #, php-format
 msgid "New fax from: %s"
@@ -368,7 +360,7 @@ msgstr "دورنگار جدید از:%s"
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
-#: Fax.class.php:482 Fax.class.php:564 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:482 Fax.class.php:563 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "خیر"
@@ -427,7 +419,7 @@ msgstr "رسیده و پردازش شده: %s"
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: Fax.class.php:535
+#: Fax.class.php:534
 msgid "SIP"
 msgstr "SIP"
 
@@ -471,7 +463,7 @@ msgid ""
 "email clients."
 msgstr ""
 
-#: Fax.class.php:698
+#: Fax.class.php:697
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI)"
 
@@ -479,8 +471,8 @@ msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI
 msgid "Type of fax detection to use."
 msgstr "نوع شناسایی فکس مورد استفاده."
 
-#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
-#: /usr/src/freepbx/fax/install.php:126
+#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
+#: /dev/shm/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -511,11 +503,11 @@ msgstr ""
 "دستگاه فکس، hylafax + iaxmodem ،یا دیگر پلتفرم ها استفاده میکنید میتوانید "
 "نقشه تماس را به صورت دستی تولید کرده و در اینجا قرار دهید."
 
-#: Fax.class.php:635 Fax.class.php:706
+#: Fax.class.php:634 Fax.class.php:705
 msgid "Where to send the faxes"
 msgstr "محلی که دورنگارها به آنجا ارسال میشوند"
 
-#: Fax.class.php:572
+#: Fax.class.php:571
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -529,7 +521,7 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:481 Fax.class.php:562 /usr/src/freepbx/fax/views/fax.php:28
+#: Fax.class.php:481 Fax.class.php:561 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "بله"
@@ -563,6 +555,13 @@ msgstr "زپتل"
 #: Fax.class.php:516
 msgid "use "
 msgstr "استفاده "
+
+#~ msgid ""
+#~ "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be "
+#~ "installed and recognized by asterisk"
+#~ msgstr ""
+#~ "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect  to be "
+#~ "installed and recognized by asterisk"
 
 #~ msgid ""
 #~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "

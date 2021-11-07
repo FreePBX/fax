@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-17 02:36+0000\n"
+"POT-Creation-Date: 2021-11-07 02:38+0000\n"
 "PO-Revision-Date: 2019-04-10 16:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "A4"
 msgstr "A4"
 
-#: Fax.class.php:607
+#: Fax.class.php:606
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -87,7 +87,7 @@ msgstr "Automatisch erzeugter, migrierter Benutzer für Fax"
 msgid "Both"
 msgstr "Beide"
 
-#: Fax.class.php:451 Fax.class.php:533
+#: Fax.class.php:451 Fax.class.php:532
 msgid "Dahdi"
 msgstr "Dahdi ( Digium\\Asterisk Hardware Device Interface)"
 
@@ -107,7 +107,7 @@ msgstr "Standard Papiergröße"
 msgid "Detect Faxes"
 msgstr "Fax erkennen"
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: fax.i18n.php:12 /dev/shm/freepbx/fax/install.php:6
 msgid "Dial System FAX"
 msgstr "Wähle Nebenstelle des Standardfaxgeräts"
 
@@ -187,39 +187,39 @@ msgstr ""
 "Die Fehlerkorrekturmodus-Option (ECM) legt fest, ob der ECM-Modus genutzt "
 "wird oder nicht."
 
-#: Fax.class.php:105 Fax.class.php:122 Fax.class.php:681
+#: Fax.class.php:105 Fax.class.php:122 Fax.class.php:680
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+#: fax.i18n.php:4 /dev/shm/freepbx/fax/fax.i18n.php:10
 msgid "Fax Configuration"
 msgstr "Faxkonfiguration"
 
-#: Fax.class.php:644 Fax.class.php:705
+#: Fax.class.php:643 Fax.class.php:704
 msgid "Fax Destination"
 msgstr "Faxziel"
 
-#: Fax.class.php:697
+#: Fax.class.php:696
 msgid "Fax Detection"
 msgstr "Faxerkennung"
 
-#: Fax.class.php:588
+#: Fax.class.php:587
 msgid "Fax Detection Time"
 msgstr "Faxerkennungszeit"
 
-#: Fax.class.php:701
+#: Fax.class.php:700
 msgid "Fax Detection Wait"
 msgstr "Wartedauer für Faxerkennung"
 
-#: Fax.class.php:528
+#: Fax.class.php:527
 msgid "Fax Detection type"
 msgstr "Art der Fax-Erkennung"
 
-#: Fax.class.php:616
+#: Fax.class.php:615
 msgid "Fax Email Destination"
 msgstr "Fax E-Mail-Ziel"
 
-#: Fax.class.php:693 Fax.class.php:694
+#: Fax.class.php:692 Fax.class.php:693
 msgid "Fax Enabled"
 msgstr "Fax aktiviert"
 
@@ -227,7 +227,7 @@ msgstr "Fax aktiviert"
 msgid "Fax Options"
 msgstr "Faxoptionen"
 
-#: Fax.class.php:557
+#: Fax.class.php:556
 msgid "Fax Ring"
 msgstr "Faxklingeln"
 
@@ -260,11 +260,11 @@ msgstr ""
 "angezeigt wird. Für gewöhnlich beinhaltet sie den Namen der Person oder die "
 "Entität des Versenders."
 
-#: Fax.class.php:702
+#: Fax.class.php:701
 msgid "How long to wait and try to detect fax"
 msgstr "Wie lange gewartet werden soll, um ein Fax zu erkennen"
 
-#: Fax.class.php:579
+#: Fax.class.php:578
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -295,7 +295,7 @@ msgstr ""
 "der Benutzerverwaltung umstellen. Bis dies behoben ist, bekommen Sie "
 "möglicherweise defekte Ziele angezeigt"
 
-#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
+#: views/fax.php:32 /dev/shm/freepbx/fax/views/fax.php:58
 msgid "Inherit"
 msgstr "Erben"
 
@@ -362,14 +362,6 @@ msgstr ""
 "Minimale Übertragungsrate, die während der Aushandlung der "
 "Faxübertragungsrate verwendet wird."
 
-#: Fax.class.php:518
-msgid ""
-"NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be installed "
-"and recognized by asterisk"
-msgstr ""
-"NV Faxerkennung: Benutze NV Faxerkennung; benötigt das Modul NV Fax Detect "
-"und muss Asterisk bekannt gemacht werden"
-
 #: bin/fax2mail.php:64
 #, php-format
 msgid "New fax from: %s"
@@ -379,7 +371,7 @@ msgstr "Neues Fax von: %s"
 msgid "New fax received"
 msgstr "Neues Fax erhalten"
 
-#: Fax.class.php:482 Fax.class.php:564 /usr/src/freepbx/fax/views/fax.php:29
+#: Fax.class.php:482 Fax.class.php:563 /dev/shm/freepbx/fax/views/fax.php:29
 #: views/form.php:34 views/form.php:155 views/quickCreate.php:12
 msgid "No"
 msgstr "Nein"
@@ -439,7 +431,7 @@ msgstr "Erhalten und verarbeitet: %s"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: Fax.class.php:535
+#: Fax.class.php:534
 msgid "SIP"
 msgstr "SIP"
 
@@ -487,7 +479,7 @@ msgstr ""
 "<user@example.com>' aussehen. Mit der zweiten Option steht in den meisten "
 "Email Clients 'Fax User' im 'FROM'-Abschnitt."
 
-#: Fax.class.php:698
+#: Fax.class.php:697
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "Art der Faxerkennung (SIP oder DAHDI)"
 
@@ -495,8 +487,8 @@ msgstr "Art der Faxerkennung (SIP oder DAHDI)"
 msgid "Type of fax detection to use."
 msgstr "Art der Faxerkennung."
 
-#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
-#: /usr/src/freepbx/fax/install.php:126
+#: install.php:89 /dev/shm/freepbx/fax/install.php:96 install.php:116
+#: /dev/shm/freepbx/fax/install.php:126
 #, php-format
 msgid ""
 "Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
@@ -531,11 +523,11 @@ msgstr ""
 "iaxmodem, oder andere entfernte Faxgeräte, können Sie den Wählplan hier "
 "modifizieren."
 
-#: Fax.class.php:635 Fax.class.php:706
+#: Fax.class.php:634 Fax.class.php:705
 msgid "Where to send the faxes"
 msgstr "Wohin das Fax gesendet werden soll"
 
-#: Fax.class.php:572
+#: Fax.class.php:571
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -551,7 +543,7 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:481 Fax.class.php:562 /usr/src/freepbx/fax/views/fax.php:28
+#: Fax.class.php:481 Fax.class.php:561 /dev/shm/freepbx/fax/views/fax.php:28
 #: views/form.php:32 views/form.php:153 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Ja"
@@ -590,6 +582,13 @@ msgstr "Zaptel"
 #: Fax.class.php:516
 msgid "use "
 msgstr "Benutzen "
+
+#~ msgid ""
+#~ "NV Fax Detect: Use NV Fax Detection; Requires NV Fax Detect to be "
+#~ "installed and recognized by asterisk"
+#~ msgstr ""
+#~ "NV Faxerkennung: Benutze NV Faxerkennung; benötigt das Modul NV Fax "
+#~ "Detect und muss Asterisk bekannt gemacht werden"
 
 #~ msgid ""
 #~ "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> "
