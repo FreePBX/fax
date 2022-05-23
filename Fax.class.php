@@ -489,8 +489,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 					<div class="element-container">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="">
-									<div class="row form-group">
+								<div class="row">
+									<div class="form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="faxenabled">'._("Detect Faxes").'</label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="faxenabled"></i>
@@ -521,8 +521,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 				<div class="element-container '.($faxing?'':"hidden").'" id="fdtype">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="faxdetection">'._("Fax Detection type").'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetection"></i>
@@ -550,8 +550,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 				<div class="element-container '.($faxing?'':"hidden").'" id="fdring">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="faxring">'._("Fax Ring").'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxring"></i>
@@ -581,8 +581,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 				<div class="element-container '.($faxing?'':"hidden").'" id="fdtime">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="faxdetectionwait">'._("Fax Detection Time").'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetectionwait"></i>
@@ -609,8 +609,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 					<div class="element-container '.($faxing?'':"hidden").'" id="fdemail">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="">
-									<div class="row form-group">
+								<div class="row">
+									<div class="form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="legacy_email">'._("Fax Email Destination").'</label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="legacy_email"></i>
@@ -637,8 +637,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 				<div class="element-container '.($faxing?'':"hidden").'" id="fddest">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="gotofax">'. _("Fax Destination").'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="gotofax"></i>
