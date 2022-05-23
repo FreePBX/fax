@@ -21,8 +21,8 @@ if(!$fax_detect['module']){
 	$aghtml = '
 		<!--Always Generate Detection Code-->
 		<div class="element-container">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="force_detection">'. _("Always Generate Detection Code").'</label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="force_detection"></i>
@@ -59,8 +59,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <input type="hidden" name="action" value="edit">
 <!--Default Fax header-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="headerinfo"><?php echo _("Default Fax header") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="headerinfo"></i>
@@ -79,8 +79,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--END Default Fax header-->
 <!--Default Local Station Identifier-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="localstationid"><?php echo _("Default Local Station Identifier") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="localstationid"></i>
@@ -99,8 +99,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--END Default Local Station Identifier-->
 <!--Outgoing Email address-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="sender_address"><?php echo _("Outgoing Email address") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="sender_address"></i>
@@ -122,8 +122,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--END Outgoing Email address-->
 <!--Email address-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="fax_rx_email"><?php echo _("Email address") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="fax_rx_email"></i>
@@ -142,8 +142,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--END Email address-->
 <!--Error Correction Mode-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="ecm"><?php echo _("Error Correction Mode") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="ecm"></i>
@@ -166,8 +166,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--END Error Correction Mode-->
 <!--Maximum transfer rate-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="maxrate"><?php echo _("Maximum transfer rate") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="maxrate"></i>
@@ -188,8 +188,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--END Maximum transfer rate-->
 <!--Minimum transfer rate-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="minrate"><?php echo _("Minimum transfer rate") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="minrate"></i>
@@ -210,8 +210,8 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 <!--END Minimum transfer rate-->
 <!--Default Paper Size-->
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="papersize"><?php echo _("Default Paper Size") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="papersize"></i>
