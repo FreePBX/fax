@@ -90,9 +90,9 @@ class Fax extends FreePBX_Helpers implements BMO {
 		if(isset($_REQUEST['action'])) {
 			$error = "";
 			$faxStatus = $this->faxDetect();
-			if(!$faxStatus['module'] || ($faxStatus['module'] && (!$faxStatus['ffa'] && !$faxStatus['spandsp']))){//missing modules
+			if(!$faxStatus['module'] || ($faxStatus['module'] && !$faxStatus['spandsp'])){//missing modules
 				$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires spandsp based app_fax (res_fax_spandsp.so) to function.');
-			}elseif($faxStatus['ffa'] && $faxStatus['license'] < 1){//missing license
+			}elseif($faxStatus['license'] < 1){//missing license
 				$error = _('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.');
 			}
 			switch($_REQUEST['action']) {
@@ -260,7 +260,7 @@ class Fax extends FreePBX_Helpers implements BMO {
 
 		$fax = $this->faxDetect();
 		$ast_lt_18 = version_compare($version, '1.8', 'lt');
-		if($fax['module'] && ($ast_lt_18 || $fax['ffa'] || $fax['spandsp'])){ //dont continue unless we have a fax module in asterisk
+		if($fax['module'] && ($ast_lt_18 || $fax['spandsp'])){ //dont continue unless we have a fax module in asterisk
 
 			$settings = $this->getSettings();
 			$conf['res_fax.conf']['general'][] = "#include res_fax_custom.conf";
@@ -489,8 +489,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 					<div class="element-container">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="">
-									<div class="row form-group">
+								<div class="row">
+									<div class="form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="faxenabled">'._("Detect Faxes").'</label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="faxenabled"></i>
@@ -521,8 +521,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 				<div class="element-container '.($faxing?'':"hidden").'" id="fdtype">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="faxdetection">'._("Fax Detection type").'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetection"></i>
@@ -550,8 +550,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 				<div class="element-container '.($faxing?'':"hidden").'" id="fdring">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="faxring">'._("Fax Ring").'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxring"></i>
@@ -581,8 +581,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 				<div class="element-container '.($faxing?'':"hidden").'" id="fdtime">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="faxdetectionwait">'._("Fax Detection Time").'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetectionwait"></i>
@@ -609,8 +609,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 					<div class="element-container '.($faxing?'':"hidden").'" id="fdemail">
 						<div class="row">
 							<div class="col-md-12">
-								<div class="">
-									<div class="row form-group">
+								<div class="row">
+									<div class="form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="legacy_email">'._("Fax Email Destination").'</label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="legacy_email"></i>
@@ -637,8 +637,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 				<div class="element-container '.($faxing?'':"hidden").'" id="fddest">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="">
-								<div class="row form-group">
+							<div class="row">
+								<div class="form-group">
 									<div class="col-md-3">
 										<label class="control-label" for="gotofax">'. _("Fax Destination").'</label>
 										<i class="fa fa-question-circle fpbx-help-icon" data-for="gotofax"></i>

@@ -17,8 +17,8 @@ $(function() {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-4 control-label">
 						<label for="faxenabled"><?php echo _('Enabled')?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="faxenabled"></i>
@@ -46,8 +46,8 @@ $(function() {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-4 control-label">
 						<label for="faxattachformat"><?php echo _('Attachment Format')?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="faxattachformat"></i>
