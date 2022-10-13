@@ -150,7 +150,7 @@ function fax_get_config($engine){
 		*/
 
 		$exten = 's';
-		$ext->add($context, $exten, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
+		$ext->add($context, $exten, '', new ext_gosub('1','s','sub-user-callerid'));
 		$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_FOR} , From: ${CALLERID(all)}'));
 		$ext->add($context, $exten, 'receivefax', new ext_stopplaytones(''));
 		switch ($fax['module']) {
@@ -196,21 +196,21 @@ function fax_get_config($engine){
 
 		$ext->add($context, $exten, 'sendfax', new ext_system('${AMPBIN}/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --user "${FAX_RX_USER}" --dest "${FROM_DID}" --callerid "${BASE64_ENCODE(${CALLERID(all)})}" --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --delete "${DELETE_AFTER_SEND}"'));
 
-		$ext->add($context, $exten, 'end', new ext_macro('hangupcall'));
+		$ext->add($context, $exten, 'end', new ext_gosub('1','s','sub-hangupcall'));
 
 		$ext->add($context, $exten, 'noemail', new ext_noop('ERROR: No Email Address to send FAX: status: [${FAXSTATUS}],  From: [${CALLERID(all)}], trying system fax destination'));
 		$ext->add($context, $exten, '', new ext_gotoif('$[ "${FAX_RX_EMAIL}" = "" ]', 'delfax'));
 
 		// We can send a fax to the system dest!
 		$ext->add($context, $exten, '', new ext_system('${AMPBIN}/fax2mail.php --remotestationid "${FAXOPT(remotestationid)}" --sendto "${FAX_RX_EMAIL}" --dest "${FROM_DID}" --callerid "${BASE64_ENCODE(${CALLERID(all)})}" --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --delete "${DELETE_AFTER_SEND}"'));
-		$ext->add($context, $exten, '', new ext_macro('hangupcall'));
+		$ext->add($context, $exten, '', new ext_gosub('1','s','sub-hangupcall'));
 
 		// No system dest. Just delete.
 		$ext->add($context, $exten, 'delfax', new ext_system('${AMPBIN}/fax2mail.php --file ${ASTSPOOLDIR}/fax/${UNIQUEID}.tif --delete "${DELETE_AFTER_SEND}"'));
-		$ext->add($context, $exten, '', new ext_macro('hangupcall'));
+		$ext->add($context, $exten, '', new ext_gosub('1','s','sub-hangupcall'));
 
 		$ext->add($context, $exten, 'failed', new ext_noop('FAX ${FAXSTATUS} for: ${FAX_FOR} , From: ${CALLERID(all)}'),'process',101);
-		$ext->add($context, $exten, '', new ext_macro('hangupcall'));
+		$ext->add($context, $exten, '', new ext_gosub('1','s','sub-hangupcall'));
 
 		$modulename = 'fax';
 		$fcc = new featurecode($modulename, 'simu_fax');
@@ -222,7 +222,7 @@ function fax_get_config($engine){
 			$ext->addInclude('from-internal-additional', 'app-fax'); // Add the include from from-internal
 			$ext->add('app-fax', $fc_simu_fax, '', new ext_setvar('FAX_RX_EMAIL', $default_address[0]));
 			$ext->add('app-fax', $fc_simu_fax, '', new ext_goto('1', 's', 'ext-fax'));
-			$ext->add('app-fax', 'h', '', new ext_macro('hangupcall'));
+			$ext->add('app-fax', 'h', '', new ext_gosub('1','s','sub-hangupcall'));
 		}
 		// This is not really needed but is put here in
 		// case some ever accidently switches the order below
