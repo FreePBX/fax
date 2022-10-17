@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-19 02:06+0000\n"
+"POT-Creation-Date: 2022-10-17 11:15+0000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -296,7 +296,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "ارثی"
 
-#: functions.inc.php:284
+#: functions.inc.php:287
 msgid "Invalid Email for Inbound Fax"
 msgstr "ایمیل نادرست برای ارسال دورنگار دریافتی"
 
@@ -479,7 +479,7 @@ msgid ""
 "destinations"
 msgstr "عدم امکان انتقال %s، به دلیل [%s]. لطفا 'گیرنده فکس' را بررسی کنید"
 
-#: functions.inc.php:284
+#: functions.inc.php:287
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
