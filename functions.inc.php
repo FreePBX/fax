@@ -222,8 +222,9 @@ function fax_get_config($engine){
 
 		if ($fc_simu_fax != '') {
 			$default_address = sql('SELECT value FROM fax_details WHERE `key` = \'FAX_RX_EMAIL\'','getRow');
+			$default_fax_rx_email = isset($default_address[0]) ? $default_address[0] : '';
 			$ext->addInclude('from-internal-additional', 'app-fax'); // Add the include from from-internal
-			$ext->add('app-fax', $fc_simu_fax, '', new ext_setvar('FAX_RX_EMAIL', $default_address[0]));
+			$ext->add('app-fax', $fc_simu_fax, '', new ext_setvar('FAX_RX_EMAIL', $default_fax_rx_email));
 			$ext->add('app-fax', $fc_simu_fax, '', new ext_goto('1', 's', 'ext-fax'));
 			$ext->add('app-fax', 'h', '', new ext_macro('hangupcall'));
 		}
