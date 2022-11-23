@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-17 11:15+0000\n"
+"POT-Creation-Date: 2022-11-23 12:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -268,7 +268,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: functions.inc.php:287
+#: functions.inc.php:288
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
@@ -437,7 +437,7 @@ msgid ""
 "destinations"
 msgstr ""
 
-#: functions.inc.php:287
+#: functions.inc.php:288
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "

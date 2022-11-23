@@ -2,7 +2,7 @@
 	<rawname>fax</rawname>
 	<repo>standard</repo>
 	<name>Fax Configuration</name>
-	<version>16.0.9</version>
+	<version>16.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,7 @@
 	<description>Adds configurations, options and GUI for inbound faxing</description>
   	<more-info>https://wiki.freepbx.org/display/F2/Fax+Configuration</more-info>
 	<changelog>
+		*16.0.10* FREEI-5396 Fix undefined index errors 
 		*16.0.9* FREEI-5320 
 		*16.0.8* FREEPBX-23718 
 		*16.0.7* Reverting Bootstrap and dependent libs fixes 

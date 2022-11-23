@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-17 11:15+0000\n"
+"POT-Creation-Date: 2022-11-23 12:29+0000\n"
 "PO-Revision-Date: 2019-04-10 16:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
@@ -299,7 +299,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Erben"
 
-#: functions.inc.php:287
+#: functions.inc.php:288
 msgid "Invalid Email for Inbound Fax"
 msgstr "Ungültige E-Mail-Adresse für eingehendes Fax"
 
@@ -497,7 +497,7 @@ msgstr ""
 "Unmögliche Migration  %s1, aufgrund %s2. Prüfen Sie die Ziele Ihrer 'Fax-"
 "Adressaten'"
 
-#: functions.inc.php:287
+#: functions.inc.php:288
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
