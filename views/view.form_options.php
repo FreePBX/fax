@@ -3,57 +3,32 @@
 //	Copyright 2015 Sangoma Technologies.
 //
 
-$fax = fax_get_settings();
-$fax_detect = fax_detect();
+$settings 	 = $fax->getSettings();
+$fax_detect  = $fax->faxDetect();
 $trans_rates = array(
-			'9600'	=> '9600',
-			'12000'	=> '12000',
-			'14400'	=> '14400'
-			);
+	'9600'	=> '9600',
+	'12000'	=> '12000',
+	'14400'	=> '14400'
+);
 $minrateopts = $maxrateopts = '';
 
-foreach($trans_rates as $rate){
-	$minrateopts .= '<option value='.$rate.' '.(($rate == $fax['minrate'])?"SELECTED":"").'>'.$rate.'</option>';
-	$maxrateopts .= '<option value='.$rate.' '.(($rate == $fax['maxrate'])?"SELECTED":"").'>'.$rate.'</option>';
+foreach($trans_rates as $rate)
+{
+	$minrateopts .= sprintf('<option value="%s" %s>%s</option>', $rate, (($rate == $settings['minrate']) ? "SELECTED" : ""), $rate);
+	$maxrateopts .= sprintf('<option value="%s" %s>%s</option>', $rate, (($rate == $settings['maxrate']) ? "SELECTED" : ""), $rate);
 }
-$aghtml = '';
-if(!$fax_detect['module']){
-	$aghtml = '
-		<!--Always Generate Detection Code-->
-		<div class="element-container">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="force_detection">'. _("Always Generate Detection Code").'</label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="force_detection"></i>
-					</div>
-					<div class="col-md-9 radioset">
-						<input type="radio" class="form-control" id="force_detection_yes" name="force_detection" value="yes"'. (($fax['force_detection'] == 'yes')?'checked':'').'>
-						<label for="force_detection_yes">'._("Yes").'</label>
-						<input type="radio" class="form-control" id="force_detection_no" name="force_detection" value="no" '.(($fax['force_detection'] == 'no')?'checked':'').'>
-						<label for="force_detection_no">'. _("No").'</label>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<span id="force_detection-help" class="help-block fpbx-help-block">'. _("When no fax modules are detected the module will not generate any detection dialplan by default. If the system is being used with phyical FAX devices, hylafax + iaxmodem, or other outside fax setups you can force the dialplan to be generated here.").'</span>
-				</div>
-			</div>
-		</div>
-		<!--END Always Generate Detection Code-->
-	';
-}else{
-	$aghtml ='';
-}
-$fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
+
+$settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] : 'letter';
 ?>
-<?php if($fax['minrate'] == 2400) { ?>
+
+<?php if($settings['minrate'] == 2400) : ?>
 	<div class="alert alert-warning" role="alert"><?php echo _("Your minimum transfer rate is set to 2400 in certain circumstances this can break faxing")?></div>
-<?php } ?>
-<?php if($fax['mmaxrate'] == 2400) { ?>
+<?php endif ?>
+
+<?php if($settings['mmaxrate'] == 2400) : ?>
 	<div class="alert alert-warning" role="alert"><?php echo _("Your maximum transfer rate is set to 2400 in certain circumstances this can break faxing")?></div>
-<?php } ?>
+<?php endif ?>
+
 <form name="edit" id="edit" class="fpbx-submit" action="" method="POST">
 <input type="hidden" value="fax" name="display"/>
 <input type="hidden" name="action" value="edit">
@@ -66,7 +41,7 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="headerinfo"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="headerinfo" name="headerinfo" value="<?php  echo $fax['headerinfo']; ?>">
+				<input type="text" class="form-control" id="headerinfo" name="headerinfo" value="<?php echo $settings['headerinfo']; ?>">
 			</div>
 		</div>
 	</div>
@@ -86,7 +61,7 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="localstationid"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="localstationid" name="localstationid" value="<?php  echo $fax['localstationid']; ?>">
+				<input type="text" class="form-control" id="localstationid" name="localstationid" value="<?php echo $settings['localstationid']; ?>">
 			</div>
 		</div>
 	</div>
@@ -106,15 +81,15 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="sender_address"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="sender_address" name="sender_address" value="<?php  echo htmlspecialchars($fax['sender_address'])?>">
+				<input type="text" class="form-control" id="sender_address" name="sender_address" value="<?php echo $settings['sender_address']; ?>">
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<span id="sender_address-help" class="help-block fpbx-help-block">
-<?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.") ?>  
-<?php echo htmlentities(_("This may be formatted as just 'user@example.com', or 'Fax User <user@example.com>'. The second option will display 'Fax User' in the 'From' field in most email clients."));?>
+				<?php echo _("Email address that faxes appear to come from if 'system default' has been chosen as the default fax extension.") ?>
+				<?php echo htmlentities(_("This may be formatted as just 'user@example.com', or 'Fax User <user@example.com>'. The second option will display 'Fax User' in the 'From' field in most email clients."));?>
 			</span>
 		</div>
 	</div>
@@ -129,7 +104,7 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="fax_rx_email"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="fax_rx_email" name="fax_rx_email" value="<?php  echo htmlspecialchars($fax['fax_rx_email'])?>">
+				<input type="text" class="form-control" id="fax_rx_email" name="fax_rx_email" value="<?php echo $settings['fax_rx_email']; ?>">
 			</div>
 		</div>
 	</div>
@@ -149,9 +124,9 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="ecm"></i>
 			</div>
 			<div class="col-md-9 radioset">
-				<input type="radio" class="form-control" id="ecmyes" name="ecm" value="yes" <?php echo (($fax['ecm'] == 'yes')?'checked':'')?>>
+				<input type="radio" class="form-control" id="ecmyes" name="ecm" value="yes" <?php echo (($settings['ecm'] == 'yes')?'checked':'')?>>
 				<label for="ecmyes"><?php echo _("Yes")?></label>
-				<input type="radio" class="form-control" id="ecmno" name="ecm" value="no" <?php echo (($fax['ecm'] == 'no')?'checked':'')?>>
+				<input type="radio" class="form-control" id="ecmno" name="ecm" value="no" <?php echo (($settings['ecm'] == 'no')?'checked':'')?>>
 				<label for="ecmno"><?php echo _("No")?></label>
 			</div>
 		</div>
@@ -217,9 +192,9 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="papersize"></i>
 			</div>
 			<div class="col-md-9 radioset">
-				<input type="radio" class="form-control" id="papersizeletter" name="papersize" value="letter" <?php echo (($fax['papersize'] == 'letter')?'checked':'')?>>
+				<input type="radio" class="form-control" id="papersizeletter" name="papersize" value="letter" <?php echo (($settings['papersize'] == 'letter')?'checked':'')?>>
 				<label for="papersizeletter"><?php echo _("Letter")?></label>
-				<input type="radio" class="form-control" id="papersizea4" name="papersize" value="a4" <?php echo (($fax['papersize'] == 'a4')?'checked':'')?>>
+				<input type="radio" class="form-control" id="papersizea4" name="papersize" value="a4" <?php echo (($settings['papersize'] == 'a4')?'checked':'')?>>
 				<label for="papersizea4"><?php echo _("A4")?></label>
 			</div>
 		</div>
@@ -231,13 +206,40 @@ $fax['papersize'] = isset($fax['papersize'])?$fax['papersize']:'letter';
 	</div>
 </div>
 <!--END Default Paper Size-->
-<!--Always Allow Legacy Mode-->
-<input type="hidden" id="legacy_mode" name="legacy_mode" value="<?php echo isset($fax['legacy_mode'])?$fax['legacy_mode']:'no'?>">
 
-<?php echo $aghtml //if not fax_detect ?>
+<!-- if not fax_detect -->
+<?php if(! $fax_detect['module']) : ?>
+	<!--Always Generate Detection Code-->
+	<div class="element-container">
+		<div class="row">
+			<div class="form-group">
+				<div class="col-md-3">
+					<label class="control-label" for="force_detection"><?php echo _("Always Generate Detection Code"); ?></label>
+					<i class="fa fa-question-circle fpbx-help-icon" data-for="force_detection"></i>
+				</div>
+				<div class="col-md-9 radioset">
+					<input type="radio" class="form-control" id="force_detection_yes" name="force_detection" value="yes" <?php echo (($settings['force_detection'] == 'yes') ? 'checked' : ''); ?> >
+					<label for="force_detection_yes"><?php echo _("Yes"); ?></label>
+					<input type="radio" class="form-control" id="force_detection_no" name="force_detection" value="no" <?php echo (($settings['force_detection'] == 'no') ? 'checked' : ''); ?> >
+					<label for="force_detection_no"><?php echo _("No"); ?></label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="force_detection-help" class="help-block fpbx-help-block"><?php echo _("When no fax modules are detected the module will not generate any detection dialplan by default. If the system is being used with phyical FAX devices, hylafax + iaxmodem, or other outside fax setups you can force the dialplan to be generated here."); ?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Always Generate Detection Code-->
+<?php endif ?>
+
+<!--Always Allow Legacy Mode-->
+<input type="hidden" id="legacy_mode" name="legacy_mode" value="<?php echo isset($settings['legacy_mode'])?$settings['legacy_mode']:'no'?>">
+
 <?php
 //add hooks
-$module_hook = moduleHook::create();
+$module_hook = \moduleHook::create();
 echo $module_hook->hookHtml;
 ?>
 </form>
