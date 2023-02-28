@@ -33,27 +33,43 @@
 	</supported>
 	<hooks>
 		<core class="Core" namespace="FreePBX\modules">
-			<method callingMethod="hookTabs" class="Fax">coreDIDHook</method>
+			<method callingMethod="hookTabs" class="Fax" namespace="FreePBX\modules">coreDIDHook</method>
 		</core>
 		<userman class="Userman" namespace="FreePBX\modules">
-			<method callingMethod="delGroup" class="Fax">usermanDelGroup</method>
-			<method callingMethod="addGroup" class="Fax">usermanAddGroup</method>
-			<method callingMethod="updateGroup" class="Fax">usermanUpdateGroup</method>
-			<method callingMethod="myShowPage" class="Fax">usermanShowPage</method>
-			<method callingMethod="delUser" class="Fax">usermanDelUser</method>
-			<method callingMethod="addUser" class="Fax">usermanAddUser</method>
-			<method callingMethod="updateUser" class="Fax">usermanUpdateUser</method>
+			<method callingMethod="delGroup" class="Fax" namespace="FreePBX\modules">usermanDelGroup</method>
+			<method callingMethod="addGroup" class="Fax" namespace="FreePBX\modules">usermanAddGroup</method>
+			<method callingMethod="updateGroup" class="Fax" namespace="FreePBX\modules">usermanUpdateGroup</method>
+			<method callingMethod="myShowPage" class="Fax" namespace="FreePBX\modules">usermanShowPage</method>
+			<method callingMethod="delUser" class="Fax" namespace="FreePBX\modules">usermanDelUser</method>
+			<method callingMethod="addUser" class="Fax" namespace="FreePBX\modules">usermanAddUser</method>
+			<method callingMethod="updateUser" class="Fax" namespace="FreePBX\modules">usermanUpdateUser</method>
 		</userman>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
-			<method callingMethod="getHeaders" class="Fax">bulkhandlerGetHeaders</method>
-			<method callingMethod="export" class="Fax">bulkhandlerExport</method>
-			<method callingMethod="import" class="Fax">bulkhandlerImport</method>
+			<method callingMethod="getHeaders" class="Fax" namespace="FreePBX\modules">bulkhandlerGetHeaders</method>
+			<method callingMethod="export" class="Fax" namespace="FreePBX\modules">bulkhandlerExport</method>
+			<method callingMethod="import" class="Fax" namespace="FreePBX\modules">bulkhandlerImport</method>
 		</bulkhandler>
 		<framework namespace="FreePBX\Console\Command" class="Chown">
-			<method class="Fax" callingMethod="fwcChownFiles">chownFreepbx</method>
+			<method callingMethod="fwcChownFiles" class="Fax" namespace="FreePBX\modules">chownFreepbx</method>
+		</framework>
+		<framework class="Destinations" namespace="FreePBX">
+			<method callingMethod="getModuleDestinations" class="Fax" namespace="FreePBX\modules">destinations</method>
+      		<method callingMethod="getModuleCheckDestinations" class="Fax" namespace="FreePBX\modules">destinations_check</method>
+      		<method callingMethod="getModuleDestinationInfo" class="Fax" namespace="FreePBX\modules">destinations_getdestinfo</method>
+      		<method callingMethod="changeModuleDestination" class="Fax" namespace="FreePBX\modules">destinations_change</method>
+      		<method callingMethod="identifyDestinations" class="Fax" namespace="FreePBX\modules">destinations_identif</method>
 		</framework>
 	</hooks>
 	<database>
+		<table name="fax_users">
+			<field name="user" type="string" length="15" notnull="false"/>
+			<field name="faxenabled" type="string" length="10" notnull="false"/>
+			<field name="faxemail" type="text" notnull="false"/>
+			<field name="faxattachformat" type="string" length="10" notnull="false"/>
+			<key name="user" type="unique">
+				<column name="user"/>
+			</key>
+		</table>
 		<table name="fax_details">
 			<field name="key" type="string" length="50" notnull="false"/>
 			<field name="value" type="string" length="710" notnull="false"/>
