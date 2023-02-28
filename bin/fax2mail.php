@@ -58,7 +58,11 @@ foreach ($var as $k => $v) {
 		case 'subject':
 			if (!$var['subject']) {
 				if (isset($var['direction']) && $var['direction'] == 'outgoing') {
-					$var['subject'] = _('Outgoing fax results');
+					if (isset($var['custom_subject']) && !empty($var['custom_subject'])) {
+						$var['subject'] = $var['custom_subject'];
+					} else {
+						$var['subject'] = _('Outgoing fax results');
+					}
 				} else {
 					if ($var['callerid']) {
 						$var['subject'] = sprintf(_('New fax from: %s'),$var['callerid']);
