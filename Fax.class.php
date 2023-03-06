@@ -931,7 +931,7 @@ class Fax extends FreePBX_Helpers implements BMO
 	 */
 	public function myDialplanHooks()
 	{
-		return true;
+		return 220;
 	}
 	public function doDialplanHook(&$ext, $engine, $priority)
 	{
