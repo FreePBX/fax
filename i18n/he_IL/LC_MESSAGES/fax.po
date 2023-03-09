@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-23 12:29+0000\n"
+"POT-Creation-Date: 2023-03-09 09:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,22 +29,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Fax.class.php:516
-msgid ""
-" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in "
-msgstr ""
-
-#: Fax.class.php:458
-msgid ""
-"\"You have selected Fax Detection on this route. Please select a valid "
-"destination to route calls detected as faxes to.\""
-msgstr ""
-
-#: views/form.php:223
+#: views/view.form_options.php:198
 msgid "A4"
 msgstr ""
 
-#: Fax.class.php:606
+#: views/view.coreDIDHook.php:181
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -61,58 +50,67 @@ msgstr ""
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr ""
 
-#: views/form.php:27
+#: views/view.form_options.php:217
 msgid "Always Generate Detection Code"
 msgstr ""
 
-#: views/fax.php:52
+#: bin/fax2mail.php:110
+#, php-format
+msgid "At: %s"
+msgstr ""
+
+#: views/view.userman.showpage.php:52
 msgid "Attachment Format"
 msgstr ""
 
-#: Fax.class.php:459
+#: views/view.coreDIDHook.php:53
 msgid "Attempt to detect faxes on this DID."
 msgstr ""
 
-#: install.php:83
-msgid "Auto generated migrated user for Fax"
+#: Fax.class.php:433
+msgid "Author to pass to tiff2pdf's -a option"
 msgstr ""
 
-#: views/fax.php:63
+#: views/view.userman.showpage.php:63
 msgid "Both"
 msgstr ""
 
-#: Fax.class.php:451 Fax.class.php:532
+#: Fax.class.php:748 views/view.coreDIDHook.php:86
 msgid "Dahdi"
 msgstr ""
 
-#: views/form.php:65
+#: views/view.form_options.php:40
 msgid "Default Fax header"
 msgstr ""
 
-#: views/form.php:85
+#: views/view.form_options.php:60
 msgid "Default Local Station Identifier"
 msgstr ""
 
-#: views/form.php:216
+#: views/view.form_options.php:191
 msgid "Default Paper Size"
 msgstr ""
 
-#: Fax.class.php:495
+#: views/view.coreDIDHook.php:21
 msgid "Detect Faxes"
 msgstr ""
 
-#: fax.i18n.php:12 /usr/src/freepbx/fax/install.php:6
+#: Fax.class.php:417 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Dial System FAX"
 msgstr ""
 
-#: Fax.class.php:94
+#: Fax.class.php:437
+msgid "Done!"
+msgstr ""
+
+#: Fax.class.php:229
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires spandsp based app_fax (res_fax_spandsp."
 "so) to function."
 msgstr ""
 
-#: Fax.class.php:96
+#: Fax.class.php:234
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -120,17 +118,17 @@ msgid ""
 "free) and must be installed."
 msgstr ""
 
-#: views/form.php:128
+#: views/view.form_options.php:103
 msgid "Email address"
 msgstr ""
 
-#: views/form.php:116
+#: views/view.form_options.php:91
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
 msgstr ""
 
-#: views/form.php:138
+#: views/view.form_options.php:113
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -138,38 +136,49 @@ msgid ""
 "addresses specified."
 msgstr ""
 
+#: bin/fax2mail.php:79
+#, php-format
+msgid "Email-fax dying, file %s not found!"
+msgstr ""
+
+#: bin/fax2mail.php:47
+msgid ""
+"Email-fax dying, no destination found (User has no email!) and we arent "
+"keeping the file!"
+msgstr ""
+
 #: views/quickCreate.php:5
 msgid "Enable Fax"
 msgstr ""
 
-#: views/fax.php:42
+#: views/view.userman.showpage.php:42
 msgid "Enable this user to receive faxes"
 msgstr ""
 
-#: views/fax.php:23
+#: views/view.userman.showpage.php:23
 msgid "Enabled"
 msgstr ""
 
-#: bin/fax2mail.php:89
+#: bin/fax2mail.php:128
 msgid "Enclosed, please find a new fax"
 msgstr ""
 
-#: bin/fax2mail.php:87
+#: bin/fax2mail.php:124
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr ""
 
-#: views/form.php:148
+#: views/view.form_options.php:123
 msgid "Error Correction Mode"
 msgstr ""
 
-#: views/form.php:161
+#: views/view.form_options.php:136
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
 msgstr ""
 
-#: Fax.class.php:105 Fax.class.php:122 Fax.class.php:680
+#: Fax.class.php:244 Fax.class.php:262 Fax.class.php:759
 msgid "Fax"
 msgstr ""
 
@@ -177,117 +186,111 @@ msgstr ""
 msgid "Fax Configuration"
 msgstr ""
 
-#: Fax.class.php:643 Fax.class.php:704
+#: Fax.class.php:785 views/view.coreDIDHook.php:194
 msgid "Fax Destination"
 msgstr ""
 
-#: Fax.class.php:696
+#: Fax.class.php:777
 msgid "Fax Detection"
 msgstr ""
 
-#: Fax.class.php:587
+#: views/view.coreDIDHook.php:143
 msgid "Fax Detection Time"
 msgstr ""
 
-#: Fax.class.php:700
+#: Fax.class.php:781
 msgid "Fax Detection Wait"
 msgstr ""
 
-#: Fax.class.php:527
+#: views/view.coreDIDHook.php:81
 msgid "Fax Detection type"
 msgstr ""
 
-#: Fax.class.php:615
+#: views/view.coreDIDHook.php:169
 msgid "Fax Email Destination"
 msgstr ""
 
-#: Fax.class.php:692 Fax.class.php:693
+#: Fax.class.php:773 Fax.class.php:774
 msgid "Fax Enabled"
 msgstr ""
 
-#: page.fax.php:9
+#: views/page.main.php:2
 msgid "Fax Options"
 msgstr ""
 
-#: Fax.class.php:556
+#: Fax.class.php:1208 bin/fax2mail.php:56
+msgid "Fax Recipient"
+msgstr ""
+
+#: views/view.coreDIDHook.php:116
 msgid "Fax Ring"
 msgstr ""
 
-#: functions.inc.php:20
+#: bin/fax2mail.php:17
+msgid "Fax Service"
+msgstr ""
+
+#: Fax.class.php:1266
 #, php-format
 msgid "Fax user %s"
 msgstr ""
 
-#: install.php:138
-msgid "Finished Migrating fax users to usermanager"
+#: bin/fax2mail.php:114 bin/fax2mail.php:136
+#, php-format
+msgid "For: %s"
 msgstr ""
 
-#: bin/fax2mail.php:96
-msgid "For"
-msgstr ""
-
-#: views/fax.php:72
+#: views/view.userman.showpage.php:72
 msgid "Formats to convert incoming fax files to before emailing."
 msgstr ""
 
-#: views/form.php:75
+#: views/view.form_options.php:50
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
 "person or entity sending the fax."
 msgstr ""
 
-#: Fax.class.php:701
+#: Fax.class.php:782
 msgid "How long to wait and try to detect fax"
 msgstr ""
 
-#: Fax.class.php:578
+#: views/view.coreDIDHook.php:155
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: install.php:140
-msgid "Inbound Fax Destination Change"
-msgstr ""
-
-#: functions.inc.php:59
+#: Fax.class.php:1241
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr ""
 
-#: install.php:140
-msgid ""
-"Inbound faxes now use User Manager users. Therefore you will need to re-"
-"assign all of your destinations that used 'Fax Recipients' to point to User "
-"Manager users. You may see broken destinations until this is resolved"
-msgstr ""
-
-#: views/fax.php:32 /usr/src/freepbx/fax/views/fax.php:58
+#: views/view.userman.showpage.php:32 views/view.userman.showpage.php:58
 msgid "Inherit"
 msgstr ""
 
-#: functions.inc.php:288
+#: Fax.class.php:1318
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
-#: Fax.class.php:484
+#: views/view.coreDIDHook.php:42
 msgid "Legacy"
 msgstr ""
 
-#: Fax.class.php:464
+#: views/view.coreDIDHook.php:59
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
 "upgrade this route by choosing YES, and selecting a valid destination!"
 msgstr ""
 
-#: views/form.php:221
+#: views/view.form_options.php:196
 msgid "Letter"
 msgstr ""
 
-#: views/form.php:172
+#: views/view.form_options.php:147
 msgid "Maximum transfer rate"
 msgstr ""
 
@@ -295,73 +298,70 @@ msgstr ""
 msgid "Maximum transfer rate can not be less than Minimum transfer rate"
 msgstr ""
 
-#: views/form.php:184
+#: views/view.form_options.php:159
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr ""
 
-#: install.php:108
-#, php-format
-msgid ""
-"Migrated user %s but unable to set email address to %s because an email [%s] "
-"was already set for User Manager User %s"
-msgstr ""
-
-#: install.php:76
-msgid "Migrating all fax users to usermanager"
-msgstr ""
-
-#: views/form.php:194
+#: views/view.form_options.php:169
 msgid "Minimum transfer rate"
 msgstr ""
 
-#: views/form.php:206
+#: views/view.form_options.php:181
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 
-#: bin/fax2mail.php:64
+#: bin/fax2mail.php:93
 #, php-format
 msgid "New fax from: %s"
 msgstr ""
 
-#: bin/fax2mail.php:66
+#: bin/fax2mail.php:97
 msgid "New fax received"
 msgstr ""
 
-#: Fax.class.php:482 Fax.class.php:563 /usr/src/freepbx/fax/views/fax.php:29
-#: views/form.php:34 views/form.php:155 views/quickCreate.php:12
+#: views/quickCreate.php:12 views/view.coreDIDHook.php:28
+#: views/view.coreDIDHook.php:40 views/view.coreDIDHook.php:123
+#: views/view.form_options.php:130 views/view.form_options.php:224
+#: views/view.userman.showpage.php:29
 msgid "No"
 msgstr ""
 
-#: Fax.class.php:469
+#: views/view.coreDIDHook.php:249
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 
-#: Fax.class.php:461
+#: views/view.coreDIDHook.php:57
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
 "exclusively for voice OR fax."
 msgstr ""
 
-#: views/fax.php:60
+#: views/view.userman.showpage.php:60
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:93
-msgid "On"
+#: bin/fax2mail.php:111 bin/fax2mail.php:132
+#, php-format
+msgid "On: %s"
 msgstr ""
 
-#: views/form.php:105
+#: views/view.form_options.php:80
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:61
+#: bin/fax2mail.php:87
 msgid "Outgoing fax results"
 msgstr ""
 
-#: views/fax.php:61
+#: views/view.userman.showpage.php:61
 msgid "PDF"
+msgstr ""
+
+#: Fax.class.php:472
+#, php-format
+msgid "Page Not Found (%s)!!!!"
 msgstr ""
 
 #: Api/Rest/Fax.php:9
@@ -372,83 +372,90 @@ msgstr ""
 msgid "Read fax user settings"
 msgstr ""
 
-#: bin/fax2mail.php:92
+#: bin/fax2mail.php:131
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
 
-#: Fax.class.php:419
+#: Fax.class.php:707
 msgid "Reset"
 msgstr ""
 
-#: Fax.class.php:534
+#: views/view.coreDIDHook.php:88
 msgid "SIP"
 msgstr ""
 
-#: views/form.php:229
+#: views/view.form_options.php:204
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
 "specify a size that size will be used."
 msgstr ""
 
+#: bin/fax2mail.php:108
+#, php-format
+msgid "Sent to %s"
+msgstr ""
+
 #: fax.i18n.php:6
 msgid "Settings"
 msgstr ""
 
-#: Fax.class.php:517
+#: views/view.coreDIDHook.php:102
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
-#: Fax.class.php:414
+#: bin/fax2mail.php:109
+#, php-format
+msgid "Status: %s"
+msgstr ""
+
+#: Fax.class.php:702
 msgid "Submit"
 msgstr ""
 
-#: views/fax.php:62
+#: views/view.userman.showpage.php:62
 msgid "TIFF"
 msgstr ""
 
-#: views/form.php:95
+#: views/view.form_options.php:70
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr ""
 
-#: views/form.php:117
+#: views/view.form_options.php:92
 msgid ""
 "This may be formatted as just 'user@example.com', or 'Fax User <user@example."
 "com>'. The second option will display 'Fax User' in the 'From' field in most "
 "email clients."
 msgstr ""
 
-#: Fax.class.php:697
+#: Fax.class.php:778
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr ""
 
-#: Fax.class.php:514
+#: views/view.coreDIDHook.php:97
 msgid "Type of fax detection to use."
 msgstr ""
 
-#: install.php:89 /usr/src/freepbx/fax/install.php:96 install.php:116
-#: /usr/src/freepbx/fax/install.php:126
-#, php-format
-msgid ""
-"Unable to migrate %s, because [%s]. Please check your 'Fax Recipients' "
-"destinations"
+#: Fax.class.php:423
+msgid "Upgrading configs.."
 msgstr ""
 
-#: functions.inc.php:288
+#: Fax.class.php:1318
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:94
-msgid "Via"
+#: bin/fax2mail.php:133
+#, php-format
+msgid "Via: %s"
 msgstr ""
 
-#: views/form.php:40
+#: views/view.form_options.php:230
 msgid ""
 "When no fax modules are detected the module will not generate any detection "
 "dialplan by default. If the system is being used with phyical FAX devices, "
@@ -456,11 +463,11 @@ msgid ""
 "to be generated here."
 msgstr ""
 
-#: Fax.class.php:634 Fax.class.php:705
+#: Fax.class.php:786 views/view.coreDIDHook.php:206
 msgid "Where to send the faxes"
 msgstr ""
 
-#: Fax.class.php:571
+#: views/view.coreDIDHook.php:131
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -474,34 +481,48 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: Fax.class.php:481 Fax.class.php:561 /usr/src/freepbx/fax/views/fax.php:28
-#: views/form.php:32 views/form.php:153 views/quickCreate.php:10
+#: views/quickCreate.php:10 views/view.coreDIDHook.php:27
+#: views/view.coreDIDHook.php:39 views/view.coreDIDHook.php:121
+#: views/view.form_options.php:128 views/view.form_options.php:222
+#: views/view.userman.showpage.php:28
 msgid "Yes"
 msgstr ""
 
-#: Fax.class.php:462
+#: views/view.coreDIDHook.php:58
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
 "receive both voice and fax calls on this line"
 msgstr ""
 
-#: views/form.php:55
+#: views/view.coreDIDHook.php:239
+msgid ""
+"You have selected Fax Detection on this route. Please select a valid "
+"destination to route calls detected as faxes to."
+msgstr ""
+
+#: views/view.form_options.php:29
 msgid ""
 "Your maximum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
 
-#: views/form.php:52
+#: views/view.form_options.php:25
 msgid ""
 "Your minimum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr ""
 
-#: Fax.class.php:451
+#: Fax.class.php:748
 msgid "Zaptel"
 msgstr ""
 
-#: Fax.class.php:516
-msgid "use "
+#: Fax.class.php:1391
+#, php-format
+msgid "gs not found, not converting %s"
+msgstr ""
+
+#: Fax.class.php:1403
+#, php-format
+msgid "tiff2pdf not found, not converting %s"
 msgstr ""
