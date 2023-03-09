@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 09:35+0000\n"
+"POT-Creation-Date: 2023-03-09 09:59+0000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -55,7 +55,7 @@ msgstr "افزودن تنظیمات، گزینه ها و رابط گرافیکی
 msgid "Always Generate Detection Code"
 msgstr "تولید همیشگی کد تشخیص"
 
-#: bin/fax2mail.php:110
+#: bin/fax2mail.php:114
 #, php-format
 msgid "At: %s"
 msgstr ""
@@ -170,11 +170,11 @@ msgstr "دریافت دورنگار را برای کاربر فعال کن"
 msgid "Enabled"
 msgstr "فعال"
 
-#: bin/fax2mail.php:128
+#: bin/fax2mail.php:132
 msgid "Enclosed, please find a new fax"
 msgstr "محصور, یک دورنگار جدید پیدا کنید"
 
-#: bin/fax2mail.php:124
+#: bin/fax2mail.php:128
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "محصور, لطفا یک دورنگار جدید پیدا کنید از：%s"
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Fax user %s"
 msgstr "دورنگار کاربر %s"
 
-#: bin/fax2mail.php:114 bin/fax2mail.php:136
+#: bin/fax2mail.php:118 bin/fax2mail.php:140
 #, php-format
 msgid "For: %s"
 msgstr ""
@@ -335,12 +335,12 @@ msgstr "حداقل سرعت تبادل اطلاعات"
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "کمترین سرعت استفاده شده برای تبادل فکس."
 
-#: bin/fax2mail.php:93
+#: bin/fax2mail.php:97
 #, php-format
 msgid "New fax from: %s"
 msgstr "دورنگار جدید از:%s"
 
-#: bin/fax2mail.php:97
+#: bin/fax2mail.php:101
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
@@ -372,7 +372,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:111 bin/fax2mail.php:132
+#: bin/fax2mail.php:115 bin/fax2mail.php:136
 #, php-format
 msgid "On: %s"
 msgstr ""
@@ -381,7 +381,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr "آدرس ایمیل ارسال فکس"
 
-#: bin/fax2mail.php:87
+#: bin/fax2mail.php:90
 msgid "Outgoing fax results"
 msgstr "نتایج فکس ارسالی"
 
@@ -402,7 +402,7 @@ msgstr ""
 msgid "Read fax user settings"
 msgstr ""
 
-#: bin/fax2mail.php:131
+#: bin/fax2mail.php:135
 #, php-format
 msgid "Received & processed: %s"
 msgstr "رسیده و پردازش شده: %s"
@@ -424,7 +424,7 @@ msgstr ""
 "انتخاب اندازه برگه پیشفرض.<br/>این اندازه برای مدارکی که سایز مشخصی ندارند "
 "لحاظ میشود.<br/>اگر مدرکی سایز مشخصی داشت همان سایز استفاده میشود."
 
-#: bin/fax2mail.php:108
+#: bin/fax2mail.php:112
 #, php-format
 msgid "Sent to %s"
 msgstr ""
@@ -441,7 +441,7 @@ msgstr ""
 "Sip: use sip fax  detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 
-#: bin/fax2mail.php:109
+#: bin/fax2mail.php:113
 #, php-format
 msgid "Status: %s"
 msgstr ""
@@ -486,7 +486,7 @@ msgstr ""
 "در مدیریت کاربران کاربران '%s' میتوانند فکسها را دریافت کنند اما آدرس ایمیلی "
 "برایشان تعریف نشده بنا بر این آنها نمیتوانند فکس را در ایمیلشان داشته باشند،"
 
-#: bin/fax2mail.php:133
+#: bin/fax2mail.php:137
 #, php-format
 msgid "Via: %s"
 msgstr ""
