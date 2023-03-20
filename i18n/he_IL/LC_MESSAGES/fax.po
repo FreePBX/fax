@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 09:59+0000\n"
+"POT-Creation-Date: 2023-03-20 06:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -218,7 +218,7 @@ msgstr ""
 msgid "Fax Options"
 msgstr ""
 
-#: Fax.class.php:1208 bin/fax2mail.php:56
+#: Fax.class.php:944 bin/fax2mail.php:56
 msgid "Fax Recipient"
 msgstr ""
 
@@ -230,7 +230,7 @@ msgstr ""
 msgid "Fax Service"
 msgstr ""
 
-#: Fax.class.php:1266
+#: Fax.class.php:1002
 #, php-format
 msgid "Fax user %s"
 msgstr ""
@@ -262,7 +262,7 @@ msgid ""
 "\"answer\" the call, it will just play ringing)."
 msgstr ""
 
-#: Fax.class.php:1241
+#: Fax.class.php:977
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr ""
@@ -271,7 +271,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: Fax.class.php:1318
+#: Fax.class.php:1054
 msgid "Invalid Email for Inbound Fax"
 msgstr ""
 
@@ -443,7 +443,7 @@ msgstr ""
 msgid "Upgrading configs.."
 msgstr ""
 
-#: Fax.class.php:1318
+#: Fax.class.php:1054
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -517,12 +517,12 @@ msgstr ""
 msgid "Zaptel"
 msgstr ""
 
-#: Fax.class.php:1391
+#: Fax.class.php:1127
 #, php-format
 msgid "gs not found, not converting %s"
 msgstr ""
 
-#: Fax.class.php:1403
+#: Fax.class.php:1139
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""

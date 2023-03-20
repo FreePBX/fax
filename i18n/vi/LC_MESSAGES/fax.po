@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 09:59+0000\n"
+"POT-Creation-Date: 2023-03-20 06:29+0000\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -230,7 +230,7 @@ msgstr "Fax đã được bật"
 msgid "Fax Options"
 msgstr "Các tùy chọn Fax"
 
-#: Fax.class.php:1208 bin/fax2mail.php:56
+#: Fax.class.php:944 bin/fax2mail.php:56
 msgid "Fax Recipient"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr "Chuông Fax"
 msgid "Fax Service"
 msgstr ""
 
-#: Fax.class.php:1266
+#: Fax.class.php:1002
 #, php-format
 msgid "Fax user %s"
 msgstr "Người dùng Fax %s"
@@ -279,7 +279,7 @@ msgstr ""
 "gọi đến kênh Dahdi sẽ nghe một hồi chuông trong khoảng thời gian đó ( cụ thể "
 "là hệ thống sẽ không 'trả lời' cuộc gọi' mà nó sẽ chỉ bật nhạc chuông)."
 
-#: Fax.class.php:1241
+#: Fax.class.php:977
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Phát hiện Fax gửi vào: %s (%s)"
@@ -288,7 +288,7 @@ msgstr "Phát hiện Fax gửi vào: %s (%s)"
 msgid "Inherit"
 msgstr "Kế thừa"
 
-#: Fax.class.php:1318
+#: Fax.class.php:1054
 msgid "Invalid Email for Inbound Fax"
 msgstr "Email không hợp lệ đối với các Fax gửi vào"
 
@@ -480,7 +480,7 @@ msgstr "Kiểu phát hiện fax được sử dụng."
 msgid "Upgrading configs.."
 msgstr ""
 
-#: Fax.class.php:1318
+#: Fax.class.php:1054
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -571,12 +571,12 @@ msgstr ""
 msgid "Zaptel"
 msgstr "Phần mềm Zaptel"
 
-#: Fax.class.php:1391
+#: Fax.class.php:1127
 #, php-format
 msgid "gs not found, not converting %s"
 msgstr ""
 
-#: Fax.class.php:1403
+#: Fax.class.php:1139
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""

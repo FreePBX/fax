@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 09:59+0000\n"
+"POT-Creation-Date: 2023-03-20 06:29+0000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -233,7 +233,7 @@ msgstr "دورنگار فعال"
 msgid "Fax Options"
 msgstr "گزینه های دورنگار"
 
-#: Fax.class.php:1208 bin/fax2mail.php:56
+#: Fax.class.php:944 bin/fax2mail.php:56
 msgid "Fax Recipient"
 msgstr "گیرنده دورنگار"
 
@@ -245,7 +245,7 @@ msgstr "زنگ فکس"
 msgid "Fax Service"
 msgstr ""
 
-#: Fax.class.php:1266
+#: Fax.class.php:1002
 #, php-format
 msgid "Fax user %s"
 msgstr "دورنگار کاربر %s"
@@ -284,7 +284,7 @@ msgstr ""
 "صدای زنگ خوردن را در این زمان خواهد شنید (i.e. the system wont \"answer\" "
 "the call, it will just play ringing)."
 
-#: Fax.class.php:1241
+#: Fax.class.php:977
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "تشخیص فکس های ورودی: %s (%s)"
@@ -293,7 +293,7 @@ msgstr "تشخیص فکس های ورودی: %s (%s)"
 msgid "Inherit"
 msgstr "ارثی"
 
-#: Fax.class.php:1318
+#: Fax.class.php:1054
 msgid "Invalid Email for Inbound Fax"
 msgstr "ایمیل نادرست برای ارسال دورنگار دریافتی"
 
@@ -477,7 +477,7 @@ msgstr "نوع شناسایی فکس مورد استفاده."
 msgid "Upgrading configs.."
 msgstr ""
 
-#: Fax.class.php:1318
+#: Fax.class.php:1054
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -559,12 +559,12 @@ msgstr "پایین ترین سرعت جابجایی شما روی 2400 تنظی�
 msgid "Zaptel"
 msgstr "زپتل"
 
-#: Fax.class.php:1391
+#: Fax.class.php:1127
 #, php-format
 msgid "gs not found, not converting %s"
 msgstr ""
 
-#: Fax.class.php:1403
+#: Fax.class.php:1139
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""

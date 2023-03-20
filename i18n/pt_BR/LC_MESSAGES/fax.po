@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-09 09:59+0000\n"
+"POT-Creation-Date: 2023-03-20 06:29+0000\n"
 "PO-Revision-Date: 2016-12-20 01:53+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -231,7 +231,7 @@ msgstr "Fax Habilitado"
 msgid "Fax Options"
 msgstr "Opções de Fax"
 
-#: Fax.class.php:1208 bin/fax2mail.php:56
+#: Fax.class.php:944 bin/fax2mail.php:56
 msgid "Fax Recipient"
 msgstr "Destinatário do Fax"
 
@@ -243,7 +243,7 @@ msgstr "Toque do Fax"
 msgid "Fax Service"
 msgstr ""
 
-#: Fax.class.php:1266
+#: Fax.class.php:1002
 #, php-format
 msgid "Fax user %s"
 msgstr "Usuário de Fax %s"
@@ -282,7 +282,7 @@ msgstr ""
 "chamadores de um canal Dahdi ouvirão toques durante este período de tempo "
 "(isto é, o sistema não responderá a chamada, apenas tocará)."
 
-#: Fax.class.php:1241
+#: Fax.class.php:977
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Detecção de Fax de Entrada: %s (%s)"
@@ -291,7 +291,7 @@ msgstr "Detecção de Fax de Entrada: %s (%s)"
 msgid "Inherit"
 msgstr "Herdar"
 
-#: Fax.class.php:1318
+#: Fax.class.php:1054
 msgid "Invalid Email for Inbound Fax"
 msgstr "E-mail inválido para o Fax de Entrada"
 
@@ -482,7 +482,7 @@ msgstr "Tipo de detecção de fax a ser utilizado."
 msgid "Upgrading configs.."
 msgstr ""
 
-#: Fax.class.php:1318
+#: Fax.class.php:1054
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -573,12 +573,12 @@ msgstr ""
 msgid "Zaptel"
 msgstr "Zaptel"
 
-#: Fax.class.php:1391
+#: Fax.class.php:1127
 #, php-format
 msgid "gs not found, not converting %s"
 msgstr ""
 
-#: Fax.class.php:1403
+#: Fax.class.php:1139
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
