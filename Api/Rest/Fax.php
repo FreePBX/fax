@@ -21,8 +21,7 @@ class Fax extends Base {
 		 * @uri /fax
 		 */
 		$app->get('/', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('fax');
-			return $response->withJson(fax_get_settings());
+			return $response->withJson(\FreePBX::Fax()->getSettings());
 		})->add($this->checkReadScopeMiddleware('settings'));
 
 		/**
@@ -31,8 +30,7 @@ class Fax extends Base {
 		 * @uri /fax/detect
 		 */
 		$app->get('/detect', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('fax');
-			return $response->withJson(fax_detect());
+			return $response->withJson(\FreePBX::Fax()->faxDetect());
 		})->add($this->checkReadScopeMiddleware('settings'));
 
 		/**
@@ -41,10 +39,10 @@ class Fax extends Base {
 		 * @returns - the freshly created settings
 		 * @uri /fax
 		 */
-		$app->post('/', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('fax');
+		$app->post('/', function ($request, $response, $args)
+		{
 			$params = $request->getParsedBody();
-			return $response->withJson(fax_save_settings($params));
+			return $response->withJson(\FreePBX::Fax()->setSettings($params));
 		})->add($this->checkWriteScopeMiddleware('settings'));
 	}
 }

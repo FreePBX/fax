@@ -14,16 +14,15 @@ class FaxUsers extends Base {
 		];
 	}
 	public function setupRoutes($app) {
-
 		/**
 		 * @verb GET
 		 * @returns - a list of users' fax settings
 		 * @uri /fax/users
 		 */
 		$app->get('/users', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('fax');
 			$users = array();
-			foreach (fax_get_user() as $user) {
+			foreach (\FreePBX::Fax()->getUser() as $user)
+			{
 				$users[$user['user']] = $user;
 				unset($users[$user['user']]['user']);
 			}
@@ -38,9 +37,9 @@ class FaxUsers extends Base {
 		 * @uri /fax/users/:id
 		 */
 		$app->get('/users/{id}', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('fax');
-			$users = fax_get_user($args['id']);
-			if (isset($users['user'])) {
+			$users = \FreePBX::Fax()->getUser($args['id']);
+			if (isset($users['user']))
+			{
 				unset($users['user']);
 			}
 			$users = $users ? $users : false;
@@ -51,19 +50,18 @@ class FaxUsers extends Base {
 		 * @verb PUT
 		 * @uri /fax/users/:id
 		 */
-		$app->post('/users/{id}', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('fax');
+		$app->post('/users/{id}', function ($request, $response, $args)
+		{
 			$params = $request->getParsedBody();
+			$params['faxemail'] = isset($params['faxemail']) ? $params['faxemail'] : '';
 
-			$params['faxemail'] = isset($params['faxemail'])
-			? $params['faxemail']
-			: '';
-
-			if (isset($args['id'], $params['faxenabled'])) {
-				return $response->withJson(fax_save_user(
+			if (isset($args['id'], $params['faxenabled']))
+			{
+				return $response->withJson(\FreePBX::Fax()->saveUser(
 					$args['id'],
 					$params['faxenabled'],
-					$params['faxemail']));
+					$params['faxemail'])
+				);
 			} else {
 				return $response->withJson(false);
 			}

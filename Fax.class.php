@@ -1,81 +1,212 @@
 <?php
-/** TODO: Namespace */
-class Fax extends FreePBX_Helpers implements BMO {
-	public function __construct($freepbx = null) {
-		if ($freepbx == null) {
-			throw new Exception("Not given a FreePBX Object");
+namespace FreePBX\modules;
+use FreePBX_Helpers;
+use BMO;
+
+class Fax extends FreePBX_Helpers implements BMO
+{
+	const ASTERISK_SECTION = 'ext-fax';
+
+	private $FreePBX;
+	private $db;
+	private $astman;
+	private $userman;
+	private $config;
+
+	public $tables = array(
+		'users' 		=> 'fax_users',
+		'incoming' 		=> 'fax_incoming',
+		'details' 		=> 'fax_details',
+		'incoming_core'	=> 'incoming',
+	);
+
+	public $default_settings = array(
+		'ecm' => array(
+			'default' => 'no',
+			'type' 	  => 'yesno',
+		),
+		'fax_rx_email' => array(
+			'default' => 'yes',
+			'type' 	  => 'email',
+		),
+		'force_detection' => array(
+			'default' => 'no',
+			'type' 	  => 'yesno',
+		),
+		'headerinfo' => array(
+			'default' => '',
+			'type' 	  => 'text',
+			// texto
+		),
+		'legacy_mode' => array(
+			'default' => 'no',
+			'type' 	  => 'yesno',
+		),
+		'localstationid' => array(
+			'default' => '',
+			'type' 	  => 'text',
+		),
+		'maxrate' => array(
+			'default' => '14400',
+			'type' 	  => 'numeric',
+		),
+		'minrate' => array(
+			'default' => '9600',
+			'type' 	  => 'numeric',
+		),
+		'modem'	=> array(
+			//TODO: It is not used anywhere, can it be deleted?
+			'default' => '',
+			'type' 	  => 'text',
+		),
+		'sender_address' => array(
+			'default' => '',
+			'type' 	  => 'text',	// email or name and email => Fax <fax@example.com>
+		),
+		'papersize' => array(
+			'default' => 'letter',
+			'type' 	  => 'list',
+			'options' => array('latter', 'a4'),
+		),
+	);
+	
+	public function __construct($freepbx = null)
+	{
+		if ($freepbx == null) 
+		{
+			throw new \RuntimeException('Not given a FreePBX Object');
 		}
-		$this->FreePBX = $freepbx;
-		$this->astman = $freepbx->astman;
-		$this->db = $freepbx->Database;
-		$this->userman = $freepbx->Userman;
+
+		$this->FreePBX 	= $freepbx;
+		$this->db 		= $freepbx->Database;
+		$this->astman 	= $freepbx->astman;
+		$this->userman 	= $freepbx->Userman;
+		$this->config 	= $freepbx->Config;
+
+		// We call applications to register in the system apps section.
+		fpbx_which('gs');
+		fpbx_which('tiff2pdf');
+		fpbx_which('tiffinfo');
 	}
-	public function setDatabase($pdo){
+
+	public function setDatabase($pdo)
+	{
 		$this->db = $pdo;
 		return $this;
 	}
 
-	public function resetDatabase(){
+	public function resetDatabase()
+	{
 		$this->db = $this->FreePBX->Database;
 		return $this;
 	}
 
-	public static function myConfigPageInits() { return array("did"); }
-	public function doConfigPageInit($page) {
-		switch ($page) {
-			case 'fax':
-				$request = $_REQUEST;
-				$get_vars = array(
-					'ecm'				=> '',
-					'fax_rx_email'		=> '',
-					'force_detection'	=> 'no',
-					'headerinfo'		=> '',
-					'legacy_mode'		=> 'no',
-					'localstationid'	=> '',
-					'maxrate'			=> '',
-					'minrate'			=> '',
-					'modem'				=> '',
-					'sender_address'	=> '',
-					'papersize' 		=> 'letter',
+	public static function myConfigPageInits()
+	{
+		return array("did");
+	}
 
-				);
-				foreach($get_vars as $k => $v){
-					$fax[$k] = isset($request[$k]) ? $request[$k] : $v;
+	public function doConfigPageInit($page)
+	{
+		$request = freepbxGetSanitizedRequest();
+		switch ($page)
+		{
+			case 'fax':
+				foreach($this->default_settings as $k => $v)
+				{
+					$input = isset($request[$k]) ? $request[$k] : $v['default'];
+					$input = trim($input);
+
+					switch ($v['type'])
+					{
+						case 'yesno':
+							$input = strtolower($input);
+							if (! in_array($input, array('yes', 'no')) )
+							{
+								$input = $v['default'];
+							}
+						break;
+						
+						case 'list':
+							$input = strtolower($input);
+							if (! in_array($input, $v['options']) )
+							{
+								$input = $v['default'];
+							}
+						break;
+
+						case 'numeric':
+							if (! is_numeric($input))
+							{
+								$input = $v['default'];
+							}
+						break;
+
+						case 'text':
+							$input = htmlspecialchars($input);
+							break;
+
+						case 'email':
+							$input = htmlspecialchars($input);
+							if (! filter_var($input, FILTER_VALIDATE_EMAIL))
+							{
+								$input = $v['default'];
+							}
+							break;
+	
+						default:
+							continue 2;
+					}
+					$fax[$k] = $input;
 				}
-				// get/put options
-				if (isset($request['action']) &&  $request['action'] == 'edit'){
-					fax_save_settings($fax);
+				if (isset($request['action']) &&  $request['action'] == 'edit')
+				{
+					$this->setSettings($fax);
 				}
 			break;
+
 			case "did":
-				$action=isset($_REQUEST['action'])?$_REQUEST['action']:'';
-				$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
-				$extension=isset($_REQUEST['extension'])?$_REQUEST['extension']:'';
-				$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
-				$enabled=isset($_REQUEST['faxenabled'])?$_REQUEST['faxenabled']:'false';
-				$detection=isset($_REQUEST['faxdetection'])?$_REQUEST['faxdetection']:'';
-				$ring=isset($_REQUEST['faxring'])?$_REQUEST['faxring']:'';
-				$detectionwait=isset($_REQUEST['faxdetectionwait'])?$_REQUEST['faxdetectionwait']:'';
-				$dest=(isset($_REQUEST['gotoFAX'])?$_REQUEST['gotoFAX'].'FAX':null);
-				$dest=isset($_REQUEST[$dest])?$_REQUEST[$dest]:'';
-				if ($enabled != 'legacy') {
+				$action			= isset($request['action']) 			? $request['action']			: '';
+				$cidnum			= isset($request['cidnum']) 			? $request['cidnum']			: '';
+				$extension		= isset($request['extension'])			? $request['extension']			: '';
+				$extdisplay		= isset($request['extdisplay'])			? $request['extdisplay']		: '';
+				$enabled		= isset($request['faxenabled'])			? $request['faxenabled']		: 'false';
+				$detection		= isset($request['faxdetection'])		? $request['faxdetection']		: '';
+				$ring			= isset($request['faxring'])			? $request['faxring']			: '';
+				$detectionwait	= isset($request['faxdetectionwait'])	? $request['faxdetectionwait']	: '';
+				$dest			= (isset($request['gotoFAX'])			? $request['gotoFAX'].'FAX'		: null);
+				$dest			= isset($request[$dest])				? $request[$dest]				: '';
+				if ($enabled != 'legacy')
+				{
 					$legacy_email = null;
-				} else {
-					$legacy_email=isset($_REQUEST['legacy_email'])?$_REQUEST['legacy_email']:'';
+				}
+				else
+				{
+					$legacy_email = isset($request['legacy_email']) ? $request['legacy_email'] : '';
 				}
 
-				switch($action) {
+				if (! is_numeric($detectionwait) or ($detectionwait < 0))
+				{
+				 	$detectionwait = '4';
+				}
+
+				switch($action)
+				{
 					case "edtIncoming":
-						fax_delete_incoming($extdisplay);
-					//fall through to next level on purpose
+						$this->deleteIncoming($extdisplay);
+						// fall through to next level on purpose
+						
 					case "addIncoming":
-						if($enabled != 'false') {
-							fax_save_incoming($cidnum,$extension,$enabled,$detection,$detectionwait,$dest,$legacy_email,$ring);
+						if($enabled != 'false')
+						{
+							$this->saveIncoming($cidnum, $extension, $enabled, $detection, $detectionwait, $dest, $legacy_email, $ring);
 						}
 					break;
+
 					case "delIncoming":
-						fax_delete_incoming($extdisplay);
+						$this->deleteIncoming($extdisplay);
                     break;
+
                     default:
                     break;
 				}
@@ -85,86 +216,107 @@ class Fax extends FreePBX_Helpers implements BMO {
 		}
 	}
 
-	public function usermanShowPage() {
-		global $version;
-		if(isset($_REQUEST['action'])) {
+	public function usermanShowPage()
+	{
+		$request = $_REQUEST;
+		if(isset($request['action']))
+		{
 			$error = "";
 			$faxStatus = $this->faxDetect();
-			if(!$faxStatus['module'] || ($faxStatus['module'] && ((isset($faxStatus['ffa']) && !$faxStatus['ffa']) && !$faxStatus['spandsp']))){//missing modules
+			if( ! $faxStatus['module'] || ($faxStatus['module'] && ((isset($faxStatus['ffa']) && !$faxStatus['ffa']) && !$faxStatus['spandsp'])))
+			{
+				//missing modules
 				$error = _('ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be generated.<br>This module requires spandsp based app_fax (res_fax_spandsp.so) to function.');
-			}elseif(isset($faxStatus['ffa']) && $faxStatus['ffa'] && $faxStatus['license'] < 1){//missing license
+			}
+			elseif(isset($faxStatus['ffa']) && $faxStatus['ffa'] && $faxStatus['license'] < 1)
+			{
+				//missing license
 				$error = _('ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be generated!<br>This module has detected that Fax for Asterisk is installed without a license.<br>At least one license is required (it is available for free) and must be installed.');
 			}
-			switch($_REQUEST['action']) {
+			$data_return = [];
+			switch($request['action'])
+			{
 				case 'addgroup':
 				case 'showgroup':
-					$enabled = ($_REQUEST['action'] == "addgroup") ? true : $this->userman->getModuleSettingByGID($_REQUEST['group'],'fax','enabled');
-					$attachformat = ($_REQUEST['action'] == "addgroup") ? 'pdf' : $this->userman->getModuleSettingByGID($_REQUEST['group'],'fax','attachformat');
-					return array(
-						array(
-							"title" => _("Fax"),
-							"rawname" => "fax",
-							"content" => load_view(__DIR__.'/views/fax.php',array("mode" => "group", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
-						)
+					$enabled 	   = ($request['action'] == "addgroup") ? true : $this->userman->getModuleSettingByGID($request['group'],'fax','enabled');
+					$attachformat  = ($request['action'] == "addgroup") ? 'pdf' : $this->userman->getModuleSettingByGID($request['group'],'fax','attachformat');
+					$data_return[] = array(
+						"title"   => _("Fax"),
+						"rawname" => "fax",
+						"content" => $this->showPage('userman_showpage', array("mode" => "group", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
 					);
+				break;
+					
 				case 'adduser':
 				case 'showuser':
-					if(isset($_REQUEST['user'])) {
-						$user = $this->userman->getUserByID($_REQUEST['user']);
-						$enabled = $this->userman->getModuleSettingByID($user['id'],'fax','enabled',true);
+					$enabled 	  = null;
+					$attachformat = 'pdf';
+
+					if(isset($request['user']))
+					{
+						$user 		  = $this->userman->getUserByID($request['user']);
+						$enabled 	  = $this->userman->getModuleSettingByID($user['id'],'fax','enabled',true);
 						$attachformat = $this->userman->getModuleSettingByID($user['id'],'fax','attachformat',true);
-					} else {
-						$enabled = null;
-						$attachformat = 'pdf';
 					}
-					return array(
-						array(
-							"title" => _("Fax"),
-							"rawname" => "fax",
-							"content" => load_view(__DIR__.'/views/fax.php',array("mode" => "user", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
-						)
-                    );
-                    default:
-                    return [];
+					$data_return[] = array(
+						"title"   => _("Fax"),
+						"rawname" => "fax",
+						"content" => $this->showPage('userman_showpage', array("mode" => "user", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
+					);
+				break;
 			}
+			return $data_return;
 		}
 	}
 
-	public function usermanDelGroup($id,$display,$data) {
-		foreach($data['users'] as $user) {
-			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
+	public function usermanDelGroup($id, $display, $data)
+	{
+		foreach($data['users'] as $user)
+		{
+			$enabled 	  = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
-			$userData = $this->userman->getUserByID($user);
-			if(!empty($userData)) {
-				$this->saveUser($userData['id'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
+			$userData 	  = $this->userman->getUserByID($user);
+			if(!empty($userData))
+			{
+				$this->saveUser($userData['id'], ($enabled ? "true" : "false"), $userData['email'], $attachformat);
 			}
 		}
 	}
 
-	public function usermanAddGroup($id, $display, $data) {
-		$this->usermanUpdateGroup($id,$display,$data);
+	public function usermanAddGroup($id, $display, $data)
+	{
+		$this->usermanUpdateGroup($id, $display, $data);
 	}
 
-	public function usermanUpdateGroup($id,$display,$data) {
-		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
-			if(isset($_POST['faxenabled'])) {
-				if($_POST['faxenabled'] == "true") {
-					$this->userman->setModuleSettingByGID($id,'fax','enabled',true);
-					$this->userman->setModuleSettingByGID($id,'fax','attachformat',$_POST['faxattachformat']);
-				} else {
-					$this->userman->setModuleSettingByGID($id,'fax','enabled',false);
-					$this->userman->setModuleSettingByGID($id,'fax','attachformat',"pdf");
+	public function usermanUpdateGroup($id,$display,$data) 
+	{
+		$post = $_POST;
+		if($display == 'userman' && isset($post['type']) && $post['type'] == 'group')
+		{
+			if(isset($post['faxenabled']))
+			{
+				if($post['faxenabled'] == "true")
+				{
+					$this->userman->setModuleSettingByGID($id, 'fax', 'enabled', true);
+					$this->userman->setModuleSettingByGID($id, 'fax', 'attachformat', $post['faxattachformat']);
+				}
+				else
+				{
+					$this->userman->setModuleSettingByGID($id, 'fax', 'enabled', false);
+					$this->userman->setModuleSettingByGID($id, 'fax', 'attachformat', "pdf");
 				}
 			}
 		}
 
 		$group = $this->userman->getGroupByGID($id);
-		foreach($group['users'] as $user) {
-			$enabled = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
+		foreach($group['users'] as $user)
+		{
+			$enabled 	  = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
-			$userData = $this->userman->getUserByID($user);
-			if(!empty($userData)) {
-				$this->saveUser($userData['id'],($enabled ? "true" : "false"),$userData['email'],$attachformat);
+			$userData 	  = $this->userman->getUserByID($user);
+			if(!empty($userData))
+			{
+				$this->saveUser($userData['id'], ($enabled ? "true" : "false"), $userData['email'], $attachformat);
 			}
 		}
 	}
@@ -175,7 +327,8 @@ class Fax extends FreePBX_Helpers implements BMO {
 	 * @param {string} $display The display page name where this was executed
 	 * @param {array} $data    Array of data to be able to use
 	 */
-	public function usermanDelUser($id, $display, $data) {
+	public function usermanDelUser($id, $display, $data)
+	{
 		$this->deleteUser($id);
 	}
 
@@ -185,30 +338,37 @@ class Fax extends FreePBX_Helpers implements BMO {
 	 * @param {string} $display The display page name where this was executed
 	 * @param {array} $data    Array of data to be able to use
 	 */
-	public function usermanAddUser($id, $display, $data) {
-		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
-			if(isset($_POST['faxenabled'])) {
-				if($_POST['faxenabled'] == "true") {
-					$this->userman->setModuleSettingByID($id,'fax','enabled',true);
-					if(!empty($_POST['faxattachformat'])){
-						$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
-					}
-					else{
-						$this->userman->setModuleSettingByID($id,'fax','attachformat',null);
-					}
-				} elseif($_POST['faxenabled'] == "false") {
-					$this->userman->setModuleSettingByID($id,'fax','enabled',false);
-				} else {
-					$this->userman->setModuleSettingByID($id,'fax','enabled',null);
+	public function usermanAddUser($id, $display, $data)
+	{
+		$post = $_POST;
+		if($display == 'userman' && isset($post['type']) && $post['type'] == 'user')
+		{
+			if(isset($post['faxenabled']))
+			{
+				switch($post['faxenabled'])
+				{
+					case 'true':
+						$this->userman->setModuleSettingByID($id, 'fax', 'enabled', true);
+						$this->userman->setModuleSettingByID($id, 'fax', 'attachformat', !empty($post['faxattachformat']) ? $post['faxattachformat']: null);
+					break;
+					
+					case "false":
+						$this->userman->setModuleSettingByID($id, 'fax', 'enabled', false);
+					break;
+
+					default:
+						$this->userman->setModuleSettingByID($id, 'fax', 'enabled', null);
+					break;
 				}
 			}
 		}
 
-		$enabled = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
+		$enabled 	  = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
 		$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'attachformat');
-		$user = $this->FreePBX->Userman->getUserByID($id);
-		if(!empty($user)) {
-			$this->saveUser($id,($enabled ? "true" : "false"),$user['email'],$attachformat);
+		$user 		  = $this->FreePBX->Userman->getUserByID($id);
+		if(!empty($user))
+		{
+			$this->saveUser($id, ($enabled ? "true" : "false"), $user['email'], $attachformat);
 		}
 	}
 
@@ -218,129 +378,247 @@ class Fax extends FreePBX_Helpers implements BMO {
 	 * @param {string} $display The display page name where this was executed
 	 * @param {array} $data    Array of data to be able to use
 	 */
-	public function usermanUpdateUser($id, $display, $data) {
-		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
-			if(isset($_POST['faxenabled'])) {
-				if($_POST['faxenabled'] == "true") {
-					$this->userman->setModuleSettingByID($id,'fax','enabled',true);
-					if(!empty($_POST['faxattachformat'])){
-						$this->userman->setModuleSettingByID($id,'fax','attachformat',$_POST['faxattachformat']);
-					}
-					else{
-						$this->userman->setModuleSettingByID($id,'fax','attachformat',null);
-					}
-				} elseif($_POST['faxenabled'] == "false") {
+	public function usermanUpdateUser($id, $display, $data)
+	{
+		$post = $_POST;
+		if($display == 'userman' && isset($post['type']) && $post['type'] == 'user')
+		{
+			if(isset($post['faxenabled']))
+			{
+				if($post['faxenabled'] == "true")
+				{
+					$this->userman->setModuleSettingByID($id, 'fax', 'enabled', true);
+					$this->userman->setModuleSettingByID($id, 'fax', 'attachformat', !empty($post['faxattachformat']) ? $post['faxattachformat'] : null);
+				}
+				elseif($post['faxenabled'] == "false")
+				{
 					$this->userman->setModuleSettingByID($id,'fax','enabled',false);
-				} else {
-					$this->userman->setModuleSettingByID($id,'fax','enabled',null);
-					$this->userman->setModuleSettingByID($id,'fax','attachformat',null);
+				}
+				else
+				{
+					$this->userman->setModuleSettingByID($id, 'fax', 'enabled', null);
+					$this->userman->setModuleSettingByID($id, 'fax', 'attachformat', null);
 				}
 			}
 		}
 
-		$enabled = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
+		$enabled 	  = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'enabled');
 		$attachformat = $this->userman->getCombinedModuleSettingByID($id, 'fax', 'attachformat');
-
-		$user = $this->FreePBX->Userman->getUserByID($id);
-		if(!empty($user)) {
+		$user 		  = $this->FreePBX->Userman->getUserByID($id);
+		if(!empty($user))
+		{
 			$this->saveUser($id,($enabled ? "true" : "false"),$user['email'],$attachformat);
 		}
 	}
 
-	public function install() {
+	public function install()
+	{
+		$fcc = new \featurecode('fax', 'simu_fax');
+		$fcc->setDescription(_('Dial System FAX'));
+		$fcc->setDefault('666');
+		$fcc->setProvideDest();
+		$fcc->update();
+		unset($fcc);
 
+		outn(_("Upgrading configs.."));
+		$set = array();
+		$set['value'] = 'www.freepbx.org';
+		$set['defaultval'] =& $set['value'];
+		$set['readonly'] = 1;
+		$set['hidden'] = 1;
+		$set['module'] = '';
+		$set['category'] = 'Styling and Logos';
+		$set['emptyok'] = 0;
+		$set['name'] = 'tiff2pdf Author';
+		$set['description'] = _("Author to pass to tiff2pdf's -a option");
+		$set['type'] = CONF_TYPE_TEXT;
+		$this->config->define_conf_setting('PDFAUTHOR', $set, true);
+		unset($set);
+		out(_("Done!"));
 	}
+
 	public function uninstall() {
 
 	}
 
-	public function genConfig() {
+	public function showPage($page, $params = array())
+	{
+		$request = $_REQUEST;
+		$data = array(
+			"fax" 	  => $this,
+			'request' => $request,
+			'page' 	  => $page,
+		);
+		$data = array_merge($data, $params);
+		switch ($page) 
+		{
+			case 'main':
+				$data_return = load_view(__DIR__."/views/page.main.php", $data);
+				break;
+
+			case 'form_options':
+				$data_return = load_view(__DIR__."/views/view.form_options.php", $data);
+				break;
+
+			case 'core_DIDHook':
+				$data_return = load_view(__DIR__."/views/view.coreDIDHook.php", $data);
+				break;
+
+			case 'userman_showpage':
+				$data_return = load_view(__DIR__.'/views/view.userman.showpage.php', $data);
+				break;
+
+			default:
+				$data_return = sprintf(_("Page Not Found (%s)!!!!"), $page);
+		}
+		return $data_return;
+	}
+
+	public function genConfig()
+	{
 		global $version;
 		$conf = array();
 
 		$fax = $this->faxDetect();
 		$ast_lt_18 = version_compare($version, '1.8', 'lt');
-		if($fax['module'] && ($ast_lt_18 || (isset($fax['ffa']) && $fax['ffa']) || $fax['spandsp'])){ //dont continue unless we have a fax module in asterisk
+		if($fax['module'] && ($ast_lt_18 || (isset($fax['ffa']) && $fax['ffa']) || $fax['spandsp']))
+		{
+			//dont continue unless we have a fax module in asterisk
 
 			$settings = $this->getSettings();
 			$conf['res_fax.conf']['general'][] = "#include res_fax_custom.conf";
-			if(!empty($settings['minrate'])) {
+			if(!empty($settings['minrate']))
+			{
 				$conf['res_fax.conf']['general']['minrate'] = $settings['minrate'];
 			}
-			if(!empty($settings['maxrate'])) {
+			if(!empty($settings['maxrate']))
+			{
 				$conf['res_fax.conf']['general']['maxrate'] = $settings['maxrate'];
 			}
 
 			$conf['res_fax_digium.conf']['general'][] = "#include res_fax_digium_custom.conf";
-			if(!empty($settings['ecm'])) {
+			if(!empty($settings['ecm']))
+			{
 				$conf['res_fax_digium.conf']['general']['ecm'] = $settings['ecm'];
 			}
 		}
-
 		return $conf;
 	}
-	public function writeConfig($conf){
+
+	public function writeConfig($conf)
+	{
 		$this->FreePBX->WriteConfig($conf);
 	}
 
-	public function restore_fax_settings($fax_details){
-		fax_save_settings($fax_details);
+	public function restore_fax_settings($fax_details)
+	{
+		$this->setSettings($fax_details);
+	}
+	
+	public function getSetting($key, $default = null)
+	{
+		$return_data = $default;
+		if (! empty($key))
+		{
+			$key 	  = strtolower($key);
+			$settings = array_change_key_case($this->getSettings());
+			if (array_key_exists($key, $settings))
+			{
+				$return_data = $settings[$key];
+			}
+		}
+		return $return_data;
 	}
 
-	public function getSettings() {
-		$settings = sql('SELECT * FROM fax_details', 'getAssoc', 'DB_FETCHMODE_ASSOC');
-		foreach($settings as $setting => $value){
-			$set[$setting]=$value['0'];
+	public function getSettings()
+	{
+		//TODO: migrate settings to kvstore
+		$set 	  = array();
+		$sql 	  = sprintf('SELECT * FROM %s', $this->tables['details']);
+		$settings = sql($sql, 'getAssoc', 'DB_FETCHMODE_ASSOC');
+		foreach($settings as $setting => $value)
+		{
+			$set[$setting] = $value['0'];
 		}
-		if(!is_array($set)){$set=array();}//never return a null value
+		$set = array_change_key_case($set);
 		return $set;
 	}
 
-	public function deleteUser($faxext) {
-		$sth = $this->db->prepare('DELETE FROM fax_users where user = ?');
+	public function setSettings($settings)
+	{
+		//TODO: migrate settings to kvstore
+		if (is_array($settings))
+		{
+			foreach($settings as $key => $value)
+			{
+				$key = strtolower($key);
+				$sql = sprintf('REPLACE INTO fax_details (`key`, `value`) VALUES (LOWER(?), ?)', $this->tables['details']);
+				$sth = $this->db->prepare($sql);
+				$sth->execute(array($key, $value));
+				// $db->escapeSimple($value)
+			}
+			needreload();
+		}
+	}
+
+	public function deleteUser($faxext)
+	{
+		$sql = sprintf('DELETE FROM %s where user = ?', $this->tables['users']);
+		$sth = $this->db->prepare($sql);
 		$sth->execute(array($faxext));
 	}
 
-	public function saveUser($faxext,$faxenabled,$faxemail = '',$faxattachformat = 'pdf') {
-		$sth = $this->db->prepare('REPLACE INTO fax_users (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)');
-		try {
+	public function saveUser($faxext, $faxenabled, $faxemail = '', $faxattachformat = 'pdf')
+	{
+		$sql = sprintf('REPLACE INTO %s (user, faxenabled, faxemail, faxattachformat) VALUES (?, ?, ?, ?)', $this->tables['users']);
+		$sth = $this->db->prepare($sql);
+		try
+		{
 			$sth->execute(array($faxext, $faxenabled, $faxemail, $faxattachformat));
-
-		} catch(Exception $e) {
+		}
+		catch(\Exception $e)
+		{
 			return false;
 		}
 		return true;
 	}
 
-	public function getUser($user) {
-		$sth = $this->db->prepare('SELECT * FROM fax_users WHERE user = ?');
+	public function getUser($user)
+	{
+		$sql = sprintf('SELECT * FROM %s WHERE user = ?', $this->tables['users']);
+		$sth = $this->db->prepare($sql);
 		$sth->execute(array($user));
-		$out = $sth->fetchAll(PDO::FETCH_ASSOC);
+		$out = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		return (!empty($out[0]) && $out[0]['faxenabled']) ? $out[0] : false;
     }
 
-    public function listUsers(){
-        return $this->FreePBX->Database->query('SELECT * FROM fax_users')->fetchAll(PDO::FETCH_ASSOC);
-
+    public function listUsers()
+	{
+		$sql = sprintf('SELECT * FROM %s', $this->tables['users']);
+        return $this->db->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-	public function faxDetect() {
-		$fax=null;
-		$appfax = $receivefax = false;//return false by default in case asterisk isnt reachable
-		if (isset($this->FreePBX->astman) && $this->FreePBX->astman->connected()) {
+	public function faxDetect()
+	{
+		$fax = null;
+		if (isset($this->astman) && $this->astman->connected())
+		{
+			$fax = array();
 			//check for fax modules
-			switch(true) {
-				case $this->FreePBX->astman->mod_loaded('res_fax.so'):
-					$fax['module']='res_fax';
+			switch(true)
+			{
+				case $this->astman->mod_loaded('res_fax.so'):
+					$fax['module'] = 'res_fax';
 				break;
 				default:
 					$fax['module'] = null;
 				break;
 			}
 
-			$fax['spandsp'] = $this->FreePBX->astman->mod_loaded('res_fax_spandsp.so');
+			$fax['spandsp'] = $this->astman->mod_loaded('res_fax_spandsp.so');
 
-			switch($fax['module']) {
+			switch($fax['module'])
+			{
 				case 'res_fax':
 					$fax['receivefax'] = 'receivefax';
 				break;
@@ -350,8 +628,9 @@ class Fax extends FreePBX_Helpers implements BMO {
 			}
 
 			//get license count
-			$lic = $this->FreePBX->astman->send_request('Command', array('Command' => 'fax show stats'));
-			foreach(explode("\n",$lic['data']) as $licdata){
+			$lic = $this->astman->send_request('Command', array('Command' => 'fax show stats'));
+			foreach(explode("\n",$lic['data']) as $licdata)
+			{
 				$d = explode(':',$licdata);
 				$data[trim($d['0'])] = isset($d['1']) ? trim($d['1']) : null;
 			}
@@ -360,320 +639,120 @@ class Fax extends FreePBX_Helpers implements BMO {
 		return $fax;
     }
 
-    public function getIncoming($extension=null, $cidnum=null){
-        if (null !== $extension || null !== $cidnum) {
-            $sql = 'SELECT * FROM fax_incoming WHERE extension = :extension AND cidnum = :cidnum LIMIT 1';
-            $stmt = $this->FreePBX->Database->prepare($sql);
+    public function getIncoming($extension=null, $cidnum=null)
+	{
+        if (null !== $extension || null !== $cidnum)
+		{
+            $sql = sprintf('SELECT * FROM %s WHERE extension = :extension AND cidnum = :cidnum LIMIT 1', $this->tables['incoming']);
+            $stmt = $this->db->prepare($sql);
             $stmt->execute([':extension' => $extension, ':cidnum' => $cidnum]);
-            $settings = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (isset($settings['legacy_email']) && 'NULL' == $settings['legacy_email']) {
+            $settings = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if (isset($settings['legacy_email']) && 'NULL' == $settings['legacy_email'])
+			{
                 $settings['legacy_email'] = null;
 			}
             return $settings;
         }
 
-		$sql = "SELECT fax_incoming.*, incoming.pricid FROM fax_incoming, incoming where fax_incoming.cidnum=incoming.cidnum and fax_incoming.extension=incoming.extension;";
-        return $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		$sql = sprintf("SELECT tFax.*, tCore.pricid FROM %s as tFax, %s as tCore where tFax.cidnum=tCore.cidnum and tFax.extension=tCore.extension;", $this->tables['incoming'], $this->tables['incoming_core']);
+        return $this->db->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function saveIncoming($cidnum, $extension, $enabled, $detection, $detectionwait, $destination, $legacy_email, $ring = 1){
+    public function saveIncoming($cidnum, $extension, $enabled, $detection, $detectionwait, $destination, $legacy_email, $ring = 1)
+	{
         $legacy_email = $legacy_email === null ? 'NULL' : $legacy_email;
         $ring = ($ring == 'yes') ? 1 : 0;
-        $sql = "INSERT INTO fax_incoming (cidnum, extension, detection, detectionwait, destination, legacy_email, ring) VALUES (:cidnum, :extension, :detection, :detectonwait, :destination,:legacy_email, :ring)";
-        $stmt = $this->FreePBX->Database->prepare($sql);
+        $sql = sprintf("INSERT INTO %s (cidnum, extension, detection, detectionwait, destination, legacy_email, ring) VALUES (:cidnum, :extension, :detection, :detectonwait, :destination,:legacy_email, :ring)", $this->tables['incoming']);
+        $stmt = $this->db->prepare($sql);
         $stmt->execute([
-            ':cidnum' => $cidnum,
-            ':extension' => $extension,
-            ':detection' => $detection,
-            ':detectonwait' => $detectionwait,
-            ':destination' => $destination,
-            ':legacy_email' => $legacy_email,
-            ':ring' => $ring,
+            ':cidnum' 		=> $cidnum,
+            ':extension' 	=> $extension,
+            ':detection' 	=> $detection,
+            ':detectonwait'	=> $detectionwait,
+            ':destination'	=> $destination,
+            ':legacy_email'	=> $legacy_email,
+            ':ring' 		=> $ring,
         ]);
         return $this;
     }
 
-    public function deleteIncoming($extdisplay){
-        global $db;
+    public function deleteIncoming($extdisplay)
+	{
         $opts = explode('/', $extdisplay);
         $extension = $opts['0'];
         $cidnum = $opts['1']; //set vars
-        $sql = 'DELETE FROM fax_incoming WHERE cidnum = :cidnum AND extension = :extension';
-        $stmt = $this->FreePBX->Database->prepare($sql);
-        $stmt->execute([':cidnum' => $cidnum, ':extension' => $extension]);
+        $sql = sprintf('DELETE FROM %s WHERE cidnum = :cidnum AND extension = :extension', $this->tables['incoming']);
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+			':cidnum' 	 => $cidnum,
+			':extension' => $extension
+		]);
         return $this;
     }
 
-
-	public function getActionBar($request) {
-        if ($request['display'] === 'fax') {
-            return array(
-                    'submit' => array(
-                        'name' => 'submit',
-                        'id' => 'submit',
-                        'value' => _("Submit")
-                    ),
-                    'reset' => array(
-                        'name' => 'reset',
-                        'id' => 'reset',
-                        'value' => _("Reset"),
-                    ),
-                );
-            }
+	public function getActionBar($request)
+	{
+		$data_return = array();
+        if ($request['display'] === 'fax')
+		{
+            $data_return = array(
+				'submit' => array(
+					'name' => 'submit',
+					'id' => 'submit',
+					'value' => _("Submit")
+				),
+				'reset' => array(
+					'name' => 'reset',
+					'id' => 'reset',
+					'value' => _("Reset"),
+				),
+            );
+        }
+		return $data_return;
 	}
-	public function coreDIDHook($page){
-		if($page == 'did'){
-			$target_menuid = $page;
-			$tabindex=null;
-			$type=isset($_REQUEST['type'])?$_REQUEST['type']:'';
-			$extension=isset($_REQUEST['extension'])?$_REQUEST['extension']:'';
-			$cidnum=isset($_REQUEST['cidnum'])?$_REQUEST['cidnum']:'';
-			$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
+
+	public function coreDIDHook($page)
+	{
+		$request = $_REQUEST;
+		if($page == 'did')
+		{
+			$target_menuid 	= $page;
+			$extension		= isset($request['extension'])	? $request['extension']	:'';
+			$cidnum			= isset($request['cidnum'])		? $request['cidnum']	:'';
+			$extdisplay		= isset($request['extdisplay'])	? $request['extdisplay']:'';
 
 			//if were editing, get save parms. Get parms
 
-			if(!$extension && !$cidnum){//set $extension,$cidnum if we dont already have them
-				if ($extdisplay) {
+			if(!$extension && !$cidnum)	//set $extension,$cidnum if we dont already have them
+			{
+				if ($extdisplay)
+				{
 					$opts		= explode('/', $extdisplay);
 					$extension	= $opts['0'];
 					$cidnum		= isset($opts['1']) ? $opts['1'] : '';
-				} else {
+				}
+				else
+				{
 					$extension = $cidnum = '';
 				}
-
 			}
-			$fax = fax_get_incoming($extension,$cidnum);
 
-			$html=$fdinput='';
-			if($target_menuid == 'did'){
-		    $fax_dahdi_faxdetect=fax_dahdi_faxdetect();
-		    $fax_sip_faxdetect=fax_sip_faxdetect();
-		    $dahdi=ast_with_dahdi()?_('Dahdi'):_('Zaptel');
-		    $fax_detect=fax_detect();
-		    $fax_settings=fax_get_settings();
-		    //ensure that we are using destination for both fax detect and the regular calls
-				$html='<script type="text/javascript">$(document).ready(function(){
-				$("input[name=Submit]").click(function(){
-					if($("input[name=faxenabled]:checked").val()=="true" && !$("[name=gotoFAX]").val()){//ensure the user selected a fax destination
-					alert('._('"You have selected Fax Detection on this route. Please select a valid destination to route calls detected as faxes to."').');return false; }	}) });</script>';
-				$fdhelp = _("Attempt to detect faxes on this DID.");
-				$fdhelp .= '<ul>';
-				$fdhelp .= '<li>'._("No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax.").'</li>';
-				$fdhelp .= '<li>'._("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line").'</li>';
-				if($fax_settings['legacy_mode'] == 'yes' || $fax['legacy_email']!==null){
-		    		$fdhelp .= '<li>'._('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!').'</li>';
-				}
-				$fdhelp .= '</ul>';
-						//dont allow detection to be set if we have no valid detection types
-				if(!$fax_dahdi_faxdetect && !$fax_sip_faxdetect){
-					$js="if ($(this).val() == 'true'){alert('"._('No fax detection methods found or no valid license. Faxing cannot be enabled.')."');return false;}";
-					$fdinput.='<input type="radio" name="faxenabled" id="faxenabled_yes" value="true"  onclick="'.$js.'"/><label for="faxenabled_yes">Yes</label></span>';
-					$fdinput.='<input type="radio" id="faxenabled_no" name="faxenabled" value="false" CHECKED /><label for="faxenabled_no">No</label>';
-				}else{
-					/*
-					 * show detection options
-					 *
-					 * js to show/hide the detection settings. Second slide is always in a
-					 * callback so that we ait for the fits animation to complete before
-					 * playing the second
-					 */
-					$faxing = !empty($fax);
-					$fdinput.= '<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" '.($faxing?'CHECKED':'').' /><label for="faxenabled_yes">' . _('Yes') . '</label>';
-					$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_no" value="false" '.(!$faxing?'CHECKED':'').'/><label for="faxenabled_no">' . _('No') . '</label>';
-					if($fax['legacy_email']!==null || $fax_settings['legacy_mode'] == 'yes'){
-						$fdinput .= '<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy"'.($fax['legacy_email'] !== null ? ' CHECKED ':'').'onclick="'.$jslegacy.'"/><label for="faxenabled_legacy">' . _('Legacy');
-					}
-				}
-				$html .='
-					<!--Detect Faxes-->
-					<div class="element-container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="row">
-									<div class="form-group">
-										<div class="col-md-3">
-											<label class="control-label" for="faxenabled">'._("Detect Faxes").'</label>
-											<i class="fa fa-question-circle fpbx-help-icon" data-for="faxenabled"></i>
-										</div>
-										<div class="col-md-9 radioset">
-											'.$fdinput.'
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<span id="faxenabled-help" class="help-block fpbx-help-block">'.$fdhelp.'</span>
-							</div>
-						</div>
-					</div>
-					<!--END Detect Faxes-->
-				';
-				$info=engine_getinfo();
-				$fdthelp = _("Type of fax detection to use.");
-				$fdthelp .= '<ul>';
-				$fdthelp .= '<li>'.$dahdi.': '._("use ").$dahdi._(" fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' in ").$dahdi.'.conf</li>';
-				$fdthelp .= '<li>'._("Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and 'faxdetect=yes' in the sip config files").'</li>';
-				$fdthelp .= '</ul>';
-				$html .='
-				<!--Fax Detection type-->
-				<div class="element-container '.($faxing?'':"hidden").'" id="fdtype">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">
-								<div class="form-group">
-									<div class="col-md-3">
-										<label class="control-label" for="faxdetection">'._("Fax Detection type").'</label>
-										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetection"></i>
-									</div>
-									<div class="col-md-9 radioset">
-										<input type="radio" name="faxdetection" id="faxdetectiondahdi" value="dahdi" '. ($fax['detection'] == "dahdi"?"CHECKED":"").' '.($fax_dahdi_faxdetect?'':'disabled').'>
-										<label for="faxdetectiondahdi">'. _("Dahdi").'</label>
-										<input type="radio" name="faxdetection" id="faxdetectionsip" value="sip" '. ($fax['detection'] == "sip"?"CHECKED":"").' '.((($info['version'] >= "1.6.2") && $fax_sip_faxdetect)?'':'disabled').'>
-										<label for="faxdetectionsip">'. _("SIP").'</label>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<span id="faxdetection-help" class="help-block fpbx-help-block">'.$fdthelp.'</span>
-						</div>
-					</div>
-				</div>
-				<!--END Fax Detection type-->
-				';
-				$html .='
-				<!--Fax Play Tones-->
-				<div class="element-container '.($faxing?'':"hidden").'" id="fdring">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">
-								<div class="form-group">
-									<div class="col-md-3">
-										<label class="control-label" for="faxring">'._("Fax Ring").'</label>
-										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxring"></i>
-									</div>
-									<div class="col-md-9 radioset">
-										<input type="radio" name="faxring" id="faxringyes" value="yes" '. ($fax['ring'] == "1"?"CHECKED":"").'>
-										<label for="faxringyes">'. _("Yes").'</label>
-										<input type="radio" name="faxring" id="faxringno" value="no" '. (empty($fax['ring']) || ($fax['ring'] == "0")?"CHECKED":"").'>
-										<label for="faxringno">'. _("No").'</label>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<span id="faxring-help" class="help-block fpbx-help-block">'._('Whether to ring while attempting to detect fax. If set to no silence will be heard').'</span>
-						</div>
-					</div>
-				</div>
-				<!--END Fax Play Tones-->
-				';
-				if(!$fax['detectionwait']){$fax['detectionwait']=4;}//default wait time is 4 second
-				$fdthelp = _('How long to wait and try to detect fax. Please note that callers to a Dahdi channel will hear ringing for this amount of time (i.e. the system wont "answer" the call, it will just play ringing).');
-				$html .='
-				<!--Fax Detection Time-->
-				<div class="element-container '.($faxing?'':"hidden").'" id="fdtime">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">
-								<div class="form-group">
-									<div class="col-md-3">
-										<label class="control-label" for="faxdetectionwait">'._("Fax Detection Time").'</label>
-										<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetectionwait"></i>
-									</div>
-									<div class="col-md-9">
-										<input type="number" min="2" max="11" class="form-control" id="faxdetectionwait" name="faxdetectionwait" value="'.$fax['detectionwait'].'">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<span id="faxdetectionwait-help" class="help-block fpbx-help-block">'.$fdthelp.'</span>
-						</div>
-					</div>
-				</div>
-				<!--END Fax Detection Time-->
-				';
-				if(!empty($fax['legacy_email']) || $fax_settings['legacy_mode'] == 'yes'){
-					$fedhelp = _("Address to email faxes to on fax detection.<br />PLEASE NOTE: In this version of FreePBX, you can now set the fax destination from a list of destinations. Extensions/Users can be fax enabled in the user/extension screen and set an email address there. This will create a new destination type that can be selected. To upgrade this option to the full destination list, select YES to Detect Faxes and select a destination. After clicking submit, this route will be upgraded. This Legacy option will no longer be available after the change, it is provided to handle legacy migrations from previous versions of FreePBX only.");
-					$html .= '
-					<!--Fax Email Destination-->
-					<div class="element-container '.($faxing?'':"hidden").'" id="fdemail">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="row">
-									<div class="form-group">
-										<div class="col-md-3">
-											<label class="control-label" for="legacy_email">'._("Fax Email Destination").'</label>
-											<i class="fa fa-question-circle fpbx-help-icon" data-for="legacy_email"></i>
-										</div>
-										<div class="col-md-9">
-											<input type="text" class="form-control" id="legacy_email" name="legacy_email" value="'.$fax['legacy_email'].'">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<span id="legacy_email-help" class="help-block fpbx-help-block">'.$fedhelp.'</span>
-							</div>
-						</div>
-					</div>
-					<!--END Fax Email Destination-->
-					';
-				}
-				$faxdesthelp = _('Where to send the faxes');
-				$html .='
-				<!--Fax Destination-->
-				<div class="element-container '.($faxing?'':"hidden").'" id="fddest">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">
-								<div class="form-group">
-									<div class="col-md-3">
-										<label class="control-label" for="gotofax">'. _("Fax Destination").'</label>
-										<i class="fa fa-question-circle fpbx-help-icon" data-for="gotofax"></i>
-									</div>
-									<div class="col-md-9">';
-									$html .=$fax_detect?drawselects(isset($fax['destination'])?$fax['destination']:null,'FAX',false,false):'';
-									$html .= '
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<span id="gotofax-help" class="help-block fpbx-help-block">'.$faxdesthelp.'</span>
-						</div>
-					</div>
-				</div>
-				<!--END Fax Destination-->
-				<script type="text/javascript">
-				$("[name=\'faxenabled\']").change(function(){
-					if($(this).val() == \'true\'){
-						$("#fdtype").removeClass("hidden");
-						$("#fdtime").removeClass("hidden");
-						$("#fddest").removeClass("hidden");
-						$("#fdring").removeClass("hidden");
-					}else{
-						$("#fdtype").addClass("hidden");
-						$("#fdtime").addClass("hidden");
-						$("#fddest").addClass("hidden");
-						$("#fdring").addClass("hidden");
-					}
-				});
-				</script>
-				';
+			$fax = $this->getIncoming($extension, $cidnum);
+
+			$html = '';
+			if($target_menuid == 'did')
+			{
+				$data = array(
+					'fax_dahdi_faxdetect' => fax_dahdi_faxdetect(),
+		    		'fax_sip_faxdetect'	  => fax_sip_faxdetect(),
+		    		'dahdi'				  => ast_with_dahdi() ? _('Dahdi'): _('Zaptel'),
+		    		'fax_detect'		  => $this->faxDetect(),
+		    		'fax_settings'		  => $this->getSettings(),
+					'info'				  => engine_getinfo(),
+					'faxing' 			  => !empty($fax),
+					'fax_incoming' 		  => $fax,
+				);
+				$html = $this->showPage('core_DIDHook', $data);
 			}
 			$ret = array();
 			$ret[] = array(
@@ -685,8 +764,10 @@ class Fax extends FreePBX_Helpers implements BMO {
 		}
 	}
 
-	public function bulkhandlerGetHeaders($type) {
-        if($type === 'dids'){
+	public function bulkhandlerGetHeaders($type)
+	{
+        if($type === 'dids')
+		{
 			return array(
                 'fax_enable' => array(
                     'identifier' => _('Fax Enabled'),
@@ -708,27 +789,30 @@ class Fax extends FreePBX_Helpers implements BMO {
 		}
 	}
 
-	public function bulkhandlerExport($type) {
+	public function bulkhandlerExport($type)
+	{
 		$data = NULL;
-
-		switch ($type) {
+		switch ($type)
+		{
 			case 'usermanusers':
 				$users = $this->userman->getAllUsers();
-				foreach ($users as $user) {
-					$en = $this->userman->getModuleSettingByID($user['id'],'fax','enabled',true);
+				foreach ($users as $user)
+				{
+					$en = $this->userman->getModuleSettingByID($user['id'], 'fax', 'enabled', true);
 					$data[$user['id']] = array(
-						'fax_enabled' => is_null($en) ? "inherit" : (empty($en) ? 'no' : 'yes'),
-						'fax_attachformat' => $this->userman->getModuleSettingByID($user['id'],'fax','attachformat'),
+						'fax_enabled' 		=> is_null($en) ? "inherit" : (empty($en) ? 'no' : 'yes'),
+						'fax_attachformat'	=> $this->userman->getModuleSettingByID($user['id'], 'fax', 'attachformat'),
 					);
 				}
 			break;
 			case 'usermangroups':
 				$groups = $this->userman->getAllGroups();
-				foreach ($groups as $group) {
+				foreach ($groups as $group)
+				{
 					$en = $this->userman->getModuleSettingByGID($group['id'],'fax','enabled');
 					$data[$group['id']] = array(
-						'fax_enabled' => empty($en) ? 'no' : 'yes',
-						'fax_attachformat' => $this->userman->getModuleSettingByGID($group['id'],'fax','attachformat'),
+						'fax_enabled' 		=> empty($en) ? 'no' : 'yes',
+						'fax_attachformat' 	=> $this->userman->getModuleSettingByGID($group['id'],'fax','attachformat'),
 					);
 				}
 			break;
@@ -736,76 +820,87 @@ class Fax extends FreePBX_Helpers implements BMO {
 				$dids = $this->FreePBX->Core->getAllDIDs();
 				$data = array();
 				$this->FreePBX->Modules->loadFunctionsInc("fax");
-				foreach($dids as $did) {
-					$key = $did['extension']."/".$did["cidnum"];
-					$fax = fax_get_incoming($did['extension'],$did["cidnum"]);
-					if(!empty($fax)) {
+				foreach($dids as $did)
+				{
+					$key = sprintf("%s/%s", $did['extension'], $did["cidnum"]);
+					$fax = $this->getIncoming($did['extension'], $did["cidnum"]);
+					if(!empty($fax))
+					{
 						$data[$key] = array(
-							"fax_enable" => "yes",
-							"fax_detection" => $fax['detection'],
+							"fax_enable" 		=> "yes",
+							"fax_detection" 	=> $fax['detection'],
 							"fax_detectionwait" => $fax['detectionwait'],
-							"fax_destination" => $fax['destination']
+							"fax_destination" 	=> $fax['destination']
 						);
-					} else {
+					}
+					else
+					{
 						$data[$key] = array(
-							"fax_enable" => "",
-							"fax_detection" => "",
+							"fax_enable" 		=> "",
+							"fax_detection" 	=> "",
 							"fax_detectionwait" => "",
-							"fax_destination" => ""
+							"fax_destination" 	=> ""
 						);
 					}
 				}
 			break;
 		}
-
 		return $data;
 	}
 
-	public function bulkhandlerImport($type, $rawData, $replaceExisting = false) {
+	public function bulkhandlerImport($type, $rawData, $replaceExisting = false)
+	{
 		$ret = NULL;
-
-		switch ($type) {
+		switch ($type)
+		{
 			case 'usermanusers':
-				foreach ($rawData as $data) {
+				foreach ($rawData as $data)
+				{
 					$user = $this->FreePBX->Userman->getUserByUsername($data['username']);
-					if(isset($data['fax_enabled'])) {
+					if(isset($data['fax_enabled']))
+					{
 						$en = ($data['fax_enabled'] == "yes") ? true : ($data['fax_enabled'] == "no" ? false : null);
 						$this->userman->setModuleSettingByID($user['id'],'fax','enabled',$en);
 					}
-					if(isset($data['fax_attachformat'])) {
+					if(isset($data['fax_attachformat']))
+					{
 						$this->userman->setModuleSettingByID($user['id'],'fax','attachformat',$data['fax_attachformat']);
 					}
 				};
 			break;
 			case 'usermangroups':
-				foreach ($rawData as $data) {
+				foreach ($rawData as $data)
+				{
 					$group = $this->FreePBX->Userman->getGroupByUsername($data['groupname']);
-					if(isset($data['fax_enabled'])) {
+					if(isset($data['fax_enabled']))
+					{
 						$en = ($data['fax_enabled'] == "yes") ? true : false;
 						$this->userman->setModuleSettingByGID($group['id'],'fax','enabled',$en);
 					}
-					if(isset($data['fax_attachformat'])) {
+					if(isset($data['fax_attachformat']))
+					{
 						$this->userman->setModuleSettingByGID($group['id'],'fax','attachformat',$data['fax_attachformat']);
 					}
 				};
 			break;
 			case 'dids':
 				$this->FreePBX->Modules->loadFunctionsInc("fax");
-				foreach ($rawData as $data) {
+				foreach ($rawData as $data)
+				{
 					$settings = array();
-					foreach ($data as $key => $value) {
-						if (substr($key, 0, 4) == 'fax_') {
+					foreach ($data as $key => $value)
+					{
+						if (substr($key, 0, 4) == 'fax_')
+						{
 							$settingname = substr($key, 4);
-							switch ($settingname) {
-								default:
-									$settings[$settingname] = $value;
-								break;
-							}
+							$settings[$settingname] = $value;
 						}
 					}
-					fax_delete_incoming($data['extension']."/".$data["cidnum"]);
-					if(!empty($settings['enable'])) {
-						fax_save_incoming($data["cidnum"],$data['extension'],true,$settings['detection'],$settings['detectionwait'],$settings['destination'],null);
+					$extdisplay = sprintf("%s/%s", $data['extension'], $data["cidnum"]);
+					$this->deleteIncoming($extdisplay);
+					if(!empty($settings['enable']))
+					{
+						$this->saveIncoming($data["cidnum"], $data['extension'], true, $settings['detection'], $settings['detectionwait'], $settings['destination'], null);
 					}
 				}
 			break;
@@ -815,13 +910,318 @@ class Fax extends FreePBX_Helpers implements BMO {
 	/**
 	 * Chown hook for freepbx fwconsole
 	 */
-	public function chownFreepbx() {
+	public function chownFreepbx()
+	{
 		$webroot = $this->FreePBX->Config->get('AMPWEBROOT');
-		$modulebindir = $webroot . '/admin/modules/fax/bin/';
+		$modulebindir = sprintf('%s/admin/modules/fax/bin', $webroot);
 		$files = array();
-		$files[] = array('type' => 'file',
-												'path' => $modulebindir.'fax2mail.php',
-												'perms' => 0755);
+		$files[] = array(
+			'type' => 'file',
+			'path' => sprintf('%s/fax2mail.php', $modulebindir),
+			'perms' => 0755
+		);
 		return $files;
 	}
+
+	/**
+	 * Destinations hooks
+	 */
+	public function getDest($exten)
+	{
+		return sprintf('%s,%s,1', self::ASTERISK_SECTION, $exten);
+	}
+
+	public function destinations()
+	{
+		$extens = array();
+		$recip  = $this->get_destinations();
+		usort($recip, function($a,$b){ return ($a['uname'] < $b['uname']) ? -1 : 1;});
+		foreach ($recip as $row)
+		{
+			$extens[] = array(
+				'destination' => $this->getDest($row['user']),
+				'description' => sprintf("%s (%s)", $row['name'], $row['uname']),
+				'category' 	  => _('Fax Recipient'),
+			);
+		}
+		if (! empty($extens)) { return $extens; }
+		else 				  { return null; }
+	}
+
+	public function destinations_check($dest=true)
+	{
+		$fax = $this->faxDetect();
+		if (!$fax['module'] || ($fax['module'] && (isset($fax['ffa']) && !$fax['ffa'] && !$fax['spandsp'])))
+		{
+			return false;
+		}
+		elseif (isset($fax['ffa']) && $fax['ffa'] && $fax['license'] < 1)	//missing license
+		{
+			return false;
+		}
+	
+		$destlist = array();
+		if (is_array($dest) && empty($dest)) { return $destlist; }
+		$sql = sprintf("SELECT a.extension, a.cidnum, b.description, a.destination FROM %s a JOIN %s b WHERE a.extension = b.extension AND a.cidnum = b.cidnum AND a.legacy_email IS NULL %s ORDER BY extension, cidnum",
+			$this->tables['incoming'],
+			$this->tables['incoming_core'],
+			($dest !== true) ? sprintf("AND a.destination in ('%s') ", implode("','", $dest)) : ''
+		);		
+		$results = $this->db->query($sql)->fetchAll(\PDO::FETCH_ASSOC);	
+		foreach ($results as $result)
+		{
+			$thisdest 	= $result['destination'];
+			$thisid   	= sprintf("%s/%s", $result['extension'], $result['cidnum']);
+			$destlist[] = array(
+				'dest' 		  => $thisdest,
+				'description' => sprintf(_("Inbound Fax Detection: %s (%s)"), $result['description'], $thisid),
+				'edit_url' 	  => 'config.php?display=userman&action=showuser&user='.urlencode($thisid),
+			);
+		}
+		return $destlist;
+	}
+
+	public function destinations_change($old_dest, $new_dest)
+	{
+		$sql = sprintf('UPDATE %s SET destination = ? WHERE destination = ?', $this->tables['incoming']);
+		$sth = $this->db->prepare($sql);
+		$sth->execute(array($new_dest, $old_dest));
+	}
+
+	public function destinations_getdestinfo($dest)
+	{
+		$srt_section = sprintf("%s,", self::ASTERISK_SECTION);
+		if (substr(trim($dest),0, strlen($srt_section)) == $srt_section)
+		{
+			$usr = explode(',', $dest);
+			$usr = $usr[1];
+			$thisusr = $this->getUser($usr);
+			if (! empty($thisusr))
+			{
+				return array(
+					'description' => sprintf(_("Fax user %s"), $usr),
+					'edit_url' 	  => 'config.php?display=userman&action=showuser&user='.urlencode($usr),
+				);
+			}
+			return array();
+		}
+		return false;
+	}
+
+	public function destinations_identif($dests)
+	{
+		if (! is_array($dests)) {
+			$dests = array($dests);
+		}
+		$return_data = array();
+		foreach ($dests as $target)
+		{
+			$info = $this->destinations_getdestinfo($target);
+			if (!empty($info))
+			{
+				$return_data[$target] = $info;
+			}
+		}
+		return $return_data;
+	}
+
+	public function get_destinations()
+	{
+		$final = array();
+		$warning = array();
+		foreach($this->listUsers() as $res)
+		{
+			if ($res['faxenabled'] != 'true') { continue; }
+
+			$o = $this->userman->getUserByID($res['user']);
+			if(!empty($o))
+			{
+				if(empty($o['email']))
+				{
+					$warning[] = $o['username'];
+				}
+				$res['uname'] = $o['username'];
+				$res['name']  = !empty($o['displayname']) ? $o['displayname'] : sprintf("%s %s", $o['fname'], $o['lname']);
+				$res['name']  = trim($res['name']);
+				$res['name']  = !empty($res['name']) ? $res['name'] : $o['username'];
+				$final[] = $res;
+			}
+		}
+
+		$nt = \notifications::create();
+		if(!empty($warning))
+		{
+			$nt->add_warning("fax", "invalid_email", _("Invalid Email for Inbound Fax"), sprintf(_("User Manager users '%s' have the ability to receive faxes but have no email address defined so they will not be able to receive faxes over email,"), implode(",", $warning)), "", true, true);
+		}
+		else
+		{
+			$nt->delete("fax", "invalid_email");
+		}
+		return $final;
+	}
+
+
+
+
+	/**
+	 * Converts a file to different format
+	 * @param string - conversion type in the format of 'from2to'
+	 * @param string - path to origional file
+	 * @param string - path to save new file
+	 * @param bool - wether to keep or delete the orgional file
+	 *
+	 * @return string - path to fresh pdf
+	 *
+	 * Supported conversions:
+	 *	- pdf2tif
+	*	- tif2pdf
+	*	- ps2tif
+	*/
+	public function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = array())
+	{
+		//ensure file exists
+		if (! is_file($in))
+		{
+			return false;
+		}
+
+		//check is format supported
+		if (! in_array($type, array('pdf2tif', 'tif2pdf', 'ps2tif')) )
+		{
+			return $in;
+		}
+
+		//set out filename if not specified
+		if (!$out) 
+		{
+			switch ($type)
+			{
+				case 'pdf2tif':
+				case 'ps2tif':
+					$ext = 'tif';
+				break;
+
+				case 'tif2pdf':
+					$ext = 'pdf';
+				break;
+			}
+			$pathinfo = pathinfo($in);
+
+			$out = sprintf('%s/%s.%s', $pathinfo['dirname'], $pathinfo['filename'], $ext);
+		}
+
+		//if file exists, assume its been converted already
+		if (file_exists($out))
+		{
+			return $out;
+		}
+
+		//ensure cli command exists
+		switch ($type)
+		{
+			case 'pdf2tif':
+			case 'ps2tif':
+				$gs = fpbx_which('gs');
+				if (!$gs)
+				{
+					freepbx_log(FPBX_LOG_ERROR, sprintf(_('gs not found, not converting %s'), $in));
+					return $in;
+				}
+				$res = isset($opts['res']) ? $opts['res'] : "204x98";
+				//http://www.soft-switch.org/spandsp_faq/ar01s14.html
+				$gs = sprintf('%s -q -dNOPAUSE -dBATCH -dAutoRotatePages=/All -dFIXEDMEDIA -dPDFFitPage -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dCompatibilityLevel=1.4 -r%s ', $gs, $res);
+			break;
+
+			case 'tif2pdf':
+				$tiff2pdf = fpbx_which('tiff2pdf');
+				if (!$tiff2pdf)
+				{
+					freepbx_log(FPBX_LOG_ERROR, sprintf(_('tiff2pdf not found, not converting %s'), $in));
+					return $in;
+				}
+			break;
+		}
+
+		//convert!
+		switch ($type)
+		{
+			case 'pdf2tif':
+			case 'ps2tif':
+				$cmd = sprintf('%s -sDEVICE=tiffg4 -sOutputFile=%s %s', $gs, $out, $in);
+				break;
+
+			case 'tif2pdf':
+				$creator = $this->config->get('DASHBOARD_FREEPBX_BRAND');
+				$author  = $this->config->get('PDFAUTHOR');
+				$title 	 = (isset($opts['title']) ? sprintf('-t "%s"', $opts['title']) : '');
+
+				$cmd = sprintf('%s -z -c "%s" -a "%s" %s -o %s %s', $tiff2pdf, $creator, $author, $title, $out, $in);
+				break;
+		}
+		exec($cmd, $ret, $status);
+
+		//remove original
+		if ($status === 0 && !$keep_orig)
+		{
+			unlink($in);
+		}
+
+		return $status === 0 ? $out : $in;
+	}
+
+	/**
+	 * Get info on a tiff file. Require tiffinfo
+	 * @param string - absolute path to file
+	 * @param string - specifc option to receive
+	 *
+	 * @return mixed - if $opt & exists returns a string, else bool false,
+	 * otherwise an array of details
+	 */
+	public function fax_tiffinfo($file, $opt = '')
+	{
+		//ensure file exists
+		if (!is_file($file))
+		{
+			return false;
+		}
+
+		$tiffinfo	= fpbx_which('tiffinfo');
+		if (!$tiffinfo)
+		{
+			return false;
+		}
+
+		$cmd = sprintf('%s %s', $tiffinfo, $file);
+		exec($cmd, $output);
+
+		if ($output && strpos($output[0], 'Not a TIFF or MDI file') === 0)
+		{
+			return false;
+		}
+
+		$info = array();
+		foreach ($output as $out)
+		{
+			$o = explode(':', $out, 2);
+			$info[trim($o[0])] = isset($o[1]) ? trim($o[1]) : '';
+		}
+
+		if (!$info)
+		{
+			return false;
+		}
+
+		//special case prossesing
+		//Page Number: defualt format = 0-0. Use only first set of digits, increment by 1
+		$info['Page Number'] = explode('-', $info['Page Number']);
+		$info['Page Number'] = $info['Page Number'][0] + 1;
+
+		if ($opt)
+		{
+			return isset($info[$opt]) ? $info[$opt] : false;
+		}
+
+		return $info;
+	}
+
 }
