@@ -14,18 +14,18 @@ $minrateopts = $maxrateopts = '';
 
 foreach($trans_rates as $rate)
 {
-	$minrateopts .= sprintf('<option value="%s" %s>%s</option>', $rate, (($rate == $settings['minrate']) ? "SELECTED" : ""), $rate);
-	$maxrateopts .= sprintf('<option value="%s" %s>%s</option>', $rate, (($rate == $settings['maxrate']) ? "SELECTED" : ""), $rate);
+	$minrateopts .= sprintf('<option value="%s" %s>%s</option>', $rate, ((!empty($settings['minrate']) && $rate == $settings['minrate']) ? "SELECTED" : ""), $rate);
+	$maxrateopts .= sprintf('<option value="%s" %s>%s</option>', $rate, ((!empty($settings['maxrate']) && $rate == $settings['maxrate']) ? "SELECTED" : ""), $rate);
 }
 
 $settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] : 'letter';
 ?>
 
-<?php if($settings['minrate'] == 2400) : ?>
+<?php if(!empty($settings['minrate']) && $settings['minrate'] == 2400) : ?>
 	<div class="alert alert-warning" role="alert"><?php echo _("Your minimum transfer rate is set to 2400 in certain circumstances this can break faxing")?></div>
 <?php endif ?>
 
-<?php if($settings['mmaxrate'] == 2400) : ?>
+<?php if(!empty($settings['mmaxrate']) && $settings['mmaxrate'] == 2400) : ?>
 	<div class="alert alert-warning" role="alert"><?php echo _("Your maximum transfer rate is set to 2400 in certain circumstances this can break faxing")?></div>
 <?php endif ?>
 
@@ -41,7 +41,7 @@ $settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] 
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="headerinfo"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="headerinfo" name="headerinfo" value="<?php echo $settings['headerinfo']; ?>">
+				<input type="text" class="form-control" id="headerinfo" name="headerinfo" value="<?php echo $settings['headerinfo'] ?? ""; ?>">
 			</div>
 		</div>
 	</div>
@@ -61,7 +61,7 @@ $settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] 
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="localstationid"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="localstationid" name="localstationid" value="<?php echo $settings['localstationid']; ?>">
+				<input type="text" class="form-control" id="localstationid" name="localstationid" value="<?php echo $settings['localstationid'] ?? ""; ?>">
 			</div>
 		</div>
 	</div>
@@ -81,7 +81,7 @@ $settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] 
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="sender_address"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="sender_address" name="sender_address" value="<?php echo $settings['sender_address']; ?>">
+				<input type="text" class="form-control" id="sender_address" name="sender_address" value="<?php echo $settings['sender_address'] ?? ""; ?>">
 			</div>
 		</div>
 	</div>
@@ -104,7 +104,7 @@ $settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] 
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="fax_rx_email"></i>
 			</div>
 			<div class="col-md-9">
-				<input type="text" class="form-control" id="fax_rx_email" name="fax_rx_email" value="<?php echo $settings['fax_rx_email']; ?>">
+				<input type="text" class="form-control" id="fax_rx_email" name="fax_rx_email" value="<?php echo $settings['fax_rx_email'] ?? ""; ?>">
 			</div>
 		</div>
 	</div>
@@ -124,9 +124,9 @@ $settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] 
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="ecm"></i>
 			</div>
 			<div class="col-md-9 radioset">
-				<input type="radio" class="form-control" id="ecmyes" name="ecm" value="yes" <?php echo (($settings['ecm'] == 'yes')?'checked':'')?>>
+				<input type="radio" class="form-control" id="ecmyes" name="ecm" value="yes" <?php echo ((!empty($settings['ecm']) && $settings['ecm'] == 'yes')?'checked':'')?>>
 				<label for="ecmyes"><?php echo _("Yes")?></label>
-				<input type="radio" class="form-control" id="ecmno" name="ecm" value="no" <?php echo (($settings['ecm'] == 'no')?'checked':'')?>>
+				<input type="radio" class="form-control" id="ecmno" name="ecm" value="no" <?php echo ((!empty($settings['ecm']) && $settings['ecm'] == 'no')?'checked':'')?>>
 				<label for="ecmno"><?php echo _("No")?></label>
 			</div>
 		</div>
@@ -192,9 +192,9 @@ $settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] 
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="papersize"></i>
 			</div>
 			<div class="col-md-9 radioset">
-				<input type="radio" class="form-control" id="papersizeletter" name="papersize" value="letter" <?php echo (($settings['papersize'] == 'letter')?'checked':'')?>>
+				<input type="radio" class="form-control" id="papersizeletter" name="papersize" value="letter" <?php echo ((!empty($settings['papersize']) && $settings['papersize'] == 'letter')?'checked':'')?>>
 				<label for="papersizeletter"><?php echo _("Letter")?></label>
-				<input type="radio" class="form-control" id="papersizea4" name="papersize" value="a4" <?php echo (($settings['papersize'] == 'a4')?'checked':'')?>>
+				<input type="radio" class="form-control" id="papersizea4" name="papersize" value="a4" <?php echo ((!empty($settings['papersize']) && $settings['papersize'] == 'a4')?'checked':'')?>>
 				<label for="papersizea4"><?php echo _("A4")?></label>
 			</div>
 		</div>

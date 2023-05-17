@@ -45,6 +45,15 @@
 		</framework>
 	</hooks>
 	<database>
+		<table name="fax_users">
+			<field name="user" type="string" length="15" notnull="false"/>
+			<field name="faxenabled" type="string" length="10" notnull="false"/>
+			<field name="faxemail" type="text" notnull="false"/>
+			<field name="faxattachformat" type="string" length="10" notnull="false"/>
+			<key name="user" type="unique">
+				<column name="user"/>
+			</key>
+		</table>
 		<table name="fax_details">
 			<field name="key" type="string" length="50" notnull="false"/>
 			<field name="value" type="string" length="710" notnull="false"/>
