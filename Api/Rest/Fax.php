@@ -20,18 +20,14 @@ class Fax extends Base {
 		 * @returns - list of fax settings
 		 * @uri /fax
 		 */
-		$app->get('/', function ($request, $response, $args) {
-			return $response->withJson(\FreePBX::Fax()->getSettings());
-		})->add($this->checkReadScopeMiddleware('settings'));
+		$app->get('/', fn($request, $response, $args) => $response->withJson(\FreePBX::Fax()->getSettings()))->add($this->checkReadScopeMiddleware('settings'));
 
 		/**
 		* @verb GET
 		 * @returns - list of fax related modules that may be installed
 		 * @uri /fax/detect
 		 */
-		$app->get('/detect', function ($request, $response, $args) {
-			return $response->withJson(\FreePBX::Fax()->faxDetect());
-		})->add($this->checkReadScopeMiddleware('settings'));
+		$app->get('/detect', fn($request, $response, $args) => $response->withJson(\FreePBX::Fax()->faxDetect()))->add($this->checkReadScopeMiddleware('settings'));
 
 		/**
 		 * Updates the fax settings

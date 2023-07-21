@@ -53,11 +53,7 @@
 				<?php echo _("Attempt to detect faxes on this DID."); ?>
 				<ul>
 					<?php
-					$fdhelp_list = array(
-						_("No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax."),
-						_("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"),
-						($fax_settings['legacy_mode'] == 'yes' || $fax_incoming['legacy_email']!==null) ? _('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!') : '',
-					);
+					$fdhelp_list = [_("No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax."), _("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"), ($fax_settings['legacy_mode'] == 'yes' || $fax_incoming['legacy_email']!==null) ? _('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!') : ''];
 					foreach ($fdhelp_list as $txt)
 					{
 						if (empty($txt)) { continue; }
@@ -195,7 +191,7 @@
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="gotofax"></i>
 					</div>
 					<div class="col-md-9">
-						<?php echo $fax_detect ? drawselects(isset($fax_incoming['destination']) ? $fax_incoming['destination'] : null, 'FAX', false, false) : ''; ?>
+						<?php echo $fax_detect ? drawselects($fax_incoming['destination'] ?? null, 'FAX', false, false) : ''; ?>
 					</div>
 				</div>
 			</div>

@@ -5,11 +5,7 @@
 
 $settings 	 = $fax->getSettings();
 $fax_detect  = $fax->faxDetect();
-$trans_rates = array(
-	'9600'	=> '9600',
-	'12000'	=> '12000',
-	'14400'	=> '14400'
-);
+$trans_rates = ['9600'	=> '9600', '12000'	=> '12000', '14400'	=> '14400'];
 $minrateopts = $maxrateopts = '';
 
 foreach($trans_rates as $rate)
@@ -18,7 +14,7 @@ foreach($trans_rates as $rate)
 	$maxrateopts .= sprintf('<option value="%s" %s>%s</option>', $rate, ((!empty($settings['maxrate']) && $rate == $settings['maxrate']) ? "SELECTED" : ""), $rate);
 }
 
-$settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] : 'letter';
+$settings['papersize'] ??= 'letter';
 ?>
 
 <?php if(!empty($settings['minrate']) && $settings['minrate'] == 2400) : ?>
@@ -235,7 +231,7 @@ $settings['papersize'] = isset($settings['papersize']) ? $settings['papersize'] 
 <?php endif ?>
 
 <!--Always Allow Legacy Mode-->
-<input type="hidden" id="legacy_mode" name="legacy_mode" value="<?php echo isset($settings['legacy_mode'])?$settings['legacy_mode']:'no'?>">
+<input type="hidden" id="legacy_mode" name="legacy_mode" value="<?php echo $settings['legacy_mode'] ?? 'no'?>">
 
 <?php
 //add hooks

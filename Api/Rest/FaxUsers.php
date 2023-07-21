@@ -20,14 +20,14 @@ class FaxUsers extends Base {
 		 * @uri /fax/users
 		 */
 		$app->get('/users', function ($request, $response, $args) {
-			$users = array();
+			$users = [];
 			foreach (\FreePBX::Fax()->getUser() as $user)
 			{
 				$users[$user['user']] = $user;
 				unset($users[$user['user']]['user']);
 			}
 
-			$users = $users ? $users : false;
+			$users = $users ?: false;
 			return $response->withJson($users);
 		})->add($this->checkReadScopeMiddleware('users'));
 
@@ -42,7 +42,7 @@ class FaxUsers extends Base {
 			{
 				unset($users['user']);
 			}
-			$users = $users ? $users : false;
+			$users = $users ?: false;
 			return $response->withJson($users);
 		})->add($this->checkReadScopeMiddleware('users'));
 
@@ -53,7 +53,7 @@ class FaxUsers extends Base {
 		$app->post('/users/{id}', function ($request, $response, $args)
 		{
 			$params = $request->getParsedBody();
-			$params['faxemail'] = isset($params['faxemail']) ? $params['faxemail'] : '';
+			$params['faxemail'] ??= '';
 
 			if (isset($args['id'], $params['faxenabled']))
 			{

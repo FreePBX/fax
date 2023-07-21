@@ -7,7 +7,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 // TODO: There is no hook on the _redirect_standard_helper function in the view.functions.php file.
 function fax_getdest($exten) {
-	return array(\FreePBX::Fax()->getDest($exten));
+	return [\FreePBX::Fax()->getDest($exten)];
 }
 
 function fax_delete_incoming($extdisplay)
@@ -57,7 +57,8 @@ function fax_get_settings()
 
 
 function fax_get_config($engine){
-	global $version;
+	$fax_settings = [];
+ global $version;
 	global $ext;
 	global $amp_conf;
 	global $core_conf;
@@ -86,7 +87,7 @@ function fax_get_config($engine){
 
 				$ext->add($context, $exten, '', new ext_noop('Receiving Fax for: ${FAX_FOR}, From: ${CALLERID(all)}'));
 				$ext->add($context, $exten, '', new ext_set('FAX_RX_USER', $exten));
-				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL_LEN', strlen($row['faxemail'])));
+				$ext->add($context, $exten, '', new ext_set('FAX_RX_EMAIL_LEN', strlen((string) $row['faxemail'])));
 				$ext->add($context, $exten, 'receivefax', new ext_goto('receivefax','s'));
 			}
 		}
@@ -217,7 +218,8 @@ function fax_get_config($engine){
 
 
 function fax_hookGet_config($engine){
-	global $version;
+	$fax_settings = [];
+ global $version;
 	$faxC = \FreePBX::Fax();
 
 	$fax = $faxC->faxDetect($version);
@@ -244,7 +246,7 @@ function fax_hookGet_config($engine){
 				$extension=($route['extension']!=''?$route['extension']:'s').($route['cidnum']==''?'':'/'.$route['cidnum']);
 			}
 			if ($route['legacy_email'] === null) {
-				$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST',str_replace(',','^',$route['destination'])));
+				$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST',str_replace(',','^',(string) $route['destination'])));
 			} else {
 				$ext->splice($context, $extension, 'dest-ext', new ext_setvar('FAX_DEST','ext-fax^s^1'));
 				if ($route['legacy_email']) {
@@ -285,7 +287,7 @@ function fax_save_user($faxext, $faxenabled, $faxemail = '', $faxattachformat = 
 	return \FreePBX::Fax()->saveUser($faxext, $faxenabled, $faxemail, $faxattachformat);
 }
 
-function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = array())
+function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = [])
 {
 	\FreePBX::Modules()->deprecatedFunction();
     return \FreePBX::Fax()->fax_file_convert($type, $in, $out, $keep_orig, $opts);

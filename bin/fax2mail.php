@@ -1,10 +1,7 @@
 #!/usr/bin/env php
 <?php
 //include freepbx configuration
-$restrict_mods = array(
-	'fax' => true,
-	'userman' => true
-);
+$restrict_mods = ['fax' => true, 'userman' => true];
 include_once '/etc/freepbx.conf';
 \modgettext::push_textdomain("fax");
 
@@ -12,17 +9,13 @@ $mod_fax = \FreePBX::Fax();
 
 
 $from = $mod_fax->getSetting("sender_address");
-$var  = array(
-	'hostname' => gethostname(),
-	'fromuser' => _("Fax Service"),
-	'subject'  => '',
-);
+$var  = ['hostname' => gethostname(), 'fromuser' => _("Fax Service"), 'subject'  => ''];
 
 if (!$from)
 {
 	$var['from_dn'] = "fax@freepbx.pbx";
 }
-elseif (preg_match( '/(.*)\s+\<(.*)\>/', $from, $match))
+elseif (preg_match( '/(.*)\s+\<(.*)\>/', (string) $from, $match))
 {
 	$var['fromuser'] = $match[1];
 	$var['from_dn']  = $match[2];
@@ -53,7 +46,7 @@ if (empty($var['sendto']))
 else
 {
 	$var['to'] = $var['sendto'];
-	$user = array("displayname" => _("Fax Recipient"));
+	$user = ["displayname" => _("Fax Recipient")];
 }
 
 $var['attachformat'] = !empty($var['attachformat']) ? $var['attachformat'] : 'none';
@@ -181,7 +174,7 @@ if ($var['keep_file'] === false)
 	}
 }
 
-function die_fax($error)
+function die_fax($error): never
 {
 	dbug('email-fax', $error);
 	freepbx_log(FPBX_LOG_ERROR, $error);
@@ -201,26 +194,26 @@ function die_fax($error)
  *
  * @param array $noopt List of parameters without values
  */
-function get_opt($noopt = array()) {
-	$result = array();
+function get_opt($noopt = []) {
+	$result = [];
 	$params = $GLOBALS['argv'];
 
 	for ($i = 0; $i < $GLOBALS['argc']; $i++) {
 		$p = $params[$i];
-		if ($p{0} == '-') {
-			$pname = substr($p, 1);
+		if ($p[0] == '-') {
+			$pname = substr((string) $p, 1);
 			$value = true;
-			if ($pname{0} == '-') {
+			if ($pname[0] == '-') {
 				// long-opt (--<param>)
 				$pname = substr($pname, 1);
-				if (strpos($p, '=') !== false) {
+				if (str_contains((string) $p, '=')) {
 					// value specified inline (--<param>=<value>)
-					list($pname, $value) = explode('=', substr($p, 2), 2);
+					[$pname, $value] = explode('=', substr((string) $p, 2), 2);
 				}
 			}
 			// check if next parameter is a descriptor or a value
 			$nextparm = $params[$i + 1];
-			if (!in_array($pname, $noopt) && $value === true && $nextparm !== false && $nextparm{0} != '-') {
+			if (!in_array($pname, $noopt) && $value === true && $nextparm !== false && $nextparm[0] != '-') {
 				$value = $params[++$i];
 			}
 			$result[$pname] = $value;

@@ -5,7 +5,7 @@ use BMO;
 
 class Fax extends FreePBX_Helpers implements BMO
 {
-	const ASTERISK_SECTION = 'ext-fax';
+	final public const ASTERISK_SECTION = 'ext-fax';
 
 	private $FreePBX;
 	private $db;
@@ -13,62 +13,13 @@ class Fax extends FreePBX_Helpers implements BMO
 	private $userman;
 	private $config;
 
-	public $tables = array(
-		'users' 		=> 'fax_users',
-		'incoming' 		=> 'fax_incoming',
-		'details' 		=> 'fax_details',
-		'incoming_core'	=> 'incoming',
-	);
+	public $tables = ['users' 		=> 'fax_users', 'incoming' 		=> 'fax_incoming', 'details' 		=> 'fax_details', 'incoming_core'	=> 'incoming'];
 
-	public $default_settings = array(
-		'ecm' => array(
-			'default' => 'no',
-			'type' 	  => 'yesno',
-		),
-		'fax_rx_email' => array(
-			'default' => 'yes',
-			'type' 	  => 'email',
-		),
-		'force_detection' => array(
-			'default' => 'no',
-			'type' 	  => 'yesno',
-		),
-		'headerinfo' => array(
-			'default' => '',
-			'type' 	  => 'text',
-			// texto
-		),
-		'legacy_mode' => array(
-			'default' => 'no',
-			'type' 	  => 'yesno',
-		),
-		'localstationid' => array(
-			'default' => '',
-			'type' 	  => 'text',
-		),
-		'maxrate' => array(
-			'default' => '14400',
-			'type' 	  => 'numeric',
-		),
-		'minrate' => array(
-			'default' => '9600',
-			'type' 	  => 'numeric',
-		),
-		'modem'	=> array(
-			//TODO: It is not used anywhere, can it be deleted?
-			'default' => '',
-			'type' 	  => 'text',
-		),
-		'sender_address' => array(
-			'default' => '',
-			'type' 	  => 'text',	// email or name and email => Fax <fax@example.com>
-		),
-		'papersize' => array(
-			'default' => 'letter',
-			'type' 	  => 'list',
-			'options' => array('latter', 'a4'),
-		),
-	);
+	public $default_settings = ['ecm' => ['default' => 'no', 'type' 	  => 'yesno'], 'fax_rx_email' => ['default' => 'yes', 'type' 	  => 'email'], 'force_detection' => ['default' => 'no', 'type' 	  => 'yesno'], 'headerinfo' => ['default' => '', 'type' 	  => 'text'], 'legacy_mode' => ['default' => 'no', 'type' 	  => 'yesno'], 'localstationid' => ['default' => '', 'type' 	  => 'text'], 'maxrate' => ['default' => '14400', 'type' 	  => 'numeric'], 'minrate' => ['default' => '9600', 'type' 	  => 'numeric'], 'modem'	=> [
+     //TODO: It is not used anywhere, can it be deleted?
+     'default' => '',
+     'type' 	  => 'text',
+ ], 'sender_address' => ['default' => '', 'type' 	  => 'text'], 'papersize' => ['default' => 'letter', 'type' 	  => 'list', 'options' => ['latter', 'a4']]];
 	
 	public function __construct($freepbx = null)
 	{
@@ -103,7 +54,7 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	public static function myConfigPageInits()
 	{
-		return array("did");
+		return ["did"];
 	}
 
 	public function doConfigPageInit($page)
@@ -114,14 +65,14 @@ class Fax extends FreePBX_Helpers implements BMO
 			case 'fax':
 				foreach($this->default_settings as $k => $v)
 				{
-					$input = isset($request[$k]) ? $request[$k] : $v['default'];
-					$input = trim($input);
+					$input = $request[$k] ?? $v['default'];
+					$input = trim((string) $input);
 
 					switch ($v['type'])
 					{
 						case 'yesno':
 							$input = strtolower($input);
-							if (! in_array($input, array('yes', 'no')) )
+							if (! in_array($input, ['yes', 'no']) )
 							{
 								$input = $v['default'];
 							}
@@ -166,23 +117,23 @@ class Fax extends FreePBX_Helpers implements BMO
 			break;
 
 			case "did":
-				$action			= isset($request['action']) 			? $request['action']			: '';
-				$cidnum			= isset($request['cidnum']) 			? $request['cidnum']			: '';
-				$extension		= isset($request['extension'])			? $request['extension']			: '';
-				$extdisplay		= isset($request['extdisplay'])			? $request['extdisplay']		: '';
-				$enabled		= isset($request['faxenabled'])			? $request['faxenabled']		: 'false';
-				$detection		= isset($request['faxdetection'])		? $request['faxdetection']		: '';
-				$ring			= isset($request['faxring'])			? $request['faxring']			: '';
-				$detectionwait	= isset($request['faxdetectionwait'])	? $request['faxdetectionwait']	: '';
+				$action			= $request['action'] ?? '';
+				$cidnum			= $request['cidnum'] ?? '';
+				$extension		= $request['extension'] ?? '';
+				$extdisplay		= $request['extdisplay'] ?? '';
+				$enabled		= $request['faxenabled'] ?? 'false';
+				$detection		= $request['faxdetection'] ?? '';
+				$ring			= $request['faxring'] ?? '';
+				$detectionwait	= $request['faxdetectionwait'] ?? '';
 				$dest			= (isset($request['gotoFAX'])			? $request['gotoFAX'].'FAX'		: null);
-				$dest			= isset($request[$dest])				? $request[$dest]				: '';
+				$dest			= $request[$dest] ?? '';
 				if ($enabled != 'legacy')
 				{
 					$legacy_email = null;
 				}
 				else
 				{
-					$legacy_email = isset($request['legacy_email']) ? $request['legacy_email'] : '';
+					$legacy_email = $request['legacy_email'] ?? '';
 				}
 
 				if (! is_numeric($detectionwait) or ($detectionwait < 0))
@@ -240,11 +191,7 @@ class Fax extends FreePBX_Helpers implements BMO
 				case 'showgroup':
 					$enabled 	   = ($request['action'] == "addgroup") ? true : $this->userman->getModuleSettingByGID($request['group'],'fax','enabled');
 					$attachformat  = ($request['action'] == "addgroup") ? 'pdf' : $this->userman->getModuleSettingByGID($request['group'],'fax','attachformat');
-					$data_return[] = array(
-						"title"   => _("Fax"),
-						"rawname" => "fax",
-						"content" => $this->showPage('userman_showpage', array("mode" => "group", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
-					);
+					$data_return[] = ["title"   => _("Fax"), "rawname" => "fax", "content" => $this->showPage('userman_showpage', ["mode" => "group", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat])];
 				break;
 					
 				case 'adduser':
@@ -258,11 +205,7 @@ class Fax extends FreePBX_Helpers implements BMO
 						$enabled 	  = $this->userman->getModuleSettingByID($user['id'],'fax','enabled',true);
 						$attachformat = $this->userman->getModuleSettingByID($user['id'],'fax','attachformat',true);
 					}
-					$data_return[] = array(
-						"title"   => _("Fax"),
-						"rawname" => "fax",
-						"content" => $this->showPage('userman_showpage', array("mode" => "user", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat))
-					);
+					$data_return[] = ["title"   => _("Fax"), "rawname" => "fax", "content" => $this->showPage('userman_showpage', ["mode" => "user", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat])];
 				break;
 			}
 			return $data_return;
@@ -421,7 +364,7 @@ class Fax extends FreePBX_Helpers implements BMO
 		unset($fcc);
 
 		outn(_("Upgrading configs.."));
-		$set = array();
+		$set = [];
 		$set['value'] = 'www.freepbx.org';
 		$set['defaultval'] =& $set['value'];
 		$set['readonly'] = 1;
@@ -441,43 +384,25 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	}
 
-	public function showPage($page, $params = array())
+	public function showPage($page, $params = [])
 	{
 		$request = $_REQUEST;
-		$data = array(
-			"fax" 	  => $this,
-			'request' => $request,
-			'page' 	  => $page,
-		);
+		$data = ["fax" 	  => $this, 'request' => $request, 'page' 	  => $page];
 		$data = array_merge($data, $params);
-		switch ($page) 
-		{
-			case 'main':
-				$data_return = load_view(__DIR__."/views/page.main.php", $data);
-				break;
-
-			case 'form_options':
-				$data_return = load_view(__DIR__."/views/view.form_options.php", $data);
-				break;
-
-			case 'core_DIDHook':
-				$data_return = load_view(__DIR__."/views/view.coreDIDHook.php", $data);
-				break;
-
-			case 'userman_showpage':
-				$data_return = load_view(__DIR__.'/views/view.userman.showpage.php', $data);
-				break;
-
-			default:
-				$data_return = sprintf(_("Page Not Found (%s)!!!!"), $page);
-		}
+		$data_return = match ($page) {
+      'main' => load_view(__DIR__."/views/page.main.php", $data),
+      'form_options' => load_view(__DIR__."/views/view.form_options.php", $data),
+      'core_DIDHook' => load_view(__DIR__."/views/view.coreDIDHook.php", $data),
+      'userman_showpage' => load_view(__DIR__.'/views/view.userman.showpage.php', $data),
+      default => sprintf(_("Page Not Found (%s)!!!!"), $page),
+  };
 		return $data_return;
 	}
 
 	public function genConfig()
 	{
 		global $version;
-		$conf = array();
+		$conf = [];
 
 		$fax = $this->faxDetect();
 		$ast_lt_18 = version_compare($version, '1.8', 'lt');
@@ -520,7 +445,7 @@ class Fax extends FreePBX_Helpers implements BMO
 		$return_data = $default;
 		if (! empty($key))
 		{
-			$key 	  = strtolower($key);
+			$key 	  = strtolower((string) $key);
 			$settings = array_change_key_case($this->getSettings());
 			if (array_key_exists($key, $settings))
 			{
@@ -533,7 +458,7 @@ class Fax extends FreePBX_Helpers implements BMO
 	public function getSettings()
 	{
 		//TODO: migrate settings to kvstore
-		$set 	  = array();
+		$set 	  = [];
 		$sql 	  = sprintf('SELECT * FROM %s', $this->tables['details']);
 		$settings = sql($sql, 'getAssoc', 'DB_FETCHMODE_ASSOC');
 		foreach($settings as $setting => $value)
@@ -554,7 +479,7 @@ class Fax extends FreePBX_Helpers implements BMO
 				$key = strtolower($key);
 				$sql = sprintf('REPLACE INTO fax_details (`key`, `value`) VALUES (LOWER(?), ?)', $this->tables['details']);
 				$sth = $this->db->prepare($sql);
-				$sth->execute(array($key, $value));
+				$sth->execute([$key, $value]);
 				// $db->escapeSimple($value)
 			}
 			needreload();
@@ -565,7 +490,7 @@ class Fax extends FreePBX_Helpers implements BMO
 	{
 		$sql = sprintf('DELETE FROM %s where user = ?', $this->tables['users']);
 		$sth = $this->db->prepare($sql);
-		$sth->execute(array($faxext));
+		$sth->execute([$faxext]);
 	}
 
 	public function saveUser($faxext, $faxenabled, $faxemail = '', $faxattachformat = 'pdf')
@@ -574,9 +499,9 @@ class Fax extends FreePBX_Helpers implements BMO
 		$sth = $this->db->prepare($sql);
 		try
 		{
-			$sth->execute(array($faxext, $faxenabled, $faxemail, $faxattachformat));
+			$sth->execute([$faxext, $faxenabled, $faxemail, $faxattachformat]);
 		}
-		catch(\Exception $e)
+		catch(\Exception)
 		{
 			return false;
 		}
@@ -587,7 +512,7 @@ class Fax extends FreePBX_Helpers implements BMO
 	{
 		$sql = sprintf('SELECT * FROM %s WHERE user = ?', $this->tables['users']);
 		$sth = $this->db->prepare($sql);
-		$sth->execute(array($user));
+		$sth->execute([$user]);
 		$out = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		return (!empty($out[0]) && $out[0]['faxenabled']) ? $out[0] : false;
     }
@@ -603,38 +528,27 @@ class Fax extends FreePBX_Helpers implements BMO
 		$fax = null;
 		if (isset($this->astman) && $this->astman->connected())
 		{
-			$fax = array();
-			//check for fax modules
-			switch(true)
-			{
-				case $this->astman->mod_loaded('res_fax.so'):
-					$fax['module'] = 'res_fax';
-				break;
-				default:
-					$fax['module'] = null;
-				break;
-			}
+			$fax = [];
+			$fax['module'] = match (true) {
+       $this->astman->mod_loaded('res_fax.so') => 'res_fax',
+       default => null,
+   };
 
 			$fax['spandsp'] = $this->astman->mod_loaded('res_fax_spandsp.so');
 
-			switch($fax['module'])
-			{
-				case 'res_fax':
-					$fax['receivefax'] = 'receivefax';
-				break;
-				default:
-					$fax['receivefax'] = 'none';
-				break;
-			}
+			$fax['receivefax'] = match ($fax['module']) {
+       'res_fax' => 'receivefax',
+       default => 'none',
+   };
 
 			//get license count
-			$lic = $this->astman->send_request('Command', array('Command' => 'fax show stats'));
-			foreach(explode("\n",$lic['data']) as $licdata)
+			$lic = $this->astman->send_request('Command', ['Command' => 'fax show stats']);
+			foreach(explode("\n",(string) $lic['data']) as $licdata)
 			{
 				$d = explode(':',$licdata);
 				$data[trim($d['0'])] = isset($d['1']) ? trim($d['1']) : null;
 			}
-			$fax['license'] = isset($data['Licensed Channels']) ? $data['Licensed Channels'] : '';
+			$fax['license'] = $data['Licensed Channels'] ?? '';
 		}
 		return $fax;
     }
@@ -660,7 +574,7 @@ class Fax extends FreePBX_Helpers implements BMO
 
     public function saveIncoming($cidnum, $extension, $enabled, $detection, $detectionwait, $destination, $legacy_email, $ring = 1)
 	{
-        $legacy_email = $legacy_email === null ? 'NULL' : $legacy_email;
+        $legacy_email ??= 'NULL';
         $ring = ($ring == 'yes') ? 1 : 0;
         $sql = sprintf("INSERT INTO %s (cidnum, extension, detection, detectionwait, destination, legacy_email, ring) VALUES (:cidnum, :extension, :detection, :detectonwait, :destination,:legacy_email, :ring)", $this->tables['incoming']);
         $stmt = $this->db->prepare($sql);
@@ -678,7 +592,7 @@ class Fax extends FreePBX_Helpers implements BMO
 
     public function deleteIncoming($extdisplay)
 	{
-        $opts = explode('/', $extdisplay);
+        $opts = explode('/', (string) $extdisplay);
         $extension = $opts['0'];
         $cidnum = $opts['1']; //set vars
         $sql = sprintf('DELETE FROM %s WHERE cidnum = :cidnum AND extension = :extension', $this->tables['incoming']);
@@ -692,21 +606,10 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	public function getActionBar($request)
 	{
-		$data_return = array();
+		$data_return = [];
         if ($request['display'] === 'fax')
 		{
-            $data_return = array(
-				'submit' => array(
-					'name' => 'submit',
-					'id' => 'submit',
-					'value' => _("Submit")
-				),
-				'reset' => array(
-					'name' => 'reset',
-					'id' => 'reset',
-					'value' => _("Reset"),
-				),
-            );
+            $data_return = ['submit' => ['name' => 'submit', 'id' => 'submit', 'value' => _("Submit")], 'reset' => ['name' => 'reset', 'id' => 'reset', 'value' => _("Reset")]];
         }
 		return $data_return;
 	}
@@ -717,9 +620,9 @@ class Fax extends FreePBX_Helpers implements BMO
 		if($page == 'did')
 		{
 			$target_menuid 	= $page;
-			$extension		= isset($request['extension'])	? $request['extension']	:'';
-			$cidnum			= isset($request['cidnum'])		? $request['cidnum']	:'';
-			$extdisplay		= isset($request['extdisplay'])	? $request['extdisplay']:'';
+			$extension		= $request['extension'] ?? '';
+			$cidnum			= $request['cidnum'] ?? '';
+			$extdisplay		= $request['extdisplay'] ?? '';
 
 			//if were editing, get save parms. Get parms
 
@@ -727,9 +630,9 @@ class Fax extends FreePBX_Helpers implements BMO
 			{
 				if ($extdisplay)
 				{
-					$opts		= explode('/', $extdisplay);
+					$opts		= explode('/', (string) $extdisplay);
 					$extension	= $opts['0'];
-					$cidnum		= isset($opts['1']) ? $opts['1'] : '';
+					$cidnum		= $opts['1'] ?? '';
 				}
 				else
 				{
@@ -742,24 +645,11 @@ class Fax extends FreePBX_Helpers implements BMO
 			$html = '';
 			if($target_menuid == 'did')
 			{
-				$data = array(
-					'fax_dahdi_faxdetect' => fax_dahdi_faxdetect(),
-		    		'fax_sip_faxdetect'	  => fax_sip_faxdetect(),
-		    		'dahdi'				  => ast_with_dahdi() ? _('Dahdi'): _('Zaptel'),
-		    		'fax_detect'		  => $this->faxDetect(),
-		    		'fax_settings'		  => $this->getSettings(),
-					'info'				  => engine_getinfo(),
-					'faxing' 			  => !empty($fax),
-					'fax_incoming' 		  => $fax,
-				);
+				$data = ['fax_dahdi_faxdetect' => fax_dahdi_faxdetect(), 'fax_sip_faxdetect'	  => fax_sip_faxdetect(), 'dahdi'				  => ast_with_dahdi() ? _('Dahdi'): _('Zaptel'), 'fax_detect'		  => $this->faxDetect(), 'fax_settings'		  => $this->getSettings(), 'info'				  => engine_getinfo(), 'faxing' 			  => !empty($fax), 'fax_incoming' 		  => $fax];
 				$html = $this->showPage('core_DIDHook', $data);
 			}
-			$ret = array();
-			$ret[] = array(
-				'title' => _("Fax"),
-				'rawname' => 'fax',
-				'content' => $html,
-			);
+			$ret = [];
+			$ret[] = ['title' => _("Fax"), 'rawname' => 'fax', 'content' => $html];
 			return $ret;
 		}
 	}
@@ -768,24 +658,7 @@ class Fax extends FreePBX_Helpers implements BMO
 	{
         if($type === 'dids')
 		{
-			return array(
-                'fax_enable' => array(
-                    'identifier' => _('Fax Enabled'),
-                    'description' => _('Fax Enabled'),
-                ),
-                'fax_detection' => array(
-                    'identifier' => _('Fax Detection'),
-                    'description' => _('Type of fax detection to use (e.g. SIP or DAHDI)'),
-                ),
-                'fax_detectionwait' => array(
-                    'identifier' => _('Fax Detection Wait'),
-                    'description' => _('How long to wait and try to detect fax'),
-                ),
-                'fax_destination' => array(
-                    'identifier' => _('Fax Destination'),
-                    'description' => _('Where to send the faxes'),
-                ),
-            );
+			return ['fax_enable' => ['identifier' => _('Fax Enabled'), 'description' => _('Fax Enabled')], 'fax_detection' => ['identifier' => _('Fax Detection'), 'description' => _('Type of fax detection to use (e.g. SIP or DAHDI)')], 'fax_detectionwait' => ['identifier' => _('Fax Detection Wait'), 'description' => _('How long to wait and try to detect fax')], 'fax_destination' => ['identifier' => _('Fax Destination'), 'description' => _('Where to send the faxes')]];
 		}
 	}
 
@@ -799,10 +672,7 @@ class Fax extends FreePBX_Helpers implements BMO
 				foreach ($users as $user)
 				{
 					$en = $this->userman->getModuleSettingByID($user['id'], 'fax', 'enabled', true);
-					$data[$user['id']] = array(
-						'fax_enabled' 		=> is_null($en) ? "inherit" : (empty($en) ? 'no' : 'yes'),
-						'fax_attachformat'	=> $this->userman->getModuleSettingByID($user['id'], 'fax', 'attachformat'),
-					);
+					$data[$user['id']] = ['fax_enabled' 		=> is_null($en) ? "inherit" : (empty($en) ? 'no' : 'yes'), 'fax_attachformat'	=> $this->userman->getModuleSettingByID($user['id'], 'fax', 'attachformat')];
 				}
 			break;
 			case 'usermangroups':
@@ -810,15 +680,12 @@ class Fax extends FreePBX_Helpers implements BMO
 				foreach ($groups as $group)
 				{
 					$en = $this->userman->getModuleSettingByGID($group['id'],'fax','enabled');
-					$data[$group['id']] = array(
-						'fax_enabled' 		=> empty($en) ? 'no' : 'yes',
-						'fax_attachformat' 	=> $this->userman->getModuleSettingByGID($group['id'],'fax','attachformat'),
-					);
+					$data[$group['id']] = ['fax_enabled' 		=> empty($en) ? 'no' : 'yes', 'fax_attachformat' 	=> $this->userman->getModuleSettingByGID($group['id'],'fax','attachformat')];
 				}
 			break;
 			case "dids":
 				$dids = $this->FreePBX->Core->getAllDIDs();
-				$data = array();
+				$data = [];
 				$this->FreePBX->Modules->loadFunctionsInc("fax");
 				foreach($dids as $did)
 				{
@@ -826,21 +693,11 @@ class Fax extends FreePBX_Helpers implements BMO
 					$fax = $this->getIncoming($did['extension'], $did["cidnum"]);
 					if(!empty($fax))
 					{
-						$data[$key] = array(
-							"fax_enable" 		=> "yes",
-							"fax_detection" 	=> $fax['detection'],
-							"fax_detectionwait" => $fax['detectionwait'],
-							"fax_destination" 	=> $fax['destination']
-						);
+						$data[$key] = ["fax_enable" 		=> "yes", "fax_detection" 	=> $fax['detection'], "fax_detectionwait" => $fax['detectionwait'], "fax_destination" 	=> $fax['destination']];
 					}
 					else
 					{
-						$data[$key] = array(
-							"fax_enable" 		=> "",
-							"fax_detection" 	=> "",
-							"fax_detectionwait" => "",
-							"fax_destination" 	=> ""
-						);
+						$data[$key] = ["fax_enable" 		=> "", "fax_detection" 	=> "", "fax_detectionwait" => "", "fax_destination" 	=> ""];
 					}
 				}
 			break;
@@ -887,12 +744,12 @@ class Fax extends FreePBX_Helpers implements BMO
 				$this->FreePBX->Modules->loadFunctionsInc("fax");
 				foreach ($rawData as $data)
 				{
-					$settings = array();
+					$settings = [];
 					foreach ($data as $key => $value)
 					{
-						if (substr($key, 0, 4) == 'fax_')
+						if (str_starts_with((string) $key, 'fax_'))
 						{
-							$settingname = substr($key, 4);
+							$settingname = substr((string) $key, 4);
 							$settings[$settingname] = $value;
 						}
 					}
@@ -914,12 +771,8 @@ class Fax extends FreePBX_Helpers implements BMO
 	{
 		$webroot = $this->FreePBX->Config->get('AMPWEBROOT');
 		$modulebindir = sprintf('%s/admin/modules/fax/bin', $webroot);
-		$files = array();
-		$files[] = array(
-			'type' => 'file',
-			'path' => sprintf('%s/fax2mail.php', $modulebindir),
-			'perms' => 0755
-		);
+		$files = [];
+		$files[] = ['type' => 'file', 'path' => sprintf('%s/fax2mail.php', $modulebindir), 'perms' => 0755];
 		return $files;
 	}
 
@@ -933,16 +786,12 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	public function destinations()
 	{
-		$extens = array();
+		$extens = [];
 		$recip  = $this->get_destinations();
-		usort($recip, function($a,$b){ return ($a['uname'] < $b['uname']) ? -1 : 1;});
+		usort($recip, fn($a, $b) => ($a['uname'] < $b['uname']) ? -1 : 1);
 		foreach ($recip as $row)
 		{
-			$extens[] = array(
-				'destination' => $this->getDest($row['user']),
-				'description' => sprintf("%s (%s)", $row['name'], $row['uname']),
-				'category' 	  => _('Fax Recipient'),
-			);
+			$extens[] = ['destination' => $this->getDest($row['user']), 'description' => sprintf("%s (%s)", $row['name'], $row['uname']), 'category' 	  => _('Fax Recipient')];
 		}
 		if (! empty($extens)) { return $extens; }
 		else 				  { return null; }
@@ -960,7 +809,7 @@ class Fax extends FreePBX_Helpers implements BMO
 			return false;
 		}
 	
-		$destlist = array();
+		$destlist = [];
 		if (is_array($dest) && empty($dest)) { return $destlist; }
 		$sql = sprintf("SELECT a.extension, a.cidnum, b.description, a.destination FROM %s a JOIN %s b WHERE a.extension = b.extension AND a.cidnum = b.cidnum AND a.legacy_email IS NULL %s ORDER BY extension, cidnum",
 			$this->tables['incoming'],
@@ -972,11 +821,7 @@ class Fax extends FreePBX_Helpers implements BMO
 		{
 			$thisdest 	= $result['destination'];
 			$thisid   	= sprintf("%s/%s", $result['extension'], $result['cidnum']);
-			$destlist[] = array(
-				'dest' 		  => $thisdest,
-				'description' => sprintf(_("Inbound Fax Detection: %s (%s)"), $result['description'], $thisid),
-				'edit_url' 	  => 'config.php?display=userman&action=showuser&user='.urlencode($thisid),
-			);
+			$destlist[] = ['dest' 		  => $thisdest, 'description' => sprintf(_("Inbound Fax Detection: %s (%s)"), $result['description'], $thisid), 'edit_url' 	  => 'config.php?display=userman&action=showuser&user='.urlencode($thisid)];
 		}
 		return $destlist;
 	}
@@ -985,25 +830,22 @@ class Fax extends FreePBX_Helpers implements BMO
 	{
 		$sql = sprintf('UPDATE %s SET destination = ? WHERE destination = ?', $this->tables['incoming']);
 		$sth = $this->db->prepare($sql);
-		$sth->execute(array($new_dest, $old_dest));
+		$sth->execute([$new_dest, $old_dest]);
 	}
 
 	public function destinations_getdestinfo($dest)
 	{
 		$srt_section = sprintf("%s,", self::ASTERISK_SECTION);
-		if (substr(trim($dest),0, strlen($srt_section)) == $srt_section)
+		if (str_starts_with(trim((string) $dest), $srt_section))
 		{
-			$usr = explode(',', $dest);
+			$usr = explode(',', (string) $dest);
 			$usr = $usr[1];
 			$thisusr = $this->getUser($usr);
 			if (! empty($thisusr))
 			{
-				return array(
-					'description' => sprintf(_("Fax user %s"), $usr),
-					'edit_url' 	  => 'config.php?display=userman&action=showuser&user='.urlencode($usr),
-				);
+				return ['description' => sprintf(_("Fax user %s"), $usr), 'edit_url' 	  => 'config.php?display=userman&action=showuser&user='.urlencode($usr)];
 			}
-			return array();
+			return [];
 		}
 		return false;
 	}
@@ -1011,9 +853,9 @@ class Fax extends FreePBX_Helpers implements BMO
 	public function destinations_identif($dests)
 	{
 		if (! is_array($dests)) {
-			$dests = array($dests);
+			$dests = [$dests];
 		}
-		$return_data = array();
+		$return_data = [];
 		foreach ($dests as $target)
 		{
 			$info = $this->destinations_getdestinfo($target);
@@ -1027,8 +869,8 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	public function get_destinations()
 	{
-		$final = array();
-		$warning = array();
+		$final = [];
+		$warning = [];
 		foreach($this->listUsers() as $res)
 		{
 			if ($res['faxenabled'] != 'true') { continue; }
@@ -1042,7 +884,7 @@ class Fax extends FreePBX_Helpers implements BMO
 				}
 				$res['uname'] = $o['username'];
 				$res['name']  = !empty($o['displayname']) ? $o['displayname'] : sprintf("%s %s", $o['fname'], $o['lname']);
-				$res['name']  = trim($res['name']);
+				$res['name']  = trim((string) $res['name']);
 				$res['name']  = !empty($res['name']) ? $res['name'] : $o['username'];
 				$final[] = $res;
 			}
@@ -1077,16 +919,18 @@ class Fax extends FreePBX_Helpers implements BMO
 	*	- tif2pdf
 	*	- ps2tif
 	*/
-	public function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = array())
+	public function fax_file_convert($type, $in, $out = '', $keep_orig = false, $opts = [])
 	{
-		//ensure file exists
+		$ext = null;
+  $cmd = null;
+  //ensure file exists
 		if (! is_file($in))
 		{
 			return false;
 		}
 
 		//check is format supported
-		if (! in_array($type, array('pdf2tif', 'tif2pdf', 'ps2tif')) )
+		if (! in_array($type, ['pdf2tif', 'tif2pdf', 'ps2tif']) )
 		{
 			return $in;
 		}
@@ -1105,7 +949,7 @@ class Fax extends FreePBX_Helpers implements BMO
 					$ext = 'pdf';
 				break;
 			}
-			$pathinfo = pathinfo($in);
+			$pathinfo = pathinfo((string) $in);
 
 			$out = sprintf('%s/%s.%s', $pathinfo['dirname'], $pathinfo['filename'], $ext);
 		}
@@ -1127,7 +971,7 @@ class Fax extends FreePBX_Helpers implements BMO
 					freepbx_log(FPBX_LOG_ERROR, sprintf(_('gs not found, not converting %s'), $in));
 					return $in;
 				}
-				$res = isset($opts['res']) ? $opts['res'] : "204x98";
+				$res = $opts['res'] ?? "204x98";
 				//http://www.soft-switch.org/spandsp_faq/ar01s14.html
 				$gs = sprintf('%s -q -dNOPAUSE -dBATCH -dAutoRotatePages=/All -dFIXEDMEDIA -dPDFFitPage -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dCompatibilityLevel=1.4 -r%s ', $gs, $res);
 			break;
@@ -1194,12 +1038,12 @@ class Fax extends FreePBX_Helpers implements BMO
 		$cmd = sprintf('%s %s', $tiffinfo, $file);
 		exec($cmd, $output);
 
-		if ($output && strpos($output[0], 'Not a TIFF or MDI file') === 0)
+		if ($output && str_starts_with($output[0], 'Not a TIFF or MDI file'))
 		{
 			return false;
 		}
 
-		$info = array();
+		$info = [];
 		foreach ($output as $out)
 		{
 			$o = explode(':', $out, 2);
@@ -1218,7 +1062,7 @@ class Fax extends FreePBX_Helpers implements BMO
 
 		if ($opt)
 		{
-			return isset($info[$opt]) ? $info[$opt] : false;
+			return $info[$opt] ?? false;
 		}
 
 		return $info;
