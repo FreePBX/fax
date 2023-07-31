@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 06:29+0000\n"
+"POT-Creation-Date: 2023-07-31 05:56+0000\n"
 "PO-Revision-Date: 2016-08-26 03:04+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,11 +21,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: views/view.form_options.php:198
+#: views/view.form_options.php:194
 msgid "A4"
 msgstr "A4"
 
-#: views/view.coreDIDHook.php:181
+#: views/view.coreDIDHook.php:177
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -51,11 +51,11 @@ msgstr ""
 msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr "افزودن تنظیمات، گزینه ها و رابط گرافیکی برای دورنگار دریافتی"
 
-#: views/view.form_options.php:217
+#: views/view.form_options.php:213
 msgid "Always Generate Detection Code"
 msgstr "تولید همیشگی کد تشخیص"
 
-#: bin/fax2mail.php:114
+#: bin/fax2mail.php:107
 #, php-format
 msgid "At: %s"
 msgstr ""
@@ -68,7 +68,7 @@ msgstr "فرمت پیوست"
 msgid "Attempt to detect faxes on this DID."
 msgstr "تلاش برای تشخیص دورنگار در این داخلی مستقیم."
 
-#: Fax.class.php:433
+#: Fax.class.php:376
 msgid "Author to pass to tiff2pdf's -a option"
 msgstr ""
 
@@ -76,19 +76,19 @@ msgstr ""
 msgid "Both"
 msgstr "هردو"
 
-#: Fax.class.php:748 views/view.coreDIDHook.php:86
+#: Fax.class.php:648 views/view.coreDIDHook.php:82
 msgid "Dahdi"
 msgstr "دهدی (Dahdi)"
 
-#: views/view.form_options.php:40
+#: views/view.form_options.php:36
 msgid "Default Fax header"
 msgstr "سربرگ پیشفرض دورنگار"
 
-#: views/view.form_options.php:60
+#: views/view.form_options.php:56
 msgid "Default Local Station Identifier"
 msgstr "شناسه پیشفرض ایستگاه محلی"
 
-#: views/view.form_options.php:191
+#: views/view.form_options.php:187
 msgid "Default Paper Size"
 msgstr "اندازه پیشفرض کاغذ"
 
@@ -96,22 +96,22 @@ msgstr "اندازه پیشفرض کاغذ"
 msgid "Detect Faxes"
 msgstr "تشخیص دورنگار"
 
-#: Fax.class.php:417 /usr/src/freepbx/fax/fax.i18n.php:12
+#: Fax.class.php:360 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Dial System FAX"
 msgstr "سیستم شماره گیری دورنگار"
 
-#: Fax.class.php:437
+#: Fax.class.php:380
 msgid "Done!"
 msgstr ""
 
-#: Fax.class.php:229
+#: Fax.class.php:180
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires spandsp based app_fax (res_fax_spandsp."
 "so) to function."
 msgstr ""
 
-#: Fax.class.php:234
+#: Fax.class.php:185
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -123,11 +123,11 @@ msgstr ""
 "is installed without a license.<br>At least one license is required (it is "
 "available for free) and must be installed."
 
-#: views/view.form_options.php:103
+#: views/view.form_options.php:99
 msgid "Email address"
 msgstr "آدرس ایمیل"
 
-#: views/view.form_options.php:91
+#: views/view.form_options.php:87
 msgid ""
 "Email address that faxes appear to come from if 'system default' has been "
 "chosen as the default fax extension."
@@ -135,7 +135,7 @@ msgstr ""
 "آدرس ایمیلی که  دورنگارها به آن ارسال میشوند اگر 'پیشفرض سیستم' به عنوان "
 "شماره داخلی پیشفرض دورنگار انتخاب شده باشد."
 
-#: views/view.form_options.php:113
+#: views/view.form_options.php:109
 msgid ""
 "Email address that faxes are sent to when using the \"Dial System Fax\" "
 "feature code. This is also the default email for fax detection in legacy "
@@ -147,12 +147,12 @@ msgstr ""
 "درصورتی که مسیرهایی در این حالت وجود داشته و آدرس ایمیلی برای ایشان لحاظ "
 "نشده باشد."
 
-#: bin/fax2mail.php:79
+#: bin/fax2mail.php:72
 #, php-format
 msgid "Email-fax dying, file %s not found!"
 msgstr ""
 
-#: bin/fax2mail.php:47
+#: bin/fax2mail.php:40
 msgid ""
 "Email-fax dying, no destination found (User has no email!) and we arent "
 "keeping the file!"
@@ -170,20 +170,20 @@ msgstr "دریافت دورنگار را برای کاربر فعال کن"
 msgid "Enabled"
 msgstr "فعال"
 
-#: bin/fax2mail.php:132
+#: bin/fax2mail.php:125
 msgid "Enclosed, please find a new fax"
 msgstr "محصور, یک دورنگار جدید پیدا کنید"
 
-#: bin/fax2mail.php:128
+#: bin/fax2mail.php:121
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "محصور, لطفا یک دورنگار جدید پیدا کنید از：%s"
 
-#: views/view.form_options.php:123
+#: views/view.form_options.php:119
 msgid "Error Correction Mode"
 msgstr "حالت تصحیح خطا"
 
-#: views/view.form_options.php:136
+#: views/view.form_options.php:132
 msgid ""
 "Error Correction Mode (ECM) option is used to specify whether\n"
 "\t\t\t to use ecm mode or not."
@@ -193,7 +193,7 @@ msgstr ""
 "to specify whether\n"
 "\\t\\t\\t to use ecm mode or not."
 
-#: Fax.class.php:244 Fax.class.php:262 Fax.class.php:759
+#: Fax.class.php:194 Fax.class.php:208 Fax.class.php:652
 msgid "Fax"
 msgstr "دورنگار"
 
@@ -201,31 +201,31 @@ msgstr "دورنگار"
 msgid "Fax Configuration"
 msgstr "تنظیمات دورنگار"
 
-#: Fax.class.php:785 views/view.coreDIDHook.php:194
+#: Fax.class.php:661 views/view.coreDIDHook.php:190
 msgid "Fax Destination"
 msgstr "مقصد دورنگار"
 
-#: Fax.class.php:777
+#: Fax.class.php:661
 msgid "Fax Detection"
 msgstr "تشخیص دورنگار"
 
-#: views/view.coreDIDHook.php:143
+#: views/view.coreDIDHook.php:139
 msgid "Fax Detection Time"
 msgstr "زمان تشخیص دورنگار"
 
-#: Fax.class.php:781
+#: Fax.class.php:661
 msgid "Fax Detection Wait"
 msgstr "انتظار برای تشخیص دورنگار"
 
-#: views/view.coreDIDHook.php:81
+#: views/view.coreDIDHook.php:77
 msgid "Fax Detection type"
 msgstr "تشخیص نوع دورنگار"
 
-#: views/view.coreDIDHook.php:169
+#: views/view.coreDIDHook.php:165
 msgid "Fax Email Destination"
 msgstr "ایمیل مقصد فکس"
 
-#: Fax.class.php:773 Fax.class.php:774
+#: Fax.class.php:661
 msgid "Fax Enabled"
 msgstr "دورنگار فعال"
 
@@ -233,24 +233,24 @@ msgstr "دورنگار فعال"
 msgid "Fax Options"
 msgstr "گزینه های دورنگار"
 
-#: Fax.class.php:944 bin/fax2mail.php:56
+#: Fax.class.php:794 bin/fax2mail.php:49
 msgid "Fax Recipient"
 msgstr "گیرنده دورنگار"
 
-#: views/view.coreDIDHook.php:116
+#: views/view.coreDIDHook.php:112
 msgid "Fax Ring"
 msgstr "زنگ فکس"
 
-#: bin/fax2mail.php:17
+#: bin/fax2mail.php:12
 msgid "Fax Service"
 msgstr ""
 
-#: Fax.class.php:1002
+#: Fax.class.php:846
 #, php-format
 msgid "Fax user %s"
 msgstr "دورنگار کاربر %s"
 
-#: bin/fax2mail.php:118 bin/fax2mail.php:140
+#: bin/fax2mail.php:111 bin/fax2mail.php:133
 #, php-format
 msgid "For: %s"
 msgstr ""
@@ -261,7 +261,7 @@ msgstr ""
 "فرمت هایی که دورنگارهای دریافتی باید ب آنها تبدیل شده سپس به ایمیل ارسال "
 "شوند."
 
-#: views/view.form_options.php:50
+#: views/view.form_options.php:46
 msgid ""
 "Header information that is passed to remote side of the fax transmission and "
 "is printed on top of every page. This usually contains the name of the "
@@ -270,11 +270,11 @@ msgstr ""
 "اطلاعات سربرگ که در بالای تمامی فکسهای ارسالی چاپ میشود.معمولا شامل اطلاعات "
 "شخص و یا شرکت ارسال کننده فکس میباشد."
 
-#: Fax.class.php:782
+#: Fax.class.php:661
 msgid "How long to wait and try to detect fax"
 msgstr "مدت زمان انتظار برای شناسایی دورنگار"
 
-#: views/view.coreDIDHook.php:155
+#: views/view.coreDIDHook.php:151
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -284,7 +284,7 @@ msgstr ""
 "صدای زنگ خوردن را در این زمان خواهد شنید (i.e. the system wont \"answer\" "
 "the call, it will just play ringing)."
 
-#: Fax.class.php:977
+#: Fax.class.php:824
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "تشخیص فکس های ورودی: %s (%s)"
@@ -293,7 +293,7 @@ msgstr "تشخیص فکس های ورودی: %s (%s)"
 msgid "Inherit"
 msgstr "ارثی"
 
-#: Fax.class.php:1054
+#: Fax.class.php:896
 msgid "Invalid Email for Inbound Fax"
 msgstr "ایمیل نادرست برای ارسال دورنگار دریافتی"
 
@@ -301,7 +301,7 @@ msgstr "ایمیل نادرست برای ارسال دورنگار دریافت�
 msgid "Legacy"
 msgstr "میراث"
 
-#: views/view.coreDIDHook.php:59
+#: views/view.coreDIDHook.php:56
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -311,11 +311,11 @@ msgstr ""
 "فقط برای انتقال مسیر فکس های قدیمی استفاده میشود. شما با انتخاب گزینه بله "
 "باید مسیر را به روزکنید، و یک مسیر معتبر انتخاب کنید!"
 
-#: views/view.form_options.php:196
+#: views/view.form_options.php:192
 msgid "Letter"
 msgstr "نامه"
 
-#: views/view.form_options.php:147
+#: views/view.form_options.php:143
 msgid "Maximum transfer rate"
 msgstr "بیشترین امتیاز انتقال"
 
@@ -323,42 +323,42 @@ msgstr "بیشترین امتیاز انتقال"
 msgid "Maximum transfer rate can not be less than Minimum transfer rate"
 msgstr ""
 
-#: views/view.form_options.php:159
+#: views/view.form_options.php:155
 msgid "Maximum transfer rate used during fax rate negotiation."
 msgstr "بیشترین سرعت استفاده شده برای تبادل فکس."
 
-#: views/view.form_options.php:169
+#: views/view.form_options.php:165
 msgid "Minimum transfer rate"
 msgstr "حداقل سرعت تبادل اطلاعات"
 
-#: views/view.form_options.php:181
+#: views/view.form_options.php:177
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr "کمترین سرعت استفاده شده برای تبادل فکس."
 
-#: bin/fax2mail.php:97
+#: bin/fax2mail.php:90
 #, php-format
 msgid "New fax from: %s"
 msgstr "دورنگار جدید از:%s"
 
-#: bin/fax2mail.php:101
+#: bin/fax2mail.php:94
 msgid "New fax received"
 msgstr "دورنگار جدید دریافت شد"
 
 #: views/quickCreate.php:12 views/view.coreDIDHook.php:28
-#: views/view.coreDIDHook.php:40 views/view.coreDIDHook.php:123
-#: views/view.form_options.php:130 views/view.form_options.php:224
+#: views/view.coreDIDHook.php:40 views/view.coreDIDHook.php:119
+#: views/view.form_options.php:126 views/view.form_options.php:220
 #: views/view.userman.showpage.php:29
 msgid "No"
 msgstr "خیر"
 
-#: views/view.coreDIDHook.php:249
+#: views/view.coreDIDHook.php:245
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "روش درستی برای تشخیص فکس انتخاب نشد و یا مجوز قانونی وجود نداشت. عملیات فکس "
 "نمیتواند فعال شود."
 
-#: views/view.coreDIDHook.php:57
+#: views/view.coreDIDHook.php:56
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
@@ -372,16 +372,16 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:115 bin/fax2mail.php:136
+#: bin/fax2mail.php:108 bin/fax2mail.php:129
 #, php-format
 msgid "On: %s"
 msgstr ""
 
-#: views/view.form_options.php:80
+#: views/view.form_options.php:76
 msgid "Outgoing Email address"
 msgstr "آدرس ایمیل ارسال فکس"
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:83
 msgid "Outgoing fax results"
 msgstr "نتایج فکس ارسالی"
 
@@ -389,7 +389,7 @@ msgstr "نتایج فکس ارسالی"
 msgid "PDF"
 msgstr "PDF"
 
-#: Fax.class.php:472
+#: Fax.class.php:397
 #, php-format
 msgid "Page Not Found (%s)!!!!"
 msgstr ""
@@ -402,20 +402,20 @@ msgstr ""
 msgid "Read fax user settings"
 msgstr ""
 
-#: bin/fax2mail.php:135
+#: bin/fax2mail.php:128
 #, php-format
 msgid "Received & processed: %s"
 msgstr "رسیده و پردازش شده: %s"
 
-#: Fax.class.php:707
+#: Fax.class.php:612
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: views/view.coreDIDHook.php:88
+#: views/view.coreDIDHook.php:84
 msgid "SIP"
 msgstr "SIP"
 
-#: views/view.form_options.php:204
+#: views/view.form_options.php:200
 msgid ""
 "Select the default paper size.<br/>This specifies the size that should be "
 "used if the document does not specify a size.<br/> If the document does "
@@ -424,7 +424,7 @@ msgstr ""
 "انتخاب اندازه برگه پیشفرض.<br/>این اندازه برای مدارکی که سایز مشخصی ندارند "
 "لحاظ میشود.<br/>اگر مدرکی سایز مشخصی داشت همان سایز استفاده میشود."
 
-#: bin/fax2mail.php:112
+#: bin/fax2mail.php:105
 #, php-format
 msgid "Sent to %s"
 msgstr ""
@@ -433,7 +433,7 @@ msgstr ""
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: views/view.coreDIDHook.php:102
+#: views/view.coreDIDHook.php:98
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -441,12 +441,12 @@ msgstr ""
 "Sip: use sip fax  detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
 
-#: bin/fax2mail.php:113
+#: bin/fax2mail.php:106
 #, php-format
 msgid "Status: %s"
 msgstr ""
 
-#: Fax.class.php:702
+#: Fax.class.php:612
 msgid "Submit"
 msgstr "ارسال"
 
@@ -454,30 +454,30 @@ msgstr "ارسال"
 msgid "TIFF"
 msgstr "TIFF"
 
-#: views/view.form_options.php:70
+#: views/view.form_options.php:66
 msgid "The outgoing Fax Machine Identifier. This is usually your fax number."
 msgstr "شناسه ماشین فکس خارجی. به طور معمول شماره فکس شماست."
 
-#: views/view.form_options.php:92
+#: views/view.form_options.php:88
 msgid ""
 "This may be formatted as just 'user@example.com', or 'Fax User <user@example."
 "com>'. The second option will display 'Fax User' in the 'From' field in most "
 "email clients."
 msgstr ""
 
-#: Fax.class.php:778
+#: Fax.class.php:661
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "نوع شناسایی فکس مورد استفاده  (e.g. SIP or DAHDI)"
 
-#: views/view.coreDIDHook.php:97
+#: views/view.coreDIDHook.php:93
 msgid "Type of fax detection to use."
 msgstr "نوع شناسایی فکس مورد استفاده."
 
-#: Fax.class.php:423
+#: Fax.class.php:366
 msgid "Upgrading configs.."
 msgstr ""
 
-#: Fax.class.php:1054
+#: Fax.class.php:896
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -486,12 +486,12 @@ msgstr ""
 "در مدیریت کاربران کاربران '%s' میتوانند فکسها را دریافت کنند اما آدرس ایمیلی "
 "برایشان تعریف نشده بنا بر این آنها نمیتوانند فکس را در ایمیلشان داشته باشند،"
 
-#: bin/fax2mail.php:137
+#: bin/fax2mail.php:130
 #, php-format
 msgid "Via: %s"
 msgstr ""
 
-#: views/view.form_options.php:230
+#: views/view.form_options.php:226
 msgid ""
 "When no fax modules are detected the module will not generate any detection "
 "dialplan by default. If the system is being used with phyical FAX devices, "
@@ -502,11 +502,11 @@ msgstr ""
 "دستگاه فکس، hylafax + iaxmodem ،یا دیگر پلتفرم ها استفاده میکنید میتوانید "
 "نقشه تماس را به صورت دستی تولید کرده و در اینجا قرار دهید."
 
-#: Fax.class.php:786 views/view.coreDIDHook.php:206
+#: Fax.class.php:661 views/view.coreDIDHook.php:202
 msgid "Where to send the faxes"
 msgstr "محلی که دورنگارها به آنجا ارسال میشوند"
 
-#: views/view.coreDIDHook.php:131
+#: views/view.coreDIDHook.php:127
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -521,13 +521,13 @@ msgid "Write fax user settings"
 msgstr ""
 
 #: views/quickCreate.php:10 views/view.coreDIDHook.php:27
-#: views/view.coreDIDHook.php:39 views/view.coreDIDHook.php:121
-#: views/view.form_options.php:128 views/view.form_options.php:222
+#: views/view.coreDIDHook.php:39 views/view.coreDIDHook.php:117
+#: views/view.form_options.php:124 views/view.form_options.php:218
 #: views/view.userman.showpage.php:28
 msgid "Yes"
 msgstr "بله"
 
-#: views/view.coreDIDHook.php:58
+#: views/view.coreDIDHook.php:56
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -537,34 +537,34 @@ msgstr ""
 "ها، درغیراینصورت تماس به مقصد معمول فرستاده میشود. از این گزینه وقتی استفاده "
 "میکنیم که از یک خط برای دریافت تماس و فکس استفاده میشود"
 
-#: views/view.coreDIDHook.php:239
+#: views/view.coreDIDHook.php:235
 msgid ""
 "You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to."
 msgstr ""
 
-#: views/view.form_options.php:29
+#: views/view.form_options.php:25
 msgid ""
 "Your maximum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr "بالاترین سرعت جابجایی شما روی 2400 تنظیم شده است"
 
-#: views/view.form_options.php:25
+#: views/view.form_options.php:21
 msgid ""
 "Your minimum transfer rate is set to 2400 in certain circumstances this can "
 "break faxing"
 msgstr "پایین ترین سرعت جابجایی شما روی 2400 تنظیم شده است"
 
-#: Fax.class.php:748
+#: Fax.class.php:648
 msgid "Zaptel"
 msgstr "زپتل"
 
-#: Fax.class.php:1127
+#: Fax.class.php:971
 #, php-format
 msgid "gs not found, not converting %s"
 msgstr ""
 
-#: Fax.class.php:1139
+#: Fax.class.php:983
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
