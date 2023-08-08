@@ -1,12 +1,13 @@
 <?php
 	//default wait time is 4 second
-	if(!$fax_incoming['detectionwait'])
+	if(!is_array($fax_incoming) || !$fax_incoming['detectionwait'])
 	{
+		$fax_incoming = [];
 		$fax_incoming['detectionwait'] = 4;
 	}
 
 	//set default is not definded
-	if (!$fax_incoming['detection'])
+	if (!isset($fax_incoming['detection']) || !$fax_incoming['detection'])
 	{
 		$fax_incoming['detection'] = 'dahdi';
 	}
@@ -38,7 +39,7 @@
 							-->
 							<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" <?php echo ($faxing ? 'CHECKED' : ''); ?> ><label for="faxenabled_yes"><?php echo _('Yes'); ?></label>
 							<input type="radio" name="faxenabled" id="faxenabled_no" value="false" <?php echo ($faxing ? '' : 'CHECKED'); ?> ><label for="faxenabled_no"><?php echo _('No'); ?></label>
-							<?php if ($fax_incoming['legacy_email'] !== null || $fax_settings['legacy_mode'] == 'yes'): ?>
+							<?php if (isset($fax_incoming['legacy_email']) && ($fax_incoming['legacy_email'] !== null || $fax_settings['legacy_mode'] == 'yes')): ?>
 								<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy" <?php ($fax_incoming['legacy_email'] !== null ? ' CHECKED ' : ''); ?>><label for="faxenabled_legacy"><?php echo _('Legacy'); ?></label>
 							<?php endif ?>
 						<?php endif ?>
@@ -53,7 +54,7 @@
 				<?php echo _("Attempt to detect faxes on this DID."); ?>
 				<ul>
 					<?php
-					$fdhelp_list = [_("No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax."), _("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"), ($fax_settings['legacy_mode'] == 'yes' || $fax_incoming['legacy_email']!==null) ? _('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!') : ''];
+					$fdhelp_list = [_("No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax."), _("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"), (isset($fax_incoming['legacy_email']) && ($fax_settings['legacy_mode'] == 'yes' || $fax_incoming['legacy_email']!==null)) ? _('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!') : ''];
 					foreach ($fdhelp_list as $txt)
 					{
 						if (empty($txt)) { continue; }
@@ -113,9 +114,9 @@
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="faxring"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="radio" name="faxring" id="faxringyes" value="yes" <?php echo ($fax_incoming['ring'] == "1"?"CHECKED":"") ?> >
+						<input type="radio" name="faxring" id="faxringyes" value="yes" <?php echo ((isset($fax_incoming['ring']) && $fax_incoming['ring'] == "1")?"CHECKED":"") ?> >
 						<label for="faxringyes"><?php echo  _("Yes"); ?></label>
-						<input type="radio" name="faxring" id="faxringno" value="no" <?php echo (empty($fax_incoming['ring']) || ($fax_incoming['ring'] == "0") ? "CHECKED" : ""); ?> >
+						<input type="radio" name="faxring" id="faxringno" value="no" <?php echo (!isset($fax_incoming['ring']) || empty($fax_incoming['ring']) || ($fax_incoming['ring'] == "0") ? "CHECKED" : ""); ?> >
 						<label for="faxringno"><?php echo _("No"); ?></label>
 					</div>
 				</div>
@@ -140,7 +141,7 @@
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="faxdetectionwait"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="number" min="2" max="11" class="form-control" id="faxdetectionwait" name="faxdetectionwait" value="<?php echo $fax_incoming['detectionwait']; ?>">
+						<input type="number" min="2" max="11" class="form-control" id="faxdetectionwait" name="faxdetectionwait" value="<?php echo $fax_incoming['detectionwait'] ?? ''; ?>">
 					</div>
 				</div>
 			</div>
