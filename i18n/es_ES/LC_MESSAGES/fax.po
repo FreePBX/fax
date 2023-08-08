@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:56+0000\n"
+"POT-Creation-Date: 2023-08-08 06:18+0000\n"
 "PO-Revision-Date: 2018-07-18 19:14+0000\n"
 "Last-Translator: Elvita Crespo <ecrespo@sangoma.com>\n"
 "Language-Team: Spanish <http://*/projects/freepbx/fax/es/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "A4"
 msgstr "A4"
 
-#: views/view.coreDIDHook.php:177
+#: views/view.coreDIDHook.php:178
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -64,7 +64,7 @@ msgstr ""
 msgid "Attachment Format"
 msgstr "Formato de Anexos"
 
-#: views/view.coreDIDHook.php:53
+#: views/view.coreDIDHook.php:54
 msgid "Attempt to detect faxes on this DID."
 msgstr "Intentar detectar faxes en este DID."
 
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Both"
 msgstr "Ambos"
 
-#: Fax.class.php:648 views/view.coreDIDHook.php:82
+#: Fax.class.php:648 views/view.coreDIDHook.php:83
 msgid "Dahdi"
 msgstr "DAHDi"
 
@@ -92,7 +92,7 @@ msgstr "Identificador Estación Local"
 msgid "Default Paper Size"
 msgstr "Tamaño de papel por defecto"
 
-#: views/view.coreDIDHook.php:21
+#: views/view.coreDIDHook.php:22
 msgid "Detect Faxes"
 msgstr "Detección de Faxes"
 
@@ -199,7 +199,7 @@ msgstr "Fax"
 msgid "Fax Configuration"
 msgstr "Configuracion de Fax"
 
-#: Fax.class.php:661 views/view.coreDIDHook.php:190
+#: Fax.class.php:661 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
 msgstr "Destino de Fax"
 
@@ -207,7 +207,7 @@ msgstr "Destino de Fax"
 msgid "Fax Detection"
 msgstr "Detección de Fax"
 
-#: views/view.coreDIDHook.php:139
+#: views/view.coreDIDHook.php:140
 msgid "Fax Detection Time"
 msgstr "Tiempo Detección Fax"
 
@@ -215,11 +215,11 @@ msgstr "Tiempo Detección Fax"
 msgid "Fax Detection Wait"
 msgstr "Espera Detección de Fax"
 
-#: views/view.coreDIDHook.php:77
+#: views/view.coreDIDHook.php:78
 msgid "Fax Detection type"
 msgstr "Tipo de detección de Fax"
 
-#: views/view.coreDIDHook.php:165
+#: views/view.coreDIDHook.php:166
 msgid "Fax Email Destination"
 msgstr "Destino Correo Fax"
 
@@ -235,7 +235,7 @@ msgstr "Opciones de Fax"
 msgid "Fax Recipient"
 msgstr "Destinatario de fax"
 
-#: views/view.coreDIDHook.php:112
+#: views/view.coreDIDHook.php:113
 msgid "Fax Ring"
 msgstr "Timbre Fax"
 
@@ -273,7 +273,7 @@ msgstr ""
 msgid "How long to wait and try to detect fax"
 msgstr "Cuanto esperar y tratar de detectar fax"
 
-#: views/view.coreDIDHook.php:151
+#: views/view.coreDIDHook.php:152
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -297,11 +297,11 @@ msgstr "heredado"
 msgid "Invalid Email for Inbound Fax"
 msgstr "Correo Invalido para Fax entrante"
 
-#: views/view.coreDIDHook.php:42
+#: views/view.coreDIDHook.php:43
 msgid "Legacy"
 msgstr "Legado"
 
-#: views/view.coreDIDHook.php:56
+#: views/view.coreDIDHook.php:57
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -347,21 +347,21 @@ msgstr "Nuevo fax de: %s"
 msgid "New fax received"
 msgstr "Nuevo fax recibido"
 
-#: views/quickCreate.php:12 views/view.coreDIDHook.php:28
-#: views/view.coreDIDHook.php:40 views/view.coreDIDHook.php:119
+#: views/quickCreate.php:12 views/view.coreDIDHook.php:29
+#: views/view.coreDIDHook.php:41 views/view.coreDIDHook.php:120
 #: views/view.form_options.php:126 views/view.form_options.php:220
 #: views/view.userman.showpage.php:29
 msgid "No"
 msgstr "No"
 
-#: views/view.coreDIDHook.php:245
+#: views/view.coreDIDHook.php:246
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "No hay métodos de detección de fax que se encuentren o no hay licencia "
 "válida. El módulo de fax no puede estar activado."
 
-#: views/view.coreDIDHook.php:56
+#: views/view.coreDIDHook.php:57
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
@@ -414,7 +414,7 @@ msgstr "Recibido & Procesado: %s"
 msgid "Reset"
 msgstr "Reinicio"
 
-#: views/view.coreDIDHook.php:84
+#: views/view.coreDIDHook.php:85
 msgid "SIP"
 msgstr "SIP"
 
@@ -437,7 +437,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Configuración"
 
-#: views/view.coreDIDHook.php:98
+#: views/view.coreDIDHook.php:99
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "Tipo de detección de fax a usar (ej. SIP o DAHDI)"
 
-#: views/view.coreDIDHook.php:93
+#: views/view.coreDIDHook.php:94
 msgid "Type of fax detection to use."
 msgstr "Tipo de detección de fax a utilizar."
 
@@ -513,11 +513,11 @@ msgstr ""
 "configuraciones de fax externas se puede forzar el dialplan a que se genere "
 "aquí."
 
-#: Fax.class.php:661 views/view.coreDIDHook.php:202
+#: Fax.class.php:661 views/view.coreDIDHook.php:203
 msgid "Where to send the faxes"
 msgstr "Donde enviar los faxes"
 
-#: views/view.coreDIDHook.php:127
+#: views/view.coreDIDHook.php:128
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -532,14 +532,14 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: views/quickCreate.php:10 views/view.coreDIDHook.php:27
-#: views/view.coreDIDHook.php:39 views/view.coreDIDHook.php:117
+#: views/quickCreate.php:10 views/view.coreDIDHook.php:28
+#: views/view.coreDIDHook.php:40 views/view.coreDIDHook.php:118
 #: views/view.form_options.php:124 views/view.form_options.php:218
 #: views/view.userman.showpage.php:28
 msgid "Yes"
 msgstr "Si"
 
-#: views/view.coreDIDHook.php:56
+#: views/view.coreDIDHook.php:57
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -549,7 +549,7 @@ msgstr ""
 "el destino de fax si llamada es de fax, si no envia a su destino regular. "
 "Use esta opción si recibe llamadas de voz y fax en esta línea"
 
-#: views/view.coreDIDHook.php:235
+#: views/view.coreDIDHook.php:236
 msgid ""
 "You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to."

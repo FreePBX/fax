@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:56+0000\n"
+"POT-Creation-Date: 2023-08-08 06:18+0000\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "A4"
 msgstr "A4"
 
-#: views/view.coreDIDHook.php:177
+#: views/view.coreDIDHook.php:178
 msgid ""
 "Address to email faxes to on fax detection.<br />PLEASE NOTE: In this "
 "version of FreePBX, you can now set the fax destination from a list of "
@@ -64,7 +64,7 @@ msgstr ""
 msgid "Attachment Format"
 msgstr "Định dạng tệp đính kèm"
 
-#: views/view.coreDIDHook.php:53
+#: views/view.coreDIDHook.php:54
 msgid "Attempt to detect faxes on this DID."
 msgstr "Cố xóa các fax trong DID này."
 
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Both"
 msgstr "Cả hai"
 
-#: Fax.class.php:648 views/view.coreDIDHook.php:82
+#: Fax.class.php:648 views/view.coreDIDHook.php:83
 msgid "Dahdi"
 msgstr "Mô đun Dahdi"
 
@@ -92,7 +92,7 @@ msgstr "Mặc định bộ nhận dạng trạm tại chỗ"
 msgid "Default Paper Size"
 msgstr "Mặc định kích thước trang giấy"
 
-#: views/view.coreDIDHook.php:21
+#: views/view.coreDIDHook.php:22
 msgid "Detect Faxes"
 msgstr "Phát hiện Fax"
 
@@ -198,7 +198,7 @@ msgstr "Fax"
 msgid "Fax Configuration"
 msgstr "Cấu hình Fax"
 
-#: Fax.class.php:661 views/view.coreDIDHook.php:190
+#: Fax.class.php:661 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
 msgstr "Điểm đích của Fax"
 
@@ -206,7 +206,7 @@ msgstr "Điểm đích của Fax"
 msgid "Fax Detection"
 msgstr "Phát hiện Fax"
 
-#: views/view.coreDIDHook.php:139
+#: views/view.coreDIDHook.php:140
 msgid "Fax Detection Time"
 msgstr "Thời gian phát hiện Fax"
 
@@ -214,11 +214,11 @@ msgstr "Thời gian phát hiện Fax"
 msgid "Fax Detection Wait"
 msgstr "Đợi phát hiện hiện Fax"
 
-#: views/view.coreDIDHook.php:77
+#: views/view.coreDIDHook.php:78
 msgid "Fax Detection type"
 msgstr "Kiểu phát hiện fax"
 
-#: views/view.coreDIDHook.php:165
+#: views/view.coreDIDHook.php:166
 msgid "Fax Email Destination"
 msgstr "Điểm đích của Email Fax"
 
@@ -234,7 +234,7 @@ msgstr "Các tùy chọn Fax"
 msgid "Fax Recipient"
 msgstr ""
 
-#: views/view.coreDIDHook.php:112
+#: views/view.coreDIDHook.php:113
 msgid "Fax Ring"
 msgstr "Chuông Fax"
 
@@ -269,7 +269,7 @@ msgstr ""
 msgid "How long to wait and try to detect fax"
 msgstr "Đợi và cố gắng phát hiện fax trong bao lâu"
 
-#: views/view.coreDIDHook.php:151
+#: views/view.coreDIDHook.php:152
 msgid ""
 "How long to wait and try to detect fax. Please note that callers to a Dahdi "
 "channel will hear ringing for this amount of time (i.e. the system wont "
@@ -292,11 +292,11 @@ msgstr "Kế thừa"
 msgid "Invalid Email for Inbound Fax"
 msgstr "Email không hợp lệ đối với các Fax gửi vào"
 
-#: views/view.coreDIDHook.php:42
+#: views/view.coreDIDHook.php:43
 msgid "Legacy"
 msgstr "Phần mềm Legacy"
 
-#: views/view.coreDIDHook.php:56
+#: views/view.coreDIDHook.php:57
 msgid ""
 "Legacy: Same as YES, only you can enter an email address as the destination. "
 "This option is ONLY for supporting migrated legacy fax routes. You should "
@@ -341,21 +341,21 @@ msgstr "Fax mới từ: %s"
 msgid "New fax received"
 msgstr "Nhận được fax mới"
 
-#: views/quickCreate.php:12 views/view.coreDIDHook.php:28
-#: views/view.coreDIDHook.php:40 views/view.coreDIDHook.php:119
+#: views/quickCreate.php:12 views/view.coreDIDHook.php:29
+#: views/view.coreDIDHook.php:41 views/view.coreDIDHook.php:120
 #: views/view.form_options.php:126 views/view.form_options.php:220
 #: views/view.userman.showpage.php:29
 msgid "No"
 msgstr "Không"
 
-#: views/view.coreDIDHook.php:245
+#: views/view.coreDIDHook.php:246
 msgid ""
 "No fax detection methods found or no valid license. Faxing cannot be enabled."
 msgstr ""
 "Không có phương pháp phát hiện fax nào được tìm thấy hoặc giấy phép không "
 "hợp lệ. Việc chuyển fax không thể kích hoạt được."
 
-#: views/view.coreDIDHook.php:56
+#: views/view.coreDIDHook.php:57
 msgid ""
 "No: No attempts are made to auto-determine the call type; all calls sent to "
 "destination set in the 'General' tab. Use this option if this DID is used "
@@ -408,7 +408,7 @@ msgstr "Đã nhận & đã xử lý: %s"
 msgid "Reset"
 msgstr "Cài đặt lại"
 
-#: views/view.coreDIDHook.php:84
+#: views/view.coreDIDHook.php:85
 msgid "SIP"
 msgstr "SIP"
 
@@ -431,7 +431,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: views/view.coreDIDHook.php:98
+#: views/view.coreDIDHook.php:99
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
 "'faxdetect=yes' in the sip config files"
@@ -472,7 +472,7 @@ msgstr ""
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "Kiểu phát hiện fax được sử dụng ( cụ thể SIP hoặc DAHDI)"
 
-#: views/view.coreDIDHook.php:93
+#: views/view.coreDIDHook.php:94
 msgid "Type of fax detection to use."
 msgstr "Kiểu phát hiện fax được sử dụng."
 
@@ -507,11 +507,11 @@ msgstr ""
 "bị FAX vật lý nào, hylafax + iaxmodem, hay các thiết lập fax bên ngoài khác, "
 "sẽ buộc bạn phải khởi tạo kế hoạch quay số ở đây."
 
-#: Fax.class.php:661 views/view.coreDIDHook.php:202
+#: Fax.class.php:661 views/view.coreDIDHook.php:203
 msgid "Where to send the faxes"
 msgstr "Gửi các fax đến đâu"
 
-#: views/view.coreDIDHook.php:127
+#: views/view.coreDIDHook.php:128
 msgid ""
 "Whether to ring while attempting to detect fax. If set to no silence will be "
 "heard"
@@ -527,14 +527,14 @@ msgstr ""
 msgid "Write fax user settings"
 msgstr ""
 
-#: views/quickCreate.php:10 views/view.coreDIDHook.php:27
-#: views/view.coreDIDHook.php:39 views/view.coreDIDHook.php:117
+#: views/quickCreate.php:10 views/view.coreDIDHook.php:28
+#: views/view.coreDIDHook.php:40 views/view.coreDIDHook.php:118
 #: views/view.form_options.php:124 views/view.form_options.php:218
 #: views/view.userman.showpage.php:28
 msgid "Yes"
 msgstr "Có"
 
-#: views/view.coreDIDHook.php:56
+#: views/view.coreDIDHook.php:57
 msgid ""
 "Yes: try to auto determine the type of call; route to the fax destination if "
 "call is a fax, otherwise send to regular destination. Use this option if you "
@@ -545,7 +545,7 @@ msgstr ""
 "dụng tùy chọn này nếu bạn nhận cả các cuộc gọi thoại và cuộc gọi fax trên "
 "đường dây này"
 
-#: views/view.coreDIDHook.php:235
+#: views/view.coreDIDHook.php:236
 msgid ""
 "You have selected Fax Detection on this route. Please select a valid "
 "destination to route calls detected as faxes to."
