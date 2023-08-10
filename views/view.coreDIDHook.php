@@ -155,7 +155,7 @@
 </div>
 <!--END Fax Detection Time-->
 				
-<?php if (!empty($fax_incoming['legacy_email']) || $fax_settings['legacy_mode'] == 'yes'): ?>
+<?php if (isset($fax_incoming['legacy_email']) && (!empty($fax_incoming['legacy_email']) || $fax_settings['legacy_mode'] == 'yes')): ?>
 	<!--Fax Email Destination-->
 	<div class="element-container <?php echo ($faxing ? '' : "hidden"); ?>" id="fdemail">
 		<div class="row">
