@@ -17,7 +17,7 @@ class Restore Extends Base\RestoreBase
 		}
 		foreach ($configs['incoming'] as $incoming)
 		{
-			$this->FreePBX->Fax->saveIncoming($incoming['cidnum'], $incoming['extension'], $incoming['enabled'], $incoming['detection'], $incoming['detectionwait'], $incoming['destination'], $incoming['legacy_email'], $incoming['ring']);
+			$this->FreePBX->Fax->saveIncoming($incoming['cidnum'], $incoming['extension'], $incoming['enabled'] ?? 'false', $incoming['detection'], $incoming['detectionwait'], $incoming['destination'], $incoming['legacy_email'], $incoming['ring']);
 		}
 
 		$this->importKVStore($configs['settings']);
