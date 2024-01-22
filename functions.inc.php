@@ -191,7 +191,8 @@ function fax_get_config($engine){
 	} else {
 		$fax_settings = $fax_settings = $faxC->getSettings();
 	}
-	if (($fax['module'] && ((isset($fax['ffa']) && $fax['ffa']) || $fax['spandsp'])) || $fax_settings['force_detection'] == 'yes') {
+	if (($fax['module'] && ((isset($fax['ffa']) && $fax['ffa']) || $fax['spandsp'])) || 
+			(isset($fax_settings['force_detection']) && $fax_settings['force_detection'] == 'yes')) {
 		if (isset($core_conf) && is_a($core_conf, "core_conf")) {
 			$core_conf->addSipGeneral('faxdetect','no');
 		} else if (isset($core_conf) && is_a($core_conf, "core_conf")) {
