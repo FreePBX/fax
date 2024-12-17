@@ -27,7 +27,7 @@ else
 
 $var = array_merge($var, get_opt());
 
-$var['callerid'] 		= base64_decode($var['callerid']);
+$var['callerid'] 		= isset($var['callerid']) ? base64_decode($var['callerid']) : '';
 $var['callerid']		= empty($var['callerid']) || $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
 $var['keep_file']		= !empty($var['delete']) && $var['delete'] == 'true' ? false : true;
 $var['remotestationid'] = !empty($var['remotestationid']) ? $var['remotestationid'] : '';
@@ -200,7 +200,7 @@ function get_opt($noopt = []) {
 
 	for ($i = 0; $i < $GLOBALS['argc']; $i++) {
 		$p = $params[$i];
-		if ($p[0] == '-') {
+		if (isset($p[0]) && $p[0] == '-') {
 			$pname = substr((string) $p, 1);
 			$value = true;
 			if ($pname[0] == '-') {
@@ -212,8 +212,8 @@ function get_opt($noopt = []) {
 				}
 			}
 			// check if next parameter is a descriptor or a value
-			$nextparm = $params[$i + 1];
-			if (!in_array($pname, $noopt) && $value === true && $nextparm !== false && $nextparm[0] != '-') {
+			$nextparm = $params[$i + 1] ?? [];
+			if (!in_array($pname, $noopt) && $value === true && $nextparm !== false && isset($nextparm[0]) && $nextparm[0] != '-') {
 				$value = $params[++$i];
 			}
 			$result[$pname] = $value;
