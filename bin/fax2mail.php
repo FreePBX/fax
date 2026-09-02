@@ -34,14 +34,16 @@ $var['remotestationid'] = !empty($var['remotestationid']) ? $var['remotestationi
 
 if (empty($var['sendto']))
 {
-	$user = \FreePBX::Userman()->getUserByID($var['user']);
+	$user_id = $var['user'] ?? '';
+	$user = \FreePBX::Userman()->getUserByID($user_id);
+	$user = is_array($user) ? $user : [];
 	if(empty($user['email']) && !$var['keep_file'])
 	{
 		die_fax(_('Email-fax dying, no destination found (User has no email!) and we arent keeping the file!'));
 	}
 
-	$var['to'] 			 = $user['email'];
-	$var['attachformat'] = \FreePBX::Userman()->getCombinedModuleSettingByID($var['user'], 'fax', 'attachformat');
+	$var['to'] 			 = $user['email'] ?? '';
+	$var['attachformat'] = $user_id !== '' ? \FreePBX::Userman()->getCombinedModuleSettingByID($user_id, 'fax', 'attachformat') : null;
 }
 else
 {

@@ -21,7 +21,7 @@ class FaxUsers extends Base {
 		 */
 		$app->get('/users', function ($request, $response, $args) {
 			$users = [];
-			foreach (\FreePBX::Fax()->getUser() as $user)
+			foreach (\FreePBX::Fax()->listUsers() as $user)
 			{
 				$users[$user['user']] = $user;
 				unset($users[$user['user']]['user']);

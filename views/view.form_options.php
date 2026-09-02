@@ -21,7 +21,7 @@ $settings['papersize'] ??= 'letter';
 	<div class="alert alert-warning" role="alert"><?php echo _("Your minimum transfer rate is set to 2400 in certain circumstances this can break faxing")?></div>
 <?php endif ?>
 
-<?php if(!empty($settings['mmaxrate']) && $settings['mmaxrate'] == 2400) : ?>
+<?php if(!empty($settings['maxrate']) && $settings['maxrate'] == 2400) : ?>
 	<div class="alert alert-warning" role="alert"><?php echo _("Your maximum transfer rate is set to 2400 in certain circumstances this can break faxing")?></div>
 <?php endif ?>
 

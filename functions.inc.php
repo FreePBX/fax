@@ -26,7 +26,7 @@ function fax_delete_user($faxext)
 function fax_detect($astver=null)
 {
     \FreePBX::Modules()->deprecatedFunction();
-    return \FreePBX::Fax()->faxDetect($astver);
+    return \FreePBX::Fax()->faxDetect();
 }
 
 function fax_get_destinations()
@@ -65,7 +65,7 @@ function fax_get_config($engine){
 	global $astman;
 	$faxC = \FreePBX::Fax();
 
-	$fax = $faxC->faxDetect($version);
+	$fax = $faxC->faxDetect();
 	$astman->database_deltree("FAX");
 	// do not continue unless we have a fax module in asterisk
 	if($fax['module'] && ((isset($fax['ffa']) && $fax['ffa']) || $fax['spandsp'])) {
@@ -189,7 +189,7 @@ function fax_get_config($engine){
 		// will be set there and the 2nd part never checked
 		$fax_settings['force_detection'] = 'yes';
 	} else {
-		$fax_settings = $fax_settings = $faxC->getSettings();
+		$fax_settings = $faxC->getSettings();
 	}
 	if (($fax['module'] && ((isset($fax['ffa']) && $fax['ffa']) || $fax['spandsp'])) || 
 			(isset($fax_settings['force_detection']) && $fax_settings['force_detection'] == 'yes')) {
@@ -223,13 +223,13 @@ function fax_hookGet_config($engine){
  global $version;
 	$faxC = \FreePBX::Fax();
 
-	$fax = $faxC->faxDetect($version);
+	$fax = $faxC->faxDetect();
 	if ($fax['module']) {
 		$fax_settings['force_detection'] = 'yes';
 	} else {
 		$fax_settings = $faxC->getSettings();
 	}
-	if($fax_settings['force_detection'] == 'yes'){ //dont continue unless we have a fax module in asterisk
+	if(($fax_settings['force_detection'] ?? 'no') == 'yes'){ //dont continue unless we have a fax module in asterisk
 		global $ext;
 		global $engine;
 		$routes = $faxC->getIncoming();

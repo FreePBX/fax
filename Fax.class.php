@@ -15,11 +15,11 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	public $tables = ['users' 		=> 'fax_users', 'incoming' 		=> 'fax_incoming', 'details' 		=> 'fax_details', 'incoming_core'	=> 'incoming'];
 
-	public $default_settings = ['ecm' => ['default' => 'no', 'type' 	  => 'yesno'], 'fax_rx_email' => ['default' => 'yes', 'type' 	  => 'email'], 'force_detection' => ['default' => 'no', 'type' 	  => 'yesno'], 'headerinfo' => ['default' => '', 'type' 	  => 'text'], 'legacy_mode' => ['default' => 'no', 'type' 	  => 'yesno'], 'localstationid' => ['default' => '', 'type' 	  => 'text'], 'maxrate' => ['default' => '14400', 'type' 	  => 'numeric'], 'minrate' => ['default' => '9600', 'type' 	  => 'numeric'], 'modem'	=> [
+	public $default_settings = ['ecm' => ['default' => 'no', 'type' 	  => 'yesno'], 'fax_rx_email' => ['default' => '', 'type' 	  => 'email'], 'force_detection' => ['default' => 'no', 'type' 	  => 'yesno'], 'headerinfo' => ['default' => '', 'type' 	  => 'text'], 'legacy_mode' => ['default' => 'no', 'type' 	  => 'yesno'], 'localstationid' => ['default' => '', 'type' 	  => 'text'], 'maxrate' => ['default' => '14400', 'type' 	  => 'numeric'], 'minrate' => ['default' => '9600', 'type' 	  => 'numeric'], 'modem'	=> [
      //TODO: It is not used anywhere, can it be deleted?
      'default' => '',
      'type' 	  => 'text',
- ], 'sender_address' => ['default' => '', 'type' 	  => 'text'], 'papersize' => ['default' => 'letter', 'type' 	  => 'list', 'options' => ['latter', 'a4']]];
+ ], 'sender_address' => ['default' => '', 'type' 	  => 'text'], 'papersize' => ['default' => 'letter', 'type' 	  => 'list', 'options' => ['letter', 'a4']]];
 	
 	public function __construct($freepbx = null)
 	{
@@ -63,6 +63,7 @@ class Fax extends FreePBX_Helpers implements BMO
 		switch ($page)
 		{
 			case 'fax':
+				$fax = [];
 				foreach($this->default_settings as $k => $v)
 				{
 					$input = $request[$k] ?? $v['default'];
@@ -202,8 +203,11 @@ class Fax extends FreePBX_Helpers implements BMO
 					if(isset($request['user']))
 					{
 						$user 		  = $this->userman->getUserByID($request['user']);
-						$enabled 	  = $this->userman->getModuleSettingByID($user['id'],'fax','enabled',true);
-						$attachformat = $this->userman->getModuleSettingByID($user['id'],'fax','attachformat',true);
+						if (!empty($user))
+						{
+							$enabled 	  = $this->userman->getModuleSettingByID($user['id'],'fax','enabled',true);
+							$attachformat = $this->userman->getModuleSettingByID($user['id'],'fax','attachformat',true);
+						}
 					}
 					$data_return[] = ["title"   => _("Fax"), "rawname" => "fax", "content" => $this->showPage('userman_showpage', ["mode" => "user", "error" => $error, "enabled" => $enabled, "attachformat" => $attachformat])];
 				break;
@@ -214,7 +218,7 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	public function usermanDelGroup($id, $display, $data)
 	{
-		foreach($data['users'] as $user)
+		foreach(($data['users'] ?? []) as $user)
 		{
 			$enabled 	  = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
@@ -252,7 +256,7 @@ class Fax extends FreePBX_Helpers implements BMO
 		}
 
 		$group = $this->userman->getGroupByGID($id);
-		foreach($group['users'] as $user)
+		foreach(($group['users'] ?? []) as $user)
 		{
 			$enabled 	  = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'enabled');
 			$attachformat = $this->userman->getCombinedModuleSettingByID($user, 'fax', 'attachformat');
@@ -461,9 +465,13 @@ class Fax extends FreePBX_Helpers implements BMO
 		$set 	  = [];
 		$sql 	  = sprintf('SELECT * FROM %s', $this->tables['details']);
 		$settings = sql($sql, 'getAssoc', 'DB_FETCHMODE_ASSOC');
+		if (!is_array($settings))
+		{
+			return $set;
+		}
 		foreach($settings as $setting => $value)
 		{
-			$set[$setting] = $value['0'];
+			$set[$setting] = is_array($value) ? ($value[0] ?? $value['value'] ?? '') : (string) $value;
 		}
 		$set = array_change_key_case($set);
 		return $set;
@@ -525,10 +533,14 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	public function faxDetect()
 	{
-		$fax = null;
+		$fax = [
+			'module' => null,
+			'spandsp' => false,
+			'receivefax' => 'none',
+			'license' => '',
+		];
 		if (isset($this->astman) && $this->astman->connected())
 		{
-			$fax = [];
 			$fax['module'] = match (true) {
        $this->astman->mod_loaded('res_fax.so') => 'res_fax',
        default => null,
@@ -543,7 +555,8 @@ class Fax extends FreePBX_Helpers implements BMO
 
 			//get license count
 			$lic = $this->astman->send_request('Command', ['Command' => 'fax show stats']);
-			foreach(explode("\n",(string) $lic['data']) as $licdata)
+			$data = [];
+			foreach(explode("\n", (string) ($lic['data'] ?? '')) as $licdata)
 			{
 				$d = explode(':',$licdata);
 				$data[trim($d['0'])] = isset($d['1']) ? trim($d['1']) : null;
@@ -607,7 +620,7 @@ class Fax extends FreePBX_Helpers implements BMO
 	public function getActionBar($request)
 	{
 		$data_return = [];
-        if ($request['display'] === 'fax')
+        if (($request['display'] ?? '') === 'fax')
 		{
             $data_return = ['submit' => ['name' => 'submit', 'id' => 'submit', 'value' => _("Submit")], 'reset' => ['name' => 'reset', 'id' => 'reset', 'value' => _("Reset")]];
         }
@@ -664,7 +677,7 @@ class Fax extends FreePBX_Helpers implements BMO
 
 	public function bulkhandlerExport($type)
 	{
-		$data = NULL;
+		$data = [];
 		switch ($type)
 		{
 			case 'usermanusers':
@@ -713,7 +726,11 @@ class Fax extends FreePBX_Helpers implements BMO
 			case 'usermanusers':
 				foreach ($rawData as $data)
 				{
-					$user = $this->FreePBX->Userman->getUserByUsername($data['username']);
+					$user = $this->FreePBX->Userman->getUserByUsername($data['username'] ?? '');
+					if (empty($user))
+					{
+						continue;
+					}
 					if(isset($data['fax_enabled']))
 					{
 						$en = ($data['fax_enabled'] == "yes") ? true : ($data['fax_enabled'] == "no" ? false : null);
@@ -728,7 +745,11 @@ class Fax extends FreePBX_Helpers implements BMO
 			case 'usermangroups':
 				foreach ($rawData as $data)
 				{
-					$group = $this->FreePBX->Userman->getGroupByUsername($data['groupname']);
+					$group = $this->FreePBX->Userman->getGroupByUsername($data['groupname'] ?? '');
+					if (empty($group))
+					{
+						continue;
+					}
 					if(isset($data['fax_enabled']))
 					{
 						$en = ($data['fax_enabled'] == "yes") ? true : false;
@@ -753,11 +774,23 @@ class Fax extends FreePBX_Helpers implements BMO
 							$settings[$settingname] = $value;
 						}
 					}
-					$extdisplay = sprintf("%s/%s", $data['extension'], $data["cidnum"]);
+					if (!isset($data['extension'], $data['cidnum']))
+					{
+						continue;
+					}
+					$extdisplay = sprintf("%s/%s", $data['extension'], $data['cidnum']);
 					$this->deleteIncoming($extdisplay);
 					if(!empty($settings['enable']))
 					{
-						$this->saveIncoming($data["cidnum"], $data['extension'], true, $settings['detection'], $settings['detectionwait'], $settings['destination'], null);
+						$this->saveIncoming(
+							$data['cidnum'],
+							$data['extension'],
+							true,
+							$settings['detection'] ?? '',
+							$settings['detectionwait'] ?? '4',
+							$settings['destination'] ?? '',
+							null
+						);
 					}
 				}
 			break;
@@ -1057,8 +1090,14 @@ class Fax extends FreePBX_Helpers implements BMO
 
 		//special case prossesing
 		//Page Number: defualt format = 0-0. Use only first set of digits, increment by 1
-		$info['Page Number'] = explode('-', $info['Page Number']);
-		$info['Page Number'] = $info['Page Number'][0] + 1;
+		if (isset($info['Page Number']))
+		{
+			$page_number = explode('-', $info['Page Number'])[0];
+			if (is_numeric($page_number))
+			{
+				$info['Page Number'] = $page_number + 1;
+			}
+		}
 
 		if ($opt)
 		{
