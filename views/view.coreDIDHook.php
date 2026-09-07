@@ -25,7 +25,7 @@
 					<div class="col-md-9 radioset">
 						<!-- dont allow detection to be set if we have no valid detection types -->
 						<?php if (!$fax_dahdi_faxdetect && !$fax_sip_faxdetect): ?>
-							<input type="radio" name="faxenabled" id="faxenabled_yes" value="true"  onclick="DetectFaxInputYes(this);"><label for="faxenabled_yes"><?php echo _('Yes'); ?></label></span>';
+							<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" onclick="DetectFaxInputYes(this);"><label for="faxenabled_yes"><?php echo _('Yes'); ?></label>
 							<input type="radio" id="faxenabled_no" name="faxenabled" value="false" CHECKED ><label for="faxenabled_no"><?php echo _('No'); ?></label>
 						<?php else: ?>
 							<!--
@@ -39,8 +39,8 @@
 							-->
 							<input type="radio" name="faxenabled" id="faxenabled_yes" value="true" <?php echo ($faxing ? 'CHECKED' : ''); ?> ><label for="faxenabled_yes"><?php echo _('Yes'); ?></label>
 							<input type="radio" name="faxenabled" id="faxenabled_no" value="false" <?php echo ($faxing ? '' : 'CHECKED'); ?> ><label for="faxenabled_no"><?php echo _('No'); ?></label>
-							<?php if (isset($fax_incoming['legacy_email']) && ($fax_incoming['legacy_email'] !== null || $fax_settings['legacy_mode'] == 'yes')): ?>
-								<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy" <?php ($fax_incoming['legacy_email'] !== null ? ' CHECKED ' : ''); ?>><label for="faxenabled_legacy"><?php echo _('Legacy'); ?></label>
+							<?php if (isset($fax_incoming['legacy_email']) && ($fax_incoming['legacy_email'] !== null || ($fax_settings['legacy_mode'] ?? 'no') == 'yes')): ?>
+								<input type="radio" name="faxenabled" id="faxenabled_legacy" value="legacy" <?php echo ($fax_incoming['legacy_email'] !== null ? 'CHECKED' : ''); ?>><label for="faxenabled_legacy"><?php echo _('Legacy'); ?></label>
 							<?php endif ?>
 						<?php endif ?>
 					</div>
@@ -54,7 +54,7 @@
 				<?php echo _("Attempt to detect faxes on this DID."); ?>
 				<ul>
 					<?php
-					$fdhelp_list = [_("No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax."), _("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"), (isset($fax_incoming['legacy_email']) && ($fax_settings['legacy_mode'] == 'yes' || $fax_incoming['legacy_email']!==null)) ? _('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!') : ''];
+					$fdhelp_list = [_("No: No attempts are made to auto-determine the call type; all calls sent to destination set in the 'General' tab. Use this option if this DID is used exclusively for voice OR fax."), _("Yes: try to auto determine the type of call; route to the fax destination if call is a fax, otherwise send to regular destination. Use this option if you receive both voice and fax calls on this line"), (isset($fax_incoming['legacy_email']) && (($fax_settings['legacy_mode'] ?? 'no') == 'yes' || $fax_incoming['legacy_email']!==null)) ? _('Legacy: Same as YES, only you can enter an email address as the destination. This option is ONLY for supporting migrated legacy fax routes. You should upgrade this route by choosing YES, and selecting a valid destination!') : ''];
 					foreach ($fdhelp_list as $txt)
 					{
 						if (empty($txt)) { continue; }
@@ -155,7 +155,7 @@
 </div>
 <!--END Fax Detection Time-->
 				
-<?php if (isset($fax_incoming['legacy_email']) && (!empty($fax_incoming['legacy_email']) || $fax_settings['legacy_mode'] == 'yes')): ?>
+<?php if (isset($fax_incoming['legacy_email']) && (!empty($fax_incoming['legacy_email']) || ($fax_settings['legacy_mode'] ?? 'no') == 'yes')): ?>
 	<!--Fax Email Destination-->
 	<div class="element-container <?php echo ($faxing ? '' : "hidden"); ?>" id="fdemail">
 		<div class="row">
@@ -228,7 +228,7 @@
 	// ensure that we are using destination for both fax detect and the regular calls
 	$(document).ready(function()
 	{
-		$("input[name=Submit]").click(function()
+		$("input[name=submit]").click(function()
 		{
 			if($("input[name=faxenabled]:checked").val()=="true" && !$("[name=gotoFAX]").val())
 			{
