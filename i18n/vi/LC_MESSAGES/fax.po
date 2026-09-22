@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:18+0000\n"
+"POT-Creation-Date: 2026-09-22 06:54-0400\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -47,15 +47,11 @@ msgstr ""
 "không còn khả dụng, mà  nó chỉ được cung cấp để xử lý việc di chuyển legacy "
 "từ các phiên bản trước của FreePBX."
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "Thêm các cấu hình, tùy chọn và GUI cho việc chuyển fax vào"
-
 #: views/view.form_options.php:213
 msgid "Always Generate Detection Code"
 msgstr "Luôn luôn khởi tạo mã phát hiện (Detection Code)"
 
-#: bin/fax2mail.php:107
+#: bin/fax2mail.php:109
 #, php-format
 msgid "At: %s"
 msgstr ""
@@ -68,7 +64,7 @@ msgstr "Định dạng tệp đính kèm"
 msgid "Attempt to detect faxes on this DID."
 msgstr "Cố xóa các fax trong DID này."
 
-#: Fax.class.php:376
+#: Fax.class.php:380
 msgid "Author to pass to tiff2pdf's -a option"
 msgstr ""
 
@@ -76,7 +72,7 @@ msgstr ""
 msgid "Both"
 msgstr "Cả hai"
 
-#: Fax.class.php:648 views/view.coreDIDHook.php:83
+#: Fax.class.php:661 views/view.coreDIDHook.php:83
 msgid "Dahdi"
 msgstr "Mô đun Dahdi"
 
@@ -96,22 +92,22 @@ msgstr "Mặc định kích thước trang giấy"
 msgid "Detect Faxes"
 msgstr "Phát hiện Fax"
 
-#: Fax.class.php:360 /usr/src/freepbx/fax/fax.i18n.php:12
+#: Fax.class.php:364
 msgid "Dial System FAX"
 msgstr "Hệ thống quay số FAX"
 
-#: Fax.class.php:380
+#: Fax.class.php:384
 msgid "Done!"
 msgstr ""
 
-#: Fax.class.php:180
+#: Fax.class.php:181
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires spandsp based app_fax (res_fax_spandsp."
 "so) to function."
 msgstr ""
 
-#: Fax.class.php:185
+#: Fax.class.php:186
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -142,16 +138,17 @@ msgid ""
 "mode, if there are routes still running in this mode that do not have email "
 "addresses specified."
 msgstr ""
-"Địa chỉ email mà fax được gửi đến khi sử dụng mã tính năng  \"Dial System Fax"
-"\". Điều này cũng sẽ mặc định email cho việc phát hiện fax tại chế độ legacy "
-"khi các tuyến vẫn đang chạy ở chế độ này mà không có địa chỉ email xác định."
+"Địa chỉ email mà fax được gửi đến khi sử dụng mã tính năng  \"Dial System "
+"Fax\". Điều này cũng sẽ mặc định email cho việc phát hiện fax tại chế độ "
+"legacy khi các tuyến vẫn đang chạy ở chế độ này mà không có địa chỉ email "
+"xác định."
 
-#: bin/fax2mail.php:72
+#: bin/fax2mail.php:74
 #, php-format
 msgid "Email-fax dying, file %s not found!"
 msgstr ""
 
-#: bin/fax2mail.php:40
+#: bin/fax2mail.php:42
 msgid ""
 "Email-fax dying, no destination found (User has no email!) and we arent "
 "keeping the file!"
@@ -169,11 +166,11 @@ msgstr "Bật người dùng này để họ có thể nhận các fax"
 msgid "Enabled"
 msgstr "Đã bật"
 
-#: bin/fax2mail.php:125
+#: bin/fax2mail.php:127
 msgid "Enclosed, please find a new fax"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới"
 
-#: bin/fax2mail.php:121
+#: bin/fax2mail.php:123
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới từ: %s"
@@ -190,19 +187,15 @@ msgstr ""
 "Tùy chọn Chế độ sửa lỗi (ECM)  được dùng để xác định có nên sửa dụng chế độ "
 "này hay không."
 
-#: Fax.class.php:194 Fax.class.php:208 Fax.class.php:652
+#: Fax.class.php:195 Fax.class.php:212 Fax.class.php:665
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr "Cấu hình Fax"
-
-#: Fax.class.php:661 views/view.coreDIDHook.php:191
+#: Fax.class.php:674 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
 msgstr "Điểm đích của Fax"
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "Fax Detection"
 msgstr "Phát hiện Fax"
 
@@ -210,7 +203,7 @@ msgstr "Phát hiện Fax"
 msgid "Fax Detection Time"
 msgstr "Thời gian phát hiện Fax"
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "Fax Detection Wait"
 msgstr "Đợi phát hiện hiện Fax"
 
@@ -222,7 +215,7 @@ msgstr "Kiểu phát hiện fax"
 msgid "Fax Email Destination"
 msgstr "Điểm đích của Email Fax"
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "Fax Enabled"
 msgstr "Fax đã được bật"
 
@@ -230,7 +223,7 @@ msgstr "Fax đã được bật"
 msgid "Fax Options"
 msgstr "Các tùy chọn Fax"
 
-#: Fax.class.php:794 bin/fax2mail.php:49
+#: Fax.class.php:827 bin/fax2mail.php:51
 msgid "Fax Recipient"
 msgstr ""
 
@@ -242,12 +235,12 @@ msgstr "Chuông Fax"
 msgid "Fax Service"
 msgstr ""
 
-#: Fax.class.php:846
+#: Fax.class.php:879
 #, php-format
 msgid "Fax user %s"
 msgstr "Người dùng Fax %s"
 
-#: bin/fax2mail.php:111 bin/fax2mail.php:133
+#: bin/fax2mail.php:113 bin/fax2mail.php:135
 #, php-format
 msgid "For: %s"
 msgstr ""
@@ -265,7 +258,7 @@ msgstr ""
 "Thông tin tiêu đề được chuyển đến phía của truyền tải fax từ xa và được in "
 "tại đầu mỗi trang. Tiêu đề sẽ chứa tên của một người hoặc đối tượng gửi fax."
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "How long to wait and try to detect fax"
 msgstr "Đợi và cố gắng phát hiện fax trong bao lâu"
 
@@ -279,7 +272,7 @@ msgstr ""
 "gọi đến kênh Dahdi sẽ nghe một hồi chuông trong khoảng thời gian đó ( cụ thể "
 "là hệ thống sẽ không 'trả lời' cuộc gọi' mà nó sẽ chỉ bật nhạc chuông)."
 
-#: Fax.class.php:824
+#: Fax.class.php:857
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Phát hiện Fax gửi vào: %s (%s)"
@@ -288,7 +281,7 @@ msgstr "Phát hiện Fax gửi vào: %s (%s)"
 msgid "Inherit"
 msgstr "Kế thừa"
 
-#: Fax.class.php:896
+#: Fax.class.php:929
 msgid "Invalid Email for Inbound Fax"
 msgstr "Email không hợp lệ đối với các Fax gửi vào"
 
@@ -332,12 +325,12 @@ msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 "Tốc độ truyền tối thiểu sử dụng trong quá trình thương lượng tốc độ fax."
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:92
 #, php-format
 msgid "New fax from: %s"
 msgstr "Fax mới từ: %s"
 
-#: bin/fax2mail.php:94
+#: bin/fax2mail.php:96
 msgid "New fax received"
 msgstr "Nhận được fax mới"
 
@@ -369,7 +362,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:108 bin/fax2mail.php:129
+#: bin/fax2mail.php:110 bin/fax2mail.php:131
 #, php-format
 msgid "On: %s"
 msgstr ""
@@ -378,7 +371,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr "Địa chỉ email gửi đi"
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:85
 msgid "Outgoing fax results"
 msgstr "Các kết quả fax gửi đi"
 
@@ -386,7 +379,7 @@ msgstr "Các kết quả fax gửi đi"
 msgid "PDF"
 msgstr "Định dạng PDF"
 
-#: Fax.class.php:397
+#: Fax.class.php:401
 #, php-format
 msgid "Page Not Found (%s)!!!!"
 msgstr ""
@@ -399,12 +392,12 @@ msgstr ""
 msgid "Read fax user settings"
 msgstr ""
 
-#: bin/fax2mail.php:128
+#: bin/fax2mail.php:130
 #, php-format
 msgid "Received & processed: %s"
 msgstr "Đã nhận & đã xử lý: %s"
 
-#: Fax.class.php:612
+#: Fax.class.php:625
 msgid "Reset"
 msgstr "Cài đặt lại"
 
@@ -422,14 +415,10 @@ msgstr ""
 "dụng nếu tài liệu không chỉ định kích thước rõ ràng.<br/> Nếu tài liệu không "
 "có kích thước cụ thể thì kích thước này sẽ được sử dụng."
 
-#: bin/fax2mail.php:105
+#: bin/fax2mail.php:107
 #, php-format
 msgid "Sent to %s"
 msgstr ""
-
-#: fax.i18n.php:6
-msgid "Settings"
-msgstr "Cài đặt"
 
 #: views/view.coreDIDHook.php:99
 msgid ""
@@ -439,12 +428,12 @@ msgstr ""
 "Sip: sử dụng phát hiện fax sip (t38). Yêu cầu Asterusk 1.6.2 hoặc cao hơn và "
 "trong các tệp cấu hình sip phải đặt \"faxdetect=yes'"
 
-#: bin/fax2mail.php:106
+#: bin/fax2mail.php:108
 #, php-format
 msgid "Status: %s"
 msgstr ""
 
-#: Fax.class.php:612
+#: Fax.class.php:625
 msgid "Submit"
 msgstr "Gửi đi"
 
@@ -468,7 +457,7 @@ msgstr ""
 "<user@example.com>'. Tùy chọn thứ hai sẽ hiển thị 'Fax User' tại trường "
 "'From' trong hầu hết các trình duyệt email."
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "Kiểu phát hiện fax được sử dụng ( cụ thể SIP hoặc DAHDI)"
 
@@ -476,11 +465,11 @@ msgstr "Kiểu phát hiện fax được sử dụng ( cụ thể SIP hoặc DAH
 msgid "Type of fax detection to use."
 msgstr "Kiểu phát hiện fax được sử dụng."
 
-#: Fax.class.php:366
+#: Fax.class.php:370
 msgid "Upgrading configs.."
 msgstr ""
 
-#: Fax.class.php:896
+#: Fax.class.php:929
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -490,7 +479,7 @@ msgstr ""
 "không có địa chỉ email nào được xác nhận vì vậy chúng sẽ không thể nhận các "
 "fax qua eamail,"
 
-#: bin/fax2mail.php:130
+#: bin/fax2mail.php:132
 #, php-format
 msgid "Via: %s"
 msgstr ""
@@ -507,7 +496,7 @@ msgstr ""
 "bị FAX vật lý nào, hylafax + iaxmodem, hay các thiết lập fax bên ngoài khác, "
 "sẽ buộc bạn phải khởi tạo kế hoạch quay số ở đây."
 
-#: Fax.class.php:661 views/view.coreDIDHook.php:203
+#: Fax.class.php:674 views/view.coreDIDHook.php:203
 msgid "Where to send the faxes"
 msgstr "Gửi các fax đến đâu"
 
@@ -567,19 +556,28 @@ msgstr ""
 "Tốc độ truyền tối thiểu của bạn được cài đặt là 2400 trong một số trường hợp "
 "nhất định, điều này có thể làm hỏng việc gửi fax"
 
-#: Fax.class.php:648
+#: Fax.class.php:661
 msgid "Zaptel"
 msgstr "Phần mềm Zaptel"
 
-#: Fax.class.php:971
+#: Fax.class.php:1004
 #, php-format
 msgid "gs not found, not converting %s"
 msgstr ""
 
-#: Fax.class.php:983
+#: Fax.class.php:1016
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
+
+#~ msgid "Adds configurations, options and GUI for inbound faxing"
+#~ msgstr "Thêm các cấu hình, tùy chọn và GUI cho việc chuyển fax vào"
+
+#~ msgid "Fax Configuration"
+#~ msgstr "Cấu hình Fax"
+
+#~ msgid "Settings"
+#~ msgstr "Cài đặt"
 
 #~ msgid ""
 #~ " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:18+0000\n"
+"POT-Creation-Date: 2026-09-22 06:54-0400\n"
 "PO-Revision-Date: 2016-12-20 01:53+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -47,15 +47,11 @@ msgstr ""
 "Esta opção Legado não estará mais disponível após a alteração, ela somente é "
 "fornecida para lidar com migrações legadas de versões anteriores do FreePBX."
 
-#: fax.i18n.php:8
-msgid "Adds configurations, options and GUI for inbound faxing"
-msgstr "Adiciona configurações, opções e GUI para entradas de fax"
-
 #: views/view.form_options.php:213
 msgid "Always Generate Detection Code"
 msgstr "Sempre Gerar Código de Detecção"
 
-#: bin/fax2mail.php:107
+#: bin/fax2mail.php:109
 #, php-format
 msgid "At: %s"
 msgstr ""
@@ -68,7 +64,7 @@ msgstr "Formato do Anexo"
 msgid "Attempt to detect faxes on this DID."
 msgstr "Tentar detectar faxes neste DID."
 
-#: Fax.class.php:376
+#: Fax.class.php:380
 msgid "Author to pass to tiff2pdf's -a option"
 msgstr ""
 
@@ -76,7 +72,7 @@ msgstr ""
 msgid "Both"
 msgstr "Ambos"
 
-#: Fax.class.php:648 views/view.coreDIDHook.php:83
+#: Fax.class.php:661 views/view.coreDIDHook.php:83
 msgid "Dahdi"
 msgstr "Dahdi"
 
@@ -96,22 +92,22 @@ msgstr "Tamanho Padrão do Papel"
 msgid "Detect Faxes"
 msgstr "Detecção de Faxes"
 
-#: Fax.class.php:360 /usr/src/freepbx/fax/fax.i18n.php:12
+#: Fax.class.php:364
 msgid "Dial System FAX"
 msgstr "Sistema de Discagem de FAX"
 
-#: Fax.class.php:380
+#: Fax.class.php:384
 msgid "Done!"
 msgstr ""
 
-#: Fax.class.php:180
+#: Fax.class.php:181
 msgid ""
 "ERROR: No FAX modules detected!<br>Fax-related dialplan will <b>NOT</b> be "
 "generated.<br>This module requires spandsp based app_fax (res_fax_spandsp."
 "so) to function."
 msgstr ""
 
-#: Fax.class.php:185
+#: Fax.class.php:186
 msgid ""
 "ERROR: No Fax license detected.<br>Fax-related dialplan will <b>NOT</b> be "
 "generated!<br>This module has detected that Fax for Asterisk is installed "
@@ -147,12 +143,12 @@ msgstr ""
 "detecção de fax no modo herdado, se houver rotas ainda em execução neste "
 "modo que não tenham endereços de e-mail especificados."
 
-#: bin/fax2mail.php:72
+#: bin/fax2mail.php:74
 #, php-format
 msgid "Email-fax dying, file %s not found!"
 msgstr ""
 
-#: bin/fax2mail.php:40
+#: bin/fax2mail.php:42
 msgid ""
 "Email-fax dying, no destination found (User has no email!) and we arent "
 "keeping the file!"
@@ -170,11 +166,11 @@ msgstr "Permitir que este usuário receba faxes"
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: bin/fax2mail.php:125
+#: bin/fax2mail.php:127
 msgid "Enclosed, please find a new fax"
 msgstr "Incluso, por favor, encontre um novo fax"
 
-#: bin/fax2mail.php:121
+#: bin/fax2mail.php:123
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Fechado, chegou um novo fax de: %s"
@@ -191,19 +187,15 @@ msgstr ""
 "A opção ECM (Modo de Correcção de Erros) é utilizada para para \n"
 "\t\t\tusar ou não o modo ecm."
 
-#: Fax.class.php:194 Fax.class.php:208 Fax.class.php:652
+#: Fax.class.php:195 Fax.class.php:212 Fax.class.php:665
 msgid "Fax"
 msgstr "Fax"
 
-#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
-msgid "Fax Configuration"
-msgstr "Configuração de Fax"
-
-#: Fax.class.php:661 views/view.coreDIDHook.php:191
+#: Fax.class.php:674 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
 msgstr "Destino de Fax"
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "Fax Detection"
 msgstr "Detecção de Fax"
 
@@ -211,7 +203,7 @@ msgstr "Detecção de Fax"
 msgid "Fax Detection Time"
 msgstr "Tempo de Detecção de Fax"
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "Fax Detection Wait"
 msgstr "Espera de Detecção de Fax"
 
@@ -223,7 +215,7 @@ msgstr "Tipo de Detecção de Fax"
 msgid "Fax Email Destination"
 msgstr "Destino de E-mail de Fax"
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "Fax Enabled"
 msgstr "Fax Habilitado"
 
@@ -231,7 +223,7 @@ msgstr "Fax Habilitado"
 msgid "Fax Options"
 msgstr "Opções de Fax"
 
-#: Fax.class.php:794 bin/fax2mail.php:49
+#: Fax.class.php:827 bin/fax2mail.php:51
 msgid "Fax Recipient"
 msgstr "Destinatário do Fax"
 
@@ -243,12 +235,12 @@ msgstr "Toque do Fax"
 msgid "Fax Service"
 msgstr ""
 
-#: Fax.class.php:846
+#: Fax.class.php:879
 #, php-format
 msgid "Fax user %s"
 msgstr "Usuário de Fax %s"
 
-#: bin/fax2mail.php:111 bin/fax2mail.php:133
+#: bin/fax2mail.php:113 bin/fax2mail.php:135
 #, php-format
 msgid "For: %s"
 msgstr ""
@@ -268,7 +260,7 @@ msgstr ""
 "de fax e são impressas em cima de cada página. Geralmente contém o nome da "
 "pessoa ou entidade que envia o fax."
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "How long to wait and try to detect fax"
 msgstr "Quanto tempo para esperar e tentar detectar fax"
 
@@ -282,7 +274,7 @@ msgstr ""
 "chamadores de um canal Dahdi ouvirão toques durante este período de tempo "
 "(isto é, o sistema não responderá a chamada, apenas tocará)."
 
-#: Fax.class.php:824
+#: Fax.class.php:857
 #, php-format
 msgid "Inbound Fax Detection: %s (%s)"
 msgstr "Detecção de Fax de Entrada: %s (%s)"
@@ -291,7 +283,7 @@ msgstr "Detecção de Fax de Entrada: %s (%s)"
 msgid "Inherit"
 msgstr "Herdar"
 
-#: Fax.class.php:896
+#: Fax.class.php:929
 msgid "Invalid Email for Inbound Fax"
 msgstr "E-mail inválido para o Fax de Entrada"
 
@@ -336,12 +328,12 @@ msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 "Taxa de transferência mínima usada durante a negociação de taxa de fax."
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:92
 #, php-format
 msgid "New fax from: %s"
 msgstr "Novo fax de: %s"
 
-#: bin/fax2mail.php:94
+#: bin/fax2mail.php:96
 msgid "New fax received"
 msgstr "Novo fax recebido"
 
@@ -373,7 +365,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:108 bin/fax2mail.php:129
+#: bin/fax2mail.php:110 bin/fax2mail.php:131
 #, php-format
 msgid "On: %s"
 msgstr ""
@@ -382,7 +374,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr "Endereço de E-mail de Saída"
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:85
 msgid "Outgoing fax results"
 msgstr "Resultados de fax de saída"
 
@@ -390,7 +382,7 @@ msgstr "Resultados de fax de saída"
 msgid "PDF"
 msgstr "PDF"
 
-#: Fax.class.php:397
+#: Fax.class.php:401
 #, php-format
 msgid "Page Not Found (%s)!!!!"
 msgstr ""
@@ -403,12 +395,12 @@ msgstr ""
 msgid "Read fax user settings"
 msgstr ""
 
-#: bin/fax2mail.php:128
+#: bin/fax2mail.php:130
 #, php-format
 msgid "Received & processed: %s"
 msgstr "Recebido e processado: %s"
 
-#: Fax.class.php:612
+#: Fax.class.php:625
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -426,14 +418,10 @@ msgstr ""
 "usado se o documento não especificar um tamanho. <br/> Se o documento não "
 "especificar um tamanho que será utilizado."
 
-#: bin/fax2mail.php:105
+#: bin/fax2mail.php:107
 #, php-format
 msgid "Sent to %s"
 msgstr ""
-
-#: fax.i18n.php:6
-msgid "Settings"
-msgstr "Configurações"
 
 #: views/view.coreDIDHook.php:99
 msgid ""
@@ -443,12 +431,12 @@ msgstr ""
 "Sip: use a detecção de fax sip (t38). Requer asterisk 1.6.2 ou superior e "
 "'faxdetect = yes' nos arquivos de configuração sip"
 
-#: bin/fax2mail.php:106
+#: bin/fax2mail.php:108
 #, php-format
 msgid "Status: %s"
 msgstr ""
 
-#: Fax.class.php:612
+#: Fax.class.php:625
 msgid "Submit"
 msgstr "Enviar"
 
@@ -470,7 +458,7 @@ msgstr ""
 "<usuario@exemplo.com>'. A segunda opção exibirá 'Usuário do Fax' no campo "
 "'De' na maioria dos clientes de e-mail."
 
-#: Fax.class.php:661
+#: Fax.class.php:674
 msgid "Type of fax detection to use (e.g. SIP or DAHDI)"
 msgstr "Tipo de detecção de fax a ser utilizado (por exemplo, SIP ou DAHDI)"
 
@@ -478,11 +466,11 @@ msgstr "Tipo de detecção de fax a ser utilizado (por exemplo, SIP ou DAHDI)"
 msgid "Type of fax detection to use."
 msgstr "Tipo de detecção de fax a ser utilizado."
 
-#: Fax.class.php:366
+#: Fax.class.php:370
 msgid "Upgrading configs.."
 msgstr ""
 
-#: Fax.class.php:896
+#: Fax.class.php:929
 #, php-format
 msgid ""
 "User Manager users '%s' have the ability to receive faxes but have no email "
@@ -492,7 +480,7 @@ msgstr ""
 "mas não têm nenhum endereço de e-mail definido, portanto eles não "
 "conseguirão receber fax por e-mail,"
 
-#: bin/fax2mail.php:130
+#: bin/fax2mail.php:132
 #, php-format
 msgid "Via: %s"
 msgstr ""
@@ -510,7 +498,7 @@ msgstr ""
 "configurações externas de fax, você pode forçar o plano de discagem a ser "
 "gerado aqui."
 
-#: Fax.class.php:661 views/view.coreDIDHook.php:203
+#: Fax.class.php:674 views/view.coreDIDHook.php:203
 msgid "Where to send the faxes"
 msgstr "Para onde enviar os faxes"
 
@@ -569,19 +557,28 @@ msgstr ""
 "A sua taxa de transferência mínima está definida para 2400, em determinadas "
 "circunstâncias, isto pode romper o serviço de fax"
 
-#: Fax.class.php:648
+#: Fax.class.php:661
 msgid "Zaptel"
 msgstr "Zaptel"
 
-#: Fax.class.php:971
+#: Fax.class.php:1004
 #, php-format
 msgid "gs not found, not converting %s"
 msgstr ""
 
-#: Fax.class.php:983
+#: Fax.class.php:1016
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
+
+#~ msgid "Adds configurations, options and GUI for inbound faxing"
+#~ msgstr "Adiciona configurações, opções e GUI para entradas de fax"
+
+#~ msgid "Fax Configuration"
+#~ msgstr "Configuração de Fax"
+
+#~ msgid "Settings"
+#~ msgstr "Configurações"
 
 #~ msgid ""
 #~ " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' "
