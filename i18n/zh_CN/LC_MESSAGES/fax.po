@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:54-0400\n"
+"POT-Creation-Date: 2026-10-06 06:46-0400\n"
 "PO-Revision-Date: 2014-09-11 01:54+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Simplified Chinese <http://git.freepbx.org/projects/freepbx/"
@@ -49,6 +49,10 @@ msgid ""
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
 msgstr ""
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "为呼入传真增加设置，选项，界面"
 
 #: views/view.form_options.php:213
 msgid "Always Generate Detection Code"
@@ -95,7 +99,7 @@ msgstr ""
 msgid "Detect Faxes"
 msgstr "检测传真"
 
-#: Fax.class.php:364
+#: Fax.class.php:364 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Dial System FAX"
 msgstr "拨系统传真"
 
@@ -181,6 +185,10 @@ msgstr ""
 #: Fax.class.php:195 Fax.class.php:212 Fax.class.php:665
 msgid "Fax"
 msgstr "传真"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "传真设置"
 
 #: Fax.class.php:674 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
@@ -393,6 +401,10 @@ msgstr ""
 msgid "Sent to %s"
 msgstr ""
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr ""
+
 #: views/view.coreDIDHook.php:99
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -518,12 +530,6 @@ msgstr ""
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "为呼入传真增加设置，选项，界面"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "传真设置"
 
 #~ msgid ""
 #~ " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' "

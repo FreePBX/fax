@@ -14,6 +14,7 @@
   	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26574994/Fax+Configuration</more-info>
 	<changelog>
 		*18.0.1.1* Packaging of ver 18.0.1.1
+		*18.0.1.1* Packaging of ver 18.0.1.1
 		*18.0.1* initial release
 	</changelog>
 	<depends>

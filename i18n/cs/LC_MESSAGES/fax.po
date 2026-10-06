@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:54-0400\n"
+"POT-Creation-Date: 2026-10-06 06:46-0400\n"
 "PO-Revision-Date: 2018-01-03 15:36+0200\n"
 "Last-Translator: Petr <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/fax/cs/>\n"
@@ -35,6 +35,10 @@ msgid ""
 "submit, this route will be upgraded. This Legacy option will no longer be "
 "available after the change, it is provided to handle legacy migrations from "
 "previous versions of FreePBX only."
+msgstr ""
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
 msgstr ""
 
 #: views/view.form_options.php:213
@@ -82,7 +86,7 @@ msgstr "Výchozí velikost papíru"
 msgid "Detect Faxes"
 msgstr "Detekování faxu"
 
-#: Fax.class.php:364
+#: Fax.class.php:364 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Dial System FAX"
 msgstr ""
 
@@ -168,6 +172,10 @@ msgstr ""
 #: Fax.class.php:195 Fax.class.php:212 Fax.class.php:665
 msgid "Fax"
 msgstr "Fax"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Konfigurace faxu"
 
 #: Fax.class.php:674 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
@@ -380,6 +388,10 @@ msgstr ""
 msgid "Sent to %s"
 msgstr ""
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr "Nastavení"
+
 #: views/view.coreDIDHook.php:99
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -505,12 +517,6 @@ msgstr ""
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Konfigurace faxu"
-
-#~ msgid "Settings"
-#~ msgstr "Nastavení"
 
 #~ msgid "For"
 #~ msgstr "Pro"

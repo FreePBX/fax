@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: traduction francaise du module FAX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:54-0400\n"
+"POT-Creation-Date: 2026-10-06 06:46-0400\n"
 "PO-Revision-Date: 2016-02-04 23:22+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/fax/fr_FR/"
@@ -58,6 +58,12 @@ msgstr ""
 "cliqué sur soumettre, la route va être mise à jour. L'option d'héritage ne "
 "sera plus disponible après le changement, elle est seulement fournie pour "
 "permettre des migrations depuis des versions précédentes de FreePBX."
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr ""
+"Ajoute des paramètres, des options et une interface graphique pour gérer les "
+"fax entrants"
 
 #: views/view.form_options.php:213
 msgid "Always Generate Detection Code"
@@ -104,7 +110,7 @@ msgstr "Format de papier par défaut"
 msgid "Detect Faxes"
 msgstr "Détecter les télécopies"
 
-#: Fax.class.php:364
+#: Fax.class.php:364 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Dial System FAX"
 msgstr "Système d'appel de télécopie"
 
@@ -197,6 +203,10 @@ msgstr ""
 #: Fax.class.php:195 Fax.class.php:212 Fax.class.php:665
 msgid "Fax"
 msgstr "Télécopieur"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Configuration du télécopieur"
 
 #: Fax.class.php:674 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
@@ -420,6 +430,10 @@ msgstr ""
 msgid "Sent to %s"
 msgstr ""
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr ""
+
 #: views/view.coreDIDHook.php:99
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -557,14 +571,6 @@ msgstr ""
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr ""
-#~ "Ajoute des paramètres, des options et une interface graphique pour gérer "
-#~ "les fax entrants"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Configuration du télécopieur"
 
 #~ msgid ""
 #~ " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' "

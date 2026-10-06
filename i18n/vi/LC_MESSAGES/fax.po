@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:54-0400\n"
+"POT-Creation-Date: 2026-10-06 06:46-0400\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -46,6 +46,10 @@ msgstr ""
 "tuyến này sẽ được nâng cấp. Sau khi bạn thay đổi, Tùy chọn Legacy này sẽ "
 "không còn khả dụng, mà  nó chỉ được cung cấp để xử lý việc di chuyển legacy "
 "từ các phiên bản trước của FreePBX."
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "Thêm các cấu hình, tùy chọn và GUI cho việc chuyển fax vào"
 
 #: views/view.form_options.php:213
 msgid "Always Generate Detection Code"
@@ -92,7 +96,7 @@ msgstr "Mặc định kích thước trang giấy"
 msgid "Detect Faxes"
 msgstr "Phát hiện Fax"
 
-#: Fax.class.php:364
+#: Fax.class.php:364 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Dial System FAX"
 msgstr "Hệ thống quay số FAX"
 
@@ -190,6 +194,10 @@ msgstr ""
 #: Fax.class.php:195 Fax.class.php:212 Fax.class.php:665
 msgid "Fax"
 msgstr "Fax"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Cấu hình Fax"
 
 #: Fax.class.php:674 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
@@ -420,6 +428,10 @@ msgstr ""
 msgid "Sent to %s"
 msgstr ""
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr "Cài đặt"
+
 #: views/view.coreDIDHook.php:99
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -569,15 +581,6 @@ msgstr ""
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "Thêm các cấu hình, tùy chọn và GUI cho việc chuyển fax vào"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Cấu hình Fax"
-
-#~ msgid "Settings"
-#~ msgstr "Cài đặt"
 
 #~ msgid ""
 #~ " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' "

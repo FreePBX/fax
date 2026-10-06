@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:54-0400\n"
+"POT-Creation-Date: 2026-10-06 06:46-0400\n"
 "PO-Revision-Date: 2016-12-20 01:53+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -46,6 +46,10 @@ msgstr ""
 "selecione um destino. Depois de clicar em enviar, esta rota será atualizada. "
 "Esta opção Legado não estará mais disponível após a alteração, ela somente é "
 "fornecida para lidar com migrações legadas de versões anteriores do FreePBX."
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "Adiciona configurações, opções e GUI para entradas de fax"
 
 #: views/view.form_options.php:213
 msgid "Always Generate Detection Code"
@@ -92,7 +96,7 @@ msgstr "Tamanho Padrão do Papel"
 msgid "Detect Faxes"
 msgstr "Detecção de Faxes"
 
-#: Fax.class.php:364
+#: Fax.class.php:364 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Dial System FAX"
 msgstr "Sistema de Discagem de FAX"
 
@@ -190,6 +194,10 @@ msgstr ""
 #: Fax.class.php:195 Fax.class.php:212 Fax.class.php:665
 msgid "Fax"
 msgstr "Fax"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Configuração de Fax"
 
 #: Fax.class.php:674 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
@@ -423,6 +431,10 @@ msgstr ""
 msgid "Sent to %s"
 msgstr ""
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr "Configurações"
+
 #: views/view.coreDIDHook.php:99
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -570,15 +582,6 @@ msgstr ""
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "Adiciona configurações, opções e GUI para entradas de fax"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Configuração de Fax"
-
-#~ msgid "Settings"
-#~ msgstr "Configurações"
 
 #~ msgid ""
 #~ " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' "

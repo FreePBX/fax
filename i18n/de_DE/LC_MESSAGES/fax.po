@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:54-0400\n"
+"POT-Creation-Date: 2026-10-06 06:46-0400\n"
 "PO-Revision-Date: 2019-04-10 16:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/fax/de/>\n"
@@ -47,6 +47,10 @@ msgstr ""
 "Route aktualisiert. Diese Alt-Option wird nach der Änderung nicht mehr zur "
 "Verfügung stehen, sie wird lediglich vorgehalten, um Migrationen von älteren "
 "FreePBX-Versionen zu ermöglichen."
+
+#: fax.i18n.php:8
+msgid "Adds configurations, options and GUI for inbound faxing"
+msgstr "Fügt Konfigurationen, Optionen und GUI für eingehendes Faxen hinzu"
 
 #: views/view.form_options.php:213
 msgid "Always Generate Detection Code"
@@ -93,7 +97,7 @@ msgstr "Standard Papiergröße"
 msgid "Detect Faxes"
 msgstr "Fax erkennen"
 
-#: Fax.class.php:364
+#: Fax.class.php:364 /usr/src/freepbx/fax/fax.i18n.php:12
 msgid "Dial System FAX"
 msgstr "Wähle Nebenstelle des Standardfaxgeräts"
 
@@ -191,6 +195,10 @@ msgstr ""
 #: Fax.class.php:195 Fax.class.php:212 Fax.class.php:665
 msgid "Fax"
 msgstr "Fax"
+
+#: fax.i18n.php:4 /usr/src/freepbx/fax/fax.i18n.php:10
+msgid "Fax Configuration"
+msgstr "Faxkonfiguration"
 
 #: Fax.class.php:674 views/view.coreDIDHook.php:191
 msgid "Fax Destination"
@@ -431,6 +439,10 @@ msgstr ""
 msgid "Sent to %s"
 msgstr ""
 
+#: fax.i18n.php:6
+msgid "Settings"
+msgstr "Einstellungen"
+
 #: views/view.coreDIDHook.php:99
 msgid ""
 "Sip: use sip fax detection (t38). Requires asterisk 1.6.2 or greater and "
@@ -578,15 +590,6 @@ msgstr ""
 #, php-format
 msgid "tiff2pdf not found, not converting %s"
 msgstr ""
-
-#~ msgid "Adds configurations, options and GUI for inbound faxing"
-#~ msgstr "Fügt Konfigurationen, Optionen und GUI für eingehendes Faxen hinzu"
-
-#~ msgid "Fax Configuration"
-#~ msgstr "Faxkonfiguration"
-
-#~ msgid "Settings"
-#~ msgstr "Einstellungen"
 
 #~ msgid ""
 #~ " fax detection; requires 'faxdetect=' to be set to 'incoming' or 'both' "
