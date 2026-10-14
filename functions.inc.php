@@ -128,8 +128,8 @@ function fax_get_config($engine){
 			break;
 		case 'res_fax':
 			$localstationid = $faxC->getSetting('localstationid');
-			if(!empty($localstationid[0])) {
-				$ext->add($context, $exten, '', new ext_set('FAXOPT(localstationid)', $localstationid[0]));
+			if(!empty($localstationid)) {
+				$ext->add($context, $exten, '', new ext_set('FAXOPT(localstationid)', $localstationid));
 			}
 			$ext->add($context, $exten, '', new ext_receivefax('${ASTSPOOLDIR}/fax/${UNIQUEID}.tif'.$t38_fb)); //receive fax, then email it on
 			if (isset($fax['ffa']) && $fax['ffa']) {
