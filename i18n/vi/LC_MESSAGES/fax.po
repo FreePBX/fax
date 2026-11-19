@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:18+0000\n"
+"POT-Creation-Date: 2026-11-19 06:58-0500\n"
 "PO-Revision-Date: 2017-07-14 10:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/fax/"
@@ -55,7 +55,7 @@ msgstr "Thêm các cấu hình, tùy chọn và GUI cho việc chuyển fax vào
 msgid "Always Generate Detection Code"
 msgstr "Luôn luôn khởi tạo mã phát hiện (Detection Code)"
 
-#: bin/fax2mail.php:107
+#: bin/fax2mail.php:109
 #, php-format
 msgid "At: %s"
 msgstr ""
@@ -142,16 +142,17 @@ msgid ""
 "mode, if there are routes still running in this mode that do not have email "
 "addresses specified."
 msgstr ""
-"Địa chỉ email mà fax được gửi đến khi sử dụng mã tính năng  \"Dial System Fax"
-"\". Điều này cũng sẽ mặc định email cho việc phát hiện fax tại chế độ legacy "
-"khi các tuyến vẫn đang chạy ở chế độ này mà không có địa chỉ email xác định."
+"Địa chỉ email mà fax được gửi đến khi sử dụng mã tính năng  \"Dial System "
+"Fax\". Điều này cũng sẽ mặc định email cho việc phát hiện fax tại chế độ "
+"legacy khi các tuyến vẫn đang chạy ở chế độ này mà không có địa chỉ email "
+"xác định."
 
-#: bin/fax2mail.php:72
+#: bin/fax2mail.php:74
 #, php-format
 msgid "Email-fax dying, file %s not found!"
 msgstr ""
 
-#: bin/fax2mail.php:40
+#: bin/fax2mail.php:42
 msgid ""
 "Email-fax dying, no destination found (User has no email!) and we arent "
 "keeping the file!"
@@ -169,11 +170,11 @@ msgstr "Bật người dùng này để họ có thể nhận các fax"
 msgid "Enabled"
 msgstr "Đã bật"
 
-#: bin/fax2mail.php:125
+#: bin/fax2mail.php:127
 msgid "Enclosed, please find a new fax"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới"
 
-#: bin/fax2mail.php:121
+#: bin/fax2mail.php:123
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Đã đính kèm, vui lòng tìm một fax mới từ: %s"
@@ -230,7 +231,7 @@ msgstr "Fax đã được bật"
 msgid "Fax Options"
 msgstr "Các tùy chọn Fax"
 
-#: Fax.class.php:794 bin/fax2mail.php:49
+#: Fax.class.php:794 bin/fax2mail.php:51
 msgid "Fax Recipient"
 msgstr ""
 
@@ -247,7 +248,7 @@ msgstr ""
 msgid "Fax user %s"
 msgstr "Người dùng Fax %s"
 
-#: bin/fax2mail.php:111 bin/fax2mail.php:133
+#: bin/fax2mail.php:113 bin/fax2mail.php:135
 #, php-format
 msgid "For: %s"
 msgstr ""
@@ -332,12 +333,12 @@ msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 "Tốc độ truyền tối thiểu sử dụng trong quá trình thương lượng tốc độ fax."
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:92
 #, php-format
 msgid "New fax from: %s"
 msgstr "Fax mới từ: %s"
 
-#: bin/fax2mail.php:94
+#: bin/fax2mail.php:96
 msgid "New fax received"
 msgstr "Nhận được fax mới"
 
@@ -369,7 +370,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:108 bin/fax2mail.php:129
+#: bin/fax2mail.php:110 bin/fax2mail.php:131
 #, php-format
 msgid "On: %s"
 msgstr ""
@@ -378,7 +379,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr "Địa chỉ email gửi đi"
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:85
 msgid "Outgoing fax results"
 msgstr "Các kết quả fax gửi đi"
 
@@ -399,7 +400,7 @@ msgstr ""
 msgid "Read fax user settings"
 msgstr ""
 
-#: bin/fax2mail.php:128
+#: bin/fax2mail.php:130
 #, php-format
 msgid "Received & processed: %s"
 msgstr "Đã nhận & đã xử lý: %s"
@@ -422,7 +423,7 @@ msgstr ""
 "dụng nếu tài liệu không chỉ định kích thước rõ ràng.<br/> Nếu tài liệu không "
 "có kích thước cụ thể thì kích thước này sẽ được sử dụng."
 
-#: bin/fax2mail.php:105
+#: bin/fax2mail.php:107
 #, php-format
 msgid "Sent to %s"
 msgstr ""
@@ -439,7 +440,7 @@ msgstr ""
 "Sip: sử dụng phát hiện fax sip (t38). Yêu cầu Asterusk 1.6.2 hoặc cao hơn và "
 "trong các tệp cấu hình sip phải đặt \"faxdetect=yes'"
 
-#: bin/fax2mail.php:106
+#: bin/fax2mail.php:108
 #, php-format
 msgid "Status: %s"
 msgstr ""
@@ -490,7 +491,7 @@ msgstr ""
 "không có địa chỉ email nào được xác nhận vì vậy chúng sẽ không thể nhận các "
 "fax qua eamail,"
 
-#: bin/fax2mail.php:130
+#: bin/fax2mail.php:132
 #, php-format
 msgid "Via: %s"
 msgstr ""

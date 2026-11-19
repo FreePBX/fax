@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:18+0000\n"
+"POT-Creation-Date: 2026-11-19 06:58-0500\n"
 "PO-Revision-Date: 2016-06-23 01:18+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/fax/pl/>\n"
@@ -46,7 +46,7 @@ msgstr "Konfiguracje dodawania, opcje i GUI dla faksów przychodzących"
 msgid "Always Generate Detection Code"
 msgstr "Zawsze generuj kod wykrywania"
 
-#: bin/fax2mail.php:107
+#: bin/fax2mail.php:109
 #, php-format
 msgid "At: %s"
 msgstr ""
@@ -134,12 +134,12 @@ msgstr ""
 "trybie systemowym, jeśli są włączone inne ścieżki w tym module, nie ma "
 "sprecyzowanego adresu e-mail."
 
-#: bin/fax2mail.php:72
+#: bin/fax2mail.php:74
 #, php-format
 msgid "Email-fax dying, file %s not found!"
 msgstr ""
 
-#: bin/fax2mail.php:40
+#: bin/fax2mail.php:42
 msgid ""
 "Email-fax dying, no destination found (User has no email!) and we arent "
 "keeping the file!"
@@ -157,11 +157,11 @@ msgstr "Dodać tego użytkownika do listy odbiorców faksu"
 msgid "Enabled"
 msgstr "Włączone"
 
-#: bin/fax2mail.php:125
+#: bin/fax2mail.php:127
 msgid "Enclosed, please find a new fax"
 msgstr "Ograniczono, proszę znaleźć nowy faks"
 
-#: bin/fax2mail.php:121
+#: bin/fax2mail.php:123
 #, php-format
 msgid "Enclosed, please find a new fax from: %s"
 msgstr "Ograniczono, proszę znaleźć nowy faks z: %s"
@@ -216,7 +216,7 @@ msgstr "Faks włączony"
 msgid "Fax Options"
 msgstr "Opcje faksu"
 
-#: Fax.class.php:794 bin/fax2mail.php:49
+#: Fax.class.php:794 bin/fax2mail.php:51
 msgid "Fax Recipient"
 msgstr "Odbiorca faksu"
 
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Fax user %s"
 msgstr "Użytkownik faksu %s"
 
-#: bin/fax2mail.php:111 bin/fax2mail.php:133
+#: bin/fax2mail.php:113 bin/fax2mail.php:135
 #, php-format
 msgid "For: %s"
 msgstr ""
@@ -308,12 +308,12 @@ msgstr "Minimalne wskazania transferu"
 msgid "Minimum transfer rate used during fax rate negotiation."
 msgstr ""
 
-#: bin/fax2mail.php:90
+#: bin/fax2mail.php:92
 #, php-format
 msgid "New fax from: %s"
 msgstr "Nowy faks od: %s"
 
-#: bin/fax2mail.php:94
+#: bin/fax2mail.php:96
 msgid "New fax received"
 msgstr "Otrzymano nowy faks"
 
@@ -340,7 +340,7 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: bin/fax2mail.php:108 bin/fax2mail.php:129
+#: bin/fax2mail.php:110 bin/fax2mail.php:131
 #, php-format
 msgid "On: %s"
 msgstr ""
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Outgoing Email address"
 msgstr ""
 
-#: bin/fax2mail.php:83
+#: bin/fax2mail.php:85
 msgid "Outgoing fax results"
 msgstr ""
 
@@ -370,7 +370,7 @@ msgstr ""
 msgid "Read fax user settings"
 msgstr ""
 
-#: bin/fax2mail.php:128
+#: bin/fax2mail.php:130
 #, php-format
 msgid "Received & processed: %s"
 msgstr ""
@@ -390,7 +390,7 @@ msgid ""
 "specify a size that size will be used."
 msgstr ""
 
-#: bin/fax2mail.php:105
+#: bin/fax2mail.php:107
 #, php-format
 msgid "Sent to %s"
 msgstr ""
@@ -405,7 +405,7 @@ msgid ""
 "'faxdetect=yes' in the sip config files"
 msgstr ""
 
-#: bin/fax2mail.php:106
+#: bin/fax2mail.php:108
 #, php-format
 msgid "Status: %s"
 msgstr ""
@@ -448,7 +448,7 @@ msgid ""
 "address defined so they will not be able to receive faxes over email,"
 msgstr ""
 
-#: bin/fax2mail.php:130
+#: bin/fax2mail.php:132
 #, php-format
 msgid "Via: %s"
 msgstr ""
