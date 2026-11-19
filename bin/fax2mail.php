@@ -27,10 +27,12 @@ else
 
 $var = array_merge($var, get_opt());
 
-$var['callerid'] 		= isset($var['callerid']) ? base64_decode($var['callerid']) : '';
-$var['callerid']		= empty($var['callerid']) || $var['callerid'] === true ? '' : $var['callerid'];//prevent callerid from being blank
+$var['callerid'] 		= fax_decode_b64_arg($var['callerid'] ?? '');
 $var['keep_file']		= !empty($var['delete']) && $var['delete'] == 'true' ? false : true;
-$var['remotestationid'] = !empty($var['remotestationid']) ? $var['remotestationid'] : '';
+// Station ID and DID are base64-encoded in the dialplan so the shell cannot
+// interpret characters supplied by the remote fax machine or the request URI.
+$var['remotestationid'] = fax_decode_b64_arg($var['remotestationid'] ?? '');
+$var['dest']			= fax_decode_b64_arg($var['dest'] ?? '');
 
 if (empty($var['sendto']))
 {
@@ -172,6 +174,19 @@ if ($var['keep_file'] === false)
 	{
 		unlink($pdf);
 	}
+}
+
+/**
+ * Decode a dialplan argument that was passed through Asterisk BASE64_ENCODE.
+ * Non-strings and invalid base64 become an empty string.
+ */
+function fax_decode_b64_arg($value)
+{
+	if (!is_string($value) || $value === '') {
+		return '';
+	}
+	$decoded = base64_decode($value, true);
+	return $decoded === false ? '' : $decoded;
 }
 
 function die_fax($error): never
